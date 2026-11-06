@@ -1,0 +1,323 @@
+(function () {
+'use strict';
+var S = window.SouvlaStore;
+var U = window.SouvlaUI;
+var el = U.el, btn = U.btn, icon = U.icon, shuffle = U.shuffle, levelName = U.levelName, findById = U.findById;
+var safeStorage = null;
+try { safeStorage = window.localStorage; } catch (e) { safeStorage = null; }
+var store = S.createStore(safeStorage || { getItem: function () { return null; }, setItem: function () {} });
+var data = null;
+
+function skewerGlyph() {
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('width', '34');
+  svg.setAttribute('height', '34');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('focusable', 'false');
+  var stick = document.createElementNS(NS, 'line');
+  stick.setAttribute('x1', '2'); stick.setAttribute('y1', '12');
+  stick.setAttribute('x2', '22'); stick.setAttribute('y2', '12');
+  stick.setAttribute('stroke', '#FFFFFF'); stick.setAttribute('stroke-width', '2');
+  stick.setAttribute('stroke-linecap', 'round');
+  svg.appendChild(stick);
+  [[6.5, 12, 'tomato'], [12, 12, 'meat'], [17.5, 12, 'tomato']].forEach(function (p) {
+    var c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', String(p[0])); c.setAttribute('cy', String(p[1]));
+    c.setAttribute('r', p[2] === 'meat' ? '2.6' : '2.2');
+    c.setAttribute('fill', p[2] === 'meat' ? '#FFFFFF' : '#0062CC');
+    svg.appendChild(c);
+  });
+  return svg;
+}
+function renderBrand() {
+  var b = document.getElementById('brand');
+  b.textContent = '';
+  var mark = el('div', 'mark');
+  mark.appendChild(skewerGlyph());
+  var t = el('div', 'brand-text');
+  t.appendChild(el('div', 'brand-name', 'Souvla'));
+  t.appendChild(el('div', 'brand-sub', 'Cypriot Greek'));
+  b.appendChild(mark);
+  b.appendChild(t);
+}
+function stat(iconName, value, label, isXp) {
+  var s = el('div', 'stat');
+  s.setAttribute('aria-label', value + ' ' + label);
+  s.appendChild(icon(iconName, 'stat-ico'));
+  s.appendChild(el('span', 'stat-val' + (isXp ? ' xp-val' : ''), String(value)));
+  s.appendChild(el('span', 'stat-label', label));
+  return s;
+}
+function renderStats() {
+  var s = document.getElementById('stats');
+  s.textContent = '';
+  s.appendChild(stat('flame', store.state.streak, 'day streak'));
+  s.appendChild(stat('bolt', store.state.xp, 'XP', true));
+  s.appendChild(stat('skewer', store.skewers(), 'skewers'));
+}
+function bump() {
+  var b = document.querySelector('.xp-val');
+  if (!b) return;
+  b.classList.remove('bounce');
+  void b.offsetWidth;
+  b.classList.add('bounce');
+}
+function award(n) {
+  store.addXp(n);
+  renderStats();
+  bump();
+}
+function setView(node) {
+  var v = document.getElementById('view');
+  v.textContent = '';
+  v.appendChild(node);
+  var h = node.querySelector('h1, h2');
+  if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  window.scrollTo(0, 0);
+}
+function illustration() {
+  var wrap = el('div', 'hero-art');
+  wrap.setAttribute('aria-hidden', 'true');
+  var s = U.svgNode('svg', { viewBox: '0 0 480 360', 'class': 'art', focusable: 'false' });
+  s.appendChild(U.svgNode('rect', { x: 0, y: 0, width: 480, height: 360, rx: 28, fill: '#E8F1FD' }));
+  s.appendChild(U.svgNode('circle', { cx: 360, cy: 96, r: 44, fill: '#FFFFFF' }));
+  s.appendChild(U.svgNode('path', { d: 'M0 220 Q60 196 120 220 T240 220 T360 220 T480 220 V360 H0 Z', fill: '#007AFF' }));
+  s.appendChild(U.svgNode('path', { d: 'M0 262 Q80 240 160 262 T320 262 T480 262 V360 H0 Z', fill: '#0062CC' }));
+  s.appendChild(U.svgNode('path', { d: 'M0 306 Q90 290 180 306 T360 306 T480 306 V360 H0 Z', fill: '#F3EBDD' }));
+  s.appendChild(U.svgNode('path', { d: 'M70 150 H410', stroke: '#1A1A1A', 'stroke-width': 6, 'stroke-linecap': 'round' }));
+  [120, 182, 244, 306].forEach(function (x) {
+    s.appendChild(U.svgNode('rect', { x: x, y: 122, width: 46, height: 46, rx: 12, fill: '#0062CC', stroke: '#1A1A1A', 'stroke-width': 3 }));
+  });
+  wrap.appendChild(s);
+  return wrap;
+}
+
+function openLesson(lesson) {
+  setView(window.SouvlaLessons.build(ctx).open(lesson));
+}
+function goLessons() {
+  home();
+  var s = document.getElementById('lessons');
+  if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function home() {
+  var wrap = el('div', 'home');
+  var hero = el('section', 'hero');
+  var copy = el('div', 'hero-copy');
+  copy.appendChild(el('p', 'eyebrow', 'A little Cyprus, every day'));
+  var hl = el('h1', 'display');
+  hl.appendChild(document.createTextNode('Pull up a chair.'));
+  hl.appendChild(document.createElement('br'));
+  hl.appendChild(document.createTextNode('Let\u2019s talk Cypriot.'));
+  copy.appendChild(hl);
+  copy.appendChild(el('p', 'lead', 'Discover the words, warmth and culture of Cyprus, one conversation at a time. Start with a short, friendly level check.'));
+  var acts = el('div', 'actions');
+  copy.appendChild(window.SouvlaArt.pills(['Ten questions', 'About 3 minutes']));
+  acts.appendChild(btn('Start diagnosis', 'primary', startQuiz, 'right'));
+  acts.appendChild(btn('Browse lessons', 'ghost', goLessons, 'book'));
+  copy.appendChild(acts);
+  if (store.state.level) copy.appendChild(el('p', 'note', 'Your level: ' + levelName(store.state.level) + '.'));
+  hero.appendChild(copy);
+  hero.appendChild(window.SouvlaArt.hero());
+  wrap.appendChild(hero);
+
+  var row = el('div', 'feature-row');
+  row.appendChild(testCard());
+  row.appendChild(challengeCard());
+  wrap.appendChild(row);
+
+  var sec = el('section', 'lessons');
+  sec.id = 'lessons';
+  sec.appendChild(el('h2', 'h2', 'Lessons'));
+  sec.appendChild(el('p', 'section-sub', 'Short lessons you can finish in a few minutes, grouped by what you want to learn.'));
+  var grid = el('div', 'lesson-grid');
+  data.lessons.forEach(function (l) { grid.appendChild(lessonCard(l)); });
+  sec.appendChild(grid);
+  wrap.appendChild(sec);
+  setView(wrap);
+}
+
+function featIcon(d) {
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('focusable', 'false');
+  svg.setAttribute('class', 'feat-ico');
+  var p = document.createElementNS(NS, 'path');
+  p.setAttribute('d', d);
+  svg.appendChild(p);
+  return svg;
+}
+
+function testCard() {
+  var card = el('article', 'card test-card');
+  var head = el('div', 'card-head');
+  var ico = el('div', 'tile tile-blue');
+  ico.appendChild(featIcon('M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 11h.01'));
+  head.appendChild(ico);
+  head.appendChild(el('h2', 'h3', 'The Souvla Test'));
+  card.appendChild(head);
+  card.appendChild(el('p', 'body', 'Ten questions to find your starting point. No pressure, no wrong turns.'));
+  var meta = el('dl', 'meta-block');
+  [['10', 'questions'], ['~3', 'minutes'], ['+XP', 'every right answer']].forEach(function (m) {
+    var c = el('div', 'meta-cell');
+    c.appendChild(el('dt', 'meta-num', m[0]));
+    c.appendChild(el('dd', 'meta-label', m[1]));
+    meta.appendChild(c);
+  });
+  card.appendChild(meta);
+  card.appendChild(el('p', 'small test-scope', 'Covers greetings, food and everyday street talk, from the first hello to ordering at the grill.'));
+  card.appendChild(btn('Begin the test', 'primary', startQuiz, 'right'));
+  return card;
+}
+
+function challengeCard() {
+  var card = el('article', 'card challenge-card');
+  var head = el('div', 'card-head');
+  var ico = el('div', 'tile tile-blue');
+  ico.appendChild(window.SouvlaArt.mascot('flame'));
+  head.appendChild(ico);
+  head.appendChild(el('h2', 'h3', 'Daily challenge'));
+  card.appendChild(head);
+  var n = store.state.streak;
+  card.appendChild(el('p', 'body', 'Finish one lesson today to keep your streak going. Your current streak is ' + n + (n === 1 ? ' day.' : ' days.')));
+  var first = data.lessons[0];
+  var label = store.isDone(first.id) ? 'Practise again' : 'Open ' + first.title;
+  card.appendChild(window.SouvlaArt.streakPreview(n));
+  card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
+  return card;
+}
+
+function lessonCard(l) {
+  var card = el('article', 'card lesson-card');
+  var kind = l.type === 'flashcards' ? ['book', 'tile-blue', 'Flashcards'] : l.type === 'dialogue' ? ['chat', 'tile-blue', 'Dialogue'] : ['puzzle', 'tile-blue', 'Mini-game'];
+  var head = el('div', 'card-head');
+  var ico = el('div', 'tile ' + kind[1]);
+  ico.appendChild(icon(kind[0]));
+  head.appendChild(ico);
+  var tt = el('div', 'lesson-titles');
+  tt.appendChild(el('h3', 'h3', l.title));
+  tt.appendChild(el('p', 'small', kind[2] + ' \u00b7 ' + levelName(l.level)));
+  head.appendChild(tt);
+  card.appendChild(head);
+  if (store.isDone(l.id)) card.appendChild(el('p', 'done-chip', 'Completed'));
+  card.appendChild(btn(store.isDone(l.id) ? 'Practise again' : 'Start lesson', 'secondary', function () { openLesson(l); }, 'right'));
+  return card;
+}
+
+function startQuiz() {
+  var qs = shuffle(data.questions).slice(0, Math.min(10, data.questions.length));
+  showQuestion({ qs: qs, i: 0, score: 0, streakRun: 0, answered: false });
+}
+
+function showQuestion(run) {
+  run.answered = false;
+  var q = run.qs[run.i];
+  var wrap = el('section', 'quiz');
+  var top = el('div', 'quiz-top');
+  top.appendChild(el('p', 'eyebrow', 'Question ' + (run.i + 1) + ' of ' + run.qs.length));
+  var bar = el('div', 'progress');
+  bar.setAttribute('role', 'progressbar');
+  bar.setAttribute('aria-label', 'Quiz progress');
+  bar.setAttribute('aria-valuemin', '0');
+  bar.setAttribute('aria-valuemax', String(run.qs.length));
+  bar.setAttribute('aria-valuenow', String(run.i));
+  var fill = el('div', 'progress-fill');
+  fill.style.width = (run.i / run.qs.length * 100) + '%';
+  bar.appendChild(fill);
+  top.appendChild(bar);
+  wrap.appendChild(top);
+  wrap.appendChild(el('h1', 'h2 question', q.text));
+  var list = el('div', 'options');
+  var fb = el('p', 'feedback');
+  fb.setAttribute('aria-live', 'polite');
+  var last = run.i === run.qs.length - 1;
+  var nextBtn = btn(last ? 'See my level' : 'Next question', 'primary', function () {
+    if (last) finishQuiz(run);
+    else { run.i++; showQuestion(run); }
+  }, 'right');
+  nextBtn.disabled = true;
+  q.options.forEach(function (o, idx) {
+    list.appendChild(btn(o.text, 'option', function () { answer(run, q, idx, list, fb, nextBtn); }, null));
+  });
+  wrap.appendChild(list);
+  wrap.appendChild(fb);
+  wrap.appendChild(nextBtn);
+  setView(wrap);
+}
+
+function answer(run, q, idx, list, fb, nextBtn) {
+  if (run.answered) return;
+  run.answered = true;
+  Array.prototype.forEach.call(list.children, function (b) { b.disabled = true; });
+  var rightIdx = -1;
+  q.options.forEach(function (o, k) { if (o.correct) rightIdx = k; });
+  var chosen = list.children[idx];
+  if (q.options[idx].correct) {
+    run.score++;
+    run.streakRun++;
+    var gain = 10 + Math.min(2 * (run.streakRun - 1), 10);
+    award(gain);
+    chosen.classList.add('is-correct');
+    fb.textContent = 'Correct! +' + gain + ' XP';
+    fb.className = 'feedback good';
+  } else {
+    run.streakRun = 0;
+    chosen.classList.add('is-wrong');
+    list.children[rightIdx].classList.add('is-correct');
+    fb.textContent = 'Not quite. The answer is: ' + q.options[rightIdx].text + '.';
+    fb.className = 'feedback bad';
+  }
+  nextBtn.disabled = false;
+  nextBtn.focus();
+}
+
+function finishQuiz(run) {
+  var pct = run.score / run.qs.length;
+  var level = pct >= 0.8 ? 3 : pct >= 0.5 ? 2 : 1;
+  store.setLevel(level);
+  var wrap = el('section', 'result');
+  wrap.appendChild(el('p', 'eyebrow', 'Your starting point'));
+  wrap.appendChild(el('h1', 'display', levelName(level)));
+  wrap.appendChild(el('p', 'lead', 'You got ' + run.score + ' of ' + run.qs.length + ' right. We have picked lessons to match.'));
+  var acts = el('div', 'actions');
+  acts.appendChild(btn('Start learning', 'primary', goLessons, 'right'));
+  acts.appendChild(btn('Retake the test', 'ghost', startQuiz, 'refresh'));
+  wrap.appendChild(acts);
+  renderStats();
+  setView(wrap);
+}
+
+var ctx = {
+  el: el, btn: btn, store: store, award: award, home: home,
+  findById: findById, shuffle: shuffle, data: null
+};
+
+function init() {
+  fetch('data.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (j) {
+      data = j;
+      ctx.data = j;
+      renderBrand();
+      renderStats();
+      home();
+    })
+    .catch(function (err) {
+      console.error('init failed:', err && err.stack || err);
+      if (!init.retried) { init.retried = true; setTimeout(init, 800); return; }
+      renderBrand();
+      renderStats();
+      var e = el('section', 'empty');
+      e.appendChild(el('h1', 'h2', 'We could not load the lessons'));
+      e.appendChild(el('p', 'lead', 'Check your connection and try again.'));
+      e.appendChild(btn('Try again', 'primary', init, 'refresh'));
+      setView(e);
+    });
+}
+init();
+})();
