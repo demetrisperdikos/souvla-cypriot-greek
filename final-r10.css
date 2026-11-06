@@ -1,0 +1,8 @@
+/* Round 8 fold fix: compact What you get as three columns. */
+.what-get{margin:16px 0;padding:12px}
+.what-get-title{margin:0 0 8px}
+.what-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.what-list li{flex-direction:column;align-items:flex-start;gap:6px;font-size:.8125rem;line-height:1.35}
+.what-ico{width:28px;height:28px;flex-basis:28px}
+.test-card .meta-block{margin:16px 0}
+.test-card .test-scope{margin:0 0 16px}

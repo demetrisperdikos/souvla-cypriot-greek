@@ -95,6 +95,19 @@ var CAPTIONS = {
   upcoming: 'still ahead. It unlocks as your streak grows.'
 };
 
+// Outline flame icon (same family as the test card icons).
+function outlineFlame() {
+  var NS = 'http://www.w3.org/2000/svg';
+  var s = document.createElementNS(NS, 'svg');
+  s.setAttribute('viewBox', '0 0 24 24');
+  s.setAttribute('aria-hidden', 'true');
+  s.setAttribute('focusable', 'false');
+  var p = document.createElementNS(NS, 'path');
+  p.setAttribute('d', 'M12 3c1 3 4 5 4 9a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-8z');
+  s.appendChild(p);
+  return s;
+}
+
 // Seven day markers with three states: done, today, upcoming.
 function streakPreview(n) {
   n = Math.max(0, Math.min(n || 0, 7));
@@ -103,7 +116,7 @@ function streakPreview(n) {
   if (n === 0) {
     var empty = document.createElement('div');
     empty.className = 'streak-empty';
-    var mascotSvg = window.SouvlaArt.flameBadge();
+    var mascotSvg = outlineFlame();
     mascotSvg.setAttribute('class', 'mascot streak-mascot');
     empty.appendChild(mascotSvg);
     var msg = document.createElement('p');
@@ -131,7 +144,7 @@ function streakPreview(n) {
     d.textContent = LETTERS[i];
     d.setAttribute('aria-label', DAYS[i] + ', ' + state);
     d.addEventListener('click', function (st, name) {
-      return function () { caption.textContent = name + ' is ' + CAPTIONS[st]; };
+      return function () { row.querySelectorAll('.dot').forEach(function (x) { x.classList.remove('is-selected'); x.setAttribute('aria-pressed', 'false'); }); this.classList.add('is-selected'); this.setAttribute('aria-pressed', 'true'); caption.textContent = name + ' is ' + CAPTIONS[st]; };
     }(state, DAYS[i]));
     row.appendChild(d);
   }

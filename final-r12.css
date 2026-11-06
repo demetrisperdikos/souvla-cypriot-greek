@@ -1,0 +1,9 @@
+/* Round 12: shorten the desktop hero copy so both card CTAs end above 900px at 1440x900. */
+@media (min-width: 821px) {
+  .hero { gap: 24px !important; margin-bottom: 24px !important; }
+  .hero + * { margin-top: 24px !important; }
+  .hero .display, .hero h1 { font-size: 2.75rem !important; line-height: 1.1 !important; margin: 0 0 12px !important; }
+  .hero .lead, .hero-copy > p { margin-bottom: 16px !important; }
+  .hero .eyebrow { margin-bottom: 12px !important; }
+  .hero .actions, .hero-copy .actions { margin-top: 16px !important; }
+}

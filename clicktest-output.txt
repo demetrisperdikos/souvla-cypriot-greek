@@ -1,8 +1,7 @@
-clicktest error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8093/index.html
-Call log:
-  - navigating to "http://127.0.0.1:8093/index.html", waiting until "load"
-
-ay, upcoming" click updates caption
+--- explicit checks (day markers, lesson hub, Back to lessons) ---
+PASS  day markers: 7 present
+PASS  day marker 1 "Monday, today" click updates caption
+PASS  day marker 2 "Tuesday, upcoming" click updates caption
 PASS  day marker 3 "Wednesday, upcoming" click updates caption
 PASS  day marker 4 "Thursday, upcoming" click updates caption
 PASS  day marker 5 "Friday, upcoming" click updates caption
@@ -30,7 +29,7 @@ explicit checks: 25 run, 0 failed
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=153 | focus=main
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=151 | focus=main
     CHANGED: yes
 [phone #1] "Start diagnosis" click
     BEFORE: Pull up a chair.
@@ -41,54 +40,54 @@ Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1614 | focus=display
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1697 | focus=display
     CHANGED: yes
 [phone #3] "Begin the test" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  How do you say 'yes' in a relaxed Cypriot way? | QUESTION 1 OF 10 How do you say 'yes' in a relaxed Cypriot way? Ne Na  | scroll=0 | focus=h2 question
+    AFTER:  Which Cypriot word is used for 'probably' or 'yes, I think so'? | QUESTION 1 OF 10 Which Cypriot word is used for 'probably' or 'yes, I  | scroll=0 | focus=h2 question
     CHANGED: yes
 [phone #4] "Monday, today" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot today
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot today is-selected
     CHANGED: yes
 [phone #5] "Tuesday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot upcoming is-selected
     CHANGED: yes
 [phone #6] "Wednesday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot upcoming is-selected
     CHANGED: yes
 [phone #7] "Thursday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot upcoming is-selected
     CHANGED: yes
 [phone #8] "Friday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot upcoming is-selected
     CHANGED: yes
 [phone #9] "Saturday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot upcoming is-selected
     CHANGED: yes
 [phone #10] "Sunday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1156 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1308 | focus=dot upcoming is-selected
     CHANGED: yes
 [phone #11] "Open First Greetings" click
     BEFORE: Pull up a chair.
@@ -124,65 +123,65 @@ Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=86 | focus=main
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=91 | focus=main
     CHANGED: yes
 [desktop #1] "Start diagnosis" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  Choose the Cypriot way to say 'What is your name?' | QUESTION 1 OF 10 Choose the Cypriot way to say 'What is your name?' Po | scroll=0 | focus=h2 question
+    AFTER:  Which word is a Cypriot slang term for 'friend' or 'mate'? | QUESTION 1 OF 10 Which word is a Cypriot slang term for 'friend' or 'm | scroll=0 | focus=h2 question
     CHANGED: yes
 [desktop #2] "Browse lessons" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=398 | focus=display
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=444 | focus=display
     CHANGED: yes
 [desktop #3] "Begin the test" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  What does 'Efharisto' mean? | QUESTION 1 OF 10 What does 'Efharisto' mean? Goodbye Thank you Please  | scroll=0 | focus=h2 question
+    AFTER:  Which phrase is a typical Cypriot expression of exasperation? | QUESTION 1 OF 10 Which phrase is a typical Cypriot expression of exasp | scroll=0 | focus=h2 question
     CHANGED: yes
 [desktop #4] "Monday, today" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot today
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot today is-selected
     CHANGED: yes
 [desktop #5] "Tuesday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming is-selected
     CHANGED: yes
 [desktop #6] "Wednesday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming is-selected
     CHANGED: yes
 [desktop #7] "Thursday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming is-selected
     CHANGED: yes
 [desktop #8] "Friday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming is-selected
     CHANGED: yes
 [desktop #9] "Saturday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming is-selected
     CHANGED: yes
 [desktop #10] "Sunday, upcoming" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=dot upcoming is-selected
     CHANGED: yes
 [desktop #11] "Open First Greetings" click
     BEFORE: Pull up a chair.

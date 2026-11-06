@@ -1,0 +1,21 @@
+/* Round 6 fixes: logo skewer size, daily challenge icon tile matches Souvla Test tile. */
+.brand .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; }
+.brand .brand-mark svg.brand-glyph { width: 40px !important; height: 40px !important; display: block; }
+
+.challenge-card .card-head .tile,
+.challenge-card .card-head .ico {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: #E8F1FD;
+  color: #0062CC;
+  overflow: hidden;
+}
+.challenge-card .card-head .tile svg,
+.challenge-card .card-head .ico svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.challenge-card .mascot-tile { display: none !important; }

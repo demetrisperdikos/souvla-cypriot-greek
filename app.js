@@ -35,7 +35,8 @@ function renderBrand() {
   var b = document.getElementById('brand');
   b.textContent = '';
   var mark = el('div', 'mark');
-  mark.appendChild(skewerGlyph());
+  mark.innerHTML = (window.SouvlaArt && window.SouvlaArt.logo) ? window.SouvlaArt.logo() : '';
+  if (!mark.firstChild) mark.appendChild(skewerGlyph());
   var t = el('div', 'brand-text');
   t.appendChild(el('div', 'brand-name', 'Souvla'));
   t.appendChild(el('div', 'brand-sub', 'Cypriot Greek'));
@@ -169,8 +170,14 @@ function testCard() {
     c.appendChild(el('dd', 'meta-label', m[1]));
     meta.appendChild(c);
   });
-  card.appendChild(meta);
-  card.appendChild(el('p', 'small test-scope', 'Covers greetings, food and everyday street talk, from the first hello to ordering at the grill.'));
+  var q0 = data.questions && data.questions[0];
+  if (q0) {
+    var prev = el('div', 'test-preview');
+    prev.appendChild(el('p', 'test-preview-label', 'First question'));
+    prev.appendChild(el('p', 'test-preview-q', q0.text));
+    card.appendChild(prev);
+  }
+  card.appendChild(window.SouvlaArt.whatYouGet());
   card.appendChild(btn('Begin the test', 'primary', startQuiz, 'right'));
   return card;
 }
@@ -179,7 +186,7 @@ function challengeCard() {
   var card = el('article', 'card challenge-card');
   var head = el('div', 'card-head');
   var ico = el('div', 'tile tile-blue');
-  ico.appendChild(window.SouvlaArt.mascot('flame'));
+  ico.appendChild(featIcon('M12 3c1 3 4 5 4 9a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-8z'));
   head.appendChild(ico);
   head.appendChild(el('h2', 'h3', 'Daily challenge'));
   card.appendChild(head);

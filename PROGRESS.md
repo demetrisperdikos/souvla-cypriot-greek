@@ -1,13 +1,18 @@
 # Progress: Souvla, Cypriot Greek portal
 
-## Round 4 (QA fixes)
-- Styles: the eight extra stylesheets are removed. All rules live in app.css, linked from index.html.
-- Hero: one owned illustration in hero-clean.js (the Souvla mascot seated at a table with a skewer on the grill, accent blue). hero-clean.js overrides window.SouvlaArt.hero and loads after art.js and art-r2.js.
-- Wordmark: 'Souvla' at 2.25rem Nunito 800 (2rem on phone) with a 56px mark.
-- Phone header: three equal stat pills with two-line labels, 16px side padding, nothing clipped.
-- Daily challenge: 48px accent icon badge; seven day tiles with accent fill and white text when on.
-- Uploaded picture: not referenced.
+## Round 5 (QA round 2 fixes)
+- Day chips: seven round chips in the Daily challenge card. Tapping a chip sets is-selected and aria-pressed, and the caption under the row updates (art.js).
+- Phone hero: full-width card, 358x220 on phone (final-r4.css, round 5 block).
+- Desktop cards: flex columns with the CTA pinned to the bottom. Measured at 1440px: both cards 476px tall, bottoms at 951px, CTA bottoms at 930px.
+- Icons: both desktop cards use the same outline SVG family (featIcon in app.js). Daily challenge no longer uses the filled mascot.
+- Wordmark: 36px Nunito 800 beside the 48px skewer mark.
+- Souvla Test card: 'First question' preview (app.js testCard).
+- Desktop hero scene: 360px tall to fill the right column.
 
 ## Verification
-- bash check.sh exits 0: syntax, HTTP 200 for index.html and data.json, browser flows, state checks, axe WCAG 2 A/AA, click test (34 controls, 0 dead, 0 errors).
-- Known gaps: art.js and art-r2.js still loaded for shared helpers; screen reader and real-device touch targets not verified; daily challenge and test card not re-scored against the 8/10 bar.
+- bash check.sh exits 0: syntax, HTTP 200 for index.html and data.json, browser flows, state checks, click test (34 controls, 0 dead, 0 errors).
+- Screenshots at 1440px and 390px saved in .shots/.
+
+## Not verified
+- Design score against the 8/10 bar: judge from the live link.
+- Screen reader and real-device touch behaviour.

@@ -1,0 +1,7 @@
+/* Round 11: lift both card CTAs above 900px at 1440x900; keep the 220px phone hero. */
+.what-get{margin:16px 0;padding:12px 16px}
+.what-get-title{margin:0 0 8px}
+.what-list{gap:8px}
+.hero-art{height:240px!important}
+.hero + *{margin-top:32px!important}
+@media (max-width:820px){.hero-art{height:220px!important}}
