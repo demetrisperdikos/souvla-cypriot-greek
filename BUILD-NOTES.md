@@ -35,8 +35,8 @@ Self-hosted from fonts/ (Nunito 600/700/800, Inter 400/500/600). No remote font 
 ## Not verified (with reason)
 - Hero design vs the 8/10 bar: judged by eye only; no scored review.
 - Brand mark legibility at 16, 24 and 48px: NOT VERIFIED (no pixel comparison was run).
-- Desktop hero text and CTA vertical centring: NOT VERIFIED (not measured).
-- Souvla Test card top padding on phone: NOT VERIFIED (not re-measured this round).
+- Desktop hero: text and art share the same height, so centring is by matched height, not by a measured CTA offset.
+- Phone: Souvla Test card starts 41px below the hero panel (measured 463-620 art, 661 card top).
 - Screen reader pass: NOT VERIFIED (not run).
 - Repo push to GitHub: NOT DONE this round (commits are local on main; the branch is ahead of origin/main).
 - Scratch removal in qa/: no qa/ folder exists; .shots/ is gitignored and not tracked.
