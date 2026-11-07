@@ -1,6 +1,6 @@
 # Build notes, Cypriot Greek portal (job 195), round 18
 
-Code commit: fb11e67 (no CSS or JS changed after it). Final HEAD is recorded by git rev-parse HEAD in the closing message.
+Final HEAD: a04d8b3 (confirm with git rev-parse HEAD). Last CSS/JS change: fb11e67.
 
 ## Measured at 1440x900 (fresh server on port 8790, clean run)
 - Headline h1: top 139, bottom 236.9, height 97.9, font 48px.
@@ -22,7 +22,7 @@ Code commit: fb11e67 (no CSS or JS changed after it). Final HEAD is recorded by 
 
 ## Not verified
 - Chunk charred rim at 1x: NOT VERIFIED (not measured).
-- Design score at 1440 and 390: NOT VERIFIED. No scorer tool is available to me in this job; visual judgement only from the screenshots.
+- Design score at 1440 and 390: NOT VERIFIED. No scorer was run and the repo contains no scorer script. Not measured, so no score is claimed.
 - Three features from features.json re-run by hand: NOT VERIFIED in this round. check.sh runs the browser flows (quiz, lessons, dialogue, streak, keyboard) and passed.
 
 ## check.sh
