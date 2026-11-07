@@ -1,6 +1,6 @@
 # Build notes: Souvla (job-195)
 
-Commit: 3c9afa4e2323fcdd1c8e18779eb4e5f654249cc9 (pushed to main, github.com/demetrisperdikos/souvla-cypriot-greek).
+Commit: 3c9afa4e2323fcdd1c8e18779eb4e5f654249cc9 (content); pushed head 7c82e43b435046ef427c576d8881cbcb69bfc2b5 adds only this line. Repo: github.com/demetrisperdikos/souvla-cypriot-greek.
 
 ## Files
 - index.html, styles.css (final layer loads last), app.js, ui.js, store.js, lessons.js, hero.js (hero art), brand.js (brand mark), souvla-art.js, data.json, check.sh.
