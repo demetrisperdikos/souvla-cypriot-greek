@@ -248,3 +248,8 @@
 .hero-art{min-height:273px;height:273px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-self:start}
 .hero-art > svg{margin:0 auto}
 }
+
+/* Round 20: phone hero. 24px air above the illustration; card sits 16px below the hero. */
+@media (max-width:899px){
+.hero-art{margin-top:8px;margin-bottom:-8px}
+}

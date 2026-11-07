@@ -39,3 +39,8 @@ Leftover test http.server processes may still run on ports 8765 and 8766. Not ki
 - VERIFIED at 1440x900: panel 121 to 394; illustration 177 to 338. Panel centre 257.5, illustration centre 257.5, so the group is vertically centred.
 - Phone (390px) is unchanged: round 19 rules are inside min-width:900px.
 - NOT VERIFIED: empty space top right and below the CTAs after this change (needs visual review).
+
+## Round 20: phone hero spacing (brief item 4)
+- VERIFIED at 390x844: CTA bottom 447, hero panel top 471 (24px air above the illustration), hero bottom 663, Souvla Test card top 679 (16px gap, down from 24px).
+- Rule: final.css round 20 block, max-width:899px.
+- check.sh exit 0 after the change.
