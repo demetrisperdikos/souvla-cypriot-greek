@@ -9,7 +9,7 @@
   function svg() {
     var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' +
       '<defs>' +
-      '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9A46A"/><stop offset=".45" stop-color="#B8632F"/><stop offset=".75" stop-color="#7A3A1A"/><stop offset="1" stop-color="#3E1C0C"/></linearGradient>' +
+      '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E39A5C"/><stop offset=".38" stop-color="#A9522A"/><stop offset=".62" stop-color="#6E3216"/><stop offset=".85" stop-color="#3A1709"/><stop offset="1" stop-color="#1E0C04"/></linearGradient>' +
       '<linearGradient id="hSkew" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F4F4"/><stop offset=".4" stop-color="#9C9C9C"/><stop offset=".6" stop-color="#5E5E5E"/><stop offset="1" stop-color="#262626"/></linearGradient>' +
       '<linearGradient id="hPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAE3D4"/></linearGradient>' +
       '</defs>' +
