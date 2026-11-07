@@ -40,9 +40,6 @@ s += '<defs>' +
 '</defs>';
 // ground: soft fade across the full panel width, no hard edge
 s += "<rect x='-20' y='168' width='640' height='52' fill='url(#hGround)'/>";
-// skewer sits behind the chunks: 360 of 600 units (60% of plate width), metallic with a shadow
-s += "<rect x='120' y='118' width='360' height='8' rx='4' fill='#140703' opacity='.35' filter='url(#hSoft)'/>";
-s += "<rect x='120' y='112' width='360' height='7' rx='3.5' fill='url(#hMetal)' stroke='#5A5A5A' stroke-width='.5'/>";
 CH.forEach(function (c) {
 s += "<ellipse cx='" + c.cx + "' cy='" + (c.cy + c.ry - 2) + "' rx='" + f(c.rx * 0.9) + "' ry='6' fill='#140703' opacity='.45' filter='url(#hSoft)'/>";
 });
@@ -52,6 +49,9 @@ s += "<path d='" + blob(c) + "' fill='url(#hMeat)' stroke='#140703' stroke-width
 var x0 = c.cx - c.rx * 0.5, y0 = c.cy - c.ry * 0.5;
 s += "<path d='M" + f(x0) + ' ' + f(y0) + ' Q' + f(x0 + c.rx * 0.25) + ' ' + f(y0 - 6) + ' ' + f(x0 + c.rx * 0.5) + ' ' + f(y0 - 2) + "' stroke='#FFF4E6' stroke-width='1.6' stroke-linecap='round' fill='none' opacity='.9' vector-effect='non-scaling-stroke'/>";
 });
+// skewer drawn last so it passes in front of the chunks: 360 of 600 units (60% of plate width)
+s += "<rect x='120' y='118' width='360' height='8' rx='4' fill='#140703' opacity='.35' filter='url(#hSoft)'/>";
+s += "<rect x='120' y='112' width='360' height='7' rx='3.5' fill='url(#hMetal)' stroke='#5A5A5A' stroke-width='.5'/>";
 s += '</svg>';
 return s;
 }

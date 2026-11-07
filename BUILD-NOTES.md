@@ -33,7 +33,7 @@ Lesson text: no innerHTML line in app.js, hero.js or brand.js references lessons
 Still below the bar: chunks read as dark lumps at small size; hero is still a standard two-column layout; the skewer is thin against the chunks.
 
 ## NOT VERIFIED (not run this round)
-- Brand mark at 16, 24 and 48px: not rendered and compared in this round.
+- Brand mark sizes: tests/brandsizes.js renders brand.js at 16, 24, 48px in Chromium and measures the SVG boxes: 16x16, 24x24, 48x48 (exact). Output saved as BRAND-SIZES.png. Visual legibility of the 16px mark in a real browser tab is NOT VERIFIED (manual check).
 - Charred rim 1.5px and highlight measurement: not pixel-measured this round.
 - Keyboard pass (manual focus order walk): not run this round; check.sh keyboard count from states.js only.
 - Axe scan beyond the home and quiz screens: not run.
