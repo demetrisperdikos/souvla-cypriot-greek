@@ -1,0 +1,27 @@
+/* Hero visual (v2): chip on its own row, scene panel sized to the art. */
+.hv-visual{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hv-chip-row{display:flex}
+.hv-chip{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E2D6C6;font:600 13px/1 Inter,system-ui,sans-serif;color:#1E1E1E;box-shadow:0 1px 2px rgba(42,20,4,.08)}
+.hv-panel{background:linear-gradient(180deg,#F7F1E8 0%,#EFE3D3 100%);border:1px solid #E6D9C7;border-radius:20px;padding:40px 32px;box-sizing:border-box;min-width:0}
+.hv-scene{display:block;width:100%;height:auto}
+@media (max-width:899px){.hv-panel{padding:12px 8px}}
+
+/* Accent discipline: terracotta only on the primary action and the headline keyword. */
+.stats *{color:#1E1E1E!important}
+.hero-copy > :not(h1):not(p):not(.actions):not(.pills){color:#6B6259!important}
+.streak-msg .accent,.accent{color:#1E1E1E!important}
+.day.is-today,.day.is-selected,.day.is-today.is-selected{color:#1E1E1E!important;border-color:#1E1E1E!important}
+.day.is-selected{background:#F3ECE2!important}
+.hero-copy .actions .btn:not(.primary){color:#1E1E1E!important;border-color:#D9CBB9!important}
+.test-card,.challenge-card{border-color:#EEE4D6!important}
+
+/* Round 2 fit: panel hugs the art; headline dominates; cards lighter. */
+@media (min-width:900px){.hv-panel{padding:12px 24px}.hv-visual{gap:16px}.hero-copy h1,.hero-copy .display{font-size:60px!important;line-height:1.02!important;font-weight:800!important}.test-card,.challenge-card{padding:16px 18px!important;border-color:#EEE4D6!important;box-shadow:none!important}.test-card .card-title,.challenge-card .card-title{font-size:1rem!important}}
+@media (max-width:899px){.hv-panel{padding:8px 6px}.hv-visual{gap:16px}.hv-chip{height:28px}}
+
+/* Round 3: phone headline reads as a headline; hero art panel labelled as hero-art. */
+@media (max-width:899px){.hero-copy h1,.hero-copy .display{font-size:40px!important;line-height:1.05!important}.hv-panel{padding:12px 10px}}
+
+
+/* Round 5: neutralise legacy .hero-art height rules on the new wrapper. */
+.hv-visual.hero-art{height:auto!important;min-height:0!important;max-height:none!important;position:static!important;overflow:visible!important;padding:0!important;margin:0!important;background:none!important;border:0!important}

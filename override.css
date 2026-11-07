@@ -19,3 +19,6 @@
 .test-card .btn.primary:hover,.challenge-card > .btn:hover,.challenge-card .btn.primary:hover{background:#E9DFD0!important}
 .test-card,.challenge-card{box-shadow:none!important;border-color:#E2D6C6!important}
 .foot{margin-top:24px}
+@media (max-width:899px){.hero-art{padding:8px!important;margin-top:12px!important}.hero-art > svg{height:132px!important;max-height:132px!important;width:100%!important}.hero-art .hero-chip{margin:0 0 4px!important}}
+@media (min-width:900px){.hero-copy h1,.hero-copy .display{font-size:60px!important;line-height:1.02!important}.test-card,.challenge-card{padding-top:16px!important;padding-bottom:16px!important}.test-card .card-title,.challenge-card .card-title{font-size:1.125rem!important}}
+@media (max-width:899px){.hero{padding-top:8px!important;padding-bottom:8px!important}.hero-copy .eyebrow,.hero-copy .kicker{margin-top:0!important;margin-bottom:4px!important}.hero-copy h1,.hero-copy .display{font-size:30px!important;margin:4px 0!important}.hero-copy .lead{margin:6px 0!important;font-size:.875rem!important;line-height:1.4!important}.hero-copy .actions{margin-top:6px!important}.hero-art{margin-top:8px!important;padding:6px!important}.hero-art > svg{height:100px!important;max-height:100px!important}.hero-art .hero-chip{margin:0 0 2px!important}}
