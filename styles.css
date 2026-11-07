@@ -925,3 +925,48 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 @media (min-width:900px){.test-card .test-opts{gap:6px}.test-card .test-opts .test-opt{min-height:40px;padding:8px 16px;box-sizing:border-box}}
 /* Round 46: Up Next back on the Daily challenge card, compact so the row stays at the fold. */
 @media (min-width:900px){.challenge-card .up-next.next-up{padding:8px 12px;gap:4px;margin-top:8px}.challenge-card > .btn:last-child{margin-top:auto}}
+
+/* Base layout (Round 74): consolidated from override.css. Fits the phone first answer above 844px and the desktop footer above 900px. */
+.main{padding:var(--s2) var(--s2) var(--s3)!important}
+.home{gap:var(--s2)!important}
+.hero{padding-top:var(--s1)!important;padding-bottom:0!important;gap:var(--s3)!important}
+.hero-art,.hv-visual.hero-art{height:auto!important;min-height:0!important;max-height:none!important;padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important}
+.hv-panel{padding:var(--s1) var(--s2)!important;height:auto!important;min-height:0!important;overflow:visible!important}
+.hv-scene{height:72px!important;width:100%!important}
+.hero-chip{position:static!important;display:inline-block;margin:0 0 var(--s1)}
+.test-card,.challenge-card{padding:var(--s2)!important}
+.test-card .card-title,.challenge-card .card-title{font-size:1rem!important}
+.test-card [class*=stat]{padding:var(--s1)!important}
+.test-card [class*=option],.test-card label,.test-card .opt{padding-top:var(--s1)!important;padding-bottom:var(--s1)!important;margin-bottom:var(--s1)!important}
+.test-card .btn,.challenge-card .btn{margin-top:var(--s1)!important;margin-bottom:0!important}
+.foot{margin:0!important;padding:var(--s1) 0 0!important;height:auto!important;line-height:1.2!important}
+@media (min-width:900px){.hv-scene{height:160px!important}.main{padding-top:var(--s1)!important;padding-bottom:0!important}.test-card,.challenge-card{padding-bottom:var(--s1)!important}}
+
+/* Phone hero compaction (Round 75): base styles, so the first answer can clear the 844px fold. */
+@media (max-width:899px){
+  .home{gap:var(--s1)!important}
+  .hero{padding-top:0!important;gap:var(--s2)!important}
+  .hero-copy{gap:var(--s1)!important}
+  .hero-copy .display,.hero-copy h1{font-size:32px!important;line-height:1.05!important}
+  .hero-copy .lead{font-size:.9375rem!important;line-height:1.4!important}
+  .hero-copy .actions{margin-top:0!important}
+  .hv-panel{padding:var(--s1)!important}
+  .hv-scene{height:80px!important}
+  .test-card .card-head{margin-bottom:var(--s1)!important}
+  .test-card > *{margin-top:var(--s1)!important}
+}
+
+/* Phone hero fit (Round 76): higher-specificity base rules so they beat hv-v2.css. */
+@media (max-width:899px){
+  main .home .hero .hero-copy h1.display{font-size:28px!important;line-height:1.1!important;margin:0!important}
+  main .home .hero .hero-copy .hl-accent{display:inline!important;font-size:inherit!important;line-height:inherit!important}
+  main .home .hero .hero-copy .lead{font-size:15px!important;line-height:1.4!important;margin:0!important}
+  main .home .hero .hero-copy .eyebrow{margin:0!important}
+  main .home .hero .hero-copy .actions{margin:0!important}
+  main .home .hero .hv-visual{gap:0!important}
+  main .home .hero .hv-panel{padding:4px!important}
+  main .home .hero .hv-scene{height:64px!important}
+  main .home .hero .hero-copy{gap:6px!important}
+  main .home .hero{gap:8px!important}
+  main .home{gap:8px!important}
+}

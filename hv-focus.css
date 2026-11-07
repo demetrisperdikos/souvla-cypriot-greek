@@ -1,0 +1,5 @@
+/* Keyboard focus: a clear terracotta ring on every button and tab, including unselected day tabs. */
+button:focus-visible, [role="tab"]:focus-visible, a:focus-visible {
+  outline: 2px solid #B4532A;
+  outline-offset: 2px;
+}

@@ -1,0 +1,14 @@
+/* Phone layout pass: the hero art is decorative, so it is hidden under 600px to bring the Souvla Test first answer above the 844px fold. */
+@media (max-width: 600px) {
+  .topbar { padding: 8px 12px; }
+  .hero { padding: 16px 16px 12px; }
+  .hero h1 { font-size: 30px; line-height: 1.08; margin: 0 0 8px; }
+  .hero p { font-size: 14px; line-height: 1.4; margin: 0 0 12px; }
+  .hero-art { display: none; }
+  .stats .stat { padding: 6px 10px; }
+}
+/* Desktop: keep the Souvla Test card's first block above the 900px fold at 1440x900. */
+@media (min-width: 1000px) {
+  .hero { padding-top: 16px; padding-bottom: 16px; }
+  .hero-art svg { max-height: 150px; }
+}
