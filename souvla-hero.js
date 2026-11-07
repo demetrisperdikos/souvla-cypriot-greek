@@ -34,7 +34,7 @@ function blobPath(cx, cy, rx, ry, m) {
 function chunk(c) {
   var body = blobPath(c.x, CY, c.rx, c.ry, c.m);
   var hx = c.x - c.rx * 0.22, hy = CY - c.ry * 0.56;
-  return '<ellipse cx="' + f(c.x + 4) + '" cy="' + f(CY + c.ry * 0.82) + '" rx="' + f(c.rx * 0.9) + '" ry="7" fill="#140703" opacity=".18"/>' +
+  return '<ellipse cx="' + f(c.x + 4) + '" cy="' + f(CY + c.ry * 0.82) + '" rx="' + f(c.rx * 0.9) + '" ry="7" fill="#140703" opacity=".28"/>' +
     '<path d="' + body + '" fill="url(#hvMeat)" stroke="#140703" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>' +
     '<ellipse cx="' + f(hx) + '" cy="' + f(hy) + '" rx="' + f(c.rx * 0.36) + '" ry="' + f(c.ry * 0.13) + '" transform="rotate(-14 ' + f(hx) + ' ' + f(hy) + ')" fill="#FFE8C4" opacity=".85"/>';
 }
@@ -42,8 +42,9 @@ function chunk(c) {
 function sceneSVG() {
   var defs = '<defs><linearGradient id="hvMeat" x1="0" y1="0" x2="0" y2="1">' +
     '<stop offset="0" stop-color="#C0703A"/><stop offset=".38" stop-color="#8E4420"/>' +
-    '<stop offset=".7" stop-color="#3B1706"/><stop offset="1" stop-color="#140703"/></linearGradient></defs>';
-  var skewer = '<rect x="0" y="' + (CY - 2) + '" width="440" height="4" rx="2" fill="#2E2E2E"/>';
+    '<stop offset=".7" stop-color="#3B1706"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
+    '<linearGradient id="hvSkewer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9D9D9"/><stop offset=".5" stop-color="#7A7A7A"/><stop offset="1" stop-color="#3A3A3A"/></linearGradient></defs>';
+  var skewer = '<rect x="0" y="' + (CY - 1.5) + '" width="440" height="3" rx="1.5" fill="url(#hvSkewer)"/>';
   var parts = CHUNKS.map(chunk).join('');
   return '<svg class="hv-scene" viewBox="20 20 440 190" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Four chunks of grilled meat on a skewer" focusable="false">' +
     defs + skewer + parts + '</svg>';
