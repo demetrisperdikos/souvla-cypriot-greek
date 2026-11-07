@@ -642,6 +642,9 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .hero-art{margin-top:8px;margin-bottom:-8px}
 }
 
+/* Round 17 hero: phone art sits 24px under the chip and the panel fits the art; desktop art fills the panel width. */
+@media (max-width:899px){.hero-art{display:flex;flex-direction:column;gap:0;padding:12px 12px 16px;height:auto;min-height:0;aspect-ratio:auto;margin:0}.hero-art .hero-chip{position:static;align-self:flex-start;margin:0}.hero-art > svg{width:100%;height:auto;margin:24px 0 0;display:block}}
+@media (min-width:900px){.hero-art > svg{width:100%;height:auto;max-height:100%;margin:0 auto;display:block}}
 /* Desktop hero art fills the panel (overrides the earlier max-width:440px rules). */
 @media (min-width:900px){
   .hero-art{position:relative;overflow:hidden;padding:0}
