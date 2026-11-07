@@ -57,3 +57,9 @@ NOT PRODUCED by the build team. QA judges the live link.
 - At 1440px: padding 8px top and bottom, 16px left, gap 0px, justify-content flex-start, flex 0 0 auto, height 150.375px.
 - These values are the target for one base rule plus responsive overrides. No rule has been deleted in this round.
 - Item 8 is still NOT DONE. The three earlier deletion attempts moved the Daily card height and were reverted.
+
+## Round 35: item 8 status (corrected)
+- The .streak-preview container rule now lives in one place: final.css holds the base rule (padding 16px, gap 0, flex 0 0 auto) plus the desktop override (padding 8px 16px). site.css has no .streak-preview container rule left.
+- Child rules remain split: .streak-preview .week-hint, .streak-top and .streak-ico still sit in site.css and final.css. Not consolidated.
+- Card heights held at every step: phone 502.1px, desktop 429.4px. check.sh exits 0 on each commit (last: 8c6b7a0).
+- Item 8 is PARTLY DONE. Do not treat it as complete.
