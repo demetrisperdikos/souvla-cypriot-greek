@@ -1,6 +1,6 @@
 (function () {
   var DEFS = "<defs>" +
-    "<radialGradient id='hMeat' cx='36%' cy='30%' r='74%'><stop offset='0' stop-color='#D08A4E'/><stop offset='.5' stop-color='#9A5224'/><stop offset='1' stop-color='#6A3414'/></radialGradient>" +
+    "<radialGradient id='hMeat' cx='36%' cy='30%' r='74%'><stop offset='0' stop-color='#F0B27A'/><stop offset='.55' stop-color='#C9783E'/><stop offset='1' stop-color='#8E4A22'/></radialGradient>" +
     "<linearGradient id='hTop' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#FFFFFF'/><stop offset='1' stop-color='#EAE3D4'/></linearGradient>" +
     "<linearGradient id='hRim' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#8A7C63'/><stop offset='1' stop-color='#4A4032'/></linearGradient>" +
     "<linearGradient id='hSkewer' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#4A4A4A'/><stop offset='1' stop-color='#1A1A1A'/></linearGradient>" +
@@ -15,6 +15,7 @@
   var XS = [-80, 0, 80], ROT = [-8, 5, -4], SC = [1.25, 1.35, 1.2];
   function chunk(i) {
     return "<g transform='translate(" + XS[i] + " 8) rotate(" + ROT[i] + ") scale(" + SC[i] + ")'>" +
+      "<path d='" + SHAPES[i] + "' fill='none' stroke='#FBEBD8' stroke-width='9' stroke-linejoin='round' opacity='.9'/>" +
       "<path d='" + SHAPES[i] + "' fill='url(#hMeat)' stroke='#140703' stroke-width='4.5' stroke-linejoin='round'/>" +
       "<path d='M-12 -20 L-4 -4 M14 -22 L18 -6 M-14 14 L4 20' stroke='#140703' stroke-width='2.4' stroke-linecap='round' fill='none' opacity='.5'/>" +
       "<ellipse cx='-16' cy='-22' rx='8' ry='2.8' transform='rotate(-18 -16 -22)' fill='#FFE8C8' opacity='.85'/>" +

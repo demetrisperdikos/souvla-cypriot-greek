@@ -194,7 +194,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
   .what-list{flex-direction:row;flex-wrap:wrap;gap:4px 16px;margin:0}
   .what-list li:nth-child(3){display:none}
   .test-preview{padding:var(--s1)}
-  .streak-preview .streak-top{margin:0}
   .up-next{padding:var(--s1) var(--s2)}
   .week-note{display:block;margin:8px 0 0}
   .challenge-card .week-hint{margin:4px 0 0}
@@ -415,15 +414,12 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 /* Round 4 fixes */
 .btn:hover:not(:disabled),.btn:focus-visible{box-shadow:0 2px 8px rgba(42,20,4,.12)}
 .stat-val{font-weight:800;font-size:1.0625rem}
-.streak-preview .streak-top .streak-ico{width:24px;height:24px}
-.streak-preview .week-hint{display:block;margin:var(--s1) 0 0}
 
 /* Round 4 layout: chip sits bottom-left with 8px inset, clear of the first skewer; UP NEXT strip fills the Daily challenge card on desktop. */
 .hero-art .hero-chip{top:auto;bottom:8px;left:8px}
 @media (min-width:900px){.challenge-card > .up-next.next-up{flex:1 1 auto;height:auto;min-height:0}}
 
 /* Round 4 final: one size for the streak preview icon, no padded tile. */
-.streak-preview .streak-top > svg,.streak-preview .streak-top .streak-ico,.challenge-card .streak-top svg,.challenge-card .streak-top .streak-ico{width:24px;height:24px;padding:0;box-sizing:border-box;background:none;border:0;color:var(--accent);flex:none}
 
 /* Round 4 layout: on desktop the Daily challenge card stacks streak preview (flex grows), UP NEXT strip, then CTA, with one 16px gap and the card padding at the bottom. */
 @media (min-width:900px){

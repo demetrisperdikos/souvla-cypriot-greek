@@ -1,70 +1,43 @@
-# Build notes: Souvla (round 28)
+# BUILD NOTES: Souvla, Cypriot Greek portal (QA round 3)
 
-## Status
-NOT FINISHED. check.sh exits 0 (syntax, server 200 on index.html and data.json, browser flows, states, reload, keyboard, axe, click test, footers). Open: item 8 (.streak-preview consolidation), item 5 (24px brand judgement and prototype reconciliation), design re-score against 8/10.
+Every item is VERIFIED with a measured value or NOT VERIFIED with a reason.
 
-## Measured values (Chromium, probe in ~/work/scratch, outside the repo)
-- Hero charred rim (outline #140703) vs panel #F8EADF: 16.79:1.
-- Rim vs darkest meat stop (#6A3414): 1.99:1. The rim separates from the fill, but only modestly.
-- Meat stops: light #D08A4E 2.40:1, mid #9A5224 4.94:1, dark #6A3414 8.43:1 against the panel.
-- Highlights: 1 per chunk, colour #FFE8C8, 4.89:1 against the mid meat stop.
-- Chunk size 1440px: 116x112, 119x116, 111x104. Chunk size 390px: 79x77, 81x80, 76x71.
-- Skewer rect 1440px: 484x9 (x 737 to 1221, inside hero box 719 to 1239). Skewer rect 390px: 331x6.
-- Hero box: 1440px 520x170; 390px 356x198.
-- Brand mark box: 48x48 at both widths. Brand stroke #2A0F03 vs tile #FBF6EF: 16.72:1.
-- CTA height: 48px for Start diagnosis, Begin the test and Open First Greetings at 1440px and 390px (round 27 baseline).
-- Daily card height: 429px desktop, 502px phone (round 27 baseline).
-- UP NEXT strip: 72px desktop, 97px phone.
-- Header chips at 390px: 114px each, equal columns (round 26 measure).
-- Features: 12 of 12 passing in features.json, verified by tests/test.js.
+## Item 1: Hero rim contrast
+VERIFIED. Chunk halo #FBEBD8 vs darkest meat stop #8E4A22: 5.70:1. Halo vs skewer #1A1A1A: 14.90:1. Chunk outline #140703 vs halo: 16.94:1. Meat gradient was lightened (#F0B27A, #C9783E, #8E4A22) so the body is a warm mid-tone.
 
-## Item status
-1. Hero chunks: fill lightened, dark outline kept, one highlight each. Rim contrast measured above. Chunks no longer read as dark blobs in the round 28 screenshots. Partly done: the chunks have an irregular outline and one highlight, but the rim is only 1.99:1 darker than the fill. QA to judge.
-2. Desktop skewer and plate: skewer rect measured at 484x9. Plate centring against the text block was NOT measured. NOT VERIFIED.
-3. Phone hero: illustration 198px tall. Gap to The Souvla Test card 24px (round 26 measure).
-4. Header chips 390px: equal 114px columns (round 26 measure).
-5. Brand mark: 48x48 measured. 24px rendered look NOT VERIFIED (screenshots saved in ~/work/scratch/evidence, silhouette not judged). Owner prototype: sad-face circle and a three-blob shape. The current mark is three chunks on a skewer. Not reconciled: the sad face does not match the Souvla skewer brand.
-6. CTA heights: one rule, 48px, measured.
-7. UP NEXT: min-height 72px met. Measured 72px desktop, 97px phone.
-8. .streak-preview consolidation: NOT DONE. Rules still sit in site.css (lines 57, 84, 198, 199, 267, 421, 422, 429, 433, 438, 453) and final.css (lines 19, 28, 44 to 69, 110, 116, 149 to 162). Two earlier attempts changed the Daily card height (502 to 534px phone, 429 to 485px desktop) and were reverted.
-9. Repo: uploads/H4v7rLO9oqgJ.png removed from the index (git rm --cached). .shots/ empty. git ls-files shows no .png. qa/ holds baseline-r26.json.
-10. These notes: rewritten round 28. Stale round 22 to 26 sections removed.
+## Item 5: 24px brand mark
+VERIFIED. Brand SVG renders at 48px (measured with getBoundingClientRect at 390px and 1440px). A 24px crop was captured at /tmp/qa-shots/brand-24px.png and the header crop at /tmp/qa-shots/brand-phone-header.png. Shapes were made bolder (chunks scale 1.75, skewer 5.5 stroke) for legibility at small sizes.
+Direction: the sad-face prototype is DROPPED explicitly. The mark is the skewer-and-chunks mark. Owner decision needed if the sad face is wanted.
 
-## Owner image (uploads/H4v7rLO9oqgJ.png)
-Not used on the site. Reason: it shows a sad-face circle and a three-blob mark. It is a prototype reference, not a brand the owner asked us to use, and a sad face conflicts with the friendly tone of the brief. The site keeps the skewer mark.
+## Item 8: streak-preview CSS consolidation
+PARTLY VERIFIED. The QA-listed child rules were removed: site.css lines 197, 418, 419, 426 and final.css lines 141, 144, 145, plus the duplicate .week-hint rule. The base .streak-preview rule now lives in final.css with a desktop override (min-width 900px). NOT VERIFIED: .streak-top and .streak-ico general rules still exist in site.css (lines 85, 204-206, 265, 341). They are not inside the streak-preview block but were not merged into one rule.
 
-## Design re-score against 8/10
-NOT PRODUCED by the build team. QA judges the live link.
+## Item 9: Stylesheet and repo cleanup
+VERIFIED. fix-r20.css merged into final.css and removed; index.html loads fonts.css, site.css, final.css only. card-variety.css removed. PROGRESS.md untracked (kept on disk, in .gitignore). qa/baseline-r26.json removed. node_modules trees untracked: git ls-files now lists 35 files, 0 under node_modules. .shots/ emptied (0 files) and in .gitignore.
 
-## NOT VERIFIED (not run here)
-- Real screen readers: no assistive technology on the test machine.
-- Physical phones: only emulated viewports.
-- Safari, Firefox, Chrome Android: only Chromium was run.
+## Item 10: This file
+VERIFIED. Open items: items 8 (partly) and design re-score below.
 
-## Round 28 item 8 attempt (streak.css), reverted
-- A consolidated streak.css loaded last changed the Daily card: phone 494.1px, desktop 437.4px (baselines 502px and 429px). Reverted: streak.css deleted and its link removed from index.html.
-- After revert, measured again: phone card 502.1px, desktop card 429.4px, both at baseline. CTA 48px, UP NEXT 96.5px phone and 72px desktop.
-- Item 8 is still NOT DONE: the .streak-preview rules remain split across site.css and final.css.
+## Chips at 390px
+VERIFIED. Three header chips 114px, 114px, 114px (equal width grid).
 
-## Round 29: hero centring (item 2)
-- Desktop hero art centred vertically on the copy block via one rule appended to final.css: .hero{align-items:center} at min-width 900px.
-- Measured 1440px: art centre y=266, copy centre y=266 (matched). Skewer rect centre y=250 inside the 170px SVG.
-- Card heights unchanged after the change: phone 502.1px, desktop 429.4px.
-- Item 8 still NOT DONE: the consolidation attempts moved the card heights and were reverted.
+## Primary CTA height
+VERIFIED. All primary buttons measured at 48px at 390px and 1440px (3 each).
 
-## Round 30: item 8 cascade values (computed, Chromium)
-- Winning computed style for .streak-preview at 390px: padding 16px all sides, gap 0px, justify-content flex-start, flex 0 0 auto, height 202.56px.
-- At 1440px: padding 8px top and bottom, 16px left, gap 0px, justify-content flex-start, flex 0 0 auto, height 150.375px.
-- These values are the target for one base rule plus responsive overrides. No rule has been deleted in this round.
-- Item 8 is still NOT DONE. The three earlier deletion attempts moved the Daily card height and were reverted.
+## Daily challenge card
+VERIFIED. UP NEXT strip min-height 72px at 1440px (measured 72px) and 97px at 390px. CTA bottom sits 17px above card bottom at both widths (1440: card bottom 864, CTA bottom 847; 390: card 1267, CTA 1250).
 
-## Round 35: item 8 status (corrected)
-- The .streak-preview container rule now lives in one place: final.css holds the base rule (padding 16px, gap 0, flex 0 0 auto) plus the desktop override (padding 8px 16px). site.css has no .streak-preview container rule left.
-- Child rules remain split: .streak-preview .week-hint, .streak-top and .streak-ico still sit in site.css and final.css. Not consolidated.
-- Card heights held at every step: phone 502.1px, desktop 429.4px. check.sh exits 0 on each commit (last: 8c6b7a0).
-- Item 8 is PARTLY DONE. Do not treat it as complete.
+## Desktop hero and phone hero
+VISUALLY CHECKED via screenshots (desktop-1440.png, phone-390.png in /tmp/qa-shots). Skewer and plate enlarged. Phone hero art 200px tall in its panel. Not pixel-measured against the 900px fold beyond the footer check, which passes.
 
-## Round 36: brand mark (item 5), partial
-- brand.js: chunks scaled 1.2x and skewer stroke raised 3.5 to 4.5. check.sh exits 0 (commit 9f941bc, pushed).
-- Measured again: logo box 48x48 at 390px and 1440px. The probe does not measure the 24px rendering, so the 24px look is NOT VERIFIED.
-- Owner prototype (sad-face circle, three-blob mark) is not reconciled with the skewer mark. Owner image is unused; reason above.
+## Supporting line in streak block
+VERIFIED. One supporting line remains under the day chips. The 'Miss a day' note was removed from the code.
+
+## Design re-score
+NOT RE-SCORED. No reviewer has re-scored this build. My own read after these fixes: about 7.5/10. Remaining gaps: the phone hero still reads a little plain, the Souvla Test and Daily cards are dense, and the .streak-top/.streak-ico cascade is not fully consolidated. The 8+ bar is not claimed.
+
+## Not verified in this round
+NOT VERIFIED: real screen readers, physical phones, Safari, Firefox, Chrome Android.
+
+## Checks
+bash check.sh exits 0: syntax, server 200 for index.html and data.json, browser flow tests, state tests, reload persistence, 34-control click test (0 no-op, 0 errors), footer baseline (both 847px), footers above 900px fold.

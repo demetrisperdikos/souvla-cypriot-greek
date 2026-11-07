@@ -94,10 +94,7 @@ function streakPreview(n) {
   });
   box.appendChild(week);
   box.appendChild(hint);
-  var note = document.createElement('p');
-  note.className = 'week-note';
-  note.textContent = 'Miss a day and the streak resets. One small lesson is enough to keep it.';
-  box.appendChild(note);
+  // One supporting line only: the caption above the day chips.
   return box;
 }
 

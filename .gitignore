@@ -1,7 +1,10 @@
-.shots/
-qa/node_modules/
+
 *.log
 .shots/
-uploads/
+PROGRESS.md
 clicktest-output.txt
+fonts-src/node_modules/
+node_modules/
+qa/node_modules/
 tests/node_modules/
+uploads/

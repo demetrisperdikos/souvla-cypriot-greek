@@ -24,7 +24,6 @@
 .challenge-card > .btn:last-child{margin-top:0}
 
 /* Day-chip helper line: its own line, 8px above, smaller and muted. */
-.streak-preview .week-hint,.challenge-card .week-hint{display:block;margin:8px 0 0;font-size:.8125rem;line-height:1.4;color:var(--ink3)}
 
 /* Hero: one calm backdrop surface with no grain; the chip sits on a clean 16px inset at the top-left, clear of the art. */
 .hero-art{background:#F8EADF;background-image:none}
@@ -138,11 +137,8 @@
 }
 
 /* Day hint: sits 8px below the day chips; spare height stays inside the preview, not between chips and hint. */
-.challenge-card .streak-preview .week-hint{margin-top:8px}
 
 /* Day hint: exactly 8px below the chips. Chips keep 16px above; no flex gap or bottom margin between chips and hint. */
-.challenge-card .streak-preview .week{margin:16px 0 0}
-.challenge-card .streak-preview .week-hint{margin:8px 0 0}
 
 /* Spare card height goes to the UP NEXT strip, not the streak preview, so the strip sits 8px above the CTA and the CTA 17px above the card edge. */
 .challenge-card > .up-next.next-up{flex:1 1 auto;min-height:72px}
@@ -174,3 +170,26 @@
 .streak-preview{padding:16px;gap:0;display:flex;flex-direction:column;justify-content:flex-start;flex:0 0 auto;min-height:0;height:auto}
 @media (min-width:900px){.streak-preview{padding:8px 16px}}
 .challenge-card > .streak-preview{flex:0 0 auto}
+/* Fix round 20 (no): header chips, CTA height, UP NEXT min-height, phone hero spacing, desktop hero fill. */
+
+/* (6) One height for every primary CTA. */
+:root{--cta-h:48px}
+.btn.primary,.btn-primary,.hero-copy .actions .btn.primary,.challenge-card > .btn,.challenge-card .btn.primary,.card .btn.primary{min-height:var(--cta-h);height:var(--cta-h);box-sizing:border-box}
+
+/* (7) UP NEXT strip flexes with min-height 72px so the CTA sits flush to the card bottom. */
+.challenge-card > .up-next.next-up{min-height:72px;flex:1 1 auto}
+
+/* (3) Phone hero: larger illustration. */
+@media (max-width:600px){
+  .hero-art{height:200px;min-height:0;max-height:none}
+  .hero-art .hero-scene{width:100%;height:100%}
+}
+
+/* (2) Desktop hero: skewer and plate fill the panel and sit centred against the text block. */
+@media (min-width:900px){
+  .hero-art{display:flex;align-items:center;justify-content:center;padding:24px 32px}
+  .hero-art .hero-scene{width:100%;height:auto;max-width:520px}
+}
+
+/* Fix round 22: desktop chip moves to bottom-left so it does not cover the first skewer chunk. */
+@media (min-width:900px){.hero-art .hero-chip{top:auto;bottom:12px;left:12px}}
