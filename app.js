@@ -216,7 +216,9 @@ function challengeCard() {
   bar.setAttribute('aria-hidden', 'true');
   var segCount = first.steps ? first.steps.length : (first.cards ? first.cards.length : 6);
   var doneSegs = store.isDone(first.id) ? segCount : 0;
-  for (var si = 0; si < segCount; si++) { bar.appendChild(el('span', 'up-next-seg' + (si < doneSegs ? ' is-done' : ''))); }
+  var fill = el('span', 'up-next-fill');
+  fill.style.width = (doneSegs ? 100 : 0) + '%';
+  bar.appendChild(fill);
   next.appendChild(bar);
   var totalSteps = first.steps ? first.steps.length : (first.cards ? first.cards.length : 6);
   var unit = first.steps ? 'steps' : 'cards';
