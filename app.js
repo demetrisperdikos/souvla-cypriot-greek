@@ -216,7 +216,9 @@ function challengeCard() {
   fill.style.width = (store.isDone(first.id) ? 100 : 0) + '%';
   bar.appendChild(fill);
   next.appendChild(bar);
-  next.appendChild(el('span', 'up-next-pct', store.isDone(first.id) ? 'Completed' : 'Not started'));
+  var totalSteps = (first.steps && first.steps.length) || 6;
+  var statusText = store.isDone(first.id) ? 'Completed, ' + totalSteps + ' of ' + totalSteps + ' steps' : 'Not started, 0 of ' + totalSteps + ' steps';
+  next.appendChild(el('span', 'up-next-pct', statusText));
   card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
   return card;
