@@ -38,3 +38,9 @@ NOT MEASURED by a reviewer. No 8+ claim is made. Build is NOT DONE.
 3. Consolidate final.css and site.css into one block per component.
 4. Brand legibility at 16 and 24px by eye.
 5. Design score by a reviewer.
+
+## Round 23: consolidation attempt reverted
+- A rewrite of final.css (62 lines) was tried. It broke the desktop day chips (ran past the card edge), shifted the hero, and moved the footer baseline from 895px to 877px.
+- final.css was restored from git (git checkout). check.sh EXIT=0 after the restore, footer baseline 895px on both runs.
+- Live stylesheet is therefore unchanged from the previous commit. final.css (228 lines) and site.css (430 lines) still have overlapping rules. NOT consolidated.
+- Design score: NOT MEASURED. No 8+ claim. Build is NOT DONE.
