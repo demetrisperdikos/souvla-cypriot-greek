@@ -42,3 +42,12 @@ PARTLY DONE. Items 1-7 and 9-10 of the brief are done and measured. Item 8 is pa
 - Brand mark at 48px: 48x48 box at x=17, y=9, Chromium, 390px viewport.
 - Consolidating .streak-preview rules (item 8): NOT DONE. Two attempts changed the Daily card height (502->534px phone, 429->485px desktop) and were reverted.
 - Design re-score against 8/10: NOT DONE.
+
+## Round 27: probe measurements (scratch/probe.js, Chromium, outside the repo)
+- Hero rim contrast: charred rim stroke #140703 vs panel rgb(248,234,223) = 14.49:1. The rim is still very dark, so item 1 is NOT yet accepted by QA's standard.
+- Highlights per chunk: 1 at 390px and 1440px (3 chunks each).
+- Chunk size at 390px: 79x77, 81x80, 76x71 (hero box 356x198). Chunk size at 1440px: 116x112, 119x116, 111x104 (hero box 520x170).
+- Brand mark box: 48x48 at both widths. Brand stroke contrast vs cream tile: 2.74:1.
+- Brand mark at 24px: screenshot saved (brand-24-390.png, brand-24-1440.png). Silhouette NOT yet judged from the image, so 24px is NOT VERIFIED.
+- Item 8 (.streak-preview consolidation): still NOT DONE.
+- Design re-score against 8/10: NOT DONE.
