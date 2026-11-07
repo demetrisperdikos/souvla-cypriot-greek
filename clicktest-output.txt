@@ -29,65 +29,65 @@ explicit checks: 25 run, 0 failed
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=151 | focus=main
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=127 | focus=main
     CHANGED: yes
 [phone #1] "Start diagnosis" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  Which phrase is a typical Cypriot expression of exasperation? | QUESTION 1 OF 10 Which phrase is a typical Cypriot expression of exasp | scroll=0 | focus=h2 question
+    AFTER:  Choose the Cypriot way to say 'What is your name?' | QUESTION 1 OF 10 Choose the Cypriot way to say 'What is your name?' Po | scroll=0 | focus=h2 question
     CHANGED: yes
 [phone #2] "Browse lessons" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1746 | focus=display
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1806 | focus=display
     CHANGED: yes
 [phone #3] "Begin the test" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  In Cypriot, what does 'Aftos o koulouri mas?' most likely mean at a bakery? | QUESTION 1 OF 10 In Cypriot, what does 'Aftos o koulouri mas?' most li | scroll=0 | focus=h2 question
+    AFTER:  Which word is a Cypriot slang term for 'friend' or 'mate'? | QUESTION 1 OF 10 Which word is a Cypriot slang term for 'friend' or 'm | scroll=0 | focus=h2 question
     CHANGED: yes
 [phone #4] "Monday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot is-today
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot is-today
     CHANGED: yes
 [phone #5] "Tuesday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
     CHANGED: yes
 [phone #6] "Wednesday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
     CHANGED: yes
 [phone #7] "Thursday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
     CHANGED: yes
 [phone #8] "Friday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
     CHANGED: yes
 [phone #9] "Saturday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
     CHANGED: yes
 [phone #10] "Sunday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1348 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
     CHANGED: yes
 [phone #11] "Open First Greetings" click
     BEFORE: Pull up a chair.
@@ -134,12 +134,12 @@ Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=439 | focus=display
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=427 | focus=display
     CHANGED: yes
 [desktop #3] "Begin the test" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  What does 'Efharisto' mean? | QUESTION 1 OF 10 What does 'Efharisto' mean? Goodbye Thank you Please  | scroll=0 | focus=h2 question
+    AFTER:  Which word means 'good morning'? | QUESTION 1 OF 10 Which word means 'good morning'? Kalimera Kalinychta  | scroll=0 | focus=h2 question
     CHANGED: yes
 [desktop #4] "Monday, no lesson yet" click
     BEFORE: Pull up a chair.

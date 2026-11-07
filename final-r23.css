@@ -1,0 +1,6 @@
+/* Round 23: pill inset 16px, hero-to-card 32px, tighter card block for the 900px fold */
+.hero-art .pill, .hero .pill, .level-pill{top:15px!important;right:15px!important}
+.hero{padding-bottom:0!important}
+.hero + *{margin-top:32px!important}
+.feature-row{margin-top:24px!important}
+.feature-row > *{padding-top:20px!important;padding-bottom:20px!important}

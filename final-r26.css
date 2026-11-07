@@ -1,0 +1,13 @@
+/* Round 26: level chip uses its real class; tighter card interiors so the CTAs clear the 900px fold */
+.hero-art .hero-chip{top:15px!important;right:15px!important}
+.hero{padding-top:24px!important;padding-bottom:0!important}
+.hero-art{align-self:end!important}
+.feature-row{margin-top:32px!important;align-items:stretch!important}
+.feature-row .card{display:flex!important;flex-direction:column!important;gap:16px!important;padding:20px 24px!important}
+.feature-row .card .btn{margin-top:auto!important;align-self:flex-start!important}
+.feature-row .card > p{margin:0!important}
+.challenge-card .streak-preview{margin:0!important}
+.challenge-card .streak-preview .dot-caption{margin:8px 0 0!important}
+.what-get{margin:0!important;padding:12px 16px!important}
+.test-card .first-q,.test-card .first-question{margin:0!important}
+.what-list li{margin:0!important}

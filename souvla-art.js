@@ -77,7 +77,7 @@ function streakPreview(n) {
 }
 
 function chunk(x) {
-  return '<rect x="' + (x - 30) + '" y="-25" width="60" height="50" rx="14" fill="url(#svChunk)" stroke="#6B7585" stroke-width="2"/>' +
+  return '<rect x="' + (x - 31) + '" y="-25" width="62" height="50" rx="14" fill="url(#svChunk)" stroke="#6B7585" stroke-width="2"/>' +
     '<path d="M' + (x - 16) + ' 14 L' + (x + 4) + ' -14 M' + (x - 2) + ' 14 L' + (x + 18) + ' -14" stroke="#1A1A1A" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round"/>';
 }
 
@@ -85,19 +85,20 @@ function hero() {
   var wrap = document.createElement('div');
   wrap.className = 'hero-art';
   wrap.setAttribute('aria-hidden', 'true');
-  wrap.innerHTML = '<svg class="hero-scene" viewBox="50 50 380 190" preserveAspectRatio="xMidYMid meet" focusable="false">' +
+  wrap.innerHTML = '<svg class="hero-scene" viewBox="40 50 400 170" preserveAspectRatio="xMidYMid meet" focusable="false">' +
     '<defs>' +
     '<linearGradient id="svChunk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".22" stop-color="#F1F4F8"/><stop offset=".7" stop-color="#B9C2CF"/><stop offset="1" stop-color="#7D8898"/></linearGradient>' +
     '<linearGradient id="svPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D5DCE5"/></linearGradient>' +
-    '<filter id="svShadow" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="7"/></filter>' +
+    '<filter id="svShadow" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="4"/></filter>' +
     '</defs>' +
-    '<ellipse cx="240" cy="226" rx="160" ry="10" fill="#0B1F3A" opacity=".14" filter="url(#svShadow)"/>' +
-    '<ellipse cx="240" cy="232" rx="160" ry="8" fill="#1A1A1A" fill-opacity=".08"/>' +
-    '<g transform="translate(240 124) rotate(-14) scale(1.2)">' +
-    '<line x1="-150" y1="0" x2="150" y2="0" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>' +
-    chunk(-90) + chunk(-30) + chunk(30) + chunk(90) +
-    '<circle cx="-150" cy="0" r="6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>' +
-    '<circle cx="150" cy="0" r="6" fill="#0062CC"/>' +
+    '<defs><radialGradient id="svGlow"><stop offset="0" stop-color="#0062CC" stop-opacity=".16"/><stop offset="1" stop-color="#0062CC" stop-opacity="0"/></radialGradient></defs>' +
+    '<ellipse cx="240" cy="200" rx="90" ry="22" fill="url(#svGlow)"/>' +
+    '' +
+    '<g transform="translate(240 120) rotate(-10)">' +
+    '<line x1="-172" y1="0" x2="172" y2="0" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>' +
+    chunk(-108) + chunk(-36) + chunk(36) + chunk(108) +
+    '<circle cx="-172" cy="0" r="6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>' +
+    '<circle cx="172" cy="0" r="6" fill="#0062CC"/>' +
     '</g>' +
     '</svg>' +
     '<span class="hero-chip">Level check, 3 min</span>';

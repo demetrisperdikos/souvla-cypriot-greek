@@ -1,0 +1,7 @@
+/* Round 22: one owner per spacing value (8px scale). Loaded last. */
+.main{padding-top:24px!important}
+.hero{padding-top:0!important}
+.hero .eyebrow{margin-top:0!important}
+.hero-copy p, .hero-copy .lede{font-size:18px!important;line-height:28px!important}
+.hero .pill, .level-pill, .hero-art .pill{top:15px!important;right:15px!important}
+.hero + *, .hero + .cards, .cards{margin-top:32px!important}

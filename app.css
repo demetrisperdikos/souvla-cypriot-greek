@@ -459,3 +459,9 @@ h1,h2,h3{font-family:Nunito,system-ui,sans-serif;line-height:1.2}
   .stat-ico{display:none}
   .stat-val{font-size:1rem;line-height:1.2}
 }
+/* Round 13: hero panel and level-check pill */
+.hero-art{position:relative!important;height:auto!important;width:100%!important;max-width:520px!important;aspect-ratio:480/240;margin:0 auto!important;border-radius:20px;overflow:hidden;background:#EAF2FC}
+.hero-art svg{display:block;width:100%!important;height:100%!important;max-height:none!important;max-width:none!important}
+.hero-art .hero-chip{position:absolute;top:16px;right:16px;white-space:nowrap;border-radius:999px;padding:6px 12px;background:#FFFFFF;color:#0062CC;font:600 .8125rem Inter,sans-serif;box-shadow:0 1px 2px rgba(0,98,204,.15)}
+/* Round 14: hero panel fills the desktop column; height kept so the CTAs stay above the 900px fold */
+@media (min-width:900px){.hero-art{max-width:none!important;width:100%!important;justify-self:stretch!important;height:260px!important;aspect-ratio:auto!important}.hero-art svg{height:100%!important;width:100%!important}}
