@@ -1,64 +1,35 @@
-# BUILD NOTES: Souvla, Cypriot Greek portal (fix round, QA item)
+# BUILD NOTES: Souvla, Cypriot Greek portal (fix round)
 
-HEAD: 04618a9 (round 18). The fix round commits on top of it.
-Stylesheets: index.html loads fonts.css, site.css, final.css. Round-18 rules live in final.css. Nothing in the repo uses styles.css.
+HEAD before this round: 04618a9. Fix-round commit: see git log -1 (notes commit on top of 04618a9).
+Stylesheets: index.html loads fonts.css, site.css, final.css. Round-18 rules live in final.css. Nothing uses styles.css.
 
 ## Suite
-- check.sh exit 0: index=200, data=200, browser tests passed, clicktest passed (34 controls, 0 with errors), footer baseline passed.
-- VERIFIED: 34 controls tested, 0 with errors (clicktest output).
+- check.sh exit 0 after every change: index=200, data=200, browser tests, clicktest (34 controls, 0 errors), footer baseline.
 
-## Fonts (brief: fonts)
-- Self-hosted. fonts.css loads fonts/*.woff2 from the same folder. No remote font link exists in index.html, fonts.css or final.css (grep shows none), so Subresource Integrity is not needed.
-- VERIFIED: grep for http(s):// in index.html, fonts.css, final.css, site.css returns nothing.
+## Fonts
+- Self-hosted from fonts/*.woff2. No remote font link in index.html, fonts.css or final.css, so no SRI needed.
 
 ## Repo hygiene
-- .shots/ is empty of shot-1440-0.png and shot-390-0.png (removed). .shots/ and uploads/ are git-ignored.
-- qa/ is empty. The only test suite check.sh uses is tests/ (test.js, states.js, reload.js, clicktest.js, footers.js); tests/measure.js is not called by check.sh.
-- VERIFIED: ls shows no PNGs or scratch scripts in qa/.
+- .shots/ no longer holds shot-1440-0.png or shot-390-0.png. qa/ is empty.
+- check.sh uses tests/ only (test.js, states.js, reload.js, clicktest.js, footers.js). tests/measure.js is not called by check.sh.
 
-## Header chips (brief item 5)
-- VERIFIED at 1440: 128 / 128 / 128 px.
-- VERIFIED at 390: 114 / 114 / 114 px.
-- 20px icon box and 2px stroke: set in final.css (.stat-ico 20x20, stroke-width 2). NOT VERIFIED by measurement in this round.
-
-## Brand mark (brief item 1)
-- Redrawn as flat silhouette in brand.js: one skewer bar, three lumpy chunks, cream keyline, one highlight each.
-- VERIFIED: rendered #brand svg is 48x48 at 1440 and 390.
-- NOT VERIFIED: 16px and 24px renders (not measured in this round). Legibility at those sizes NOT VERIFIED.
-
-## Hero chunks (brief item 2)
-- Lumpy path outlines in hero.js, rim #140703 at 1.5px via non-scaling-stroke, one highlight ellipse each.
-- VERIFIED in code: stroke colour and width.
-- NOT VERIFIED: char gradient on lower half (the gradient is a radial from top-left, not a lower-half darkening), and visual quality of the rim at 1x and 2x density.
-
-## Desktop hero (brief item 3)
-- VERIFIED: hero panel 578 x 200 at (718, 121). Plate and skewer run to the panel edges via viewBox -120..720.
-- NOT VERIFIED: skewer at 60% of plate width; vertical centring against the text block; empty space top right and below the CTAs.
-
-## Phone hero (brief item 4)
-- VERIFIED: hero panel 358 px wide at 390 (16 to 374), i.e. full content width.
-- NOT VERIFIED: 24px air above the illustration; trimmed padding above the Souvla Test card.
-
-## Top alignment (brief item 8)
-- VERIFIED: hero panel top 121 and eyebrow top 121 at 1440.
-- VERIFIED: hero panel top 463 and eyebrow top 141 at 390 (differs, phone stacks the hero).
-
-## Daily challenge UP NEXT strip (brief item 6)
-- The 0% grey track is replaced by a lesson meter: the bar is 8px tall and the label reads '0% of this lesson'. The strip is not 'Not started, 0 of 6 steps' as the brief suggested.
-- VERIFIED: icon box 24x24, bar 8px tall at 1440 (upIco 24x24, upBar 8px).
-- VERIFIED: up-next strip 96px tall at 1440 (735 to 831).
-- NOT VERIFIED: the 16px gap between streak row, Up Next box and CTA. The streak row sits at 435 to 483 and the up-next strip starts at 735, so other elements sit between them; the 16px gap was not measured.
-
-## Primary CTAs (brief item 7)
-- VERIFIED: Start diagnosis 48px tall (bottom 394 at 1440). Begin the test 48px. Open First Greetings 48px (both bottom 895 at 1440).
-- VERIFIED at 390: all three primary CTAs 48px tall.
+## Brief items
+1. Brand mark: flat silhouette in brand.js. VERIFIED: rendered 16x16, 24x24, 48x48. NOT VERIFIED: legibility at 16 and 24px (visual judgement).
+2. Hero chunks: lumpy outlines, #140703 rim at 1.5px (non-scaling stroke), one highlight each. Chunk fill changed to a linear gradient darkening the lower half (#E9A46A top to #3E1C0C bottom). VERIFIED in code. NOT VERIFIED: rim quality at 1x and 2x density.
+3. Desktop hero: plate and skewer run to the panel edges. CONFLICT: a skewer at 60% of plate width cannot also run to the panel edges; edge extension kept, 60% not applied. NOT VERIFIED: vertical centring against the text block and empty space top right / below CTAs.
+4. Phone hero: illustration is 358px wide (full content width at 390). VERIFIED: gap above the Souvla Test card is 24px (hero bottom 655, card top 679). NOT VERIFIED: trimmed padding above the card beyond that gap.
+5. Header chips: VERIFIED 128/128/128 at 1440 and 114/114/114 at 390. NOT VERIFIED by measurement this round: 20px icon box and stroke weight.
+6. Up Next strip: label is '0% of this lesson' with an 8px meter; not the 'Not started, 0 of 6 steps' wording. VERIFIED: 24x24 icon box, 8px meter, strip 96px tall at 1440. VERIFIED: 16px gap from streak preview to Up Next (719 to 735) and from Up Next to CTA (831 to 847) at 1440; same at 390 (1583 to 1599, 1719 to 1735).
+7. Primary CTAs: VERIFIED 48px tall at 1440 and 390 (Start diagnosis, Begin the test, Open First Greetings).
+8. Top alignment: VERIFIED at 1440, hero panel top 121 and eyebrow top 121. At 390 the hero stacks: panel top 463, eyebrow top 141.
 
 ## Footer / fold
 - VERIFIED: footer buttons bottom at 895 on 1440x900 (fold 900).
 
 ## Design score
-- NOT RE-SCORED by a reviewer. No 8+ claim is made. Measured values above are the only evidence.
+- NOT RE-SCORED by a reviewer. No 8+ claim is made.
 
 ## Not verified
-Real screen readers, physical phones, Safari, Firefox, Chrome Android. Visual judgement of the hero, brand mark and up-next strip by a reviewer.
-OPEN: sad-face mark decision (owner asked; default is the skewer silhouette).
+Screen readers, physical phones, Safari, Firefox, Chrome Android. Visual judgement of hero, brand mark and Up Next strip by a reviewer.
+OPEN: sad-face mark decision for the owner (default: skewer silhouette).
+Leftover test http.server processes may still run on ports 8765 and 8766. Not killed (permission).

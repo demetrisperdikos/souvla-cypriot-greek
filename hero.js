@@ -9,7 +9,7 @@
   function svg() {
     var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' +
       '<defs>' +
-      '<radialGradient id="hMeat" cx="36%" cy="30%" r="74%"><stop offset="0" stop-color="#F0B27A"/><stop offset=".55" stop-color="#C9783E"/><stop offset="1" stop-color="#8E4A22"/></radialGradient>' +
+      '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9A46A"/><stop offset=".45" stop-color="#B8632F"/><stop offset=".75" stop-color="#7A3A1A"/><stop offset="1" stop-color="#3E1C0C"/></linearGradient>' +
       '<linearGradient id="hSkew" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A4A4A"/><stop offset="1" stop-color="#1A1A1A"/></linearGradient>' +
       '<linearGradient id="hPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAE3D4"/></linearGradient>' +
       '</defs>' +
