@@ -292,3 +292,6 @@
 
 /* job-195 round 11: desktop art has 15px more top padding, so the skewer centre sits on the copy centre (measured offset was -15px). */
 @media (min-width:900px){.hero-art{padding-top:59px !important}}
+
+/* job-195 round 12: desktop art top padding 51px, so the skewer centre sits on the copy centre (measured offset was +4px at 59px). */
+@media (min-width:900px){.hero-art{padding-top:51px !important}}
