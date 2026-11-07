@@ -198,7 +198,7 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
   .streak-preview{padding:var(--s1) var(--s2);gap:var(--s1)}
   .streak-preview .streak-top{margin:0}
   .up-next{padding:var(--s1) var(--s2)}
-  .week-note{display:none}
+  .week-note{display:block;margin:8px 0 0}
   .challenge-card .week-hint{margin:4px 0 0}
 }
 
