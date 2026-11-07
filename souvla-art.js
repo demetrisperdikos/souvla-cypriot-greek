@@ -4,13 +4,7 @@ var A = window.SouvlaArt = window.SouvlaArt || {};
 var U = window.SouvlaUI;
 
 // Brand mark: one geometry shared with favicon.svg. Skewer runs about 70% of the 48px tile.
-var MARK_INNER = '<rect width="48" height="48" rx="12" fill="#B5532A"/>' +
-  '<rect x="0.5" y="0.5" width="47" height="47" rx="11.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1"/>' +
-  '<line x1="7" y1="26" x2="41" y2="22" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>' +
-  '<line x1="9" y1="24.6" x2="39" y2="20.6" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1" stroke-linecap="round"/>' +
-  '<rect x="10" y="15" width="9" height="18" rx="4.5" fill="#FFFFFF"/>' +
-  '<rect x="19.5" y="13" width="9" height="18" rx="4.5" fill="#FFFFFF"/>' +
-  '<rect x="29" y="11" width="9" height="18" rx="4.5" fill="#FFFFFF"/>';
+var MARK_INNER = "<rect width='48' height='48' rx='12' fill='#FBF6EF'/><rect x='0.5' y='0.5' width='47' height='47' rx='11.5' fill='none' stroke='#E2D6C6'/><line x1='5' y1='25' x2='43' y2='23' stroke='#2A2A2A' stroke-width='2.5' stroke-linecap='round'/><g transform='translate(12 24) rotate(-4) scale(0.16)'><path d='M-34 -10 L-28 -26 L-10 -32 L4 -26 L20 -34 L34 -18 L30 0 L36 16 L18 30 L2 24 L-12 32 L-30 24 L-36 8 Z' fill='#B8642F' stroke='#1E0C03' stroke-width='7' stroke-linejoin='round'/><ellipse cx='-12' cy='-18' rx='9' ry='3.5' transform='rotate(-20 -12 -18)' fill='#FFE2B8' opacity='.6'/></g><g transform='translate(24 24) rotate(3) scale(0.16)'><path d='M-30 -18 L-14 -30 L6 -26 L22 -32 L34 -12 L28 6 L34 22 L14 30 L-4 24 L-22 30 L-34 14 L-30 0 Z' fill='#B8642F' stroke='#1E0C03' stroke-width='7' stroke-linejoin='round'/><ellipse cx='-12' cy='-18' rx='9' ry='3.5' transform='rotate(-20 -12 -18)' fill='#FFE2B8' opacity='.6'/></g><g transform='translate(36 24) rotate(-2) scale(0.16)'><path d='M-32 -12 L-22 -30 L-2 -28 L14 -34 L32 -20 L30 -2 L36 14 L22 28 L4 22 L-14 30 L-32 20 L-36 4 Z' fill='#B8642F' stroke='#1E0C03' stroke-width='7' stroke-linejoin='round'/><ellipse cx='-12' cy='-18' rx='9' ry='3.5' transform='rotate(-20 -12 -18)' fill='#FFE2B8' opacity='.6'/></g>";
 var MARK = '<svg class="souvla-mark-svg" width="40" height="40" viewBox="0 0 48 48" aria-hidden="true" focusable="false">' + MARK_INNER + '</svg>';
 
 function logo() { return MARK; }
@@ -54,42 +48,6 @@ function chunk(cx) {
     '<path d="M-16 -18 L-22 6 M6 -22 L0 4 M18 -12 L14 8" stroke="#2A1204" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".45"/>' +
     '<ellipse cx="-10" cy="-18" rx="11" ry="4.5" transform="rotate(-18 -10 -18)" fill="#FFF3DC" opacity=".7"/>' +
     '</g>';
-}
-
-function heroSvg() {
-  var xs = [-144, -48, 48, 144];
-  var chunks = xs.map(chunk).join('');
-  return '<svg class="hero-scene" viewBox="40 30 440 215" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true">' +
-    '<defs>' +
-    '<linearGradient id="svMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset=".3" stop-color="#F0C385"/><stop offset=".7" stop-color="#C07A3E"/><stop offset="1" stop-color="#7A4420"/></linearGradient>' +
-    '<linearGradient id="svHi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></linearGradient>' +
-    '<linearGradient id="svPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D3DBE5"/></linearGradient>' +
-    '<linearGradient id="svRim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9D3E0"/><stop offset="1" stop-color="#8D9BB0"/></linearGradient>' +
-    '' +
-    '<linearGradient id="svSkewer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A4A4A"/><stop offset="1" stop-color="#101010"/></linearGradient>' +
-    '<filter id="svBlur" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="3.5"/></filter>' +
-    '</defs>' +
-    '<ellipse cx="260" cy="206" rx="214" ry="22" fill="#1A1A1A" opacity=".14" filter="url(#svBlur)"/>' +
-    '<ellipse cx="260" cy="200" rx="206" ry="30" fill="url(#svPlate)"/>' +
-    '<ellipse cx="260" cy="200" rx="206" ry="30" fill="none" stroke="url(#svRim)" stroke-width="5"/>' +
-    '<ellipse cx="260" cy="196" rx="168" ry="16" fill="#FFFFFF" opacity=".8"/>' +
-    '<g transform="translate(260 118)">' +
-    '<line x1="-190" y1="6" x2="190" y2="6" stroke="#000" stroke-width="7" stroke-linecap="round" opacity=".3" filter="url(#svBlur)"/>' +
-    '<line x1="-190" y1="0" x2="190" y2="0" stroke="url(#svSkewer)" stroke-width="10" stroke-linecap="round"/>' +
-    '<line x1="-188" y1="-2" x2="188" y2="-2" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity=".35"/>' +
-    chunks +
-    '<circle cx="-190" cy="0" r="6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>' +
-    '<circle cx="190" cy="0" r="6" fill="#B5532A"/>' +
-    '</g>' +
-    '</svg>';
-}
-
-function hero() {
-  var wrap = document.createElement('div');
-  wrap.className = 'hero-art';
-  wrap.setAttribute('aria-hidden', 'true');
-  wrap.innerHTML = heroSvg() + '<span class="hero-chip">Level check, 3 min</span>';
-  return wrap;
 }
 
 function streakPreview(n) {
@@ -147,5 +105,4 @@ A.logo = logo;
 A.pills = pills;
 A.whatYouGet = whatYouGet;
 A.streakPreview = streakPreview;
-A.hero = hero;
 })();

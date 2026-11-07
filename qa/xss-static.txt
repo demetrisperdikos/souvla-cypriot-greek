@@ -1,0 +1,2 @@
+app.js:38:  mark.innerHTML = (window.SouvlaArt && window.SouvlaArt.logo) ? window.SouvlaArt.logo() : '';
+hero.js:40:    wrap.innerHTML = heroSvg() + '<span class="hero-chip">Level check, 3 min</span>';

@@ -1,0 +1,106 @@
+/* Final layer for job-195, loaded last. Owns: primary button, Daily challenge card and UP NEXT strip, day hint, hero chip and backdrop, phone card rhythm, skewer shading, Souvla Test accent. */
+
+/* One base, one hover, one focus-visible rule for the primary button. */
+.btn.primary{background:#A9502A;border-color:#A9502A;color:#fff;box-shadow:0 2px 6px rgba(142,58,23,.22)}
+.btn.primary:hover:not(:disabled){background:#8E3A17;border-color:#8E3A17}
+.btn.primary:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
+
+/* Equal card heights in every width: rows size to the tallest card, CTAs sit on a shared bottom edge. */
+.feature-row{display:grid;grid-auto-rows:1fr;align-items:stretch}
+.feature-row > .card{display:flex;flex-direction:column;height:auto}
+.feature-row > .card > .btn:last-child{margin-top:auto !important}
+
+/* Souvla Test keeps its accent rule. */
+.test-card{border-left:3px solid #A9502A}
+.test-card .card-head .tile,.test-card .card-head > :first-child{background:#A9502A;color:#fff;border-color:#8E3A17}
+
+/* Daily challenge: the UP NEXT strip is a real module (72px minimum) that grows to fill the card, so no dead band sits below it. The CTA keeps an 8px gap. */
+.challenge-card{display:flex;flex-direction:column;gap:8px}
+.challenge-card > .streak-preview{flex:0 0 auto}
+.challenge-card > .up-next.next-up .up-next-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.challenge-card > .up-next.next-up .up-next-title{font-size:1.125rem;font-weight:700;color:var(--ink)}
+.challenge-card > .up-next.next-up .up-next-meta{flex:none;padding:4px 10px;border-radius:999px;background:var(--surface);font-size:.8125rem;color:var(--ink2);white-space:nowrap}
+.challenge-card > .up-next.next-up .up-next-bar{height:4px;border-radius:2px;background:#EBD3C2;overflow:hidden}
+.challenge-card > .up-next.next-up .up-next-fill{display:block;height:100%;background:#A9502A;border-radius:2px}
+.challenge-card > .btn:last-child{margin-top:0}
+
+/* Day-chip helper line: its own line, 8px above, smaller and muted. */
+.streak-preview .week-hint,.challenge-card .week-hint{display:block;margin:8px 0 0;font-size:.8125rem;line-height:1.4;color:var(--ink3)}
+
+/* Hero: one calm backdrop surface with no grain; the chip sits on a clean 16px inset at the top-left, clear of the art. */
+.hero-art{background:#F8EADF;background-image:none}
+.hero-art .hero-chip{top:16px;bottom:auto;left:16px}
+
+/* Skewer chunks: a lighter mid-tone and a thin warm rim so each chunk separates from the plate. */
+.hero-art .art{filter:brightness(1.1) drop-shadow(0 0 1px rgba(255,243,220,.85))}
+
+
+/* Phone: the UP NEXT strip fills the free height of the Daily challenge card, so no dead band sits below it. The CTA keeps its 8px gap. */
+@media (max-width:899px){
+  .challenge-card > .btn:last-child{margin-top:0}
+}
+
+/* Round 7: the UP NEXT strip is a fixed 88px module at every width. The streak preview (day row) takes the spare card height, so the CTA stays 8px under the strip and no dead band forms. */
+.challenge-card > .streak-preview{flex:1 1 auto}
+
+/* Round 9: keep the Daily challenge card inside the 900px fold at 1440x900. Strip 80px (inside the 72-88px module range); preview padding trimmed. */
+@media (min-width:900px){
+  .challenge-card > .streak-preview{padding-top:12px;padding-bottom:12px}
+}
+
+/* Round 10: the streak preview keeps its natural height (no flex growth), and the feature row sizes to content, so the Daily challenge card ends inside the 900px fold. */
+@media (min-width:900px){
+  .feature-row{grid-auto-rows:auto}
+  .challenge-card > .streak-preview{flex:0 0 auto;padding-top:8px;padding-bottom:8px}
+  .challenge-card .week-hint{margin-top:8px}
+}
+
+/* Round 13: desktop hero copy tightened to free vertical room; the UP NEXT strip fills the Daily challenge card so the CTA sits on the card's bottom padding with no dead band. */
+@media (min-width:900px){
+  .main{padding-top:var(--s2)}
+  .hero-copy .display{font-size:3rem;line-height:1.02}
+  .hero-copy .lead{max-width:56ch;margin:0}
+  .hero .actions{margin-top:0}
+  .hero{gap:var(--s3)}
+  .challenge-card > .streak-preview{flex:0 0 auto}
+}
+
+.challenge-card > .up-next.next-up{flex:1 1 auto;height:auto;min-height:72px;box-sizing:border-box}
+.challenge-card > .streak-preview{flex:0 0 auto}
+@media (max-width:899px){.feature-row{grid-auto-rows:auto}.feature-row > .card{height:auto}.challenge-card > .up-next.next-up{flex:0 0 auto}}
+/* Item 7: the streak pill value is the one accent in the header. */
+.stats .stat:first-child .stat-val{color:var(--accent)}
+
+/* QA round 2: primary CTA tonal shift and warm shadow (not a flat slab). */
+.btn.primary{background:linear-gradient(180deg,#B5592F 0%,#A0491F 100%);border-color:#A0491F;box-shadow:0 4px 12px rgba(160,73,31,.28),inset 0 1px 0 rgba(255,255,255,.18)}
+.btn.primary:hover:not(:disabled){background:linear-gradient(180deg,#9A4520 0%,#8E3A17 100%);border-color:#8E3A17}
+
+/* QA round 2: desktop headline restored to a dominant size; fold fixed through card spacing, not by shrinking it. */
+@media (min-width:900px){.hero-copy .display{font-size:3.5rem;line-height:1.02}}
+
+/* QA round 2: phone hero illustration shortened so the first card sits above the fold at 390x844. */
+@media (max-width:899px){.hero-art{height:150px;max-height:150px}.hero-art .hero-scene{width:100%;height:100%}}
+
+/* QA round 2 (fix): solid background-color kept for state tests; tonal shift layered as background-image. */
+.btn.primary{background-color:#A0491F;background-image:linear-gradient(180deg,rgba(255,255,255,.10) 0%,rgba(0,0,0,.06) 100%);border-color:#A0491F}
+.btn.primary:hover:not(:disabled){background-color:#8E3A17;background-image:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(0,0,0,.08) 100%);border-color:#8E3A17}
+
+/* Round 2: the phone hero illustration is 150px tall; the desktop headline is 3.5rem. */
+
+/* Round 11: UP NEXT strip fills the spare height of the Daily challenge card at desktop, so the CTA sits on the bottom padding with no dead band. */
+@media (min-width:900px){
+  .challenge-card > .up-next.next-up{flex:1 0 auto;min-height:72px;justify-content:space-between}
+  .challenge-card > .up-next.next-up .up-next-bar{margin-top:auto}
+}
+
+/* Round 13 (phone): the Souvla Test card drops its extra What-you-get block so both stacked cards are close in height; the pills and illustration shrink so the first card starts above the fold at 390x844. */
+@media (max-width:899px){
+  .test-card .what-get{display:none}
+  .hero-copy .pills{display:none}
+  .hero-art{height:130px;max-height:130px}
+}
+
+/* Round 16 (phone): both stacked feature cards share one 560px height; the Souvla Test card's spare space sits above its action button. */
+@media (max-width:899px){
+  .feature-row > .card{min-height:560px}
+}

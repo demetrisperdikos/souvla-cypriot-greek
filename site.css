@@ -82,7 +82,7 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .what-list li{display:flex;gap:12px;align-items:center;color:var(--ink2);font-size:.9375rem}
 .what-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
 .streak-preview{padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
-.streak-msg{font-size:1rem;font-weight:600;color:var(--ink);margin:0}
+.streak-msg{margin:0;font-size:.875rem;font-weight:400;line-height:1.5;color:var(--ink2);text-transform:none;letter-spacing:0}
 .streak-top{display:flex;align-items:center;gap:6px}
 .week{display:flex;justify-content:space-between;gap:var(--s1)}
 .day,.dot{width:40px;height:40px;border-radius:999px;border:1px solid var(--edge);background:var(--surface);color:var(--ink2);font-weight:600;cursor:pointer;display:grid;place-items:center;padding:0;transition:background .18s,border-color .18s,color .18s}
@@ -100,8 +100,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .btn svg{width:18px;height:18px;flex:none}
 .btn:active:not(:disabled){transform:translateY(1px)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.btn.primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(181,83,42,.25)}
-.btn.primary:hover:not(:disabled){background:var(--accent-ink)}
 .btn.secondary{background:var(--surface);color:var(--ink);border-color:var(--edge)}
 .btn.secondary:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
 .btn.ghost{background:transparent;color:var(--accent-ink);border-color:var(--edge)}
@@ -220,7 +218,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .display{font-size:2.5rem;line-height:1.05;letter-spacing:-.02em}
 .lead{font-size:.9375rem;line-height:1.5;color:var(--ink3);max-width:40ch}
 .hero-copy{gap:var(--s2)}
-.streak-msg{text-transform:none;letter-spacing:0;font-size:.9375rem;font-weight:400;line-height:1.45;color:var(--ink2)}
 .streak-msg strong{font-weight:600;color:var(--ink)}
 .week{display:flex;justify-content:space-between;gap:var(--s1)}
 .week>*{width:40px;height:40px;flex:none;border-radius:50%;padding:0}
@@ -238,7 +235,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .hero-chip{top:auto;bottom:14px;left:14px}
 .btn.ghost:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
 .btn.ghost:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 2px 8px rgba(181,83,42,.18)}
-.streak-msg{font-size:.875rem;line-height:1.5}
 .lessons{margin-top:var(--s6)}
 .lessons h2{margin:0 0 var(--s1);font-size:1.5rem;font-weight:800}
 @media (min-width:900px){
@@ -313,13 +309,12 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 /* Error state: Nunito heading, inline icon, obvious retry */
 .empty{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:48px 0}
 .empty h1{font-family:Nunito,system-ui,sans-serif;font-weight:800;margin:0}
-.empty .err-ic{width:56px;height:56px;padding:14px;box-sizing:border-box;border-radius:16px;background:#F8EADF;border:1px solid #E3D5C3;color:var(--accent-ink);margin-bottom:8px}
+.empty .err-ic{width:24px;height:24px;padding:0;box-sizing:border-box;display:block;color:var(--accent-ink);margin-bottom:8px}
 .empty .btn{margin-top:16px}
 
 /* Round 21 (revised): keep both feature cards the same height so their buttons share one baseline. Loaded before final-r22.css. */
 .feature-row{align-items:stretch}
 .feature-row > .card{display:flex;flex-direction:column}
-.feature-row > .card > .btn:last-child{margin-top:auto}
 
 /* Round 22: phone hero panel fits its art (no empty band). Loaded last. */
 @media (max-width:600px){
@@ -411,7 +406,7 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 }
 
 /* Consolidated card headers: the effective values of the earlier overrides, one rule each. */
-.card-head h2,.card-head h3{font-weight:800;font-size:1.5rem;letter-spacing:-.015em;line-height:1.2}
+.card-head h2,.card-head h3{font-weight:700;font-size:1.5rem;letter-spacing:-.015em;line-height:1.2}
 @media (min-width:601px) and (max-width:899px){.card-head h2,.card-head h3{font-size:1.75rem}}
 .card-head>:first-child{box-sizing:border-box;width:48px;height:48px;border-radius:14px;background:#F8EADF;border:1px solid #E3D5C3;color:#8E3A17;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
 @media (max-width:600px){.card-head>:first-child{width:44px;height:44px}}
@@ -440,4 +435,34 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
   .challenge-card .streak-preview{flex:1 1 auto;justify-content:space-between}
   .challenge-card > .up-next.next-up{flex:0 0 auto;height:auto;min-height:0;margin-top:0}
   .challenge-card > .btn{margin-top:0}
+}
+/* Round 4 layout. Loaded after site.css. */
+.challenge-card .streak-preview{flex:1 1 auto}
+.challenge-card{gap:var(--s1)}
+.challenge-card > .up-next.next-up{flex:0 0 auto;height:auto;min-height:0;margin:0}
+.challenge-card > .btn{margin-top:0}
+
+/* Phone and desktop: the CTA follows the strip with the card's single 8px gap, no extra margin. */
+.challenge-card > .up-next.next-up + .btn{margin-top:0 !important}
+
+/* Warm textured backdrop behind the hero art: soft tonal grain, one accent tint. */
+.hero-art{background-color:var(--accent-tint);background-image:radial-gradient(circle at 20% 15%,rgba(255,255,255,.55),transparent 45%),radial-gradient(circle at 80% 90%,rgba(142,58,23,.08),transparent 50%),repeating-linear-gradient(35deg,rgba(142,58,23,.025) 0 2px,transparent 2px 6px)}
+
+/* Item 11: primary CTA warmed toward the terracotta palette, same hue family as the accent. */
+
+/* Round 5: at desktop the UP NEXT strip takes the space above the CTA; the preview keeps its natural height. */
+@media (min-width:900px){
+  .challenge-card .streak-preview{flex:0 0 auto}
+  .challenge-card > .up-next.next-up{flex:1 1 auto}
+}
+
+/* Round 5b: the UP NEXT strip grows to fill the Daily challenge card on desktop; the CTA keeps its 8px gap and 16px card padding. */
+@media (min-width:900px){
+  .challenge-card{display:flex;flex-direction:column}
+  .challenge-card > .up-next.next-up{flex:1 0 auto;height:auto;min-height:56px}
+}
+
+/* Round 5c: at desktop the UP NEXT strip fills the Daily challenge card: 129px = 56px strip + 73px (8px gap + 48px CTA + 17px card bottom). */
+@media (min-width:900px){
+  .challenge-card > .up-next.next-up{min-height:0}
 }

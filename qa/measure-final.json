@@ -1,0 +1,62 @@
+{
+  "desktop": {
+    "h1Font": "56px",
+    "stripH": 72,
+    "stripToCardBottom": 73,
+    "ctaToCardBottom": 17,
+    "cardHeights": [
+      451,
+      451
+    ],
+    "tileBorder": "1px rgb(142, 58, 23)",
+    "tileSize": 48,
+    "brandMarkSize": 48,
+    "pageHeight": 1457,
+    "footerBottom": 1457
+  },
+  "phone": {
+    "h1Font": "40px",
+    "stripH": 93,
+    "stripToCardBottom": 73,
+    "ctaToCardBottom": 17,
+    "cardHeights": [
+      560,
+      560
+    ],
+    "tileBorder": "1px rgb(142, 58, 23)",
+    "tileSize": 44,
+    "brandMarkSize": 48,
+    "pageHeight": 2821,
+    "footerBottom": 2821
+  },
+  "desktop2x": {
+    "h1Font": "56px",
+    "stripH": 72,
+    "stripToCardBottom": 73,
+    "ctaToCardBottom": 17,
+    "cardHeights": [
+      451,
+      451
+    ],
+    "tileBorder": "1px rgb(142, 58, 23)",
+    "tileSize": 48,
+    "brandMarkSize": 48,
+    "pageHeight": 1457,
+    "footerBottom": 1457
+  },
+  "phone2x": {
+    "h1Font": "40px",
+    "stripH": 93,
+    "stripToCardBottom": 73,
+    "ctaToCardBottom": 17,
+    "cardHeights": [
+      560,
+      560
+    ],
+    "tileBorder": "1px rgb(142, 58, 23)",
+    "tileSize": 44,
+    "brandMarkSize": 48,
+    "pageHeight": 2821,
+    "footerBottom": 2821
+  }
+}

@@ -207,6 +207,12 @@ function challengeCard() {
   nrow.appendChild(el('span', 'up-next-title', first.title));
   nrow.appendChild(el('span', 'up-next-meta', levelName(first.level) + ' · about 5 min'));
   next.appendChild(nrow);
+  var bar = el('div', 'up-next-bar');
+  bar.setAttribute('aria-hidden', 'true');
+  var fill = el('span', 'up-next-fill');
+  fill.style.width = (store.isDone(first.id) ? 100 : 0) + '%';
+  bar.appendChild(fill);
+  next.appendChild(bar);
   card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
   return card;

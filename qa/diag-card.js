@@ -1,9 +1,14 @@
-const { chromium } = require('playwright');
+const puppeteer = require('puppeteer-core');
 (async () => {
-  const b = await chromium.launch({ executablePath: process.env.CHROME || undefined, args: ['--no-sandbox'] });
-  const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
-  await p.goto('http://127.0.0.1:8124/index.html', { waitUntil: 'networkidle' }); await p.waitForSelector('.test-card', { timeout: 15000 });
-  const r = await p.evaluate(() => { const card = document.querySelector('.test-card'); return [...card.children].map(c => { const bb = c.getBoundingClientRect(); const cs = getComputedStyle(c); return { cls: c.className, top: Math.round(bb.top), h: Math.round(bb.height), mt: cs.marginTop, mb: cs.marginBottom, order: cs.order, display: cs.display }; }); });
-  console.log(JSON.stringify(r, null, 1));
-  await b.close();
-})().catch(e => { console.error(e); process.exit(1); });
+  const browser = await puppeteer.launch({ executablePath: '/usr/bin/chromium', headless: 'new', args: ['--no-sandbox'] });
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1440, height: 900 });
+  await page.goto('http://127.0.0.1:8799/index.html', { waitUntil: 'networkidle0' });
+  const rows = await page.evaluate(() => {
+    const card = document.querySelector('.challenge-card');
+    const r = (e) => { const b = e.getBoundingClientRect(); return { cls: e.className, top: Math.round(b.top), h: Math.round(b.height), bottom: Math.round(b.bottom) }; };
+    return { card: r(card), kids: [...card.children].map(r), row: r(card.parentElement), footer: r(document.querySelector('.foot')) };
+  });
+  console.log(JSON.stringify(rows, null, 1));
+  await browser.close();
+})();
