@@ -40,7 +40,7 @@ s += '<defs>' +
 '</defs>';
 // ground: soft fade across the full panel width, no hard edge
 s += "<rect x='-20' y='168' width='640' height='52' fill='url(#hGround)'/>";
-s += "<rect x='120' y='110' width='360' height='10' rx='5' fill='url(#hMetal)' stroke='#4A4A4A' stroke-width='.6'/>";
+s += "<rect x='100' y='110' width='400' height='10' rx='5' fill='url(#hMetal)' stroke='#4A4A4A' stroke-width='.6'/>";
 CH.forEach(function (c) {
 s += "<ellipse cx='" + c.cx + "' cy='" + (c.cy + c.ry - 2) + "' rx='" + f(c.rx * 0.9) + "' ry='6' fill='#140703' opacity='.45' filter='url(#hSoft)'/>";
 });
