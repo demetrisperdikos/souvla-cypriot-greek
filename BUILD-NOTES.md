@@ -36,3 +36,8 @@ hero.js:57:  wrap.innerHTML = "<span class='hero-chip'>Level check, 3 min</span>
 - 1024px layout: NOT VERIFIED.
 - 200% and 400% zoom: NOT VERIFIED.
 - Three features re-run by hand from features.json: NOT VERIFIED this round. check.sh covers the browser flows.
+
+## Repo and publish
+- GitHub: https://github.com/demetrisperdikos/souvla-cypriot-greek (main). Remote main matches local HEAD 4cb1c92 (confirmed with git ls-remote).
+- Score: tests/score.js is a checklist scorer, not a design scorer. Its 9/9 results at 390 and 1440 do not measure the 8/10 design bar. No independent design score has been produced.
+- Open: 16px brand mark is still faint; 1x chunk rim is judged by eye, not measured.
