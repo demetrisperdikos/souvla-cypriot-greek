@@ -58,3 +58,10 @@ Rendered #brand svg measured with inline size overrides: 16px -> 16x16, 24px -> 
 Legibility of the silhouette at 16 and 24px is a visual judgement: NOT VERIFIED by a reviewer. Crops saved at /tmp/brand-16.png, /tmp/brand-24.png, /tmp/brand-48.png on the company computer.
 Sad-face mark: owner decision asked (ask_owner). Default in use: skewer silhouette.
 Design score: NOT RE-SCORED; no 8+ claim.
+
+## Round 16 (consolidation, HEAD fc92241)
+The stacked round 4-14 override blocks in final.css were replaced by one block (job-195 round 16). Measured values did not change: 1440 eyebrow and hero panel top both 121px, skewer centre offset 0px, chips 128/128/128, 114/114/114 at 390, CTAs 48px at both widths, footer bottom 1479px on desktop (the 883px footer baseline is measured by the suite).
+NOTE on 390: the hero art stacks below the copy, so the centre-offset number at 390 (247px) compares two unrelated blocks and is not a centring measure. The 390 hero is checked for overlap only (chipOverlapsSvg false).
+NOT VERIFIED (reviewer-judged): hero chunk quality, brand mark crispness at 16 and 24px, design score (no 8+ claim).
+OPEN: sad-face mark decision (owner asked, default is the skewer silhouette).
+NOT VERIFIED: real screen readers, physical phones, Safari, Firefox, Chrome Android.
