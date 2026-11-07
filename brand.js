@@ -1,17 +1,19 @@
 (function () {
-  function chunk(cx, cy, rot) {
-    return "<g transform='translate(" + cx + " " + cy + ") rotate(" + rot + ") scale(1.75)'>" +
-      "<path d='M-10 -5 Q-12 -12 -4 -11 Q2 -15 9 -9 Q12 -2 9 4 Q11 11 3 11 Q-2 14 -8 9 Q-13 4 -10 -5 Z' fill='#B8642E' stroke='#2A0F03' stroke-width='3.4' stroke-linejoin='round'/>" +
-      "<ellipse cx='-3' cy='-5' rx='2.6' ry='1.2' transform='rotate(-20 -3 -5)' fill='#FFE2B8' opacity='.85'/>" +
-      "</g>";
+  // Brand mark: flat dark silhouette. One skewer bar, three lumpy chunks (about 1.25x), each separated from its neighbour by a cream keyline, one crisp highlight.
+  var LUMP = 'M-5 -3 C-5 -7 -2 -8 0 -7 C2 -8.5 5 -7 5 -3 C6 0 5.5 4 2 5 C0 7 -3 7 -4.5 5 C-7 4 -7 0 -5 -3 Z';
+  function chunk(cx) {
+    return "<g transform='translate(" + cx + " 24) scale(1.25)'>" +
+      "<path d='" + LUMP + "' fill='#2A0F03' stroke='#FBF6EF' stroke-width='1' paint-order='stroke'/>" +
+      "<ellipse cx='-2' cy='-3.6' rx='1.4' ry='0.6' transform='rotate(-20 -2 -3.6)' fill='#FBF6EF'/>" +
+      '</g>';
   }
   function logo() {
     return "<svg viewBox='0 0 48 48' width='48' height='48' aria-hidden='true' focusable='false'>" +
       "<rect width='48' height='48' rx='12' fill='#FBF6EF'/>" +
       "<rect x='0.5' y='0.5' width='47' height='47' rx='11.5' fill='none' stroke='#E2D6C6'/>" +
-      "<line x1='5' y1='26' x2='43' y2='22' stroke='#2A0F03' stroke-width='5.5' stroke-linecap='round'/>" +
-      chunk(11, 24, -6) + chunk(24, 22, 4) + chunk(37, 24, -4) +
-      "</svg>";
+      "<rect x='3' y='22.5' width='42' height='3' rx='1.5' fill='#2A0F03'/>" +
+      chunk(14) + chunk(24) + chunk(34) +
+      '</svg>';
   }
   if (window.SouvlaArt) window.SouvlaArt.logo = logo;
 })();

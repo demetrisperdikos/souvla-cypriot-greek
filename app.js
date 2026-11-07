@@ -55,7 +55,7 @@ function renderStats() {
   var s = document.getElementById('stats');
   s.setAttribute('aria-live', 'polite');
   s.textContent = '';
-  s.appendChild(stat('flame', store.state.streak, 'day streak'));
+  s.appendChild(stat('flame', store.state.streak, 'streak'));
   s.appendChild(stat('bolt', store.state.xp, 'XP', true));
   s.appendChild(stat('skewer', store.skewers(), 'skewers'));
 }
@@ -216,6 +216,7 @@ function challengeCard() {
   fill.style.width = (store.isDone(first.id) ? 100 : 0) + '%';
   bar.appendChild(fill);
   next.appendChild(bar);
+  next.appendChild(el('span', 'up-next-pct', (store.isDone(first.id) ? '100' : '0') + '% of this lesson'));
   card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
   return card;

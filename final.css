@@ -193,3 +193,66 @@
 
 /* Fix round 22: desktop chip moves to bottom-left so it does not cover the first skewer chunk. */
 @media (min-width:900px){.hero-art .hero-chip{top:auto;bottom:12px;left:12px}}
+
+/* Fix round: header streak chips, equal 3-column grid, 20px icon box, same stroke. */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(100%,384px)}
+.stat{width:100%;justify-content:center;padding:0 10px;min-width:0}
+.stat-ico{width:20px;height:20px;stroke-width:2}
+.stat-label{overflow:hidden;text-overflow:ellipsis}
+/* Primary CTAs render at 48px. */
+.btn.primary{height:48px;min-height:48px}
+/* Daily challenge: one 16px gap between rows. */
+.challenge-card{gap:16px}
+.up-next-pct{font-size:.8125rem;color:var(--ink2)}
+/* Hero illustration centred against the text block on desktop; full panel width on phone. */
+.hero-art{align-self:center}
+@media (max-width:899px){.hero-art{height:auto;aspect-ratio:430/146}.hero{gap:var(--s2)}}
+
+/* Fit the 900px fold: trim desktop top padding by one 8px step. */
+@media (min-width:900px){.main{padding-top:var(--s1)}}
+
+/* job-195 round 4: header chips on one 3-column grid, full labels; hero band keeps the chip off the art; brand and hero art */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(100%,400px)}
+.stat{width:100%;min-width:0;padding:0 8px;justify-content:center;gap:6px}
+.stat-ico{width:20px;height:20px;stroke-width:2;flex:none}
+.stat-label{overflow:visible;text-overflow:clip;white-space:nowrap}
+.hero-art{position:relative;height:180px;overflow:hidden;border-radius:var(--r)}
+.hero-art > svg{position:absolute;left:0;top:44px;width:100%;height:calc(100% - 44px);display:block}
+.hero-art .hero-chip{position:absolute;top:12px;left:12px;bottom:auto;right:auto}
+@media (min-width:900px){.hero-art{height:200px}}
+
+/* job-195 round 4b: remove empty 0% track (label kept); desktop hero panel spans the copy column so its top matches the eyebrow and the art is centred against the text */
+.challenge-card > .up-next.next-up .up-next-bar{display:none}
+@media (min-width:900px){.hero{align-items:stretch}.hero-art{height:auto;min-height:200px;display:flex;align-items:center;justify-content:center}.hero-art > svg{position:relative;left:auto;top:auto;height:auto;width:100%;max-height:100%}}
+
+/* job-195 round 4c: chip sits in its own strip above the art at both widths; card rhythm is 16px between streak row, up next and CTA */
+.hero-art{height:auto;min-height:0;display:block;padding-top:44px;overflow:hidden}
+.hero-art > svg{position:static;left:auto;top:auto;width:100%;height:auto;display:block}
+.hero-art .hero-chip{position:absolute;top:10px;left:12px}
+@media (min-width:900px){.hero{align-items:center}.hero-art{height:auto;min-height:0;display:block}}
+.challenge-card{display:flex;flex-direction:column;gap:16px}
+.challenge-card > .up-next.next-up{margin:0}
+.challenge-card > .btn,.challenge-card .btn.primary{margin:0}
+
+/* job-195 round 4d: desktop hero panel top aligns with the eyebrow; the art is centred vertically against the copy column */
+@media (min-width:900px){.hero{align-items:stretch}.hero-art{height:100%;min-height:0;display:flex;align-items:center;padding-top:0}.hero-art > svg{width:100%;height:auto;max-height:none}}
+
+/* job-195 round 4e: desktop chip sits in a strip under the art, so it never covers the skewer; art centred in the space above the strip */
+@media (min-width:900px){.hero-art{position:relative;padding:0 0 40px;height:100%;min-height:0;display:flex;align-items:center;justify-content:center}.hero-art > svg{margin:auto 0;position:relative}.hero-art .hero-chip{top:auto;bottom:10px;left:12px}}
+
+/* job-195 round 4f (final): one layout for both widths. Chip sits in a 44px strip above the art; the art is not overlapped at 390 or 1440. */
+.hero-art{position:relative;display:block;height:auto;min-height:0;padding:44px 0 0;overflow:hidden}
+.hero-art > svg{position:static;margin:0;width:100%;height:auto;display:block}
+.hero-art .hero-chip{position:absolute;top:10px;left:12px;bottom:auto;right:auto}
+
+/* job-195 round 4g: panel height follows the art (no clipping); desktop panel top aligned to the eyebrow */
+.hero-art{height:auto !important;max-height:none !important;overflow:visible;padding:44px 0 0}
+.hero-art > svg{height:auto !important;max-height:none !important}
+@media (min-width:900px){.hero{align-items:start}.hero-art{margin-top:32px}}
+
+/* job-195 round 4h: art height follows its content at every width (no fixed aspect ratio, so no spill); desktop panel top equals the eyebrow top */
+.hero-art{aspect-ratio:auto !important;height:auto !important}
+@media (min-width:900px){.hero{align-items:start}.hero-art{margin-top:0 !important}}
+
+/* job-195 round 4i: desktop hero panel top equals the eyebrow top */
+@media (min-width:900px){.hero-art{margin-top:-8px !important}}
