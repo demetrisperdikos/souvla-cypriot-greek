@@ -33,7 +33,7 @@ function el(tag, cls, text) {
 }
 function btn(label, cls, onClick, iconName) {
   var variants = ['primary', 'secondary', 'ghost'];
-  var b = el('button', 'btn ' + (variants.indexOf(cls) >= 0 ? 'btn-' + cls : (cls || '')));
+  var b = el('button', 'btn ' + (variants.indexOf(cls) >= 0 ? cls : (cls || '')));
   b.type = 'button';
   if (iconName) b.appendChild(icon(iconName));
   b.appendChild(document.createTextNode(label));

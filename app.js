@@ -195,6 +195,13 @@ function challengeCard() {
   var first = data.lessons[0];
   var label = store.isDone(first.id) ? 'Practise again' : 'Open ' + first.title;
   card.appendChild(window.SouvlaArt.streakPreview(n));
+  var next = el('div', 'up-next');
+  next.appendChild(el('p', 'up-next-label', 'Up next'));
+  var nrow = el('div', 'up-next-row');
+  nrow.appendChild(el('span', 'up-next-title', first.title));
+  nrow.appendChild(el('span', 'up-next-meta', levelName(first.level) + ' · about 5 min'));
+  next.appendChild(nrow);
+  card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
   return card;
 }

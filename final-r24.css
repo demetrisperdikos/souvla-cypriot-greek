@@ -1,3 +1,0 @@
-/* Round 24: pill inset 16px measured from the panel edge (1px border counted); card row margin 32px */
-.hero-art .pill, .hero .pill, .level-pill { top: 15px !important; right: 15px !important; }
-.hero + *, .hero + .cards, .cards { margin-top: 32px !important; }

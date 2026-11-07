@@ -27,3 +27,14 @@
 
 ## Not verified
 - Design score 8/10: needs the QA designer to judge the live link.
+
+## Round 7 (fold and cleanup)
+- site.css rewritten as one file; all !important overrides removed (the desktop fold block now uses normal specificity).
+- btn() in ui.js emits the variant class (btn primary), so primary buttons are styled.
+- --ink3 darkened to #5F5F5A for colour contrast (axe clean on home and quiz).
+- Desktop 1440x900: both card CTAs sit at 729px, above the fold; both cards share one baseline.
+- Hidden on desktop to reach the fold: third 'What you get' item, streak week note, Souvla Test 'What you get' panel. Owner to decide if acceptable.
+- check.sh exits 0.
+
+## Not verified
+- Design score against the 8/10 bar: QA designer to judge the live link.

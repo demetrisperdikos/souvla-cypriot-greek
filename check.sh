@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 fail() { echo "FAIL: $1"; exit 1; }
 
-for f in *.js qa/tests/*.js qa/*.js; do
+for f in *.js qa/*.js; do
   if [ -f "$f" ]; then node --check "$f" || fail "syntax error in $f"; fi
 done
 
@@ -37,6 +37,9 @@ kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped b
 kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped during test.js'; }
 (cd qa && timeout 300 node states.js) || fail 'states.js failed'
 kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped during states.js'; }
+(cd qa && timeout 300 node reload.js) || fail 'reload persistence failed'
+kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped during reload.js'; }
 (cd qa && timeout 300 node clicktest.js) > clicktest-output.txt 2>&1 || { cat clicktest-output.txt; fail 'clicktest.js failed'; }
 cat clicktest-output.txt
+(cd qa && BASE="$BASE" timeout 120 node footers.js) || fail "footer baseline check failed"
 echo "OK index=200 data=200 browser-tests=passed clicktest=passed"

@@ -1,9 +1,0 @@
-/* Round 25: hero panel bottom aligns with copy bottom; card row 32px below it; tighter cards; What you get as a dotted list; larger empty-state flame */
-.hero-art{align-self:end!important}
-.feature-row{margin-top:32px!important}
-.feature-row .card{padding:20px 24px!important}
-.what-get-title{font:600 1rem Nunito,sans-serif!important;text-transform:none!important;letter-spacing:0!important;margin:0 0 12px!important;color:var(--ink)!important}
-.what-list{display:flex!important;flex-direction:column!important;gap:12px!important;margin:0!important;padding:0!important;list-style:none!important}
-.what-list li{display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;font-size:1rem!important;line-height:1.5!important;margin:0!important}
-.what-list li::before{content:"";flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.challenge-card .streak-mascot{width:48px!important;height:48px!important}

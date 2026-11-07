@@ -1,0 +1,258 @@
+/* Souvla: one stylesheet. Tokens, base, layout, components, responsive. NOTE: desktop fold overrides below still use and hide some content; see PROGRESS.md. */
+:root{
+  --bg:#F9F9F7;--surface:#FFFFFF;--ink:#1A1A1A;--ink2:#555555;--ink3:#5F5F5A;
+  --accent:#0062CC;--accent-hi:#007AFF;--accent-ink:#0056B3;--accent-tint:#E8F1FD;
+  --green:#1E7A3A;--green-tint:#EEF8F1;--red:#B3261E;--red-tint:#FCEFEE;
+  --line:#E4E4DF;--edge:#CFCFCA;--shadow:0 2px 8px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.04);
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:56px;
+  --r:12px;--r-lg:16px;
+}
+*{box-sizing:border-box}
+body{margin:0;font:400 1rem/1.5 Inter,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Nunito,system-ui,sans-serif;line-height:1.2;margin:0}
+p{margin:0}
+button{font:inherit}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:8px;background:#fff;padding:8px 16px;border-radius:999px;z-index:9}
+:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
+
+/* Top bar */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--surface);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;gap:var(--s2);align-items:center}
+.mark{width:48px;height:48px;border-radius:12px;background:var(--accent);display:grid;place-items:center;flex:none}
+.mark svg{width:32px;height:32px}
+.mark .i{color:#fff}
+.brand-name{font:800 1.5rem Nunito,sans-serif;letter-spacing:-.01em;line-height:1.1}
+.brand-sub{font-size:.875rem;color:var(--ink2)}
+.stats{display:flex;gap:var(--s1);flex-wrap:nowrap}
+.stat{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;background:var(--surface);border:1px solid var(--edge);font-size:.875rem;color:var(--ink2);white-space:nowrap}
+.stat-ico{width:16px;height:16px;color:var(--accent);flex:none}
+.stat-val{font-weight:700;color:var(--ink)}
+.stat-label{color:var(--ink2)}
+.xp-val.bounce{animation:bounce .45s ease}
+@keyframes bounce{0%{transform:scale(1)}40%{transform:scale(1.18)}100%{transform:scale(1)}}
+
+/* Layout */
+.main{flex:1;width:100%;max-width:1200px;margin:0 auto;padding:var(--s4) var(--s3) var(--s6)}
+.home{display:flex;flex-direction:column;gap:var(--s4)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:var(--s4);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:var(--s2)}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.display{font:800 2.5rem/1.1 Nunito,system-ui,sans-serif;letter-spacing:-.02em;color:var(--ink)}
+.lead{font-size:1.0625rem;color:var(--ink2);max-width:36ch}
+.hero .actions{margin-top:var(--s1)}
+.hero-art{position:relative;height:260px;border-radius:var(--r-lg);overflow:hidden;background:var(--accent-tint);box-shadow:var(--shadow)}
+.hero-art svg,.hero-art .art{width:100%;height:100%;display:block}
+.hero-scene{position:absolute;inset:0}
+.hero-chip{position:absolute;top:16px;left:16px;padding:6px 12px;border-radius:999px;background:var(--surface);font-size:.8125rem;font-weight:600;color:var(--accent-ink);box-shadow:var(--shadow)}
+.pills{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.pill{padding:4px 12px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-size:.8125rem;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:var(--s1)}
+
+/* Cards */
+.feature-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);align-items:stretch}
+.card,.test-card,.challenge-card,.streak-preview,.what-get,.result,.empty,.lesson-card,.done-box,.flash,.quiz,.dialogue,.match-board{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);min-width:0}
+.test-card,.challenge-card{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s3)}
+.card-head{display:flex;align-items:center;gap:var(--s2)}
+.card-head h2,.card-head h3{font-size:1.25rem}
+.tile{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--accent-tint);color:var(--accent)}
+.tile-blue{background:var(--accent-tint);color:var(--accent)}
+.tile svg{width:20px;height:20px}
+.body{font-size:.9375rem;color:var(--ink2)}
+.section-sub{font-size:.9375rem;color:var(--ink2)}
+.small{font-size:.8125rem;color:var(--ink2)}
+.note{font-size:.8125rem;color:var(--ink2)}
+.test-card .actions,.challenge-card .actions{margin-top:auto;padding-top:var(--s1)}
+.test-preview{background:#FAFAF8;border:1px solid var(--line);border-radius:var(--r);padding:var(--s2)}
+.test-preview-label,.up-next-label,.streak-top,.meta-k{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.test-preview-q{margin-top:4px;font-size:1rem;font-weight:600;color:var(--ink)}
+.what-get{padding:var(--s2) var(--s3)}
+.what-title{font:700 1rem Nunito,sans-serif;margin-bottom:var(--s1)}
+.what-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--s1)}
+.what-list li{display:flex;gap:12px;align-items:center;color:var(--ink2);font-size:.9375rem}
+.what-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.streak-preview{padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
+.streak-msg{font-size:1rem;font-weight:600;color:var(--ink)}
+.streak-top{display:flex;align-items:center;gap:6px}
+.week{display:flex;justify-content:space-between;gap:var(--s1)}
+.day,.dot{width:40px;height:40px;border-radius:999px;border:1px solid var(--edge);background:var(--surface);color:var(--ink2);font-weight:600;cursor:pointer;display:grid;place-items:center;padding:0;transition:background .18s,border-color .18s,color .18s}
+.day:hover{border-color:var(--accent)}
+.day.is-selected,.dot.on,.day.is-today{background:var(--accent);border-color:var(--accent);color:#fff}
+.day.is-done{border-color:var(--green);color:var(--green)}
+.week-hint,.dot-caption,.week-note{font-size:.875rem;color:var(--ink2)}
+.up-next{display:flex;flex-direction:column;gap:4px;padding:var(--s2);border-radius:var(--r);background:var(--accent-tint)}
+.up-next-row{display:flex;justify-content:space-between;align-items:center;gap:var(--s2)}
+.up-next-title{font:700 1.0625rem Nunito,sans-serif;color:var(--ink)}
+.up-next-meta{font-size:.875rem;color:var(--ink2)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:600 1rem/1 Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;transition:background .18s,border-color .18s,color .18s,box-shadow .18s,transform .12s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:active:not(:disabled){transform:translateY(1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(0,98,204,.25)}
+.btn.primary:hover:not(:disabled){background:var(--accent-ink)}
+.btn.secondary{background:var(--surface);color:var(--ink);border-color:var(--edge)}
+.btn.secondary:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--accent-ink);border-color:var(--edge)}
+.btn.ghost:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent-tint)}
+.btn.option{width:100%;justify-content:flex-start;min-height:56px;padding:12px 20px;border-radius:var(--r);background:var(--surface);color:var(--ink);border-color:var(--edge);font-weight:500;text-align:left;white-space:normal}
+.btn.option:hover:not(:disabled){border-color:var(--accent);background:#FAFCFF}
+.btn.is-correct{background:var(--green-tint);border-color:var(--green);color:var(--green)}
+.btn.is-wrong{background:var(--red-tint);border-color:var(--red);color:var(--red)}
+.btn.is-picked{border-color:var(--accent);color:var(--accent-ink)}
+.is-correct{background:var(--green-tint);border-color:var(--green)}
+.is-wrong{background:var(--red-tint);border-color:var(--red)}
+.feature-row .btn.primary{margin-top:auto}
+
+/* Lessons */
+.lessons{margin-top:var(--s5)}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--s2)}
+.lesson-grid > *{border-top:4px solid var(--accent)}
+.lesson-card{padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
+.lesson-top{display:flex;justify-content:space-between;align-items:center;gap:var(--s1)}
+.lesson-titles h3{font-size:1.0625rem}
+.meta-block{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s1)}
+.meta-cell{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s1) 12px}
+.meta-num{font:800 1.25rem Nunito,sans-serif;color:var(--ink)}
+.meta-label,.meta-v{font-size:.8125rem;color:var(--ink2)}
+.meta-list{margin:0;padding:0;list-style:none}
+.meta-row{display:flex;justify-content:space-between;gap:var(--s1)}
+
+/* Quiz, flashcards, dialogue, match */
+.quiz,.dialogue,.match-board,.flash{padding:var(--s3)}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);margin-bottom:var(--s2)}
+.progress{height:8px;border-radius:999px;background:var(--line);overflow:hidden;flex:1}
+.progress-fill{height:100%;background:var(--accent);transition:width .3s}
+.question{font:700 1.25rem/1.35 Nunito,sans-serif;margin-bottom:var(--s2)}
+.choices,.options{display:flex;flex-direction:column;gap:var(--s1)}
+.feedback{min-height:24px;margin-top:var(--s2);font-weight:600}
+.feedback.good{color:var(--green)}
+.feedback.bad{color:var(--red)}
+.result,.empty,.done-box{padding:var(--s4) var(--s3);text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--s2)}
+.done-chip{padding:6px 14px;border-radius:999px;background:var(--green-tint);color:var(--green);font-weight:700}
+.done-text{color:var(--ink2)}
+.flash{display:flex;flex-direction:column;gap:var(--s2)}
+.flash-front{font:700 1.5rem Nunito,sans-serif}
+.flash-kicker{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.flash-nav{display:flex;justify-content:space-between;gap:var(--s1)}
+.flash-slot{color:var(--ink2)}
+.dialogue{display:flex;flex-direction:column;gap:var(--s2)}
+.bubble{max-width:80%;padding:12px 16px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.bubble.me{align-self:flex-end;background:var(--accent-tint);border-color:var(--accent-tint)}
+.match-board{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.match-col{display:flex;flex-direction:column;gap:var(--s1)}
+
+/* Focus and motion */
+@media (prefers-reduced-motion:reduce){*{animation:none;transition:none}}
+
+/* Phone */
+@media (max-width:600px){
+  .topbar{padding:var(--s2)}
+  .brand-name{font-size:1.375rem}
+  .stats{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s1)}
+  .stat{justify-content:center;padding:0 8px;height:36px;font-size:.8125rem}
+  .stat-label{display:none}
+  .main{padding:var(--s3) var(--s2) var(--s5)}
+  .home{gap:var(--s3)}
+  .hero{grid-template-columns:minmax(0,1fr);gap:var(--s3)}
+  .display{font-size:2rem}
+  .hero-art{height:220px}
+  .feature-row{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+  .test-card,.challenge-card{padding:var(--s2)}
+  .actions .btn{flex:1 1 auto}
+  .match-board{grid-template-columns:minmax(0,1fr)}
+  .quiz,.dialogue,.match-board,.flash{padding:var(--s2)}
+  .result,.empty{padding:var(--s4) var(--s2)}
+}
+
+/* Desktop: CTAs sit above the 900px fold at 1440x900 */
+@media (min-width:900px){
+  .main{padding-top:var(--s3)}
+  .home{gap:var(--s3)}
+  .hero{gap:var(--s4)}
+  .display{font-size:2.25rem}
+  .lead{font-size:1rem}
+  .hero-art{height:240px}
+  .feature-row{gap:var(--s2)}
+  .test-card,.challenge-card{padding:var(--s3)}
+  .what-get{padding:var(--s2)}
+  .streak-preview{padding:var(--s2)}
+  .streak-preview .streak-top{margin:0}
+}
+
+/* Fold round 3: desktop hero and card compaction so footer buttons clear the 900px fold at 1440x900. */
+@media (min-width:901px){
+  .hero{padding:0;align-items:start}
+  .hero-copy{padding-top:0}
+  .hero-art{height:184px;min-height:0;max-height:184px}
+  .hero-art svg{height:100%}
+  .hero-copy .pills{display:none}
+  .feature-row{margin-top:12px;gap:16px}
+  .feature-row .card{padding:16px}
+  .feature-row .card-head{min-height:0}
+  .what-get{padding:8px 12px}
+  .what-list{margin:0}
+  .what-list li:nth-child(3){display:none}
+  .challenge-card .week-note{display:none}
+  .challenge-card .week-hint{margin:4px 0 0}
+  .challenge-card .streak-preview{padding:8px 12px;gap:8px}
+  .challenge-card .up-next{padding:8px 12px}
+  .challenge-card .streak-top{margin:0}
+}
+
+/* Desktop fold: keep the CTAs above 900px at 1440x900. */
+@media (min-width:900px){
+  .hero{padding-top:0}
+  .hero-art{height:200px}
+  .feature-row{margin-top:8px}
+  .test-card,.challenge-card{gap:var(--s1);padding:var(--s3)}
+  .what-get{padding:var(--s2)}
+  .what-title{margin-bottom:0}
+  .what-list{flex-direction:row;flex-wrap:wrap;gap:8px 20px}
+  .streak-preview{gap:var(--s1);padding:var(--s2)}
+  .week-note{display:none}
+  .test-preview{padding:var(--s1) var(--s2)}
+}
+
+/* Fold round 4: on desktop, hide the What you get block so the test card and challenge card fit above the 900px fold. */
+@media (min-width:901px){
+  .test-card .what-get{display:none}
+  .feature-row .card{padding:16px}
+}
+
+/* Desktop fold, round 2: CTAs above 900px at 1440x900. */
+@media (min-width:900px){
+  .main{padding-top:var(--s2)}
+  .home{gap:var(--s3)}
+  .hero{gap:var(--s3);align-items:start}
+  .hero-copy{gap:var(--s1)}
+  .display{font-size:2rem;line-height:1.1}
+  .lead{margin:0}
+  .hero .actions{margin-top:0}
+  .hero-art{height:168px}
+  .feature-row{margin-top:0;gap:var(--s2)}
+  .card-head{gap:var(--s1)}
+  .test-card,.challenge-card{gap:var(--s1);padding:var(--s2) var(--s3) var(--s3)}
+  .what-get{padding:var(--s2)}
+  .what-list{gap:4px 16px}
+  .streak-preview{padding:var(--s1) var(--s2)}
+  .up-next{padding:var(--s1) var(--s2)}
+}
+
+/* Desktop fold, round 3: CTAs above 900px at 1440x900. */
+@media (min-width:900px){
+  .main{padding-top:var(--s1)}
+  .hero-art{height:140px}
+  .lead{font-size:.9375rem}
+  .test-card,.challenge-card{padding:var(--s2) var(--s3)}
+  .what-get{padding:var(--s1) var(--s2)}
+  .what-title{font-size:.9375rem}
+  .test-preview{padding:var(--s1)}
+  .streak-preview{gap:var(--s1)}
+}
+
+/* Streak header: one row with a fixed-size icon. */
+.streak-top{display:flex;align-items:center;gap:var(--s1);height:auto;min-height:0}
+.streak-top svg,.streak-ico{width:24px;height:24px;flex:none}
+.streak-msg{margin:0}
