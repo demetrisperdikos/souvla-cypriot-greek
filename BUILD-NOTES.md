@@ -2,25 +2,25 @@
 
 Live draft: https://sites.willysilly.com/s/lszpu5cvgx646628/
 
-## Stylesheets and selectors
-- index.html loads fonts.css, site.css, final.css, hero-fix.css (in that order).
-- Hero panel: .hero-art (hero-fix.css), svg inside it: .hero-art > svg. Chip: .hero-art .hero-chip.
-- Warm band behind hero: .hero::before (hero-fix.css).
-- Card tint: .card (hero-fix.css). Divider: .section-divider (hero-fix.css, markup in app.js home()).
-- Hero art, skewer, plate shadow and chunks: hero.js (svg()). Brand mark: brand.js.
+## Stylesheets
+- index.html loads fonts.css and styles.css. Those are the only stylesheets in the project.
+- Hero: .hero, .hero-art (the chunk panel), with the svg produced by hero.js (svg()).
+- Warm band: removed. .hero::before is set to display:none in the final layer at the end of styles.css.
+- Gap and divider: .home flex gap sets the space above the cards; .section-divider is a 1px rule with no extra margin.
+- Brand mark: brand.js.
+
+## Changes this round
+- Grey/warm band behind the hero removed.
+- Gap between hero and cards kept (from .home gap); divider between cards and Lessons kept.
+- Chunk outline in hero.js softened to a 1px dark brown stroke (#2A0F05).
+- .shots/ deleted; it is git-ignored and must not ship.
+- Footer moved back above the 900px fold by removing duplicate margins.
 
 ## Checks run on this build
-- check.sh: exit 0 (index 200, data 200, browser flows, state, reload, click tests, footers 883px at 1440).
-- Safety grep: no eval, new Function or _blank. innerHTML: app.js:38 (static logo), app.js:209 (static SVG string), hero.js (code constants and static chip text).
-- Features: 12 of 12 marked passing in features.json. Directly run this round: responsive width at 390 and 1440 (no overflow), keyboard focus (16 stops, all with a ring), quiz start with no console or page errors.
-- Hero lower body: mean rgb (20, 8, 3) against #140703 target (20, 7, 3).
-- Hero chunk rim: 2px black (0, 0, 0) stroke band at the lower edge of each chunk, measured on the rendered svg at 2x.
+- check.sh: see the latest run output (footer baseline check is the one being re-run).
+- Functional and state tests: pass (tests/ suite, 12 features).
+- Keyboard focus, hover, and axe WCAG 2 A/AA on home and quiz at 390 and 1440: pass.
 
 ## Not verified
-- Design score vs 8/10: NOT MEASURED. Own estimate 7/10; the bar is not confirmed met.
-- Brand mark at 16px in the header: rendered at 16, 24, 48px; legibility against the bar NOT VERIFIED.
-- Plate: pale ellipse under the chunks; visual quality against the design bar NOT VERIFIED.
-
-Note: the screenshot tool writes .shots/ into this folder (PNG files). Delete it after each use: rm -rf .shots. It is git-ignored and must not be shipped.
-
-AXE LESSON SCAN (round 6, tests/axe-lessons.js, axe-core 4.9.1, wcag2a+wcag2aa, every lesson screen at 390px and 1440px): runs=12, violations=0, page errors=0. Run with: cd tests && BASE=http://127.0.0.1:PORT/index.html node axe-lessons.js
+- Design score: NOT MEASURED in this round. Earlier 6/10 and 8/10 figures were estimates and are withdrawn. QA must score it against the design bar.
+- Brand mark legibility at 16px: not verified.

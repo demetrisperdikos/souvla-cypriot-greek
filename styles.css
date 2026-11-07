@@ -611,7 +611,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .stat-ico{width:20px;height:20px;stroke-width:2;flex:none}
 .challenge-card{display:flex;flex-direction:column;gap:16px}
 .challenge-card > .up-next.next-up{margin:0}
-.challenge-card > .up-next.next-up .up-next-bar{display:none}
 .challenge-card > .btn,.challenge-card .btn.primary{margin:0}
 .hero-art{position:relative;display:flex;flex-direction:column;gap:12px;padding:12px;margin:0;height:auto;aspect-ratio:auto;min-height:0;overflow:visible;align-self:center}
 .hero-art > svg{position:static;display:block;width:100%;height:auto;max-height:none;margin:0;transform:none}
@@ -658,7 +657,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 @media (min-width:900px){
 .hero-art{position:relative;overflow:hidden;padding:0;display:flex;flex-direction:column;justify-content:center}
 }
-.challenge-card > .up-next.next-up .up-next-bar{display:none}
 
 /* Round 24: phone chip moves to the bottom-left of the panel so it never covers the chunks. */
 @media (max-width:899px){
@@ -700,3 +698,19 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .main{padding-bottom:40px}
 .brand svg{display:block}
 .hero-art>svg{overflow:visible}
+/* Final fix layer: no band behind hero; clear gap and divider between hero and cards. */
+.hero{position:relative}
+.hero::before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:-24px;bottom:-24px;width:100vw;background:#F5E4D5;z-index:-1}
+/* card gap comes from the .home flex gap */
+.section-divider{display:block;height:1px;border:0;background:#E6D2BD;margin:0}
+
+/* Round 32: segmented Up Next progress bar, one segment per step or card. */
+.up-next-bar{display:flex;gap:4px;margin:8px 0}
+.up-next-seg{flex:1;height:6px;border-radius:3px;background:#E9D6C4}
+.up-next-seg.is-done{background:var(--accent)}
+
+/* Round 32: trim trailing gap so the footer sits above the 900px desktop fold. */
+@media (min-width:900px){.main{padding-bottom:32px}}
+
+/* Round 32: bar spacing comes from the .up-next flex gap, so the footer stays above the fold. */
+.up-next-bar{margin:0}
