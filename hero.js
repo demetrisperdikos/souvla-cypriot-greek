@@ -1,6 +1,6 @@
 (function () {
   var DEFS = "<defs>" +
-    "<radialGradient id='hMeat' cx='36%' cy='30%' r='74%'><stop offset='0' stop-color='#A8552A'/><stop offset='.55' stop-color='#4E2008'/><stop offset='1' stop-color='#1E0A02'/></radialGradient>" +
+    "<radialGradient id='hMeat' cx='36%' cy='30%' r='74%'><stop offset='0' stop-color='#D08A4E'/><stop offset='.5' stop-color='#9A5224'/><stop offset='1' stop-color='#6A3414'/></radialGradient>" +
     "<linearGradient id='hTop' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#FFFFFF'/><stop offset='1' stop-color='#EAE3D4'/></linearGradient>" +
     "<linearGradient id='hRim' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#8A7C63'/><stop offset='1' stop-color='#4A4032'/></linearGradient>" +
     "<linearGradient id='hSkewer' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#4A4A4A'/><stop offset='1' stop-color='#1A1A1A'/></linearGradient>" +
