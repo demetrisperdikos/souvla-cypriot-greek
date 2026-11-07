@@ -166,3 +166,9 @@
 
 /* Day card: the helper note is not part of the layout at any width, so the hint sits directly above the UP NEXT strip. */
 .challenge-card .week-note{display:none !important}
+
+/* Phone: the Daily card sizes to its content, so the UP NEXT strip is its natural height and no empty band sits under it. The Souvla Test card keeps its own height. */
+@media (max-width:899px){
+  .feature-row > .challenge-card{min-height:0 !important;height:auto !important}
+  .challenge-card > .up-next.next-up{flex:0 0 auto !important}
+}
