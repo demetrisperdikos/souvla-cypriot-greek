@@ -20,3 +20,5 @@ Live draft: https://sites.willysilly.com/s/lszpu5cvgx646628/
 - Design score vs 8/10: NOT MEASURED. Own estimate 7/10; the bar is not confirmed met.
 - Brand mark at 16px in the header: rendered at 16, 24, 48px; legibility against the bar NOT VERIFIED.
 - Plate: pale ellipse under the chunks; visual quality against the design bar NOT VERIFIED.
+
+Note: the screenshot tool writes .shots/ into this folder (PNG files). Delete it after each use: rm -rf .shots. It is git-ignored and must not be shipped.
