@@ -1,7 +1,7 @@
 # Build notes: Fix round (job-195), Round 70
 
 ## Status
-Partly done. check.sh passes (exit 0). Republished to the same link. features.json passes are unchanged.
+Partly done. check.sh passes (exit 0). Not yet republished at the time of this note. features.json passes are unchanged.
 
 ## Measured (Playwright probe, qa-measure/pos.js, and check.sh)
 - 1440x900: Souvla Test card 386 to 881px in the latest probe. Footer bottom 864px in check.sh. Footer above the 900px fold: PASS.
