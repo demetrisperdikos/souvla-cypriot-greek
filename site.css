@@ -194,7 +194,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
   .what-list{flex-direction:row;flex-wrap:wrap;gap:4px 16px;margin:0}
   .what-list li:nth-child(3){display:none}
   .test-preview{padding:var(--s1)}
-  .streak-preview{padding:var(--s1) var(--s2);gap:var(--s1)}
   .streak-preview .streak-top{margin:0}
   .up-next{padding:var(--s1) var(--s2)}
   .week-note{display:block;margin:8px 0 0}
