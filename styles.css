@@ -867,3 +867,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .btn.primary:hover:not(:disabled){background:var(--accent-ink);color:#fff}
 /* QA round 18: one 20px icon inside every 40px tile */
 .tile .feat-ico,.lesson-card .tile .i,.tile svg,.card-head .tile svg{width:20px;height:20px}
+/* QA round 18: week tabs 40px; selected (today) tab has a defined ring */
+.week>.day{width:40px;height:40px;min-width:40px;min-height:40px;box-sizing:border-box;border-radius:999px}
+.week>.day.today,.week>.day.is-selected{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--accent)}
