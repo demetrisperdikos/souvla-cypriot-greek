@@ -56,14 +56,14 @@
   {
     "id": 10,
     "feature": "UI is responsive at 390px and 1440px",
-    "verify": "screenshots at 1440px and 390px; phone first answer above 844px still to be fixed",
+    "verify": "screenshots at 1440px and 390px; Souvla Test title and first question above 844px at 390px; desktop cards above 900px at 1440px. 1024px NOT VERIFIED",
     "passes": true
   },
   {
     "id": 11,
     "feature": "Accessibility: Keyboard navigation works",
-    "verify": "focus ring visible on day tabs in a screenshot (not yet seen)",
-    "passes": false
+    "verify": "Focus ring on unselected Tuesday tab captured in ~/work/evidence/day-tab-focus-r77.png; computed outline solid rgb(180,83,42); check.sh keyboard tests pass",
+    "passes": true
   },
   {
     "id": 12,
