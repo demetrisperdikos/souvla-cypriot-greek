@@ -1,29 +1,37 @@
-# Build notes: Round 46 (QA fix round, NOT complete)
+# Build notes: Round 48 (QA fix round, NOT complete)
 
-## Measured (headless Chromium, tests/round46.js, 1440x900)
-- footer.foot: top 888, bottom 900 (at the fold).
-- Feature cards: bottom 883 (both). Up Next is back on the Daily challenge card, compacted.
-- check.sh footer check measures the feature cards (bottom 866 after the last change).
-- Primary CTA: 192x48 at 1440, 175x48 at 390. Hero chip: 141x32 at both sizes.
-- Stat icons and Up Next icon: 20x20.
-- Souvla Test card top: 386px at 1440, 715px at 390.
-- Brand PNGs at 16, 24, 48px in qa-measure/: written, NOT VIEWED.
+Code commit: 528230a. The notes commit follows it.
 
-## Done
-- Hero art: lobed grilled-meat chunks, darker lower half, 1.5px charred rim, upper highlight. Stripes removed.
-- Skewer 3px in hero and brand mark. Soft contact shadow under each chunk.
-- Phone hero: 'Level check, 3 min' on its own row above the art.
-- Souvla Test stat tiles (10 questions, ~3 minutes, +XP) with blue numerals.
-- Footer bottom at 900px at 1440x900.
-- Repo: .shots/, brand-check/, measure18/ removed from disk.
+## Done this round
+- Hero art redrawn as grilled chunks on a 3px skewer, with irregular lobes, darker lower halves, upper highlights, and a soft contact shadow. Stripe line and grey ground bar removed.
+- Phone hero: 'Level check, 3 min' on its own row above the art. Art panel fits the art height.
+- Phone: Souvla Test heading and the three stat tiles sit above the 844px fold. Stat tiles are one row.
+- Desktop: streak icon pinned to a 20px box, so it no longer overlaps 'No streak yet'.
+- Day tabs: visible focus ring added to unselected tabs (override.css). Not yet viewed in a screenshot.
+- .shots/ deleted from disk; ls -la | grep -c shots returned 0 after the last run.
+- check.sh exit 0 (all functional, state, keyboard, axe and day-marker checks passed).
+
+## Design judgment (screenshots, not tests/score.js)
+- 1440: NOT SCORED at 8/10. My own read is about 6/10. The hero and streak card are clean, but the desktop headline and the two cards still compete.
+- 390: NOT SCORED at 8/10. My own read is about 6/10. The Souvla Test card now starts above the fold, but the hero art is small.
+- Terracotta is still used on the Daily challenge CTA and the Souvla Test CTA as well as the primary CTA. Hierarchy fix is NOT complete.
+
+## Measurements
+- Primary CTA: NOT RE-MEASURED this round.
+- Hero chip: NOT RE-MEASURED this round.
+- Footer: check.sh reports footers at 891px bottom at 1440x900 (above the fold).
+- Brand mark at 16/24/48px: NOT VIEWED this round.
 
 ## NOT verified
-- Design score at 1440 and 390 from new screenshots: NOT VERIFIED as 8/10.
-- Day tabs: 20px icon boxes are CSS-only, not visually verified.
-- Brand mark at 16px read: NOT VERIFIED.
-- 1024px, 200%/400% zoom, keyboard and accessibility beyond check.sh, console review: NOT VERIFIED.
-- features.json: no passes flags changed.
+- Design at 8/10 at 1440 and 390.
+- Brand mark 16px read.
+- 1024px, 200% and 400% zoom.
+- Keyboard and accessibility beyond check.sh.
+- Console review beyond check.sh.
+- features.json: no passes changed in this round.
 
 ## Safety grep
-- target=_blank: none. Secrets: none.
-- innerHTML uses static strings only (app.js:38, app.js:213, hero.js:53).
+Not re-run in this round; see the last QA report for the round before.
+
+## Republish
+Same link: https://sites.willysilly.com/s/lszpu5cvgx646628/ (draft for QA).
