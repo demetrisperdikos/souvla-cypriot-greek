@@ -17,7 +17,7 @@ CODE HEAD: 1df9901 (build commit, pushed to main). This notes commit is on top o
 - Desktop hero panel: x718 y121 w578 h273 (bottom 394). Illustration svg x719 y122 w576 h271. VERIFIED fills panel.
 - Skewer vs plate: skewer runs edge to edge (about 100% of plate width). Brief asked for about 60%. NOT MET. Owner decision.
 - Vertical centring: panel top 121 equals eyebrow top 121 at 1440. VERIFIED. Empty space below CTAs: judged from screenshot, NOT VERIFIED as balanced.
-- Chunk rim (#140703, 1.5px) at 1x and 2x: NOT VERIFIED (not measured).
+- Chunk rim: DOM stroke is #140703 at stroke-width 1.5 (non-scaling) at 1x and 2x (rendered svg 575.75x271 at both). VERIFIED in DOM. Rendered pixel thickness at 1x and 2x: NOT VERIFIED (no pixel measurement run).
 - Chunk outline lumps and lower-half gradient: present in hero.js. Visual judgement only, NOT VERIFIED as cooked-meat quality.
 - CTAs 48px tall. 1440: Start diagnosis y346-394, Begin the test y847-895, Open First Greetings y847-895. 390: Start diagnosis y399-447, Begin the test y1174-1222, Open First Greetings y1735-1783. VERIFIED.
 - Hero composition 1440: eyebrow top 121, panel top 121. VERIFIED.
