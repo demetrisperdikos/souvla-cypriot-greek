@@ -286,3 +286,6 @@
 
 /* job-195 round 9: desktop art panel has no top margin, so its top equals the hero row top (the eyebrow top). */
 @media (min-width:900px){.hero{align-items:start !important}.hero-art{margin-top:0 !important;margin-bottom:0 !important}}
+
+/* job-195 round 10: desktop art panel aligns to the top of the copy column (align-self:start), so its top equals the eyebrow top. */
+@media (min-width:900px){.hero-art{align-self:start !important}}
