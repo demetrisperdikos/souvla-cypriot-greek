@@ -57,6 +57,7 @@ function build(ctx) {
       var c = cards[i];
       slot.textContent = '';
       count.textContent = 'Card ' + (i + 1) + ' of ' + cards.length;
+      store.setProgress(lesson.id, i + 1);
       prev.disabled = i === 0;
       next.textContent = i === cards.length - 1 ? 'Finish' : 'Next';
       var card = el('article', 'card flash' + (flipped ? ' is-back' : ''));

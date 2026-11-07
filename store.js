@@ -49,7 +49,9 @@
       skewers: function () { return Math.floor(state.xp / 100); },
       isDone: function (id) { return !!state.done[id]; },
       markDone: function (id) { state.done[id] = true; touch(); save(); },
-      setLevel: function (l) { state.level = l; save(); }
+      setLevel: function (l) { state.level = l; save(); },
+      progressOf: function (id) { return (state.progress && state.progress[id]) || 0; },
+      setProgress: function (id, n) { state.progress = state.progress || {}; if (n > (state.progress[id] || 0)) { state.progress[id] = n; save(); } }
     };
   }
 

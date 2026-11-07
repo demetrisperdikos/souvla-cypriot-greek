@@ -217,12 +217,13 @@ function challengeCard() {
   var segCount = first.steps ? first.steps.length : (first.cards ? first.cards.length : 6);
   var doneSegs = store.isDone(first.id) ? segCount : 0;
   var fill = el('span', 'up-next-fill');
-  fill.style.width = (doneSegs ? 100 : 0) + '%';
+  var seen = doneSegs ? segCount : Math.min(store.progressOf(first.id), segCount);
+  fill.style.width = Math.round(100 * seen / segCount) + '%';
   bar.appendChild(fill);
   next.appendChild(bar);
   var totalSteps = first.steps ? first.steps.length : (first.cards ? first.cards.length : 6);
   var unit = first.steps ? 'steps' : 'cards';
-  var statusText = store.isDone(first.id) ? 'Completed, ' + totalSteps + ' of ' + totalSteps + ' ' + unit : 'Not started, 0 of ' + totalSteps + ' ' + unit;
+  var statusText = store.isDone(first.id) ? 'Completed, ' + totalSteps + ' of ' + totalSteps + ' ' + unit : (store.progressOf(first.id) > 0 ? 'In progress, ' + Math.min(store.progressOf(first.id), totalSteps) + ' of ' + totalSteps + ' ' + unit : 'Not started, 0 of ' + totalSteps + ' ' + unit);
   next.appendChild(el('span', 'up-next-pct', statusText));
   card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));

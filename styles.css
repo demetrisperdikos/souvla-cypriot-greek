@@ -777,3 +777,16 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 @media (min-width:900px){
 .hero::before{bottom:8px}
 }
+
+/* QA round 14: desktop hero bottom padding so the CTA row sits inside the peach band. Band still ends 8px above hero bottom. */
+@media (min-width:900px){.hero{padding-bottom:32px}}
+
+/* QA round 14, phone: pull the Start diagnosis CTA up under the chips by reducing headline block spacing. */
+@media (max-width:600px){.hero .display{margin-bottom:8px}.hero .lede,.hero p.body{margin-top:8px;margin-bottom:16px}.hero .actions{margin-top:0}}
+
+/* QA round 14, phone: real hero classes. Tighter headline and lead spacing so the Start diagnosis CTA sits closer under the header chips. */
+@media (max-width:600px){.hero-copy .eyebrow{margin-bottom:8px}.hero-copy .display{margin:0 0 8px}.hero-copy .lead{margin:0 0 16px}}
+
+/* QA round 14 fix: no extra hero height (footer must stay above 900px). Band extends 24px below the hero so the CTA row sits inside it. */
+@media (min-width:900px){.hero{padding-bottom:0}.hero::before{bottom:-24px}}
+

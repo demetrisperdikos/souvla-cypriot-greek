@@ -27,7 +27,7 @@ var CH = [
 { cx: 428, cy: 120, rx: 54, ry: 40, seed: 11, n: 8 }
 ];
 var DEFS = '<defs>' +
-'<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9622B"/><stop offset=".35" stop-color="#7A3316"/><stop offset=".62" stop-color="#3A170A"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
+'<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9622B"/><stop offset=".35" stop-color="#7A3316"/><stop offset=".5" stop-color="#3A170A"/><stop offset=".8" stop-color="#1E0B04"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
 '<linearGradient id="hBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B5A50"/><stop offset=".5" stop-color="#2E2420"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
 '<filter id="hSoft" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>' +
 '</defs>';
@@ -44,7 +44,7 @@ var x0 = c.cx - c.rx * 0.45, y0 = c.cy - c.ry * 0.55;
 s += '<path d="M' + f(x0) + ' ' + f(y0) + ' Q' + f(x0 + c.rx * 0.3) + ' ' + f(y0 - 7) + ' ' + f(x0 + c.rx * 0.6) + ' ' + f(y0 - 2) + '" stroke="#FFF4E6" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85" vector-effect="non-scaling-stroke"/>';
 });
 // skewer: dark bar, 360 of 600 units (60% of plate width), drawn in front of the chunks so both ends show
-s += '<rect x="120" y="113" width="360" height="6" rx="3" fill="url(#hBar)" stroke="#140703" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+s += '<rect x="120" y="114" width="360" height="4" rx="2" fill="url(#hBar)" stroke="#140703" stroke-width="1" vector-effect="non-scaling-stroke"/>';
 s += '<rect x="124" y="114" width="352" height="1.4" rx="0.7" fill="#F4E3D2" opacity=".55"/>';
 s += '</svg>';
 return s;
