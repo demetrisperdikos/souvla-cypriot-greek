@@ -761,3 +761,14 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .hero-art>svg{position:relative;width:100%;height:auto;inset:auto}
 .home > *:nth-child(2){margin-top:24px}
 }
+
+/* QA round 13, phone header: tighter height and less space between chips and the hero CTA. Loads last. */
+@media (max-width:899px){
+.topbar{padding:8px 16px;gap:8px}
+.brand-name{font-size:1.25rem}
+.brand-sub{font-size:.8125rem}
+.stats{gap:8px}
+.stat{height:32px}
+.hero{margin-top:0}
+.hero .actions{margin-top:0}
+}
