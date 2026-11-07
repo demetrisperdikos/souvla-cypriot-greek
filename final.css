@@ -283,3 +283,6 @@
 
 /* job-195 round 8: desktop hero row is no taller than the copy column, so the footer stays above the 900px fold; columns top-aligned so the eyebrow and panel share a top edge. */
 @media (min-width:900px){.hero{align-items:start !important}.hero-art{padding:40px 0 !important}.hero-art > svg{max-width:440px !important;margin:0 auto !important}.hero-art .hero-chip{top:6px !important}}
+
+/* job-195 round 9: desktop art panel has no top margin, so its top equals the hero row top (the eyebrow top). */
+@media (min-width:900px){.hero{align-items:start !important}.hero-art{margin-top:0 !important;margin-bottom:0 !important}}
