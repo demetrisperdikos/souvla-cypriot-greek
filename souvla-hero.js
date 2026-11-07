@@ -2,36 +2,37 @@
 'use strict';
 var A = window.SouvlaArt = window.SouvlaArt || {};
 
-// Hero art: four irregular grilled chunks of varied size on one skewer.
-// Charred rim (dark 3-unit stroke), lower half darkened hard, one crisp specular streak per upper lobe.
+// Hero art: four irregular grilled chunks on one thin skewer.
+// Charred rim is a 1.5px stroke at 1x; lower halves darken toward #140703; one crisp highlight per upper lobe.
 var CHUNKS = [
-  'M30,92 C26,70 44,56 66,60 C78,48 100,50 110,64 C126,70 128,92 116,104 C104,114 80,114 62,110 C44,112 32,104 30,92 Z',
-  'M140,88 C134,58 164,38 200,42 C222,30 262,36 276,60 C296,70 300,100 284,116 C266,130 226,132 200,124 C172,130 144,118 140,88 Z',
-  'M306,84 C302,62 322,52 342,56 C360,46 384,58 386,78 C394,94 384,110 364,112 C346,118 318,110 308,98 C304,94 307,90 306,84 Z',
-  'M396,100 C394,88 404,82 416,84 C428,82 436,92 432,102 C430,112 416,116 406,112 C400,110 397,106 396,100 Z'
+  'M62,98 C58,80 74,66 92,68 C100,58 118,60 124,72 C138,76 140,96 128,108 C118,118 96,120 80,114 C68,112 63,106 62,98 Z',
+  'M150,96 C146,70 170,52 204,54 C222,40 256,44 268,64 C290,70 296,96 282,114 C272,128 240,132 214,126 C190,134 156,124 150,96 Z',
+  'M300,92 C298,74 314,64 332,68 C344,56 368,60 372,76 C384,84 382,104 368,112 C354,120 326,118 312,110 C302,106 300,100 300,92 Z',
+  'M386,106 C384,96 394,90 404,92 C414,94 418,104 412,112 C406,118 390,116 386,106 Z'
 ];
-var STREAK = [
-  'M50,70 C62,60 84,58 100,66',
-  'M168,60 C190,46 226,44 254,60',
-  'M322,66 C332,58 350,58 368,68',
-  'M408,90 C412,86 420,85 426,88'
+var HIGHLIGHTS = [
+  'M80,80 C88,74 100,74 108,78',
+  'M176,68 C192,58 218,56 240,62',
+  'M316,80 C324,74 340,72 352,76',
+  'M394,100 C398,96 404,95 408,97'
 ];
-var SHADOW = [[76,118,36,5],[205,137,70,6],[330,116,44,5],[414,120,22,4]];
+var CONTACT = [[96,121,30,4],[214,131,62,5],[342,119,38,4],[400,117,16,3]];
 
 function build() {
   var s = '<svg class="hero-svg" viewBox="0 0 440 144" width="100%" role="img" aria-label="Grilled souvla chunks on a skewer">';
   s += '<defs>';
-  s += '<linearGradient id="hvChunk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A4491F"/><stop offset="0.3" stop-color="#6B2A12"/><stop offset="0.6" stop-color="#2E1207"/><stop offset="1" stop-color="#100402"/></linearGradient>';
-  s += '<linearGradient id="hvSkewer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F1EE"/><stop offset="0.5" stop-color="#9C958E"/><stop offset="1" stop-color="#5A544F"/></linearGradient>';
-  s += '<filter id="hvBlur" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="3"/></filter>';
+  s += '<linearGradient id="hvChunk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9A4220"/><stop offset="0.45" stop-color="#4A1D0C"/><stop offset="1" stop-color="#140703"/></linearGradient>';
+  s += '<linearGradient id="hvSkewer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE8E3"/><stop offset="0.5" stop-color="#9C958E"/><stop offset="1" stop-color="#5A544F"/></linearGradient>';
+  s += '<filter id="hvBlur" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>';
   s += '</defs>';
-  s += '<rect x="0" y="84.5" width="440" height="3" rx="1.5" fill="url(#hvSkewer)"/>';
-  SHADOW.forEach(function (e) {
-    s += '<ellipse cx="' + e[0] + '" cy="' + e[1] + '" rx="' + e[2] + '" ry="' + e[3] + '" fill="#140703" opacity=".3" filter="url(#hvBlur)"/>';
+  s += '<rect x="0" y="94" width="440" height="3" rx="1.5" fill="url(#hvSkewer)"/>';
+  s += '<rect x="0" y="94.6" width="440" height="0.8" fill="#FFFFFF" opacity=".55"/>';
+  CONTACT.forEach(function (e) {
+    s += '<ellipse cx="' + e[0] + '" cy="' + e[1] + '" rx="' + e[2] + '" ry="' + e[3] + '" fill="#140703" opacity=".35" filter="url(#hvBlur)"/>';
   });
   CHUNKS.forEach(function (d, i) {
-    s += '<path d="' + d + '" fill="url(#hvChunk)" stroke="#0C0301" stroke-width="3" stroke-linejoin="round"/>';
-    s += '<path d="' + STREAK[i] + '" fill="none" stroke="#FFE6CC" stroke-width="3" stroke-linecap="round" opacity=".95"/>';
+    s += '<path d="' + d + '" fill="url(#hvChunk)" stroke="#0C0301" stroke-width="1.5" stroke-linejoin="round"/>';
+    s += '<path d="' + HIGHLIGHTS[i] + '" fill="none" stroke="#FFE0BF" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>';
   });
   s += '</svg>';
   return s;

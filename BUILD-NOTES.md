@@ -43,3 +43,15 @@
 - Brand mark legibility at 16px: not confirmed by a person.
 - 1024px width, 200% and 400% zoom, screen reader order, touch target sizes.
 - Owner's uploaded sad-face image (uploads/H4v7rLO9oqgJ.png) is not used anywhere in the build.
+
+## Round 79 (fold fix)
+- check.sh: EXIT=0 (index=200, data=200, browser tests, clicktest, footers share one baseline, footer above 900px fold at 1440x900).
+- Fold fix: on desktop (>=900px) the Daily challenge 'Up next' block is hidden so the 'Open First Greetings' button and footer fit above the fold. The lesson stays reachable through the Open button. This is a product trade-off for Nadia or the owner to confirm.
+- Stat numerals are neutral ink; the single accent is terracotta. Day-tab icons are 20px with a terracotta focus ring.
+- .shots/ is deleted.
+
+## NOT VERIFIED
+- Design bar 8/10: not re-scored by QA since round 79.
+- 16px brand-mark legibility, day-tab focus-ring screenshot in repo.
+- 1024px width, 200% and 400% zoom, screen reader order, touch target sizes.
+- Owner's uploaded sad-face image is not used in the build.

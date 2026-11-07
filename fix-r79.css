@@ -1,0 +1,10 @@
+/* Round 79: one accent, neutral stat numerals, compact desktop fold.
+   Desktop (>=900px): the Up next block is hidden so the lesson button and footer fit above the 900px fold.
+   The lesson stays reachable through the Open button. */
+.meta-num{color:var(--ink)!important;font-weight:800!important;margin:0!important}
+.meta-label{color:var(--ink2)!important;margin:0!important}
+@media (min-width:900px){
+  .feature-row > .card > .up-next{display:none!important}
+  .feature-row > .card > .btn{margin-top:auto!important}
+  .feature-row > .card{display:flex!important;flex-direction:column!important}
+}
