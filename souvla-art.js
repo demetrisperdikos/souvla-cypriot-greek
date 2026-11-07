@@ -4,7 +4,7 @@ var A = window.SouvlaArt = window.SouvlaArt || {};
 var U = window.SouvlaUI;
 
 // Brand mark: one geometry shared with favicon.svg. Skewer runs about 70% of the 48px tile.
-var MARK_INNER = "<rect width='48' height='48' rx='12' fill='#FBF6EF'/><rect x='0.5' y='0.5' width='47' height='47' rx='11.5' fill='none' stroke='#E2D6C6'/><rect x='2' y='21' width='44' height='5' rx='2.5' fill='#2A2A2A'/><g fill='#A0491F'><circle cx='13' cy='24' r='10'/><circle cx='24' cy='23.5' r='11'/><circle cx='35' cy='24' r='10'/></g>";
+var MARK_INNER = "<rect width='48' height='48' rx='12' fill='#FBF6EF'/><rect x='0.5' y='0.5' width='47' height='47' rx='11.5' fill='none' stroke='#E2D6C6'/><rect x='2' y='21.5' width='44' height='3' rx='1.5' fill='#2A2A2A'/><g fill='#A0491F'><circle cx='13' cy='24' r='10'/><circle cx='24' cy='23.5' r='11'/><circle cx='35' cy='24' r='10'/></g>";
 var MARK = '<svg class="souvla-mark-svg" width="40" height="40" viewBox="0 0 48 48" aria-hidden="true" focusable="false">' + MARK_INNER + '</svg>';
 
 function logo() { return MARK; }

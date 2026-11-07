@@ -891,3 +891,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .stat b,.stat strong{color:#1F5FA8}
 .day:focus-visible,.dot:focus-visible{outline:none;box-shadow:0 0 0 2px var(--surface),0 0 0 4px #1F5FA8}
 .day-ico,.stat-ico,.up-next-ico{width:20px;height:20px;display:inline-grid;place-items:center;flex:none}
+/* Round 34: lower card weight so the headline dominates the first view. */
+.test-card,.challenge-card{box-shadow:none;border-color:var(--line)}
+.test-card .card-title,.challenge-card .card-title,.test-card h2,.challenge-card h2{font-size:1.125rem;font-weight:600}
