@@ -236,3 +236,15 @@
 /* Round 18b: keep the up-next anchor but fit the card above the 900px fold. */
 .challenge-card > .up-next.next-up .up-next-ico{width:24px;height:24px;padding:4px;border-radius:8px}
 .challenge-card > .up-next.next-up .up-next-bar{margin-top:0}
+
+/* Round 19: hero panel spans the text block height (eyebrow top to CTA bottom) and centres the illustration vertically. Top edge still matches the eyebrow. */
+@media (min-width:900px){
+.hero-art{display:flex;flex-direction:column;justify-content:center;align-self:stretch;padding:0;box-sizing:border-box}
+.hero-art > svg{margin:0 auto}
+}
+
+/* Round 19b: explicit desktop panel height = eyebrow top (121) to hero CTA bottom (394), 273px. */
+@media (min-width:900px){
+.hero-art{min-height:273px;height:273px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-self:start}
+.hero-art > svg{margin:0 auto}
+}

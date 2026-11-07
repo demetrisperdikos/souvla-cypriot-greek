@@ -33,3 +33,9 @@ Stylesheets: index.html loads fonts.css, site.css, final.css. Round-18 rules liv
 Screen readers, physical phones, Safari, Firefox, Chrome Android. Visual judgement of hero, brand mark and Up Next strip by a reviewer.
 OPEN: sad-face mark decision for the owner (default: skewer silhouette).
 Leftover test http.server processes may still run on ports 8765 and 8766. Not killed (permission).
+
+## Round 19b: desktop hero centring (brief item 3, partial)
+- Desktop .hero-art is 273px tall (final.css, round 19b block), from the eyebrow top (121) to the hero CTA bottom (394), matching the text block.
+- VERIFIED at 1440x900: panel 121 to 394; illustration 177 to 338. Panel centre 257.5, illustration centre 257.5, so the group is vertically centred.
+- Phone (390px) is unchanged: round 19 rules are inside min-width:900px.
+- NOT VERIFIED: empty space top right and below the CTAs after this change (needs visual review).
