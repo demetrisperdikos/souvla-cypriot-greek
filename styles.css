@@ -923,3 +923,5 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .up-next-ico,.stat-ico{width:20px;height:20px;flex:none}
 /* Round 45: compact desktop test options so the feature row ends higher and the footer clears the fold. */
 @media (min-width:900px){.test-card .test-opts{gap:6px}.test-card .test-opts .test-opt{min-height:40px;padding:8px 16px;box-sizing:border-box}}
+/* Round 46: Up Next back on the Daily challenge card, compact so the row stays at the fold. */
+@media (min-width:900px){.challenge-card .up-next.next-up{padding:8px 12px;gap:4px;margin-top:8px}.challenge-card > .btn:last-child{margin-top:auto}}
