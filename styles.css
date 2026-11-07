@@ -799,3 +799,41 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 
 /* QA round 14, phone: eyebrow moves below the CTA so the Start diagnosis button sits directly under the header chips. Visual order only. */
 @media (max-width:600px){.hero-copy .eyebrow{order:5;margin:8px 0 0}}
+
+/* QA round 3 overrides */
+.hero-copy > *{order:0}
+.hero-copy > .eyebrow{order:-4}
+.hero-copy > .display{order:-3}
+.hero-copy > .lead{order:-2}
+.hero-copy > .pills{order:-1}
+.display{letter-spacing:-.03em}
+.feature-row{margin-top:32px}
+@media (max-width:720px){.feature-row{margin-top:24px}}
+.card-head .tile,.tile,.tile-blue{width:40px;height:40px;background:var(--accent-tint);color:var(--accent);border:1px solid #E3D5C3;box-shadow:none}
+.tile svg{width:20px;height:20px}
+.section-divider{height:1px;background:var(--line);margin:32px 0 0}
+.main{padding-bottom:48px}
+.up-next-bar{background:#E0C2AA}
+.up-next-fill,.challenge-card > .up-next.next-up .up-next-fill{background:#8E3E1B}
+.stat-label{letter-spacing:-.01em}
+
+/* QA round 3b: keep footer above the 900px fold */
+.main{padding-top:24px}
+.feature-row{margin-top:24px}
+@media (max-width:720px){.feature-row{margin-top:24px}}
+.section-divider{margin-top:24px}
+
+/* Round 15: phone hero chip sits above the art with a 24px gap; panel height fits the art. Desktop unchanged. */
+@media (max-width:600px){
+.hero-art{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column;gap:24px;padding:16px;box-sizing:border-box}
+.hero-art .hero-chip{position:static;align-self:flex-start;top:auto;bottom:auto;left:auto}
+.hero-art svg{display:block;width:100%;height:auto}
+}
+
+/* Round 16: desktop fold. Feature cards and footer must sit above y=900 at 1440px. Phone unchanged. */
+@media (min-width:900px){
+.hero{padding-top:0;padding-bottom:0}
+.hero-art{height:200px;min-height:0;max-height:200px}
+.hero-copy .display{font-size:3rem;line-height:1.02}
+.feature-row{margin-top:0}
+}

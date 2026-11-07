@@ -13,7 +13,10 @@ function check(name, ok, info) {
 async function xp(page) { return Number(await page.locator('.xp-val').innerText()); }
 async function streak(page) { return Number(await page.locator('.stat-val').first().innerText()); }
 async function goHome(page) { await page.getByRole('button', { name: 'Back to lessons', exact: true }).first().click(); }
-async function openLesson(page, n) { await page.locator('.lesson-card').nth(n).getByRole('button').first().click(); }
+async function openLesson(page, n) {
+  if (await page.locator('.lesson-card').count() === 0) await page.getByRole('button', { name: 'Browse lessons' }).first().click();
+  await page.locator('.lesson-card').nth(n).getByRole('button').first().click();
+}
 
 (async () => {
   const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
@@ -84,7 +87,7 @@ async function openLesson(page, n) { await page.locator('.lesson-card').nth(n).g
   check('Word Match all matched', (await page.locator('.feedback').innerText()).includes('All matched'));
   check('Word Match awards XP (40 + 25)', await xp(page) === beforeGame + 65, beforeGame + ' to ' + (await xp(page)));
   await page.getByRole('button', { name: 'Back to lessons', exact: true }).last().click();
-  check('Back to lessons returns home', await page.locator('h1.display').count() === 1);
+  check('Back to lessons returns to lessons page', await page.locator('article.lesson-card').count() === 5);
 
   // Streak reset after 2 days idle
   await page.evaluate(() => {

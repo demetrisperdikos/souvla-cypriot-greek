@@ -44,8 +44,9 @@ var x0 = c.cx - c.rx * 0.45, y0 = c.cy - c.ry * 0.55;
 s += '<path d="M' + f(x0) + ' ' + f(y0) + ' Q' + f(x0 + c.rx * 0.3) + ' ' + f(y0 - 7) + ' ' + f(x0 + c.rx * 0.6) + ' ' + f(y0 - 2) + '" stroke="#FFF4E6" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85" vector-effect="non-scaling-stroke"/>';
 });
 // skewer: dark bar, 360 of 600 units (60% of plate width), drawn in front of the chunks so both ends show
-s += '<rect x="120" y="114" width="360" height="4" rx="2" fill="url(#hBar)" stroke="#140703" stroke-width="1" vector-effect="non-scaling-stroke"/>';
-s += '<rect x="124" y="114" width="352" height="1.4" rx="0.7" fill="#F4E3D2" opacity=".55"/>';
+s += '<ellipse cx="300" cy="119" rx="186" ry="3" fill="#140703" opacity=".45" filter="url(#hSoft)"/>';
+s += '<rect x="120" y="115" width="360" height="3" rx="1.5" fill="url(#hBar)" stroke="#140703" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+s += '<rect x="124" y="115.6" width="352" height="0.9" rx="0.45" fill="#F4E3D2" opacity=".6"/>';
 s += '</svg>';
 return s;
 }

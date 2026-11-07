@@ -21,8 +21,8 @@ const path = require('path');
   const brandSvg = await p.evaluate(() => document.querySelector('#brand .mark').innerHTML);
   for (const s of [16, 24, 48]) {
     await bp.setContent('<body style="margin:0;background:#fff"><div style="width:'+s+'px;height:'+s+'px">' + brandSvg.replace('width="48" height="48"', 'width="'+s+'" height="'+s+'"') + '</div></body>');
-    await bp.screenshot({ path: path.resolve(__dirname, '..', '.shots', 'brand-' + s + '.png'), clip: { x: 0, y: 0, width: s, height: s } });
+    await bp.screenshot({ path: path.resolve(__dirname, '..', '..', 'renders', 'brand-' + s + '.png'), clip: { x: 0, y: 0, width: s, height: s } });
   }
-  console.log('brand sizes written to .shots/brand-16/24/48.png');
+  console.log('brand sizes written to renders/');
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

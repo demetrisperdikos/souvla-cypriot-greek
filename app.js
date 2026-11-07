@@ -100,9 +100,8 @@ function openLesson(lesson) {
   setView(window.SouvlaLessons.build(ctx).open(lesson));
 }
 function goLessons() {
-  home();
-  var s = document.getElementById('lessons');
-  if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  lessonsPage();
+  window.scrollTo(0, 0);
 }
 
 function home() {
@@ -132,16 +131,20 @@ function home() {
   row.appendChild(challengeCard());
   wrap.appendChild(row);
 
-  wrap.appendChild(el('div', 'section-divider'));
-  var sec = el('section', 'lessons');
-  sec.id = 'lessons';
-  sec.appendChild(el('h2', 'h2', 'Lessons'));
-  sec.appendChild(el('h2', 'h3', 'Browse all lessons'));
-  sec.appendChild(el('p', 'section-sub', 'Short lessons you can finish in a few minutes, grouped by what you want to learn.'));
+  setView(wrap);
+}
+
+function lessonsPage() {
+  var wrap = el('div', 'home lessons-page');
+  var head = el('section', 'lessons');
+  head.id = 'lessons';
+  head.appendChild(el('h1', 'h2', 'Lessons'));
+  head.appendChild(el('p', 'section-sub', 'Short lessons you can finish in a few minutes, grouped by what you want to learn.'));
   var grid = el('div', 'lesson-grid');
   data.lessons.forEach(function (l) { grid.appendChild(lessonCard(l)); });
-  sec.appendChild(grid);
-  wrap.appendChild(sec);
+  head.appendChild(grid);
+  wrap.appendChild(head);
+  wrap.appendChild(btn('Back to home', 'ghost', home, null));
   setView(wrap);
 }
 
@@ -338,7 +341,7 @@ function finishQuiz(run) {
 }
 
 var ctx = {
-  el: el, btn: btn, store: store, award: award, home: home,
+  el: el, btn: btn, store: store, award: award, home: lessonsPage,
   findById: findById, shuffle: shuffle, data: null
 };
 
