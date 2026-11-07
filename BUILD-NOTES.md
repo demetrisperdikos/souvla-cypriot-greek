@@ -36,3 +36,9 @@ PARTLY DONE. Items 1-7 and 9-10 of the brief are done and measured. Item 8 is pa
 - Brand mark at 24px: not rendered or measured.
 - Item 10 design score against 8/10: not scored by the build team. QA judges the live link.
 - Real screen reader, Safari, Firefox, physical phones, Chrome Android: NOT VERIFIED (not run).
+
+## Round 26: brand mark measured (supersedes any earlier 24px wording)
+- Brand mark at 24px: 24x24 box at x=28, y=20, Chromium, 390px viewport. Rendered look NOT inspected.
+- Brand mark at 48px: 48x48 box at x=17, y=9, Chromium, 390px viewport.
+- Consolidating .streak-preview rules (item 8): NOT DONE. Two attempts changed the Daily card height (502->534px phone, 429->485px desktop) and were reverted.
+- Design re-score against 8/10: NOT DONE.
