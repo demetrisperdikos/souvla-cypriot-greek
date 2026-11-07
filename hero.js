@@ -34,7 +34,7 @@ var DEFS = '<defs>' +
   '<filter id="hSoft" x="-60%" y="-300%" width="220%" height="700%"><feGaussianBlur stdDeviation="2.5"/></filter>' +
   '</defs>';
 function svg() {
-  var s = '<svg viewBox="40 20 520 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
+  var s = '<svg viewBox="40 34 520 142" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
   // Metal bar, 4px, with a crisp highlight stripe.
   s += '<rect x="40" y="' + SKEWER_Y + '" width="520" height="4" rx="2" fill="url(#hBar)"/>';
   s += '<rect x="44" y="' + (SKEWER_Y + 0.6) + '" width="512" height="1.2" rx="0.6" fill="#FBF1E6" opacity=".85"/>';
