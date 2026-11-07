@@ -229,3 +229,8 @@
 .hero-art{position:relative;overflow:hidden;padding:0;display:flex;flex-direction:column;justify-content:center}
 }
 .challenge-card > .up-next.next-up .up-next-bar{display:none}
+
+/* Round 24: phone chip moves to the bottom-left of the panel so it never covers the chunks. */
+@media (max-width:899px){
+.hero-art .hero-chip{position:absolute;top:auto;bottom:12px;left:12px}
+}

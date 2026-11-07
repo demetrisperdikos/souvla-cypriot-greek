@@ -50,3 +50,12 @@ NOT MEASURED by a reviewer. No 8+ claim is made. Build is NOT DONE.
 - Pixel check: full-page screenshots at 1440x900 and 390x844 hash-identical before and after (1440 sha256 e26ccb6a..., 390 sha256 dd0a3108...). Footer bottoms 1490.8 and 2824.25 unchanged.
 - check.sh run after the cleanup: see result above.
 - Consolidation of overlapping rules across final.css and site.css is still NOT complete. Design score NOT MEASURED. Build is NOT DONE.
+
+## Round 24 (current)
+- Stylesheet order: fonts.css, site.css, final.css. Round 23 and 24 overrides are appended at the end of final.css.
+- Brand mark: one dark bar (#2A2A2A, 42x6 at y21) with three accent chunks (#A0491F). Judged from screenshot at 40px; 16/24/48px legibility NOT VERIFIED by eye.
+- Skewer: 18px bar with a grey-to-dark metal gradient (hSkew) and a white highlight line. Visual judgement only.
+- Phone hero: art spans full panel width, 24px air above. Chip moved to bottom-left (final.css round 24). Chip no longer covers the chunks. VERIFIED by screenshot only.
+- Up Next: track removed; state text reads Not started. VERIFIED by screenshot.
+- Chunks: still read soft in the 1440 screenshot. Design score NOT RE-MEASURED by QA; this round does not claim 8+.
+- check.sh: exit 0 on this HEAD.
