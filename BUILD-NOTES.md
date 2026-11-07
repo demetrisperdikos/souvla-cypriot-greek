@@ -19,7 +19,7 @@ Stylesheets: index.html loads fonts.css, site.css, final.css. Round-18 rules liv
 3. Desktop hero: plate and skewer run to the panel edges. CONFLICT: a skewer at 60% of plate width cannot also run to the panel edges; edge extension kept, 60% not applied. NOT VERIFIED: vertical centring against the text block and empty space top right / below CTAs.
 4. Phone hero: illustration is 358px wide (full content width at 390). VERIFIED: gap above the Souvla Test card is 24px (hero bottom 655, card top 679). NOT VERIFIED: trimmed padding above the card beyond that gap.
 5. Header chips: VERIFIED 128/128/128 at 1440 and 114/114/114 at 390. NOT VERIFIED by measurement this round: 20px icon box and stroke weight.
-6. Up Next strip: label is '0% of this lesson' with an 8px meter; not the 'Not started, 0 of 6 steps' wording. VERIFIED: 24x24 icon box, 8px meter, strip 96px tall at 1440. VERIFIED: 16px gap from streak preview to Up Next (719 to 735) and from Up Next to CTA (831 to 847) at 1440; same at 390 (1583 to 1599, 1719 to 1735).
+6. Up Next strip: label is 'Not started' or 'Completed' (app.js, commit f6cbe0a) with an 8px meter. Step counts are not used because lesson data reports 0 steps for some lessons. VERIFIED: 24x24 icon box, 8px meter, strip 96px tall at 1440. VERIFIED: 16px gap from streak preview to Up Next (719 to 735) and from Up Next to CTA (831 to 847) at 1440; same at 390 (1583 to 1599, 1719 to 1735).
 7. Primary CTAs: VERIFIED 48px tall at 1440 and 390 (Start diagnosis, Begin the test, Open First Greetings).
 8. Top alignment: VERIFIED at 1440, hero panel top 121 and eyebrow top 121. At 390 the hero stacks: panel top 463, eyebrow top 141.
 
