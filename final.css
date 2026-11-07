@@ -256,3 +256,9 @@
 
 /* job-195 round 4i: desktop hero panel top equals the eyebrow top */
 @media (min-width:900px){.hero-art{margin-top:-8px !important}}
+
+/* job-195 round 4j: desktop hero panel top equals the eyebrow top (121px) */
+@media (min-width:900px){.hero-art{margin-top:-12px !important}}
+
+/* job-195 round 4k: desktop hero panel top equals eyebrow top */
+@media (min-width:900px){.hero-art{margin-top:-14px !important}}
