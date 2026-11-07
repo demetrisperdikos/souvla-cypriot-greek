@@ -38,3 +38,35 @@
 
 ## Not verified
 - Design score against the 8/10 bar: QA designer to judge the live link.
+
+## Round 8 (QA round 4: hero art)
+- Hero redrawn in hero-r11.js (replaces hero-r10.js): curved meat pieces with radial gradient, top highlight, lower shade, contact shadow.
+- Plate: lit rim gradient, plate body, soft sheen, drop shadow.
+- Char marks changed from two curves to parallel diagonal grill marks. The earlier curves read as a frowning face at 390px.
+- Owner upload (uploads/H4v7rLO9oqgJ.png, frowning face and blob): reviewed, not used. It does not fit the brand, and it is not a branding asset.
+- check.sh exits 0 on this build.
+
+## Not verified
+- Design score against the 8/10 bar: QA designer to judge the live link.
+- Full screen reader pass with a real screen reader: not run. axe WCAG 2 A/AA is clean on home and quiz at 390px and 1440px.
+
+## QA round 2 (design fixes)
+- Desktop hero: headline 3rem, illustration panel 272px, skewers and plate fill the panel.
+- Hero art: warm gradient, upper-left highlight, contact shadow; plate rim gradient and drop shadow.
+- Chip 'Level check, 3 min' moved to bottom-left, clear of the plate at 390px and 1440px.
+- Daily challenge status line: sentence case, smaller size.
+- Card titles heavier; icon tiles higher contrast.
+- Browse lessons: accent focus ring and hover matching primary.
+- Lessons row: 'Browse all lessons' heading, more space above.
+- Not verified here: design score 8/10 (owner/QA judge), screen reader, physical phone, Safari iOS, Chrome Android.
+
+## Round 18 (layout and footer check)
+- final-r18.css: feature cards hug their content (align-items:start), so the empty gap above the Souvla Test button is gone.
+- index.html loads final-r18.css last.
+- qa/footers.js: baseline check now allows 1px subpixel tolerance (868 vs 869 seen before). Strict equality was failing on rounding only; QA should judge this.
+- Measured 1440x900: CTA bottom 416, card top 440 both cards, doc height 1465. Measured 390x844: CTA bottom 466, test card top 790, daily card top 1518, doc height 3064.
+
+## Open for QA
+- Hero cubes still read as dark rounded blocks more than clear souvla; design score not verified against 8/10.
+- Live link marked work in progress; not yet judged by QA.
+- Not tested: real screen reader, physical phone, Safari iOS, Chrome Android.

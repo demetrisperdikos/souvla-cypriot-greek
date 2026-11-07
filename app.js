@@ -53,6 +53,7 @@ function stat(iconName, value, label, isXp) {
 }
 function renderStats() {
   var s = document.getElementById('stats');
+  s.setAttribute('aria-live', 'polite');
   s.textContent = '';
   s.appendChild(stat('flame', store.state.streak, 'day streak'));
   s.appendChild(stat('bolt', store.state.xp, 'XP', true));
@@ -75,7 +76,7 @@ function setView(node) {
   v.textContent = '';
   v.appendChild(node);
   var h = node.querySelector('h1, h2');
-  if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  if (h) { h.setAttribute('tabindex', '-1'); h.classList.add('no-ring'); h.focus({ preventScroll: true }); }
   window.scrollTo(0, 0);
 }
 function illustration() {
@@ -133,6 +134,7 @@ function home() {
   var sec = el('section', 'lessons');
   sec.id = 'lessons';
   sec.appendChild(el('h2', 'h2', 'Lessons'));
+  sec.appendChild(el('h2', 'h3', 'Browse all lessons'));
   sec.appendChild(el('p', 'section-sub', 'Short lessons you can finish in a few minutes, grouped by what you want to learn.'));
   var grid = el('div', 'lesson-grid');
   data.lessons.forEach(function (l) { grid.appendChild(lessonCard(l)); });
@@ -176,6 +178,10 @@ function testCard() {
     prev.appendChild(el('p', 'test-preview-label', 'First question'));
     prev.appendChild(el('p', 'test-preview-q', q0.text));
     card.appendChild(prev);
+    var opts = el('div', 'test-opts');
+    opts.setAttribute('aria-hidden', 'true');
+    (q0.options || []).slice(0, 3).forEach(function (o) { opts.appendChild(el('div', 'test-opt', o.text)); });
+    card.appendChild(opts);
   }
   card.appendChild(window.SouvlaArt.whatYouGet());
   card.appendChild(btn('Begin the test', 'primary', startQuiz, 'right'));
@@ -245,9 +251,15 @@ function showQuestion(run) {
   bar.appendChild(fill);
   top.appendChild(bar);
   wrap.appendChild(top);
-  wrap.appendChild(el('h1', 'h2 question', q.text));
+  var qh = el('h1', 'h2 question', q.text);
+  qh.id = 'quiz-question';
+  wrap.appendChild(qh);
   var list = el('div', 'options');
+  list.setAttribute('role', 'group');
+  list.setAttribute('aria-labelledby', 'quiz-question');
+  list.setAttribute('aria-describedby', 'quiz-feedback');
   var fb = el('p', 'feedback');
+  fb.id = 'quiz-feedback';
   fb.setAttribute('aria-live', 'polite');
   var last = run.i === run.qs.length - 1;
   var nextBtn = btn(last ? 'See my level' : 'Next question', 'primary', function () {
@@ -268,6 +280,7 @@ function answer(run, q, idx, list, fb, nextBtn) {
   if (run.answered) return;
   run.answered = true;
   Array.prototype.forEach.call(list.children, function (b) { b.disabled = true; });
+  list.children[idx].setAttribute('aria-pressed', 'true');
   var rightIdx = -1;
   q.options.forEach(function (o, k) { if (o.correct) rightIdx = k; });
   var chosen = list.children[idx];

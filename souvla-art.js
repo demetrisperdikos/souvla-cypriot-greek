@@ -48,12 +48,12 @@ function whatYouGet() {
 // One kebab chunk: rich meat gradient, top highlight, lower shade, soft contact shadow, visible grill marks.
 function chunk(cx) {
   return '<g transform="translate(' + cx + ' 0)">' +
-    '<ellipse cx="4" cy="36" rx="32" ry="7" fill="#1A1A1A" opacity=".28" filter="url(#svBlur)"/>' +
+    '<ellipse cx="4" cy="36" rx="36" ry="8" fill="#1A1A1A" opacity=".4" filter="url(#svBlur)"/>' +
     '<rect x="-34" y="-30" width="68" height="62" rx="24" fill="url(#svMeat)"/>' +
     '<rect x="-34" y="-30" width="68" height="62" rx="24" fill="none" stroke="#7A4420" stroke-opacity=".45" stroke-width="1.5"/>' +
     '<path d="M-30 14 Q0 34 30 14 L30 22 Q0 40 -30 22 Z" fill="#4A2410" opacity=".3"/>' +
-    '<ellipse cx="-6" cy="-16" rx="22" ry="8" fill="url(#svHi)"/>' +
-    '<path d="M-14 -22 L-22 16 M4 -22 L-4 16" stroke="#3A1C08" stroke-width="5" stroke-linecap="round" opacity=".85"/>' +
+    '<ellipse cx="-6" cy="-14" rx="25" ry="11" fill="url(#svHi)"/>' +
+    '<path d="M-14 -22 L-22 16 M4 -22 L-4 16" stroke="#3A1C08" stroke-width="7" stroke-linecap="round" opacity=".9"/>' +
     '</g>';
 }
 
@@ -103,7 +103,10 @@ function streakPreview(n) {
   top.appendChild(U.icon('flame', 'streak-ico'));
   var msg = document.createElement('p');
   msg.className = 'streak-msg';
-  msg.innerHTML = n > 0 ? '<strong>' + n + '-day streak.</strong> Keep it going today.' : '<strong>No streak yet.</strong> <span class="accent">Next step:</span> one lesson today starts it.';
+  n = Math.floor(Number(n)); if (!isFinite(n) || n < 0) n = 0;
+  msg.textContent = '';
+  if (n > 0) { var st = document.createElement('strong'); st.textContent = n + '-day streak.'; msg.appendChild(st); msg.appendChild(document.createTextNode(' Keep it going today.')); }
+  else { var st0 = document.createElement('strong'); st0.textContent = 'No streak yet.'; msg.appendChild(st0); msg.appendChild(document.createTextNode(' ')); var acc = document.createElement('span'); acc.className = 'accent'; acc.textContent = 'Next step:'; msg.appendChild(acc); msg.appendChild(document.createTextNode(' one lesson today starts it.')); }
   top.appendChild(msg);
   box.appendChild(top);
   var week = document.createElement('div');

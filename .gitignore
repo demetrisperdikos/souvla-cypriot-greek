@@ -1,3 +1,6 @@
 .shots/
 qa/node_modules/
 *.log
+.shots/
+uploads/
+clicktest-output.txt

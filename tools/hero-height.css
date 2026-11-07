@@ -1,0 +1,8 @@
+/* Single hero height ruleset (replaces all overlapping .hero-art height overrides). */
+.hero-art{height:200px;min-height:0;max-height:200px}
+@media (min-width:900px){
+  .hero-art{height:184px;min-height:0;max-height:184px}
+}
+@media (max-width:600px){
+  .hero-art{height:220px;min-height:0;max-height:220px}
+}

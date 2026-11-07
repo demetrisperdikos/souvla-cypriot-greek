@@ -15,6 +15,11 @@ button{font:inherit}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:16px;top:8px;background:#fff;padding:8px 16px;border-radius:999px;z-index:9}
 :focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
+/* Programmatic focus (headings, main) must not draw a ring; keyboard focus still does. */
+h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:none}
+.no-ring:focus{outline:none}
+.btn:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
+.btn.secondary:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent);color:var(--accent-ink)}
 
 /* Top bar */
 .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--surface);border-bottom:1px solid var(--line);flex-wrap:wrap}
@@ -43,8 +48,8 @@ button{font:inherit}
 .hero .actions{margin-top:var(--s1)}
 .hero-art{position:relative;height:260px;border-radius:var(--r-lg);overflow:hidden;background:var(--accent-tint);box-shadow:var(--shadow)}
 .hero-art svg,.hero-art .art{width:100%;height:100%;display:block}
-.hero-scene{position:absolute;inset:0}
-.hero-chip{position:absolute;top:16px;left:16px;padding:6px 12px;border-radius:999px;background:var(--surface);font-size:.8125rem;font-weight:600;color:var(--accent-ink);box-shadow:var(--shadow)}
+.hero-scene{position:absolute;top:0;left:0;width:100%;height:100%}
+.hero-chip{position:absolute;bottom:16px;left:16px;padding:6px 12px;border-radius:999px;background:var(--surface);font-size:.8125rem;font-weight:600;color:var(--accent-ink);box-shadow:var(--shadow)}
 .pills{display:flex;flex-wrap:wrap;gap:var(--s1)}
 .pill{padding:4px 12px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-size:.8125rem;font-weight:600}
 .actions{display:flex;flex-wrap:wrap;gap:var(--s1)}
@@ -58,6 +63,13 @@ button{font:inherit}
 .tile{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--accent-tint);color:var(--accent)}
 .tile-blue{background:var(--accent-tint);color:var(--accent)}
 .tile svg{width:20px;height:20px}
+.i,.feat-ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.feat-ico{width:20px;height:20px;display:block}
+.btn .i{width:18px;height:18px;flex:none}
+.stat-ico{width:16px;height:16px}
+.tile .feat-ico{width:22px;height:22px}
+.card-head .h3{font-weight:700}
+.tile-blue{box-shadow:inset 0 0 0 1px rgba(0,98,204,.12)}
 .body{font-size:.9375rem;color:var(--ink2)}
 .section-sub{font-size:.9375rem;color:var(--ink2)}
 .small{font-size:.8125rem;color:var(--ink2)}
@@ -106,7 +118,9 @@ button{font:inherit}
 .feature-row .btn.primary{margin-top:auto}
 
 /* Lessons */
-.lessons{margin-top:var(--s5)}
+.lessons{margin-top:48px;padding-top:var(--s4);border-top:1px solid var(--line)}
+.test-opts{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.test-opt{padding:10px 14px;border:1px solid var(--edge);border-radius:var(--r);background:var(--surface);color:var(--ink2);font-size:.9375rem}
 .lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--s2)}
 .lesson-grid > *{border-top:4px solid var(--accent)}
 .lesson-card{padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
@@ -152,12 +166,11 @@ button{font:inherit}
   .brand-name{font-size:1.375rem}
   .stats{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s1)}
   .stat{justify-content:center;padding:0 8px;height:36px;font-size:.8125rem}
-  .stat-label{display:none}
+  .stat-label{font-size:.75rem;white-space:nowrap}
   .main{padding:var(--s3) var(--s2) var(--s5)}
   .home{gap:var(--s3)}
   .hero{grid-template-columns:minmax(0,1fr);gap:var(--s3)}
   .display{font-size:2rem}
-  .hero-art{height:220px}
   .feature-row{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
   .test-card,.challenge-card{padding:var(--s2)}
   .actions .btn{flex:1 1 auto}
@@ -166,93 +179,89 @@ button{font:inherit}
   .result,.empty{padding:var(--s4) var(--s2)}
 }
 
-/* Desktop: CTAs sit above the 900px fold at 1440x900 */
-@media (min-width:900px){
-  .main{padding-top:var(--s3)}
-  .home{gap:var(--s3)}
-  .hero{gap:var(--s4)}
-  .display{font-size:2.25rem}
-  .lead{font-size:1rem}
-  .hero-art{height:240px}
-  .feature-row{gap:var(--s2)}
-  .test-card,.challenge-card{padding:var(--s3)}
-  .what-get{padding:var(--s2)}
-  .streak-preview{padding:var(--s2)}
-  .streak-preview .streak-top{margin:0}
-}
-
-/* Fold round 3: desktop hero and card compaction so footer buttons clear the 900px fold at 1440x900. */
-@media (min-width:901px){
-  .hero{padding:0;align-items:start}
-  .hero-copy{padding-top:0}
-  .hero-art{height:184px;min-height:0;max-height:184px}
-  .hero-art svg{height:100%}
-  .hero-copy .pills{display:none}
-  .feature-row{margin-top:12px;gap:16px}
-  .feature-row .card{padding:16px}
-  .feature-row .card-head{min-height:0}
-  .what-get{padding:8px 12px}
-  .what-list{margin:0}
-  .what-list li:nth-child(3){display:none}
-  .challenge-card .week-note{display:none}
-  .challenge-card .week-hint{margin:4px 0 0}
-  .challenge-card .streak-preview{padding:8px 12px;gap:8px}
-  .challenge-card .up-next{padding:8px 12px}
-  .challenge-card .streak-top{margin:0}
-}
-
-/* Desktop fold: keep the CTAs above 900px at 1440x900. */
-@media (min-width:900px){
-  .hero{padding-top:0}
-  .hero-art{height:200px}
-  .feature-row{margin-top:8px}
-  .test-card,.challenge-card{gap:var(--s1);padding:var(--s3)}
-  .what-get{padding:var(--s2)}
-  .what-title{margin-bottom:0}
-  .what-list{flex-direction:row;flex-wrap:wrap;gap:8px 20px}
-  .streak-preview{gap:var(--s1);padding:var(--s2)}
-  .week-note{display:none}
-  .test-preview{padding:var(--s1) var(--s2)}
-}
-
-/* Fold round 4: on desktop, hide the What you get block so the test card and challenge card fit above the 900px fold. */
-@media (min-width:901px){
-  .test-card .what-get{display:none}
-  .feature-row .card{padding:16px}
-}
-
-/* Desktop fold, round 2: CTAs above 900px at 1440x900. */
+/* Desktop (>=900px): one consolidated ruleset. The 1440x900 fold holds the CTAs. Hero art height: 184px. */
 @media (min-width:900px){
   .main{padding-top:var(--s2)}
   .home{gap:var(--s3)}
-  .hero{gap:var(--s3);align-items:start}
-  .hero-copy{gap:var(--s1)}
-  .display{font-size:2rem;line-height:1.1}
-  .lead{margin:0}
+  .hero{gap:var(--s3);align-items:start;padding:0}
+  .hero-copy{gap:var(--s1);padding-top:0}
+  .display{font-size:2.25rem;line-height:1.1}
+  .lead{font-size:.9375rem;margin:0;max-width:36ch}
   .hero .actions{margin-top:0}
-  .hero-art{height:168px}
+  .hero-copy .pills{display:none}
   .feature-row{margin-top:0;gap:var(--s2)}
-  .card-head{gap:var(--s1)}
-  .test-card,.challenge-card{gap:var(--s1);padding:var(--s2) var(--s3) var(--s3)}
-  .what-get{padding:var(--s2)}
-  .what-list{gap:4px 16px}
-  .streak-preview{padding:var(--s1) var(--s2)}
-  .up-next{padding:var(--s1) var(--s2)}
-}
-
-/* Desktop fold, round 3: CTAs above 900px at 1440x900. */
-@media (min-width:900px){
-  .main{padding-top:var(--s1)}
-  .hero-art{height:140px}
-  .lead{font-size:.9375rem}
-  .test-card,.challenge-card{padding:var(--s2) var(--s3)}
+  .feature-row .card{padding:var(--s2)}
+  .feature-row .card-head{min-height:0;gap:var(--s1)}
+  .test-card,.challenge-card{gap:var(--s1);padding:var(--s2) var(--s3)}
+  .test-card .what-get{display:none}
   .what-get{padding:var(--s1) var(--s2)}
-  .what-title{font-size:.9375rem}
+  .what-title{font-size:.9375rem;margin-bottom:0}
+  .what-list{flex-direction:row;flex-wrap:wrap;gap:4px 16px;margin:0}
+  .what-list li:nth-child(3){display:none}
   .test-preview{padding:var(--s1)}
-  .streak-preview{gap:var(--s1)}
+  .streak-preview{padding:var(--s1) var(--s2);gap:var(--s1)}
+  .streak-preview .streak-top{margin:0}
+  .up-next{padding:var(--s1) var(--s2)}
+  .week-note{display:none}
+  .challenge-card .week-hint{margin:4px 0 0}
 }
 
 /* Streak header: one row with a fixed-size icon. */
 .streak-top{display:flex;align-items:center;gap:var(--s1);height:auto;min-height:0}
-.streak-top svg,.streak-ico{width:24px;height:24px;flex:none}
+.streak-top svg,.streak-ico{width:20px;height:20px;flex:none}
 .streak-msg{margin:0}
+.challenge-card .streak-top svg,.challenge-card .streak-ico{width:40px;height:40px}
+
+/* Type, cards and buttons */
+.display{line-height:1.1;letter-spacing:-.01em}
+.lead{color:var(--ink3)}
+.card-head h2,.card-head h3{font-weight:800}
+.card-head>:first-child{background:#D6E7FB;color:var(--accent-ink);border:1px solid #9CC4F2}
+.btn.secondary:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
+.btn.secondary:hover:not(:disabled){box-shadow:0 2px 8px rgba(0,98,204,.18)}
+/* Final round: one consolidated design block (no). */
+.mark svg{width:34px;height:34px}
+.mark{box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.main{padding-top:var(--s3)}
+.hero{padding-top:0}
+.display{font-size:2.5rem;line-height:1.05;letter-spacing:-.02em}
+.lead{font-size:.9375rem;line-height:1.5;color:var(--ink3);max-width:40ch}
+.hero-copy{gap:var(--s2)}
+.card-head h2,.card-head h3{font-weight:800}
+.card-head>:first-child{width:40px;height:40px;background:#D6E7FB;color:var(--accent-ink);border:1px solid #9CC4F2;border-radius:var(--r)}
+.streak-msg{text-transform:none;letter-spacing:0;font-size:.9375rem;font-weight:400;line-height:1.45;color:var(--ink2)}
+.streak-msg strong{font-weight:600;color:var(--ink)}
+.week{display:flex;justify-content:space-between;gap:var(--s1)}
+.week>*{width:40px;height:40px;flex:none;border-radius:50%;padding:0}
+.week>*:hover{box-shadow:0 0 0 2px var(--accent-tint),0 0 0 4px var(--accent)}
+.week>.is-selected{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--accent)}
+@media (min-width:900px){
+  .main{padding-top:var(--s3)}
+}
+@media (max-width:600px){
+  .main{padding-top:var(--s2)}
+}
+
+/* QA round 2: design fixes */
+.hero-art .hero-scene{height:calc(100% - 52px)}
+.hero-chip{top:auto;bottom:14px;left:14px}
+.btn.ghost:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
+.btn.ghost:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 2px 8px rgba(0,98,204,.18)}
+.card-head h2,.card-head h3{font-size:1.375rem;font-weight:800;letter-spacing:-.01em}
+.card-head>:first-child{background:#BFDAF8;border:1px solid #5B9BE6;color:#06408A}
+.streak-msg{font-size:.875rem;line-height:1.5}
+.lessons{margin-top:var(--s6)}
+.lessons h2{margin:0 0 var(--s1);font-size:1.5rem;font-weight:800}
+@media (min-width:900px){
+  .hero{padding-top:var(--s4)}
+  .hero-copy .display{font-size:3rem;line-height:1.02}
+  .hero-art .hero-scene{height:calc(100% - 52px)}
+}
+/* Single hero height ruleset (replaces all overlapping .hero-art height overrides). */
+.hero-art{height:200px;min-height:0;max-height:200px}
+@media (min-width:900px){
+  .hero-art{height:200px;min-height:0;max-height:200px}
+}
+@media (max-width:600px){
+  .hero-art{height:220px;min-height:0;max-height:220px}
+}

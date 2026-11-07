@@ -39,7 +39,7 @@ kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped d
 kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped during states.js'; }
 (cd qa && timeout 300 node reload.js) || fail 'reload persistence failed'
 kill -0 $PID 2>/dev/null || { cat /tmp/souvla-server.log; fail 'server stopped during reload.js'; }
-(cd qa && timeout 300 node clicktest.js) > clicktest-output.txt 2>&1 || { cat clicktest-output.txt; fail 'clicktest.js failed'; }
-cat clicktest-output.txt
+(cd qa && timeout 300 node clicktest.js) > /tmp/souvla-clicktest.txt 2>&1 || { cat /tmp/souvla-clicktest.txt; fail 'clicktest.js failed'; }
+cat /tmp/souvla-clicktest.txt
 (cd qa && BASE="$BASE" timeout 120 node footers.js) || fail "footer baseline check failed"
 echo "OK index=200 data=200 browser-tests=passed clicktest=passed"

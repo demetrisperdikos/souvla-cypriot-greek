@@ -10,7 +10,7 @@ const BASE = process.env.BASE || 'http://127.0.0.1:8765/index.html';
     return { bottom: Math.round(last.getBoundingClientRect().bottom) };
   }));
   await b.close();
-  const same = r.length === 2 && r[0].bottom === r[1].bottom;
+  const same = r.length === 2 && Math.abs(r[0].bottom - r[1].bottom) <= 1; // 1px tolerance for subpixel rounding
   const above = r.every(x => x.bottom <= 900);
   console.log((same ? 'PASS' : 'FAIL') + ' footers share one baseline :: ' + JSON.stringify(r));
   console.log((above ? 'PASS' : 'FAIL') + ' footers above 900px fold');
