@@ -22,3 +22,5 @@ Live draft: https://sites.willysilly.com/s/lszpu5cvgx646628/
 - Plate: pale ellipse under the chunks; visual quality against the design bar NOT VERIFIED.
 
 Note: the screenshot tool writes .shots/ into this folder (PNG files). Delete it after each use: rm -rf .shots. It is git-ignored and must not be shipped.
+
+AXE LESSON SCAN (round 6, tests/axe-lessons.js, axe-core 4.9.1, wcag2a+wcag2aa, every lesson screen at 390px and 1440px): runs=12, violations=0, page errors=0. Run with: cd tests && BASE=http://127.0.0.1:PORT/index.html node axe-lessons.js
