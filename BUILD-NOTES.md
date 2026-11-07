@@ -45,3 +45,9 @@ NOT PRODUCED by the build team. QA judges the live link.
 - A consolidated streak.css loaded last changed the Daily card: phone 494.1px, desktop 437.4px (baselines 502px and 429px). Reverted: streak.css deleted and its link removed from index.html.
 - After revert, measured again: phone card 502.1px, desktop card 429.4px, both at baseline. CTA 48px, UP NEXT 96.5px phone and 72px desktop.
 - Item 8 is still NOT DONE: the .streak-preview rules remain split across site.css and final.css.
+
+## Round 29: hero centring (item 2)
+- Desktop hero art centred vertically on the copy block via one rule appended to final.css: .hero{align-items:center} at min-width 900px.
+- Measured 1440px: art centre y=266, copy centre y=266 (matched). Skewer rect centre y=250 inside the 170px SVG.
+- Card heights unchanged after the change: phone 502.1px, desktop 429.4px.
+- Item 8 still NOT DONE: the consolidation attempts moved the card heights and were reverted.

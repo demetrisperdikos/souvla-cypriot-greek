@@ -178,3 +178,6 @@
 .up-next-ico{color:var(--accent);flex:none}
 /* QA round 3: the 8px track rule above is the only progress-track rule. */
 .challenge-card > .up-next.next-up .up-next-fill{background:#A0491F}
+
+/* Round 29: on desktop the hero art is centred vertically against the copy block. */
+@media (min-width:900px){.hero{align-items:center}}
