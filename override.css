@@ -15,3 +15,7 @@
 @media (max-width:899px){.hero-copy .eyebrow,.hero-copy .kicker{margin-top:0!important}.hero-copy h1,.hero-copy .display{font-size:32px!important;line-height:1.1!important}.hero-copy .lead{font-size:.875rem!important;line-height:1.4!important;margin:6px 0!important}.hero-copy .actions{margin-top:8px!important}.hero-copy .actions .btn{min-height:44px}.hero-art{margin-top:8px!important;padding:4px 8px!important}.hero-art .hero-chip{margin:0 0 2px!important}.hero-art > svg{height:76px!important;max-height:76px!important}}
 .week>*:focus-visible,.week>.day:focus-visible{outline:none!important;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)!important}
 .foot{margin-top:24px}
+.test-card .btn.primary,.challenge-card > .btn,.challenge-card .btn.primary{background:#F3EEE6!important;color:var(--ink)!important;border:1px solid #CFC4B3!important;box-shadow:none!important}
+.test-card .btn.primary:hover,.challenge-card > .btn:hover,.challenge-card .btn.primary:hover{background:#E9DFD0!important}
+.test-card,.challenge-card{box-shadow:none!important;border-color:#E2D6C6!important}
+.foot{margin-top:24px}
