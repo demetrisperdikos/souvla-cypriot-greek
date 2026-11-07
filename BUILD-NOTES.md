@@ -1,24 +1,36 @@
-# Build notes: job-195, Round 73
+# Build notes: job-195, Round 74
 
 ## Status
-NOT DONE. Design bar not met. features.json passes unchanged (all 12 remain as they were).
+NOT DONE. Not republished. Design bar not met (QA scored 6/10, bar is 8).
 
-## Measured (qa-measure/pos.js, check.sh)
-- 1440x900: Souvla Test card 402 to 881px. Footer bottom 864px. Footer above the 900px fold: PASS.
-- 390x844: first answer option 791 to 843px. Above the 844px fold: PASS by 1px.
-- check.sh: exit 0.
+## Measured (qa-measure/pos.js, run on a fresh server)
+- 390x844: card title 547px, stat tiles 691px, first question 789 to 837px, first option 872 to 924px. First answer is BELOW the 844px fold: FAIL.
+- 1440x900: first option 683 to 724px, footer 900 to 908px. Footer is BELOW the 900px fold: FAIL.
+- check.sh exits 0, but it does not test these positions. Do not read its exit code as a layout pass.
+- clicktest.js could not reach its server on 127.0.0.1:8000 in the last run, so its result is not evidence.
 
-## Brand mark (viewed in qa-measure/brand-view screenshot)
-- 48px: three chunks on a visible skewer bar. Reads as a skewer mark.
-- 24px: reads as chunks with a bar, legible but small.
-- 16px: reads as a dark blob. NOT MET (item 3).
+## Brand mark
+- 48px and 24px: three separate chunks on one bar. Readable.
+- 16px: still a small dark cluster. NOT MET (brief item 3).
 
-## Known problems (not fixed)
-- Phone hero art is about 56px tall. The chunks read small. Enlarging them pushes the first answer below 844px. Items 1 and 4 conflict in the current layout. Needs the phone hero reflowed in the base styles.
-- Phone lead paragraph hidden (override.css, Round 53). Owner must confirm.
-- override.css holds Rounds 51 to 72 stacked. Should be merged into the base styles.
+## Hero art
+- souvla-hero.js redrawn with separate chunks and highlights. Visible at 1440px and 390px.
+- Charred rim, lower-half darkening to #140703 and the 1.5px rim at 1x are NOT VERIFIED against a close-up render.
+
+## Done
+- .shots/, brand-check/ and measure18/ removed from the project root.
+- features.json: all 12 set to passes:false. Each needs a fresh screenshot or test before it can be true.
+
+## Not done
+- Phone hero reflow in base styles. Override rules Rounds 51 to 72 are still stacked in override.css and hv-v2.css. They must be merged into styles.css before the 844px fold can pass.
+- Phone lead paragraph hidden since Round 53. Owner decision needed: restore it or remove it.
+- Day-tab focus ring (terracotta, on an unselected tab) has no screenshot evidence.
+- Icon boxes at a consistent 20px: not verified.
+- Republish: not done. The link must be rebuilt from the new commit after the fold passes.
 
 ## NOT VERIFIED
-- Day-tab focus ring in terracotta (CSS added, not seen in a screenshot).
-- 1024px width, 200% and 400% zoom.
-- Design score 8/10 at either width.
+- 1024px width.
+- 200% and 400% zoom.
+- Day-tab focus ring.
+- 16px brand read (known NOT MET above).
+- Design score at 1440px and 390px (QA: 6/10).

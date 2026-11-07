@@ -1,14 +1,14 @@
 [
-  {"id": 1, "feature": "User can start a diagnostic quiz", "verify": "qa/test.js: quiz result shows a level", "passes": true},
-  {"id": 2, "feature": "Diagnostic questions cover Cypriot dialect nuances", "verify": "data.json questions carry cultural context; flashcards show it", "passes": true},
-  {"id": 3, "feature": "Adaptive difficulty algorithm correctly classifies Beginner/Intermediate/Advanced", "verify": "qa/test.js: 10 correct answers give Advanced; level computed from score ratio", "passes": true},
-  {"id": 4, "feature": "Learning phase presents content based on diagnosed level", "verify": "Lessons are tagged by level; hub lists all five with their level", "passes": true},
-  {"id": 5, "feature": "Flashcards display cypriot_pronunciation, standard_greek_comparison, and cultural_context", "verify": "qa/test.js: all three fields visible on flipped card", "passes": true},
-  {"id": 6, "feature": "Interactive dialogue tree is functional", "verify": "qa/test.js: all 3 steps, feedback, completion state", "passes": true},
-  {"id": 7, "feature": "Mini-game (Word Match) is playable", "verify": "qa/test.js: all pairs matched, XP awarded, Back to lessons", "passes": true},
-  {"id": 8, "feature": "XP system updates correctly on correct answers", "verify": "qa/test.js: quiz XP 170, lesson XP increments", "passes": true},
-  {"id": 9, "feature": "Streak logic resets after 2 days of inactivity", "verify": "qa/test.js: lastActive moved back 3 days, streak 0", "passes": true},
-  {"id": 10, "feature": "UI is responsive at 390px and 1440px", "verify": "qa/test.js: no horizontal overflow at 390px; screenshots at 1440px and 390px", "passes": true},
-  {"id": 11, "feature": "Accessibility: Keyboard navigation works", "verify": "qa/test.js: 11 keyboard stops, each with a focus ring", "passes": true},
-  {"id": 12, "feature": "No console errors on load or interaction", "verify": "qa/test.js: no console or page errors", "passes": true}
+  {"id": 1, "feature": "User can start a diagnostic quiz", "verify": "qa/test.js: quiz result shows a level", "passes": false},
+  {"id": 2, "feature": "Diagnostic questions cover Cypriot dialect nuances", "verify": "data.json questions carry cultural context; flashcards show it", "passes": false},
+  {"id": 3, "feature": "Adaptive difficulty algorithm correctly classifies Beginner/Intermediate/Advanced", "verify": "qa/test.js: 10 correct answers give Advanced; level computed from score ratio", "passes": false},
+  {"id": 4, "feature": "Learning phase presents content based on diagnosed level", "verify": "Lessons are tagged by level; hub lists all five with their level", "passes": false},
+  {"id": 5, "feature": "Flashcards display cypriot_pronunciation, standard_greek_comparison, and cultural_context", "verify": "qa/test.js: all three fields visible on flipped card", "passes": false},
+  {"id": 6, "feature": "Interactive dialogue tree is functional", "verify": "qa/test.js: all 3 steps, feedback, completion state", "passes": false},
+  {"id": 7, "feature": "Mini-game (Word Match) is playable", "verify": "qa/test.js: all pairs matched, XP awarded, Back to lessons", "passes": false},
+  {"id": 8, "feature": "XP system updates correctly on correct answers", "verify": "qa/test.js: quiz XP 170, lesson XP increments", "passes": false},
+  {"id": 9, "feature": "Streak logic resets after 2 days of inactivity", "verify": "qa/test.js: lastActive moved back 3 days, streak 0", "passes": false},
+  {"id": 10, "feature": "UI is responsive at 390px and 1440px", "verify": "screenshots at 1440px and 390px; phone first answer above 844px still to be fixed", "passes": false},
+  {"id": 11, "feature": "Accessibility: Keyboard navigation works", "verify": "focus ring visible on day tabs in a screenshot (not yet seen)", "passes": false},
+  {"id": 12, "feature": "No console errors on load or interaction", "verify": "qa/test.js: no console or page errors (re-run needed this round)", "passes": false}
 ]
