@@ -216,7 +216,7 @@ function challengeCard() {
   fill.style.width = (store.isDone(first.id) ? 100 : 0) + '%';
   bar.appendChild(fill);
   next.appendChild(bar);
-  next.appendChild(el('span', 'up-next-pct', (store.isDone(first.id) ? '100' : '0') + '% of this lesson'));
+  next.appendChild(el('span', 'up-next-pct', store.isDone(first.id) ? 'Completed' : 'Not started'));
   card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
   return card;
