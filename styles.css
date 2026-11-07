@@ -861,3 +861,7 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .test-card ul,.test-card ol{display:grid;gap:8px;margin:0;padding:0;list-style:none}
 .test-card li{margin:0}
 .test-card .stat,.test-card .stats-row>*{padding:8px 16px}
+/* QA round 18: selected day ring and primary button fill */
+.day.is-selected{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border:1px solid transparent}
+.btn.primary:hover:not(:disabled){background:var(--accent-ink);color:#fff}

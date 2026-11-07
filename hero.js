@@ -30,7 +30,7 @@ var DEFS = '<defs>' +
   '<filter id="hSoft" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>' +
   '</defs>';
 function svg() {
-  var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
+  var s = '<svg viewBox="40 20 520 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
   s += '<rect x="40" y="' + SKEWER_Y + '" width="520" height="3.5" rx="1.75" fill="url(#hBar)"/>';
   s += '<rect x="48" y="' + (SKEWER_Y + 0.7) + '" width="504" height="1" rx="0.5" fill="#F4E3D2" opacity=".7"/>';
   CH.forEach(function (c) {
