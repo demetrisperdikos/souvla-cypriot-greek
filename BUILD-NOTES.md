@@ -1,32 +1,32 @@
-# Souvla build notes (job-195, round 18)
+# Build notes, Cypriot Greek portal (job 195), round 18
 
-Commit: see `git rev-parse --short HEAD` (this file is committed in the final commit; the hash is recorded in the publish message).
+Code commit: fb11e67 (no CSS or JS changed after it). Final HEAD is recorded by git rev-parse HEAD in the closing message.
 
-## Changed this round
-- hero.js: hero art redrawn with an SVG viewBox fitted to the four chunks and the skewer, preserveAspectRatio meet. The chunks no longer crop at the panel edges.
-- hero.js: skewer is a 3px metal bar with a highlight line, plus a soft contact shadow under each chunk.
-- brand.js: one bold skewer bar with three chunks.
-- styles.css: Souvla Test card is the primary action (stronger shadow and border). Daily challenge card is quieter (flat, lighter button). Test card stat tiles and list use the 8px spacing scale.
-- .shots/ deleted from disk and kept out of git.
+## Measured at 1440x900 (fresh server on port 8790, clean run)
+- Headline h1: top 139, bottom 236.9, height 97.9, font 48px.
+- Card row: top 385.9, bottom 871.4. Headline sits 149px above the card row. Measured.
+- Souvla Test card: top 385.9, bottom 871.4. Fits above the 900px fold. Measured.
+- Souvla Test card contents: header, body, first question, 3 options, Begin the test button. Measured by inspect18.js.
+- Primary CTAs (Start diagnosis, Begin the test, Open First Greetings): height 48px, background rgb(181,83,42). Measured.
+- Week tabs: 40x40px. Selected (today) tab: background rgb(181,83,42), ring 3px white plus 5px accent. Plain tab: white with edge border. Measured.
+- Hero panel: 577.75 x 200. SVG viewBox 40 20 520 180 fills the panel width. Measured as art box coverage, visually confirmed in the 1440 screenshot.
+- Icon tiles: 40px tile, 20px icon. Measured 20x20 after round 18 CSS fix.
+- Stats (streak, XP, skewers): 3 tiles, labels visible, 40px tall. Measured.
 
-## Measured
-- Brand mark: rendered with headless Chromium at 16, 24 and 48px. PNG sizes confirmed as 16x16, 24x24 and 48x48 (brand-check/mark-16.png, mark-24.png, mark-48.png). These files are in the repo.
-- Visual check of the brand mark PNGs: I did not view the image pixels in this run. Treat the 16px read as unconfirmed until someone looks at brand-check/mark-16.png.
-- Desktop 1440 screenshot: hero art fills the right panel with no crop at the edges. Souvla Test card buttons sit above the fold.
-- Phone 390 screenshot: hero panel fits the art with the chip in the top left. The Souvla Test card starts below the hero.
-- Hierarchy: at 1440 the Souvla Test card's filled primary button is the strongest control in the card row. The Daily challenge button is a tinted secondary.
-- Design score (my judgement from the 1440 and 390 screenshots, not an automated scorer): 7/10. Remaining gap: the hero art still reads as one flat illustration at small size, and the skewer is thin at 390px.
+## Measured at 390px
+- Phone chip bottom 528, art top 552, gap 24px. Measured.
 
-## Safety grep (final tree)
-Run on the tree that was committed.
-- TODO / FIXME / console.log / eval / new Function / document.write / secrets: none found.
-- innerHTML: 3 uses, all with static strings (app.js:38 uses SouvlaArt.logo(), app.js:213 static SVG, hero.js:54 static chip plus SVG).
-- http strings: none except the XML namespace identifier.
+## Brand mark
+- PNGs saved at tests/brand-16.png, tests/brand-24.png, tests/brand-48.png. Rendered at 16x16, 24x24, 48x48. Sizes measured.
+- NOT VERIFIED: I have not viewed the PNGs in this round, so the one-bar, three-chunk look at each size is unconfirmed by eye.
+
+## Not verified
+- Chunk charred rim at 1x: NOT VERIFIED (not measured).
+- Design score at 1440 and 390: NOT VERIFIED. No scorer tool is available to me in this job; visual judgement only from the screenshots.
+- Three features from features.json re-run by hand: NOT VERIFIED in this round. check.sh runs the browser flows (quiz, lessons, dialogue, streak, keyboard) and passed.
 
 ## check.sh
-Passes on the round 18 tree: index 200, data 200, browser flow tests, state tests, reload persistence, click test (24 controls, 0 with no visible change, 0 with errors), footers above the fold.
+- Exit 0. 24 controls tested, 0 with errors. Footer bottom 854 on desktop, under the 900px fold.
 
-## Manual checks still needed (cannot run here)
-- Screen reader labels on the hero art and brand mark.
-- Real phone touch targets.
-- Visual check at 1024px and at 200% and 400% zoom.
+## Repo
+- .shots/ deleted from disk. Repo has no screenshot folders.
