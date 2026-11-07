@@ -1,29 +1,18 @@
 (function () {
 'use strict';
-// Round 19 brand mark: one skewer line through three seared chunks with a highlight.
-// Drawn on a 32 grid so it reads at 24px and 48px on the accent tile.
-
-function chunkPath(cx) {
-  var l = cx - 4.2, r = cx + 4.2;
-  return 'M' + l + ' 16 C' + (l - 0.6) + ' 11.5 ' + (cx - 2.4) + ' 8.6 ' + cx + ' 8.8 ' +
-    'C' + (cx + 2.4) + ' 8.6 ' + (r + 0.6) + ' 11.5 ' + r + ' 16 ' +
-    'C' + (r + 0.6) + ' 20.5 ' + (cx + 2.4) + ' 23.4 ' + cx + ' 23.2 ' +
-    'C' + (cx - 2.4) + ' 23.4 ' + (l - 0.6) + ' 20.5 ' + l + ' 16 Z';
+// Round 19 brand mark: one skewer line through three seared chunks with highlights. Reads at 24px and 48px.
+var XS = [7.5, 16, 24.5];
+function chunk(cx) {
+  var d = `M${cx - 4.2} 13 Q${cx - 3} 9.5 ${cx} 10 Q${cx + 4} 9.3 ${cx + 4.6} 13 Q${cx + 5.2} 16 ${cx + 4} 19.4 Q${cx} 22.6 ${cx - 3.8} 19.6 Q${cx - 5.4} 16 ${cx - 4.2} 13 Z`;
+  return `<path d='${d}' fill='url(#b19Meat)' stroke='#2B1204' stroke-width='1' stroke-linejoin='round' stroke-opacity='.75'/>` +
+    `<ellipse cx='${cx - 1.4}' cy='12.6' rx='1.4' ry='.75' fill='#FFFFFF' opacity='.9'/>`;
 }
-
 function logo() {
-  var xs = [8, 16, 24];
-  var chunks = xs.map(function (cx) {
-    return '<path d="' + chunkPath(cx) + '" fill="url(#brandMeat19)" stroke="#3B1606" stroke-width="1"/>' +
-      '<path d="M' + (cx - 1.8) + ' 12.5 L' + (cx + 1.2) + ' 19.5" stroke="#3B1606" stroke-width="1.1" stroke-linecap="round" opacity=".55"/>' +
-      '<circle cx="' + (cx - 1.6) + '" cy="11.6" r="1.1" fill="#FFFFFF" opacity=".95"/>';
-  }).join('');
-  return '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">' +
-    '<defs><radialGradient id="brandMeat19" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFD9A0"/><stop offset=".5" stop-color="#E0883A"/><stop offset="1" stop-color="#7A3510"/></radialGradient></defs>' +
-    '<path d="M2 16 H30" stroke="#E9EEF8" stroke-width="1.8" stroke-linecap="round"/>' +
-    chunks +
+  return `<svg viewBox='0 0 32 32' width='32' height='32' aria-hidden='true' focusable='false'>` +
+    `<defs><radialGradient id='b19Meat' cx='.4' cy='.35' r='.8'><stop offset='0' stop-color='#FFD28A'/><stop offset='.6' stop-color='#D4772E'/><stop offset='1' stop-color='#6E2E0C'/></radialGradient></defs>` +
+    `<rect x='1.5' y='15.2' width='29' height='1.6' rx='.8' fill='#E6ECF8'/>` +
+    chunk(XS[0]) + chunk(XS[1]) + chunk(XS[2]) +
     '</svg>';
 }
-
 if (window.SouvlaArt) window.SouvlaArt.logo = logo;
 })();
