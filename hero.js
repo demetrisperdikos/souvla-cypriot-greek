@@ -9,14 +9,14 @@
   function svg() {
     var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' +
       '<defs>' +
-      '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E39A5C"/><stop offset=".38" stop-color="#A9522A"/><stop offset=".62" stop-color="#6E3216"/><stop offset=".85" stop-color="#3A1709"/><stop offset="1" stop-color="#1E0C04"/></linearGradient>' +
+      '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E39A5C"/><stop offset=".38" stop-color="#A9522A"/><stop offset=".5" stop-color="#6E3216"/><stop offset=".78" stop-color="#2A1005"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
       '<linearGradient id="hSkew" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F4F4"/><stop offset=".4" stop-color="#9C9C9C"/><stop offset=".6" stop-color="#5E5E5E"/><stop offset="1" stop-color="#262626"/></linearGradient>' +
       '<linearGradient id="hPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAE3D4"/></linearGradient>' +
       '</defs>' +
       '<ellipse cx="300" cy="190" rx="300" ry="20" fill="#5A4A36" opacity=".22"/>' +
       '<ellipse cx="300" cy="180" rx="292" ry="24" fill="#6B5B45"/>' +
-      '<ellipse cx="300" cy="176" rx="284" ry="20" fill="url(#hPlate)" stroke="#8A7C63" stroke-width="1.5" vector-effect="non-scaling-stroke"/>' +
-      '<rect x="-120" y="92" width="840" height="18" rx="9" fill="url(#hSkew)" stroke="#1A1A1A" stroke-width="1"/><rect x="-120" y="95" width="840" height="3" rx="1.5" fill="#FFFFFF" opacity=".55"/>';
+      '<ellipse cx="300" cy="176" rx="298" ry="20" fill="url(#hPlate)" stroke="#8A7C63" stroke-width="1.5" vector-effect="non-scaling-stroke"/>' +
+      '<rect x="130" y="96" width="340" height="10" rx="5" fill="url(#hSkew)" stroke="#1A1A1A" stroke-width="1"/><rect x="130" y="97" width="340" height="2" rx="1" fill="#FFFFFF" opacity=".55"/>';
     CHUNKS.forEach(function (c) {
       s += '<g transform="translate(' + c.x + ' 104) rotate(' + c.r + ') scale(1.2)">' +
         '<path d="' + c.d + '" fill="url(#hMeat)" stroke="#140703" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>' +

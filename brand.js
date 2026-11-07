@@ -8,7 +8,7 @@
   function logo() {
     return "<svg viewBox='0 0 48 48' width='48' height='48' aria-hidden='true' focusable='false'>" +
       "<rect width='48' height='48' rx='12' fill='#FBF6EF'/>" +
-      "<rect x='3' y='22.5' width='42' height='3' rx='1.5' fill='#2A0F03'/>" +
+      "<rect x='3' y='21' width='42' height='6' rx='3' fill='#2A0F03'/>" +
       chunk(13, 24) + chunk(24, 24) + chunk(35, 24) +
       '</svg>';
   }
