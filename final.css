@@ -262,3 +262,24 @@
 
 /* job-195 round 4k: desktop hero panel top equals eyebrow top */
 @media (min-width:900px){.hero-art{margin-top:-14px !important}}
+
+/* job-195 round 5: desktop hero panel top equals eyebrow top (121px) */
+@media (min-width:900px){.hero-art{margin-top:-13px !important}}
+
+/* job-195 round 5 (final override): at desktop the art panel stretches to the copy column, so its top equals the eyebrow top and its centre equals the copy centre; the 44px chip strip is compensated so the skewer stays centred. */
+@media (min-width:900px){.hero{align-items:stretch !important}.hero-art{margin:0 !important;align-self:stretch !important;padding:44px 0 0 !important;display:flex !important;flex-direction:column;justify-content:center}.hero-art > svg{transform:translateY(-22px);margin:0 auto}}
+
+/* job-195 round 5b: chip clears the skewer at desktop; top padding of the art panel is 56px and the chip sits 8px from the panel top */
+@media (min-width:900px){.hero-art{padding:56px 0 0 !important}.hero-art .hero-chip{top:8px !important}}
+
+/* job-195 round 6 (final layout): hero art is one flex column at every width. The chip is in flow above the art (no overlap by construction); the art has no negative margins. */
+.hero-art{position:relative !important;display:flex !important;flex-direction:column !important;gap:12px !important;padding:12px !important;margin:0 !important;height:auto !important;min-height:0 !important;overflow:visible !important;align-self:center !important}
+.hero-art .hero-chip{position:static !important;align-self:flex-start !important;top:auto !important;left:auto !important;bottom:auto !important;right:auto !important}
+.hero-art > svg{position:static !important;width:100% !important;height:auto !important;max-height:none !important;transform:none !important;margin:0 !important;display:block !important}
+@media (min-width:900px){.hero{align-items:center !important}}
+
+/* job-195 round 7: desktop art panel has equal 44px strips above and below the skewer; the chip sits absolutely in the top strip, so it cannot overlap the art and the art is centred on the copy column. */
+@media (min-width:900px){.hero{align-items:center !important}.hero-art{display:block !important;position:relative !important;padding:44px 0 !important;margin:0 !important;gap:0 !important}.hero-art .hero-chip{position:absolute !important;top:8px !important;left:12px !important;bottom:auto !important;right:auto !important;align-self:auto !important}.hero-art > svg{position:relative !important;margin:0 !important;transform:none !important}}
+
+/* job-195 round 8: desktop hero row is no taller than the copy column, so the footer stays above the 900px fold; columns top-aligned so the eyebrow and panel share a top edge. */
+@media (min-width:900px){.hero{align-items:start !important}.hero-art{padding:40px 0 !important}.hero-art > svg{max-width:440px !important;margin:0 auto !important}.hero-art .hero-chip{top:6px !important}}
