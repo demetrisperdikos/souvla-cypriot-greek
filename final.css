@@ -228,3 +228,11 @@
 .hero-art > svg{position:relative;max-width:440px;margin:0 auto}
 .hero-art .hero-chip{position:absolute;top:6px;left:12px}
 }
+
+/* Round 18: up-next anchor (icon box + visible lesson meter). */
+.challenge-card > .up-next.next-up .up-next-ico{width:32px;height:32px;padding:7px;box-sizing:border-box;border-radius:10px;background:var(--surface);border:1px solid #E2D6C6}
+.challenge-card > .up-next.next-up .up-next-bar{display:block;margin-top:8px}
+
+/* Round 18b: keep the up-next anchor but fit the card above the 900px fold. */
+.challenge-card > .up-next.next-up .up-next-ico{width:24px;height:24px;padding:4px;border-radius:8px}
+.challenge-card > .up-next.next-up .up-next-bar{margin-top:0}
