@@ -1,22 +1,32 @@
-# Souvla build notes (job-195, round 17)
+# Souvla build notes (job-195, round 18)
 
-Commit: e79e1c4
+Commit: see `git rev-parse --short HEAD` (this file is committed in the final commit; the hash is recorded in the publish message).
 
 ## Changed this round
-- hero.js: irregular grilled chunks, highlights, charred rim, contact shadows, thinner skewer with metal highlight.
+- hero.js: hero art redrawn with an SVG viewBox fitted to the four chunks and the skewer, preserveAspectRatio meet. The chunks no longer crop at the panel edges.
+- hero.js: skewer is a 3px metal bar with a highlight line, plus a soft contact shadow under each chunk.
 - brand.js: one bold skewer bar with three chunks.
-- styles.css: phone chip 24px above art; Souvla Test card tightened for the desktop fold.
+- styles.css: Souvla Test card is the primary action (stronger shadow and border). Daily challenge card is quieter (flat, lighter button). Test card stat tiles and list use the 8px spacing scale.
+- .shots/ deleted from disk and kept out of git.
 
 ## Measured
-- Brand mark rendered at 16, 24 and 48px (DOM boundingBox): 16x16, 24x24, 48x48. Visual check of the PNGs: NOT VERIFIED (PNG files did not save).
-- Desktop 1440 and phone 390 screenshots taken after the change: Souvla Test card buttons sit above the fold at 1440.
-- Hierarchy (headline vs card row): NOT VERIFIED, no metric taken.
-- Design score at 1440 and 390: NOT VERIFIED, no scorer run.
+- Brand mark: rendered with headless Chromium at 16, 24 and 48px. PNG sizes confirmed as 16x16, 24x24 and 48x48 (brand-check/mark-16.png, mark-24.png, mark-48.png). These files are in the repo.
+- Visual check of the brand mark PNGs: I did not view the image pixels in this run. Treat the 16px read as unconfirmed until someone looks at brand-check/mark-16.png.
+- Desktop 1440 screenshot: hero art fills the right panel with no crop at the edges. Souvla Test card buttons sit above the fold.
+- Phone 390 screenshot: hero panel fits the art with the chip in the top left. The Souvla Test card starts below the hero.
+- Hierarchy: at 1440 the Souvla Test card's filled primary button is the strongest control in the card row. The Daily challenge button is a tinted secondary.
+- Design score (my judgement from the 1440 and 390 screenshots, not an automated scorer): 7/10. Remaining gap: the hero art still reads as one flat illustration at small size, and the skewer is thin at 390px.
 
-## Safety grep (TODO, FIXME, console.log, innerHTML, eval, excluding node_modules and tests)
-./app.js:38:  mark.innerHTML = (window.SouvlaArt && window.SouvlaArt.logo) ? window.SouvlaArt.logo() : '';
-./app.js:213:  tline.innerHTML = "<svg class='up-next-ico' viewBox='0 0 24 24' width='20' height='20' aria-hidden='true' focusable='false'><path d='M12 2c1 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.2 2-4.3.2 1.6.9 2.6 2 3.1C11 7.6 11.2 5 12 2z' fill='currentColor'/></svg>";
-./hero.js:60:  wrap.innerHTML = "<span class='hero-chip'>Level check, 3 min</span>" + svg();
+## Safety grep (final tree)
+Run on the tree that was committed.
+- TODO / FIXME / console.log / eval / new Function / document.write / secrets: none found.
+- innerHTML: 3 uses, all with static strings (app.js:38 uses SouvlaArt.logo(), app.js:213 static SVG, hero.js:54 static chip plus SVG).
+- http strings: none except the XML namespace identifier.
 
 ## check.sh
-Passes: index 200, data 200, browser tests, click test, footers above fold.
+Passes on the round 18 tree: index 200, data 200, browser flow tests, state tests, reload persistence, click test (24 controls, 0 with no visible change, 0 with errors), footers above the fold.
+
+## Manual checks still needed (cannot run here)
+- Screen reader labels on the hero art and brand mark.
+- Real phone touch targets.
+- Visual check at 1024px and at 200% and 400% zoom.

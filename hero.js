@@ -3,11 +3,7 @@
 var A = window.SouvlaArt = window.SouvlaArt || {};
 function f(n) { return Math.round(n * 10) / 10; }
 function mid(p, q) { return [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; }
-function rng(seed) {
-  var s = seed;
-  return function () { s = (s * 9301 + 49297) % 233280; return s / 233280; };
-}
-// Irregular charred outline: uneven lobes smoothed with quadratic curves.
+function rng(seed) { var s = seed; return function () { s = (s * 9301 + 49297) % 233280; return s / 233280; }; }
 function blob(c) {
   var r = rng(c.seed), n = c.n, pts = [], i;
   for (i = 0; i < n; i++) {
@@ -21,33 +17,28 @@ function blob(c) {
   }
   return d + ' Z';
 }
-// Varied lobe sizes: one large, one tall, two small.
 var CH = [
-  { cx: 150, cy: 118, rx: 62, ry: 44, seed: 3, n: 9 },
-  { cx: 275, cy: 100, rx: 82, ry: 58, seed: 7, n: 11 },
-  { cx: 402, cy: 122, rx: 64, ry: 46, seed: 11, n: 8 },
-  { cx: 500, cy: 116, rx: 42, ry: 32, seed: 17, n: 7 }
+  { cx: 120, cy: 120, rx: 62, ry: 46, seed: 3, n: 9 },
+  { cx: 245, cy: 100, rx: 80, ry: 60, seed: 7, n: 11 },
+  { cx: 380, cy: 122, rx: 64, ry: 44, seed: 11, n: 9 },
+  { cx: 488, cy: 128, rx: 40, ry: 30, seed: 17, n: 7 }
 ];
-var SKY = 134;
+var SKEWER_Y = 112;
 var DEFS = '<defs>' +
-  '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9622B"/><stop offset=".3" stop-color="#7A3316"/><stop offset=".55" stop-color="#3A170A"/><stop offset=".8" stop-color="#1E0B04"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
+  '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9622B"/><stop offset=".35" stop-color="#7A3316"/><stop offset=".65" stop-color="#3A170A"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
   '<linearGradient id="hBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9C8A80"/><stop offset=".5" stop-color="#4A3D36"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
   '<filter id="hSoft" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>' +
   '</defs>';
 function svg() {
-  var s = '<svg viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' + DEFS;
-  // Thin skewer with a metal highlight along its length.
-  s += '<ellipse cx="300" cy="' + (SKY + 5) + '" rx="250" ry="2.5" fill="#140703" opacity=".5" filter="url(#hSoft)"/>';
-  s += '<rect x="40" y="' + SKY + '" width="520" height="4" rx="2" fill="url(#hBar)"/>';
-  s += '<rect x="48" y="' + (SKY + 0.5) + '" width="504" height="1" rx="0.5" fill="#F4E3D2" opacity=".6"/>';
-  // Soft contact shadow under each chunk.
+  var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
+  s += '<rect x="40" y="' + SKEWER_Y + '" width="520" height="3.5" rx="1.75" fill="url(#hBar)"/>';
+  s += '<rect x="48" y="' + (SKEWER_Y + 0.7) + '" width="504" height="1" rx="0.5" fill="#F4E3D2" opacity=".7"/>';
   CH.forEach(function (c) {
-    s += '<ellipse cx="' + c.cx + '" cy="' + f(c.cy + c.ry * 0.85) + '" rx="' + f(c.rx * 0.9) + '" ry="6" fill="#140703" opacity=".45" filter="url(#hSoft)"/>';
+    s += '<ellipse cx="' + c.cx + '" cy="' + f(c.cy + c.ry - 4) + '" rx="' + f(c.rx * 0.85) + '" ry="6" fill="#140703" opacity=".5" filter="url(#hSoft)"/>';
   });
-  // Chunks: charred 1.5px rim, narrow highlight on the upper lobe.
   CH.forEach(function (c) {
-    s += '<path d="' + blob(c) + '" fill="url(#hMeat)" stroke="#140703" stroke-width="1.5" stroke-linejoin="round"/>';
-    s += '<ellipse cx="' + f(c.cx - c.rx * 0.25) + '" cy="' + f(c.cy - c.ry * 0.5) + '" rx="' + f(c.rx * 0.35) + '" ry="1.8" fill="#F4E3D2" opacity=".7" transform="rotate(-6 ' + c.cx + ' ' + c.cy + ')"/>';
+    s += '<path d="' + blob(c) + '" fill="url(#hMeat)" stroke="#140703" stroke-width="1.5"/>';
+    s += '<ellipse cx="' + f(c.cx - c.rx * 0.2) + '" cy="' + f(c.cy - c.ry * 0.55) + '" rx="' + f(c.rx * 0.45) + '" ry="2" fill="#F4E3D2" opacity=".65"/>';
   });
   return s + '</svg>';
 }
