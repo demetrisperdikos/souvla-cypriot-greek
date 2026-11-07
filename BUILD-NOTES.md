@@ -40,3 +40,8 @@ NOT PRODUCED by the build team. QA judges the live link.
 - Real screen readers: no assistive technology on the test machine.
 - Physical phones: only emulated viewports.
 - Safari, Firefox, Chrome Android: only Chromium was run.
+
+## Round 28 item 8 attempt (streak.css), reverted
+- A consolidated streak.css loaded last changed the Daily card: phone 494.1px, desktop 437.4px (baselines 502px and 429px). Reverted: streak.css deleted and its link removed from index.html.
+- After revert, measured again: phone card 502.1px, desktop card 429.4px, both at baseline. CTA 48px, UP NEXT 96.5px phone and 72px desktop.
+- Item 8 is still NOT DONE: the .streak-preview rules remain split across site.css and final.css.
