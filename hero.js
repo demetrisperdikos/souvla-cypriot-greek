@@ -31,7 +31,7 @@ var s = "<svg viewBox='0 0 600 220' preserveAspectRatio='xMidYMid meet' aria-hid
 s += '<defs>' +
 "<linearGradient id='hMeat' x1='0' y1='0' x2='0' y2='1'>" +
 "<stop offset='0' stop-color='#B8622E'/><stop offset='.35' stop-color='#6E2E14'/>" +
-"<stop offset='.7' stop-color='#2A0F05'/><stop offset='1' stop-color='#140703'/></linearGradient>" +
+"<stop offset='.5' stop-color='#2A0F05'/><stop offset='.62' stop-color='#140703'/><stop offset='1' stop-color='#140703'/></linearGradient>" +
 "<linearGradient id='hMetal' x1='0' y1='0' x2='0' y2='1'>" +
 "<stop offset='0' stop-color='#F4F4F4'/><stop offset='.45' stop-color='#9A9A9A'/><stop offset='.55' stop-color='#6A6A6A'/><stop offset='1' stop-color='#E8E8E8'/></linearGradient>" +
 "<linearGradient id='hGround' x1='0' y1='0' x2='0' y2='1'>" +
