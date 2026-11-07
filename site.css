@@ -430,12 +430,10 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 
 /* Round 4 layout: on desktop the Daily challenge card stacks streak preview (flex grows), UP NEXT strip, then CTA, with one 16px gap and the card padding at the bottom. */
 @media (min-width:900px){
-  .challenge-card .streak-preview{flex:1 1 auto;justify-content:space-between}
   .challenge-card > .up-next.next-up{flex:0 0 auto;height:auto;min-height:0;margin-top:0}
   .challenge-card > .btn{margin-top:0}
 }
 /* Round 4 layout. Loaded after site.css. */
-.challenge-card .streak-preview{flex:1 1 auto}
 .challenge-card{gap:var(--s1)}
 .challenge-card > .up-next.next-up{flex:0 0 auto;height:auto;min-height:0;margin:0}
 .challenge-card > .btn{margin-top:0}
@@ -450,7 +448,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 
 /* Round 5: at desktop the UP NEXT strip takes the space above the CTA; the preview keeps its natural height. */
 @media (min-width:900px){
-  .challenge-card .streak-preview{flex:0 0 auto}
   .challenge-card > .up-next.next-up{flex:1 1 auto}
 }
 
