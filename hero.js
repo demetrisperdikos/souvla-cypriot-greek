@@ -23,7 +23,7 @@
       "</g>";
   }
   function heroSvg() {
-    return "<svg class='hero-scene' viewBox='-200 -44 400 150' width='400' height='150' aria-hidden='true' focusable='false'>" + DEFS +
+    return "<svg class='hero-scene' viewBox='-220 -100 440 200' width='440' height='200' aria-hidden='true' focusable='false'>" + DEFS +
       "<ellipse cx='0' cy='84' rx='200' ry='11' fill='#2A1404' opacity='.45' filter='url(#hBlur)'/>" +
       "<ellipse cx='0' cy='72' rx='186' ry='19' fill='url(#hRim)'/>" +
       "<ellipse cx='0' cy='66' rx='172' ry='15' fill='url(#hTop)'/>" +

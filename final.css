@@ -104,3 +104,43 @@
 @media (max-width:899px){
   .feature-row > .card{min-height:560px}
 }
+
+/* Round 17 (desktop): spare height in the Daily card goes to the streak preview, so the UP NEXT strip sits directly above the CTA. */
+@media (min-width:900px){
+  .challenge-card > .streak-preview{flex:1 1 auto}
+}
+
+/* Round 18 (desktop): the streak preview takes the Daily card's spare height so the UP NEXT strip sits directly above the CTA. */
+@media (min-width:900px){
+  .challenge-card{height:100%}
+  .challenge-card > .streak-preview{flex:1 1 auto !important;height:auto !important;min-height:172px}
+}
+
+/* Round 16: phone chip inset 8px, clear of the skewer headroom. */
+@media (max-width:899px){.hero-art .hero-chip{top:8px;left:8px}}
+
+/* Round 17: phone fold. CTAs sit side by side, illustration is 116px, so the first card and its first question fit at 390x844. */
+@media (max-width:899px){
+  .hero-copy .actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
+  .hero-copy .actions .btn{flex:1 1 150px;margin:0}
+  .hero-art{height:116px;max-height:116px;margin-top:16px}
+  .hero-art .hero-scene{height:100%}
+  .hero-copy .lead{margin-bottom:0}
+}
+
+/* Round 18: phone fold. Tighter topbar, headline and lead so the first question clears 844px at 390x844. */
+@media (max-width:899px){
+  .topbar{padding-top:8px;padding-bottom:8px}
+  .hero-copy h1,.hero-copy .display{font-size:36px;line-height:1.1;margin:8px 0}
+  .hero-copy .eyebrow,.hero-copy .kicker{margin-top:8px;margin-bottom:0}
+  .hero-copy .lead{font-size:.9375rem;line-height:1.45;margin:8px 0 12px}
+  .hero-art{height:100px;max-height:100px;margin-top:12px}
+  .hero-copy .actions{margin-top:12px}
+  .main{padding-top:12px}
+}
+
+/* Round 19: phone fold. CTAs side by side on one row, so the hero is shorter and the Souvla Test first question sits above 844px. */
+@media (max-width:899px){
+  .hero-copy .actions{flex-direction:row !important;flex-wrap:nowrap !important;gap:8px !important}
+  .hero-copy .actions .btn{flex:1 1 0 !important;min-width:0;width:auto !important;padding-left:8px;padding-right:8px;font-size:.9375rem}
+}
