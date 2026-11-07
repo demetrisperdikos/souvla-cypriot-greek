@@ -1,7 +1,7 @@
 /* Final layer for job-195, loaded last. Owns: primary button, Daily challenge card and UP NEXT strip, day hint, hero chip and backdrop, phone card rhythm, skewer shading, Souvla Test accent. */
 
 /* One base, one hover, one focus-visible rule for the primary button. */
-.btn.primary{background:#A9502A;border-color:#A9502A;color:#fff;box-shadow:0 2px 6px rgba(142,58,23,.22)}
+.btn.primary{background:#A0491F;border-color:#A0491F;color:#fff;box-shadow:0 2px 8px rgba(142,58,23,.18)}
 .btn.primary:hover:not(:disabled){background:#8E3A17;border-color:#8E3A17}
 .btn.primary:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
 
@@ -12,7 +12,7 @@
 
 /* Souvla Test keeps its accent rule. */
 .test-card{border-left:3px solid #A9502A}
-.test-card .card-head .tile,.test-card .card-head > :first-child{background:#A9502A;color:#fff;border-color:#8E3A17}
+.test-card .card-head > :first-child{background:#A9502A;color:#fff;border-color:#8E3A17}
 
 /* Daily challenge: the UP NEXT strip is a real module (72px minimum) that grows to fill the card, so no dead band sits below it. The CTA keeps an 8px gap. */
 .challenge-card{display:flex;flex-direction:column;gap:8px}
@@ -20,7 +20,7 @@
 .challenge-card > .up-next.next-up .up-next-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .challenge-card > .up-next.next-up .up-next-title{font-size:1.125rem;font-weight:700;color:var(--ink)}
 .challenge-card > .up-next.next-up .up-next-meta{flex:none;padding:4px 10px;border-radius:999px;background:var(--surface);font-size:.8125rem;color:var(--ink2);white-space:nowrap}
-.challenge-card > .up-next.next-up .up-next-bar{height:4px;border-radius:2px;background:#EBD3C2;overflow:hidden}
+.challenge-card > .up-next.next-up .up-next-bar{height:8px;border-radius:4px;background:#E9D3BF;overflow:hidden}
 .challenge-card > .up-next.next-up .up-next-fill{display:block;height:100%;background:#A9502A;border-radius:2px}
 .challenge-card > .btn:last-child{margin-top:0}
 
@@ -72,8 +72,8 @@
 .stats .stat:first-child .stat-val{color:var(--accent)}
 
 /* QA round 2: primary CTA tonal shift and warm shadow (not a flat slab). */
-.btn.primary{background:linear-gradient(180deg,#B5592F 0%,#A0491F 100%);border-color:#A0491F;box-shadow:0 4px 12px rgba(160,73,31,.28),inset 0 1px 0 rgba(255,255,255,.18)}
-.btn.primary:hover:not(:disabled){background:linear-gradient(180deg,#9A4520 0%,#8E3A17 100%);border-color:#8E3A17}
+/* QA round 3: merged into the single .btn.primary base rule at the top of this file. */
+/* QA round 3: hover merged into the single .btn.primary:hover rule at the top. */
 
 /* QA round 2: desktop headline restored to a dominant size; fold fixed through card spacing, not by shrinking it. */
 @media (min-width:900px){.hero-copy .display{font-size:3.5rem;line-height:1.02}}
@@ -82,8 +82,8 @@
 @media (max-width:899px){.hero-art{height:150px;max-height:150px}.hero-art .hero-scene{width:100%;height:100%}}
 
 /* QA round 2 (fix): solid background-color kept for state tests; tonal shift layered as background-image. */
-.btn.primary{background-color:#A0491F;background-image:linear-gradient(180deg,rgba(255,255,255,.10) 0%,rgba(0,0,0,.06) 100%);border-color:#A0491F}
-.btn.primary:hover:not(:disabled){background-color:#8E3A17;background-image:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(0,0,0,.08) 100%);border-color:#8E3A17}
+/* QA round 3: duplicate base removed; see the single .btn.primary rule at the top. */
+/* QA round 3: duplicate hover removed; see the single .btn.primary:hover rule at the top. */
 
 /* Round 2: the phone hero illustration is 150px tall; the desktop headline is 3.5rem. */
 
@@ -176,5 +176,5 @@
 /* UP NEXT: flame icon beside the title and a stronger accent progress fill. */
 .challenge-card > .up-next.next-up .up-next-title{display:inline-flex;align-items:center;gap:8px}
 .up-next-ico{color:var(--accent);flex:none}
-.challenge-card > .up-next.next-up .up-next-bar{height:6px;background:#EBD3C2}
-.challenge-card > .up-next.next-up .up-next-fill{background:linear-gradient(90deg,#A9502A,#C8683A)}
+/* QA round 3: the 8px track rule above is the only progress-track rule. */
+.challenge-card > .up-next.next-up .up-next-fill{background:#A0491F}

@@ -25,6 +25,7 @@
   function heroSvg() {
     return "<svg class='hero-scene' viewBox='-220 -100 440 200' width='440' height='200' aria-hidden='true' focusable='false'>" + DEFS +
       "<ellipse cx='0' cy='84' rx='200' ry='11' fill='#2A1404' opacity='.18' filter='url(#hBlur)'/>" +
+      "<ellipse cx='0' cy='82' rx='150' ry='6' fill='#2A1404' opacity='.34'/>" +
       "<ellipse cx='0' cy='72' rx='186' ry='19' fill='url(#hRim)'/>" +
       "<ellipse cx='0' cy='66' rx='172' ry='15' fill='url(#hTop)'/>" +
       "<ellipse cx='0' cy='62' rx='166' ry='11' fill='none' stroke='#FFFFFF' stroke-width='2' stroke-opacity='.9'/>" +
