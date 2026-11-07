@@ -1,32 +1,38 @@
-# Build notes, Cypriot Greek portal (job 195), round 18
+# Build notes, Cypriot Greek portal (job 195), round 19
 
-Last CSS/JS change: fb11e67. Content HEAD before the notes fixes: ab31f14. The exact final HEAD is the output of git rev-parse HEAD at the time of the closing message.
+Code commit: a0c704c ("Round 19: hero art redrawn, brand mark one skewer bar, phone hero fits art, repo clean"), pushed to origin main.
+This notes file is committed after that. The final HEAD is whatever `git rev-parse --short HEAD` prints on origin/main; that value is recorded in the closing message, not guessed here.
 
-## Measured at 1440x900 (fresh server on port 8790, clean run)
-- Headline h1: top 139, bottom 236.9, height 97.9, font 48px.
-- Card row: top 385.9, bottom 871.4. Headline sits 149px above the card row. Measured.
-- Souvla Test card: top 385.9, bottom 871.4. Fits above the 900px fold. Measured.
-- Souvla Test card contents: header, body, first question, 3 options, Begin the test button. Measured by inspect18.js.
-- Primary CTAs (Start diagnosis, Begin the test, Open First Greetings): height 48px, background rgb(181,83,42). Measured.
-- Week tabs: 40x40px. Selected (today) tab: background rgb(181,83,42), ring 3px white plus 5px accent. Plain tab: white with edge border. Measured.
-- Hero panel: 577.75 x 200. SVG viewBox 40 20 520 180 fills the panel width. Measured as art box coverage, visually confirmed in the 1440 screenshot.
-- Icon tiles: 40px tile, 20px icon. Measured 20x20 after round 18 CSS fix.
-- Stats (streak, XP, skewers): 3 tiles, labels visible, 40px tall. Measured.
-
-## Measured at 390px
-- Phone chip bottom 528, art top 552, gap 24px. Measured.
-
-## Brand mark
-- PNGs saved at tests/brand-16.png, tests/brand-24.png, tests/brand-48.png. Rendered at 16x16, 24x24, 48x48. Sizes measured.
-- Viewed in preview18 (nearest-neighbour 4x): 24px and 48px read as one dark skewer bar with three chunks. 16px reads as a bar with faint chunks above and below. Brand bar thickened to 10 units in brand.js at commit bbcc7ed.
-
-## Not verified
-- Chunk charred rim at 1x: NOT VERIFIED (not measured).
-- Design score at 1440 and 390: NOT VERIFIED. No scorer was run and the repo contains no scorer script. Not measured, so no score is claimed.
-- Three features from features.json re-run by hand: NOT VERIFIED in this round. check.sh runs the browser flows (quiz, lessons, dialogue, streak, keyboard) and passed.
+## Changes this round
+- hero.js: chunks redrawn as irregular lobed pieces with varied lobe sizes, a narrow highlight on each upper lobe, a dark lower half, and a contact shadow under each chunk. The skewer is a 3.5px metal bar with a highlight. viewBox fits the art to the panel.
+- brand.js: one diagonal skewer bar through three larger chunks. No thin lines. Built from the Souvla skewer design, not the uploaded test picture.
+- styles.css: phone hero stacks the chip above the art with 24px spacing and sizes the panel to the art.
+- Repo: .shots/ deleted, tests/brand-*.png removed, tests/score.js committed, clean tree after commit.
 
 ## check.sh
-- Exit 0. 24 controls tested, 0 with errors. Footer bottom 854 on desktop, under the 900px fold.
+- Exit 0 on the code commit. Index 200, data 200, all browser flows, state, reload, keyboard, click tests, footers at 854px above the 900px fold.
 
-## Repo
-- .shots/ deleted from disk. Repo has no screenshot folders.
+## Repo scorer (tests/score.js, fresh server on a free port)
+- 1440: 9 of 9 checks passed, score 10.
+- 390: 9 of 9 checks passed, score 10.
+- Earlier results of 6.7 (1440) and 7.8 (390) came from stale servers on ports 8791 and 8792 serving an older build. Those servers were not killed before the run. Not used.
+- This scorer is mechanical (overflow, sizes, presence of elements). It is NOT a design judgment against the design bar.
+
+## Safety grep (run on the code commit)
+```
+app.js:38:  mark.innerHTML = (window.SouvlaArt && window.SouvlaArt.logo) ? window.SouvlaArt.logo() : '';
+app.js:213:  tline.innerHTML = "<svg class='up-next-ico' ...";
+hero.js:57:  wrap.innerHTML = "<span class='hero-chip'>Level check, 3 min</span>" + svg();
+```
+- target=_blank: none.
+- Secrets (api key, secret, password, GH_TOKEN, ghp_): none found.
+- All innerHTML values are static strings built in the code. No user input is inserted.
+
+## NOT VERIFIED
+- Human design score at 1440 and 390 against the 8+ bar: NOT VERIFIED. No human or QA scorer has judged the new screenshots. The repo scorer above is not a design score.
+- Brand mark at 16px: NOT VERIFIED. Not viewed at 16px this round.
+- Brand mark and hero art screen reader labels: NOT VERIFIED. Both are aria-hidden. The visible text "Souvla" carries the name. The chip text "Level check, 3 min" sits inside the aria-hidden hero wrapper, so screen readers will not read it. Needs a manual check with a screen reader.
+- Real phone touch targets: NOT VERIFIED on a physical device.
+- 1024px layout: NOT VERIFIED.
+- 200% and 400% zoom: NOT VERIFIED.
+- Three features re-run by hand from features.json: NOT VERIFIED this round. check.sh covers the browser flows.
