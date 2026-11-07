@@ -81,7 +81,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .what-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--s1)}
 .what-list li{display:flex;gap:12px;align-items:center;color:var(--ink2);font-size:.9375rem}
 .what-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
-.streak-preview{padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
 .streak-msg{margin:0;font-size:.875rem;font-weight:400;line-height:1.5;color:var(--ink2);text-transform:none;letter-spacing:0}
 .streak-top{display:flex;align-items:center;gap:6px}
 .week{display:flex;justify-content:space-between;gap:var(--s1)}
@@ -264,7 +263,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .lesson-card:hover{box-shadow:0 6px 18px rgba(60,30,10,.10);transition:box-shadow .18s ease}
 
 /* Round 17: stronger card headers, Daily challenge rhythm. Round 18: cleaner hero panel and brand mark. */
-.streak-preview{gap:var(--s2)}
 .streak-top{margin-bottom:0}
 .day-row,.week{margin:var(--s1) 0}
 .up-next{margin-top:var(--s2)}
