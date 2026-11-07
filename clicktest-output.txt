@@ -34,60 +34,60 @@ Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk
 [phone #1] "Start diagnosis" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  Choose the Cypriot way to say 'What is your name?' | QUESTION 1 OF 10 Choose the Cypriot way to say 'What is your name?' Po | scroll=0 | focus=h2 question
+    AFTER:  Which word means 'good morning'? | QUESTION 1 OF 10 Which word means 'good morning'? Kalimera Kalinychta  | scroll=0 | focus=h2 question
     CHANGED: yes
 [phone #2] "Browse lessons" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1806 | focus=display
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1759 | focus=display
     CHANGED: yes
 [phone #3] "Begin the test" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  Which word is a Cypriot slang term for 'friend' or 'mate'? | QUESTION 1 OF 10 Which word is a Cypriot slang term for 'friend' or 'm | scroll=0 | focus=h2 question
+    AFTER:  How do you greet a friend casually in Cyprus? | QUESTION 1 OF 10 How do you greet a friend casually in Cyprus? Yassou  | scroll=0 | focus=h2 question
     CHANGED: yes
 [phone #4] "Monday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot is-today
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1378 | focus=day dot is-today
     CHANGED: yes
 [phone #5] "Tuesday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1378 | focus=day dot
     CHANGED: yes
 [phone #6] "Wednesday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1354 | focus=day dot
     CHANGED: yes
 [phone #7] "Thursday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1378 | focus=day dot
     CHANGED: yes
 [phone #8] "Friday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1378 | focus=day dot
     CHANGED: yes
 [phone #9] "Saturday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1378 | focus=day dot
     CHANGED: yes
 [phone #10] "Sunday, no lesson yet" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
     AFTER:  Pull up a chair.
-Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1445 | focus=day dot
+Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=1378 | focus=day dot
     CHANGED: yes
 [phone #11] "Open First Greetings" click
     BEFORE: Pull up a chair.
@@ -128,7 +128,7 @@ Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk
 [desktop #1] "Start diagnosis" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  How do you say 'yes' in a relaxed Cypriot way? | QUESTION 1 OF 10 How do you say 'yes' in a relaxed Cypriot way? Ne Na  | scroll=0 | focus=h2 question
+    AFTER:  What does 'Ti kaneis?' mean in Cypriot conversation? | QUESTION 1 OF 10 What does 'Ti kaneis?' mean in Cypriot conversation?  | scroll=0 | focus=h2 question
     CHANGED: yes
 [desktop #2] "Browse lessons" click
     BEFORE: Pull up a chair.
@@ -139,7 +139,7 @@ Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk
 [desktop #3] "Begin the test" click
     BEFORE: Pull up a chair.
 Let’s talk Cypriot. | A LITTLE CYPRUS, EVERY DAY Pull up a chair. Let’s talk Cypriot. Discov | scroll=0 | focus=display
-    AFTER:  Which word means 'good morning'? | QUESTION 1 OF 10 Which word means 'good morning'? Kalimera Kalinychta  | scroll=0 | focus=h2 question
+    AFTER:  How do you greet a friend casually in Cyprus? | QUESTION 1 OF 10 How do you greet a friend casually in Cyprus? Yassou  | scroll=0 | focus=h2 question
     CHANGED: yes
 [desktop #4] "Monday, no lesson yet" click
     BEFORE: Pull up a chair.

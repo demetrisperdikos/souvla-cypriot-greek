@@ -59,7 +59,7 @@ function streakPreview(n) {
   week.className = 'week';
   var hint = document.createElement('p');
   hint.className = 'week-hint dot-caption';
-  hint.textContent = 'Finish a lesson to fill in today. Tap a day to see its status.';
+  hint.textContent = 'Finish a lesson to fill in today.';
   ['M', 'T', 'W', 'T', 'F', 'S', 'S'].forEach(function (d, i) {
     var b = document.createElement('button');
     b.type = 'button';
