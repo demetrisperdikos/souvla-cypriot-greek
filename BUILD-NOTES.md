@@ -12,7 +12,7 @@ Commit: 6a33e3d3942137577f3c6c09f9d4071179e277ea (pushed to main, github.com/dem
 - Desktop buttons: Start diagnosis 192x48, Browse lessons 198x48.
 - Phone 390: Start diagnosis 175x48, Browse lessons 175x48.
 - Header chips: 128px each at 1440, 114px each at 390.
-- Phone chips bottom y104 to Start diagnosis top y372: gap 268px. NOT MET (QA asked for it to shrink). Eyebrow, headline and paragraph still sit between them.
+- Phone chips bottom y104 to Start diagnosis top y167: gap 63px (was 268px before). Start diagnosis now sits directly under the header chips via CSS order; DOM order unchanged. Screenshot: renders/phone-order.png.
 - Phone art panel 185px tall (y460 to 645). Desktop art panel 260px (y129 to 389).
 - Footer: 898px on both breakpoints, above the 900px fold.
 
