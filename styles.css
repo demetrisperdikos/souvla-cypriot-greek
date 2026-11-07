@@ -914,3 +914,7 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 @media (min-width:900px){.main{padding-bottom:0}.home>.feature-row{padding-bottom:0;border-bottom:0;margin-bottom:0}.foot{margin:0;padding:0;height:16px;line-height:16px;font-size:.75rem}}
 /* Round 39: footer bar 12px so footer.foot bottom sits at or above 900px at 1440x900. */
 @media (min-width:900px){.foot{height:12px;line-height:12px;padding:0;font-size:.75rem}}
+/* Round 40: phone hero compacted so the Souvla Test card starts higher. */
+@media (max-width:899px){.hero-copy .lede,.hero p{margin:8px 0 0;line-height:1.45}.hero h1{margin:8px 0 0}.hero .btn{height:44px}.hero-art{padding:12px 12px 8px;height:auto}.hero-art>svg{max-height:120px;width:auto;max-width:100%;margin:0 auto}.hero-art .hero-chip{margin:0}.home>*+*{margin-top:12px}}
+/* Round 41: footer line centred and readable on desktop, still above the 900px fold. */
+@media (min-width:900px){.foot{text-align:center;color:var(--ink3);padding:0 var(--s2);box-sizing:border-box;width:100%}}
