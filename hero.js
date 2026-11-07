@@ -11,7 +11,7 @@ return function () { s = (s * 9301 + 49297) % 233280; return s / 233280; };
 function blob(c) {
 var r = rng(c.seed), n = c.n, pts = [], i;
 for (i = 0; i < n; i++) {
-var a = i * 2 * Math.PI / n + (r() - 0.5) * 0.5, k = 0.55 + 0.75 * r();
+var a = i * 2 * Math.PI / n + (r() - 0.5) * 0.7, k = 0.45 + 0.9 * r();
 pts.push([c.cx + Math.cos(a) * c.rx * k, c.cy + Math.sin(a) * c.ry * k]);
 }
 var m = mid(pts[n - 1], pts[0]), d = 'M' + f(m[0]) + ' ' + f(m[1]);
@@ -27,7 +27,7 @@ var CH = [
 { cx: 428, cy: 120, rx: 54, ry: 40, seed: 11, n: 8 }
 ];
 var DEFS = '<defs>' +
-'<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A4531F"/><stop offset=".3" stop-color="#6E2E14"/><stop offset=".55" stop-color="#2A0F05"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
+'<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9622B"/><stop offset=".35" stop-color="#7A3316"/><stop offset=".62" stop-color="#3A170A"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
 '<linearGradient id="hBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B5A50"/><stop offset=".5" stop-color="#2E2420"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
 '<filter id="hSoft" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>' +
 '</defs>';

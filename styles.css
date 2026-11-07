@@ -653,6 +653,14 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .hero-art{position:relative;display:block;height:auto;aspect-ratio:auto;min-height:0;padding:24px 0 0;margin:0;gap:0;overflow:hidden;align-self:stretch}
 .hero-art > svg{position:static;display:block;width:100%;max-width:none;height:auto;margin:0;transform:none}
 .hero-art .hero-chip{position:absolute;top:12px;left:12px}
+/* QA round 12: desktop hero copy and art share one row and are centred on each other; the art panel stretches to the copy height. */
+@media (min-width:900px){
+.hero{align-items:center}
+.hero-copy{justify-content:center}
+.hero-art{display:flex;align-items:center;justify-content:center;align-self:stretch;height:auto;min-height:0;max-height:none;padding:32px 40px;box-sizing:border-box;overflow:hidden}
+.hero-art > svg{position:static;width:100%;height:auto;max-width:none;margin:0;inset:auto;transform:none}
+.hero-art .hero-chip{position:absolute;top:16px;left:16px}
+}
 }
 @media (min-width:900px){
 .hero-art{position:relative;overflow:hidden;padding:0;display:flex;flex-direction:column;justify-content:center}
@@ -714,3 +722,18 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 
 /* Round 32: bar spacing comes from the .up-next flex gap, so the footer stays above the fold. */
 .up-next-bar{margin:0}
+
+/* QA round 12, final layer: desktop hero copy and art share one row, centred on each other. */
+@media (min-width:900px){
+.hero{align-items:center}
+.hero-copy{justify-content:center}
+.hero-art{align-self:center;height:260px;min-height:0;max-height:none;display:flex;align-items:center;justify-content:center;padding:24px 32px;box-sizing:border-box;overflow:hidden}
+.hero-art > svg{position:relative;inset:auto;width:100%;height:auto;max-width:none;margin:0;transform:none}
+.hero-art .hero-chip{position:absolute;top:12px;left:12px;bottom:auto}
+}
+
+/* QA round 12, phone: 24px air above and below the hero art before the Souvla Test card. */
+@media (max-width:899px){
+.home > .hero-art, .hero-art{margin-bottom:24px}
+.home > *:nth-child(2){margin-top:0}
+}
