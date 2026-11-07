@@ -833,6 +833,17 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .hero-art svg{display:block;width:100%;height:auto}
 }
 
+/* Round 17: Souvla Test card tightened so its list sits above the 900px fold; the hero headline leads over the card row. */
+@media (min-width:900px){
+.test-card{padding:var(--s2) var(--s3);gap:var(--s1)}
+.test-card .test-opts{gap:var(--s1)}
+.test-card .what-get{padding:var(--s1) var(--s2)}
+.test-card .what-list{gap:4px}
+.test-card .what-list li{font-size:.875rem}
+.challenge-card{padding:var(--s2) var(--s3)}
+.hero-copy .display{font-size:3.5rem}
+}
+
 /* Round 16: desktop fold. Feature cards and footer must sit above y=900 at 1440px. Phone unchanged. */
 @media (min-width:900px){
 .hero{padding-top:0;padding-bottom:0}
