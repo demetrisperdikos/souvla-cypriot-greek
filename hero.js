@@ -2,7 +2,7 @@
 'use strict';
 var A = window.SouvlaArt = window.SouvlaArt || {};
 
-var MARK = "<svg class='souvla-mark-svg' width='40' height='40' viewBox='0 0 48 48' aria-hidden='true' focusable='false'><defs><linearGradient id='mkMeat' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#C86F36'/><stop offset='.5' stop-color='#8C4520'/><stop offset='1' stop-color='#2A1204'/></linearGradient></defs><rect width='48' height='48' rx='12' fill='#FBF6EF'/><circle cx='12' cy='24' r='9' fill='url(#mkMeat)' stroke='#140703' stroke-width='1.5'/><circle cx='24' cy='24' r='10.5' fill='url(#mkMeat)' stroke='#140703' stroke-width='1.5'/><circle cx='36' cy='24' r='9' fill='url(#mkMeat)' stroke='#140703' stroke-width='1.5'/><rect x='0' y='21' width='48' height='6' rx='3' fill='#2E2E2E'/><rect x='2' y='21.5' width='44' height='1.2' rx='0.6' fill='#C4C4C4' opacity='.8'/></svg>";
+var MARK = "<svg class='souvla-mark-svg' width='40' height='40' viewBox='0 0 48 48' aria-hidden='true' focusable='false'><rect width='48' height='48' rx='12' fill='#FBF6EF'/><g fill='#9A4A22' stroke='#1E0C03' stroke-width='2.5'><circle cx='14' cy='24' r='11.5'/><circle cx='25' cy='23' r='12.5'/><circle cx='35' cy='24' r='10.5'/></g><rect x='-2' y='21' width='52' height='6' rx='3' fill='#1E1E1E'/></svg>";
 
 function blob(cx, cy, rx, ry, m) {
   var n = m.length, p = [], i;
