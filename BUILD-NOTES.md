@@ -1,36 +1,40 @@
 # Souvla build notes (job-195)
 
-CODE HEAD: 4d39684 (build commit). Notes commit is the one on top of it.
+CODE HEAD: 1df9901 (build commit, pushed to main). This notes commit is on top of it.
 
 ## Files
-- index.html loads fonts.css, site.css, final.css in that order. Real rules: site.css (base, hero, chips, Up Next, CTAs) and final.css (desktop hero fill, Up Next strip, primary button).
-- brand.js: header mark. hero.js: hero illustration. app.js, lessons.js, store.js, ui.js, data.json: app logic and content.
-- check.sh: installs, runs browser tests, serves the folder and checks HTTP 200. Last run: EXIT=0.
-- qa/ is empty (check.sh does not use it). .shots/ removed and gitignored. tests/measure.js deleted (scratch, not called by check.sh).
-- QA-round comments removed from final.css and site.css (grep count 0). Duplicate rules are NOT yet consolidated.
+- index.html loads fonts.css, site.css, final.css in that order.
+- brand.js: header mark. hero.js: hero illustration. app.js, lessons.js, store.js, ui.js, data.json: app and content.
+- check.sh: runs the browser tests, serves the folder, checks HTTP 200. Last run EXIT=0.
+- .shots/ removed and gitignored. tests/measure.js deleted (scratch, not called by check.sh). qa/ is empty.
+- QA-round comments removed from final.css and site.css (count 0). Duplicate rules NOT consolidated.
 
-## Measured this round (1440x900 and 390x844, rendered page)
-- Header brand mark: 48x48 box. 1440: x25 y17. 390: x17 y9. VERIFIED size. Legibility at 16, 24 and 48px: NOT VERIFIED (only the 48px render was measured).
-- Brief 1 (no sunglasses look): rendered mark is one dark skewer bar with three accent chunks. Judged by eye from the screenshot, NOT VERIFIED by measurement.
-- Desktop hero panel: x718 y121 w578 h273 (bottom 394). Illustration svg: x719 y122 w576 h271. VERIFIED fills the panel.
-- Skewer vs plate: skewer runs edge to edge (about 100% of plate width). Brief asked for about 60%. NOT MET. Edge extension was chosen by default; owner decides.
-- Vertical centring against text block: panel top 121 and text block top 121 match at 1440. Empty space below CTAs: NOT VERIFIED by eye after the fill rule.
+## Measured at 1440x900 and 390x844 (rendered page, Round 22)
+- Brand mark box: 48x48. 1440 x25 y17. 390 x17 y9. VERIFIED.
+- Brand mark at 16, 24, 48px, 1x and 2x: rendered standalone, PNGs written (343/683, 514/807, 807/1503 bytes). Size VERIFIED. Visual legibility at 16 and 24px: NOT VERIFIED by eye.
+- Contrast: bar #2A0F03 on #FBF6EF 16.72:1; chunk #A0491F on #FBF6EF 5.63:1 (above 3:1 for graphics). VERIFIED by calculation.
+- Brief 1 (no sunglasses look): one dark skewer bar with three accent chunks. Judged from screenshot. Owner judgement pending.
+- Desktop hero panel: x718 y121 w578 h273 (bottom 394). Illustration svg x719 y122 w576 h271. VERIFIED fills panel.
+- Skewer vs plate: skewer runs edge to edge (about 100% of plate width). Brief asked for about 60%. NOT MET. Owner decision.
+- Vertical centring: panel top 121 equals eyebrow top 121 at 1440. VERIFIED. Empty space below CTAs: judged from screenshot, NOT VERIFIED as balanced.
 - Chunk rim (#140703, 1.5px) at 1x and 2x: NOT VERIFIED (not measured).
-- Chunk outline: lumpy outlines and lower-half gradient are present in hero.js. Visual judgement only, NOT VERIFIED as cooked-meat quality.
-- CTAs at 48px height: Start diagnosis 48px at 1440 (y346 to 394); Begin the test 48px at 1440 (y847 to 895); Open First Greetings 48px at 1440 (y847 to 895). At 390: Start diagnosis 48px (y399 to 447); Begin the test and Open First Greetings were measured at 48px height. VERIFIED.
-- Footer baseline: bottom 895 on 1440x900 (earlier check.sh run). VERIFIED.
-- Eyebrow to panel top at 390: NOT VERIFIED this round (earlier selector matched a section, value discarded).
-- Up Next gaps (16px streak to Up Next, 16px Up Next to CTA): NOT VERIFIED this round (not re-measured after the latest CSS).
-- Phone hero gap to card (24px air above art): NOT VERIFIED this round.
-- Up Next label: 'Not started' with 8px track. Step count '0 of N' NOT used. NOT VERIFIED as designed state by eye.
-- Chips at 20px icon box and stroke weight: NOT VERIFIED.
+- Chunk outline lumps and lower-half gradient: present in hero.js. Visual judgement only, NOT VERIFIED as cooked-meat quality.
+- CTAs 48px tall. 1440: Start diagnosis y346-394, Begin the test y847-895, Open First Greetings y847-895. 390: Start diagnosis y399-447, Begin the test y1174-1222, Open First Greetings y1735-1783. VERIFIED.
+- Hero composition 1440: eyebrow top 121, panel top 121. VERIFIED.
+- Hero composition 390: eyebrow y141-159, panel top 471 (312px apart with the header chips and intro between). Stacked layout, not a same-row pair. VERIFIED values.
+- Phone hero: panel bottom 663, Souvla Test card top 679 (16px gap). VERIFIED in round 20.
+- Up Next 1440: strip y735-831 (96px). Streak preview bottom 719, so 16px gap above. CTA top 847, so 16px gap below. VERIFIED.
+- Up Next 390: strip y1599-1719. Gaps 16px above and below (1583-1599, 1719-1735). VERIFIED.
+- Up Next label: 'Not started' with 8px track, no step count. NOT VERIFIED as a designed state by eye.
+- Header chips 20px icon box and stroke: NOT VERIFIED.
+- Footer baseline: bottom 895 at 1440x900. VERIFIED.
 
 ## Design score
 NOT MEASURED by a reviewer. No 8+ claim is made. Build is NOT DONE.
 
 ## Open
-- Skewer width (60% vs edge to edge): owner decision.
-- Consolidate final.css into one block per component.
-- Re-measure eyebrow, Up Next gaps, phone hero gap and brand at 16 and 24px.
-- Design score by reviewer.
-- Leftover test servers may remain on ports 8790 and 8791 (pkill not permitted on one).
+1. Skewer width: 60% of plate vs edge to edge. Owner decision.
+2. Chunk rim 1.5px #140703 at 1x and 2x: measure.
+3. Consolidate final.css and site.css into one block per component.
+4. Brand legibility at 16 and 24px by eye.
+5. Design score by a reviewer.
