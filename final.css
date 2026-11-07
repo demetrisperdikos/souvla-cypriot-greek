@@ -16,7 +16,6 @@
 
 /* Daily challenge: the UP NEXT strip is a real module (72px minimum) that grows to fill the card, so no dead band sits below it. The CTA keeps an 8px gap. */
 .challenge-card{display:flex;flex-direction:column;gap:8px}
-.challenge-card > .streak-preview{flex:0 0 auto}
 .challenge-card > .up-next.next-up .up-next-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .challenge-card > .up-next.next-up .up-next-title{font-size:1.125rem;font-weight:700;color:var(--ink)}
 .challenge-card > .up-next.next-up .up-next-meta{flex:none;padding:4px 10px;border-radius:999px;background:var(--surface);font-size:.8125rem;color:var(--ink2);white-space:nowrap}
@@ -41,17 +40,14 @@
 }
 
 /* Round 7: the UP NEXT strip is a fixed 88px module at every width. The streak preview (day row) takes the spare card height, so the CTA stays 8px under the strip and no dead band forms. */
-.challenge-card > .streak-preview{flex:1 1 auto}
 
 /* Round 9: keep the Daily challenge card inside the 900px fold at 1440x900. Strip 80px (inside the 72-88px module range); preview padding trimmed. */
 @media (min-width:900px){
-  .challenge-card > .streak-preview{padding-top:12px;padding-bottom:12px}
 }
 
 /* Round 10: the streak preview keeps its natural height (no flex growth), and the feature row sizes to content, so the Daily challenge card ends inside the 900px fold. */
 @media (min-width:900px){
   .feature-row{grid-auto-rows:auto}
-  .challenge-card > .streak-preview{flex:0 0 auto;padding-top:8px;padding-bottom:8px}
   .challenge-card .week-hint{margin-top:8px}
 }
 
@@ -62,11 +58,9 @@
   .hero-copy .lead{max-width:56ch;margin:0}
   .hero .actions{margin-top:0}
   .hero{gap:var(--s3)}
-  .challenge-card > .streak-preview{flex:0 0 auto}
 }
 
 .challenge-card > .up-next.next-up{flex:1 1 auto;height:auto;min-height:72px;box-sizing:border-box}
-.challenge-card > .streak-preview{flex:0 0 auto}
 @media (max-width:899px){.feature-row{grid-auto-rows:auto}.feature-row > .card{height:auto}.challenge-card > .up-next.next-up{flex:0 0 auto}}
 /* Item 7: the streak pill value is the one accent in the header. */
 .stats .stat:first-child .stat-val{color:var(--accent)}
@@ -107,13 +101,11 @@
 
 /* Round 17 (desktop): spare height in the Daily card goes to the streak preview, so the UP NEXT strip sits directly above the CTA. */
 @media (min-width:900px){
-  .challenge-card > .streak-preview{flex:1 1 auto}
 }
 
 /* Round 18 (desktop): the streak preview takes the Daily card's spare height so the UP NEXT strip sits directly above the CTA. */
 @media (min-width:900px){
   .challenge-card{height:100%}
-  .challenge-card > .streak-preview{flex:1 1 auto;height:auto;min-height:172px}
 }
 
 /* Round 16: phone chip inset 8px, clear of the skewer headroom. */
@@ -146,20 +138,16 @@
 }
 
 /* Day hint: sits 8px below the day chips; spare height stays inside the preview, not between chips and hint. */
-.challenge-card > .streak-preview{justify-content:flex-start}
 .challenge-card .streak-preview .week-hint{margin-top:8px}
 
 /* Day hint: exactly 8px below the chips. Chips keep 16px above; no flex gap or bottom margin between chips and hint. */
-.challenge-card > .streak-preview{gap:0}
 .challenge-card .streak-preview .week{margin:16px 0 0}
 .challenge-card .streak-preview .week-hint{margin:8px 0 0}
 
 /* Spare card height goes to the UP NEXT strip, not the streak preview, so the strip sits 8px above the CTA and the CTA 17px above the card edge. */
-.challenge-card > .streak-preview{flex:0 0 auto;min-height:0;height:auto}
 .challenge-card > .up-next.next-up{flex:1 1 auto;min-height:72px}
 
 /* Streak preview keeps its content height at every width; the UP NEXT strip takes the spare card height. */
-.challenge-card > .streak-preview{min-height:0;height:auto;flex:0 0 auto}
 
 /* UP NEXT strip sits directly under the day hint at every width; no auto top margin pushes it down. */
 .challenge-card > .up-next.next-up{margin-top:0}
