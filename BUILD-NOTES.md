@@ -82,3 +82,13 @@ index.html loads site.css (single stylesheet). Hero art is drawn by hero.js. No 
 - Duplicate rules still open: .daily-card>.btn, .card>.btn, .btn-primary:hover, .streak-msg, .btn.
 - xss-probe and xss-storage: pass (dialogs 0, no injected nodes).
 - check.sh exit: 0
+
+## Round 4 (measured, latest)
+- Live files: site.css (base), round4.css (round 4 layout, loaded after site.css from index.html).
+- Daily challenge card: UP NEXT strip to CTA gap 8px at 1440 and 390 (qa/measure-gap.js: 1440 strip bottom 805, CTA top 813; 390 strip bottom 2026, CTA top 2034). CTA to card bottom 17px at both widths.
+- Hero chip clearance: 1440 chip top 297 vs skewer bottom 285 (12px); 390 chip top 710 vs skewer bottom 682 (28px).
+- Hero backdrop: warm accent-tint with fine diagonal grain (round4.css), visible in screenshot.
+- Skewers: irregular charred meat, one highlight each (souvla-art.js); brand chunk reshaped (brand.js). 48px brand crop not re-checked.
+- Still open: duplicate rules in site.css (.daily-card>.btn, .card>.btn, .btn-primary:hover, .streak-msg, .btn) not merged; primary CTA warmth not separately measured.
+- xss-probe: {"dialogs":0,"payloadInDom":false,"onerrorInDom":false,"dialogsAfterStorageReload":0}
+- xss-storage: {"storageKey":"souvla.state.v2","dialogs":0,"injectedImg":0,"injectedScript":0,"textHasPayload":true,"pass":true}
