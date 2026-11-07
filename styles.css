@@ -851,3 +851,13 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .hero-copy .display{font-size:3rem;line-height:1.02}
 .feature-row{margin-top:0}
 }
+
+/* round 18: hierarchy and 8px spacing */
+.challenge-card{box-shadow:none;background:#FBF7F2;border-color:#EFE4D8}
+.challenge-card .btn{background:#F3E6DA;color:#7A3A1C;box-shadow:none}
+.challenge-card .btn:hover{background:#EBD9C8}
+.test-card{box-shadow:0 12px 32px rgba(120,50,20,.16);border-color:#E3B894}
+.test-card .btn{box-shadow:0 4px 12px rgba(160,70,31,.28)}
+.test-card ul,.test-card ol{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.test-card li{margin:0}
+.test-card .stat,.test-card .stats-row>*{padding:8px 16px}
