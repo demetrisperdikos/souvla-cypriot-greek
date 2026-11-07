@@ -234,3 +234,17 @@
 @media (max-width:899px){
 .hero-art .hero-chip{position:absolute;top:auto;bottom:12px;left:12px}
 }
+
+/* Round 28: hero band, desktop centring, lower-section divider, bottom padding, stronger display moment */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:-24px;bottom:-24px;width:100vw;background:linear-gradient(180deg,#F6E6D8 0%,#FBF3EC 100%);z-index:-1}
+@media (min-width:900px){.hero{align-items:center}.hero-copy{align-self:center}}
+@media (max-width:899px){.hero-art{margin-top:24px}}
+.card{background:#FFFCF8}
+.section-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,#E4D3C2 20%,#E4D3C2 80%,transparent);margin:var(--s5,40px) 0}
+.main{padding-bottom:var(--s6,64px)}
+.hero-copy .display{letter-spacing:-.02em}
+
+/* Round 28 fix: header stays above the hero band; band fades into the page background */
+.topbar{position:relative;z-index:5}
+.hero::before{background:linear-gradient(180deg,#F6E6D8 0%,#FBF3EC 70%,#F9F8F5 100%)}

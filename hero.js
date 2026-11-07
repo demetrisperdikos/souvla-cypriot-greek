@@ -54,8 +54,8 @@ function svg() {
     s += '<ellipse cx="' + (c.cx + c.hx) + '" cy="' + (c.cy + c.hy) + '" rx="9" ry="2.4" transform="rotate(' + c.hr + ' ' + (c.cx + c.hx) + ' ' + (c.cy + c.hy) + ')" fill="#FFF6EC" opacity=".92"/>';
   });
   // skewer drawn last so it passes in front of the chunks; about 63% of the plate width
-  s += '<rect x="110" y="112" width="380" height="10" rx="5" fill="url(#hSkew)" stroke="#1A1A1A" stroke-width="1" vector-effect="non-scaling-stroke"/>' +
-    '<rect x="116" y="113" width="368" height="2" rx="1" fill="#FFFFFF" opacity=".6"/>';
+  s += '<rect x="120" y="112" width="360" height="10" rx="5" fill="url(#hSkew)" stroke="#1A1A1A" stroke-width="1" vector-effect="non-scaling-stroke"/>' +
+    '<rect x="126" y="113" width="348" height="2" rx="1" fill="#FFFFFF" opacity=".6"/>';
   return s + '</svg>';
 }
 
