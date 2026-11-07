@@ -18,7 +18,7 @@ Last CSS/JS change: fb11e67. Content HEAD before the notes fixes: ab31f14. The e
 
 ## Brand mark
 - PNGs saved at tests/brand-16.png, tests/brand-24.png, tests/brand-48.png. Rendered at 16x16, 24x24, 48x48. Sizes measured.
-- NOT VERIFIED: I have not viewed the PNGs in this round, so the one-bar, three-chunk look at each size is unconfirmed by eye.
+- Viewed in preview18 (nearest-neighbour 4x): 24px and 48px read as one dark skewer bar with three chunks. 16px reads as a bar with faint chunks above and below. Brand bar thickened to 10 units in brand.js at commit bbcc7ed.
 
 ## Not verified
 - Chunk charred rim at 1x: NOT VERIFIED (not measured).
