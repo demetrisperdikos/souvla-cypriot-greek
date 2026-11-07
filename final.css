@@ -255,3 +255,6 @@
 /* Round 28 fix: keep footer above the 900px fold on desktop */
 @media (min-width:900px){.hero-copy .actions{margin-top:0}}
 .main{padding-bottom:var(--s4,32px)}
+
+/* Round 28: desktop copy group centred on the art panel (no stretch, equal top and bottom offset) */
+@media (min-width:900px){.hero{align-items:center}.hero-copy{align-self:center;height:auto;justify-content:center}.hero-art{align-self:center}}
