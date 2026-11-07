@@ -1,7 +1,7 @@
 (function () {
   function chunk(cx, cy, rot) {
     return "<g transform='translate(" + cx + " " + cy + ") rotate(" + rot + ")'>" +
-      "<path d='M-9 -4 Q-10 -11 -3 -10 Q2 -13 8 -8 Q11 -2 8 4 Q9 10 3 10 Q-2 12 -7 8 Q-11 3 -9 -4 Z' fill='#B8642E' stroke='#3A1606' stroke-width='1.6' stroke-linejoin='round'/>" +
+      "<path d='M-10 -5 Q-12 -12 -4 -11 Q2 -15 9 -9 Q12 -2 9 4 Q11 11 3 11 Q-2 14 -8 9 Q-13 4 -10 -5 Z' fill='#B8642E' stroke='#3A1606' stroke-width='1.6' stroke-linejoin='round'/>" +
       "<ellipse cx='-3' cy='-5' rx='2.6' ry='1.2' transform='rotate(-20 -3 -5)' fill='#FFE2B8' opacity='.85'/>" +
       "</g>";
   }

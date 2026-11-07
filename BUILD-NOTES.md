@@ -1,26 +1,34 @@
-# Build notes, Souvla (job-195)
+# Souvla build notes (job-195)
 
-Run: bash check.sh (exit 0 on commit 81f519e). Measurements: live page at 1440x900 and 390x844, read with getBoundingClientRect.
+Measured by `tests/measure.js` (run it with BASE=http://127.0.0.1:PORT/index.html from a served copy of this folder). One run, values below.
 
-## Measured values (commit 81f519e)
-- 1440x900: day hint 8px below the day chips. UP NEXT strip 96px, directly below the hint with a 17px gap. Strip-to-CTA gap 8px. CTA-to-card-bottom 17px. Card height 427px.
-- 390x844: day hint 8px below the day chips. UP NEXT strip 199px, 25px below the hint. Strip-to-CTA gap 8px. CTA-to-card-bottom 17px. Card height 560px.
-- No horizontal overflow at either size. Footers share one baseline and sit above the 900px fold at desktop.
+## Measured values
+- 390px UP NEXT strip height: 95px (min-height 72px met: VERIFIED)
+- 390px Daily card height: 500px
+- 390px CTA gap to card edge: 17px (VERIFIED)
+- 1440px UP NEXT strip height: 72px (min-height met: VERIFIED)
+- 1440px Daily card height: 429px
+- 1440px CTA gap to card edge: 17px (VERIFIED)
+- Brand mark size at header: 48 x 48px (VERIFIED)
+- Primary button background: rgb(160, 73, 31); radius 999px
 
-## Brief items
-1. Dead band below UP NEXT strip: VERIFIED at 1440. The strip now fills the spare height and the CTA sits 17px above the card edge. At 390 the strip is 199px tall and the 25px gap above it is a design call, NOT VERIFIED as intended.
-2. CTA shadow and tone: VERIFIED by earlier measurement, not re-checked this round.
-3. Headline: VERIFIED at 56px desktop. Phone is 36px.
-4. Card treatment: NOT VERIFIED visually against the brief.
-5. Skewer redraw and 48px brand mark crop: NOT VERIFIED this round.
-6. Phone fold: first question sits above 844px, verified in the earlier round.
-7. Day hint 8px below the chips: VERIFIED at both sizes.
-8. Helper note 'Miss a day and the streak resets...': hidden at all widths. The brief did not ask for it, so removing it is a copy decision for the owner, NOT VERIFIED as intended.
-9. Rule consolidation: duplicate .challenge-card base rules removed from site.css, one base rule remains in final.css. .btn modifier rules are variants, not duplicates. VERIFIED for .challenge-card. NOT VERIFIED for .btn and .tile as one base rule each.
-10. Scratch files under qa/: removed from the repo. VERIFIED.
-11. Republish: NOT VERIFIED until the publish step returns.
-12. Design score against the 8/10 bar: NOT VERIFIED. QA owns this.
+## Items
+1. Helper note (.week-note) visible at all widths: VERIFIED (restored below the day chips, `hasWeekNote: true` at 390 and 1440).
+2. UP NEXT strip flexes with 72px minimum at 390 and 1440: VERIFIED (95px and 72px).
+3. CTA sits 17px above card edge at 390 and 1440: VERIFIED.
+4. Flame icon and stronger accent fill on UP NEXT: VERIFIED visually in the 1440 screenshot; NOT VERIFIED by computed style.
+5. Brand mark 48px sharp and centred: size VERIFIED (48px); centring NOT VERIFIED. The centre-offset reading from the script (-154 at 390, -671 at 1440) is measured from the wrong reference point and is not a valid result. Needs a re-measure against the header box.
+6. Brand chunk redraw (irregular outline, charred edge, one highlight): NOT VERIFIED at 48px in a crop; the outline was changed but no crop was taken.
+7. Hero skewer chunks: redrawn to a new outline and plate shadow lightened (opacity .45 to .18); NOT VERIFIED as evenly spaced or as matching the palette. Needs owner-level design review.
+8. .btn rule consolidation (site.css and final.css): NOT DONE. final.css still overrides .btn.primary; computed-style check at 390 and 1440 NOT VERIFIED.
+9. .tile rule consolidation: NOT DONE; NOT VERIFIED.
+10. Scratch qa/ tree removed from git (commit 502fb4a) and kept tests moved to tests/: VERIFIED (check.sh runs from tests/).
+11. Stray servers on ports 8123-8136 stopped: VERIFIED (none listening).
+12. Owner picture (sad-face ring and cloud blob): NOT used as branding. Owner asked whether favicon or lesson illustration; default is current mark until answered.
+13. Design bar 8/10 on fresh screenshots: NOT VERIFIED; not scored in this round.
+14. Manual checks (screen reader, 390px touch targets, Safari iOS skewer): NOT VERIFIED here (not runnable).
+15. Republish from a clean tree with live link and commit hash: PENDING (see final commit below).
 
-## Decisions for the owner
-- Helper note: keep it hidden, or restore it below the chips.
-- Phone strip height (199px): accept, or shorten the strip and let the Souvla Test card change.
+## Commands
+- `bash check.sh` from the project root (exit 0 at last run).
+- `node tests/measure.js` with a served copy and BASE set.

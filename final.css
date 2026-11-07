@@ -172,3 +172,9 @@
   .feature-row > .challenge-card{min-height:0 !important;height:auto !important}
   .challenge-card > .up-next.next-up{flex:0 0 auto !important}
 }
+
+/* UP NEXT: flame icon beside the title and a stronger accent progress fill. */
+.challenge-card > .up-next.next-up .up-next-title{display:inline-flex;align-items:center;gap:8px}
+.up-next-ico{color:var(--accent);flex:none}
+.challenge-card > .up-next.next-up .up-next-bar{height:6px;background:#EBD3C2}
+.challenge-card > .up-next.next-up .up-next-fill{background:linear-gradient(90deg,#A9502A,#C8683A)}

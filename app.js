@@ -204,7 +204,10 @@ function challengeCard() {
   var next = el('div', 'up-next next-up');
   next.appendChild(el('p', 'up-next-label', 'Up next'));
   var nrow = el('div', 'up-next-row');
-  nrow.appendChild(el('span', 'up-next-title', first.title));
+  var tline = el('span', 'up-next-title');
+  tline.innerHTML = "<svg class='up-next-ico' viewBox='0 0 24 24' width='18' height='18' aria-hidden='true' focusable='false'><path d='M12 2c1 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.2 2-4.3.2 1.6.9 2.6 2 3.1C11 7.6 11.2 5 12 2z' fill='currentColor'/></svg>";
+  tline.appendChild(document.createTextNode(first.title));
+  nrow.appendChild(tline);
   nrow.appendChild(el('span', 'up-next-meta', levelName(first.level) + ' · about 5 min'));
   next.appendChild(nrow);
   var bar = el('div', 'up-next-bar');

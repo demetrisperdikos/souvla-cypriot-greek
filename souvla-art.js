@@ -43,7 +43,7 @@ function whatYouGet() {
 function chunk(cx) {
   return '<g transform="translate(' + cx + ' 0)">' +
     '<ellipse cx="4" cy="36" rx="36" ry="8" fill="#1A1A1A" opacity=".4" filter="url(#svBlur)"/>' +
-    '<path d="M-30 -12 Q-36 -32 -12 -31 Q2 -37 16 -29 Q36 -27 33 -4 Q38 12 27 24 Q18 36 1 30 Q-14 37 -27 27 Q-39 14 -30 -12 Z" fill="url(#svMeat)" stroke="#2A1204" stroke-width="3" stroke-linejoin="round"/>' +
+    '<path d="M-31 -8 Q-38 -26 -18 -30 Q-4 -40 12 -31 Q30 -34 34 -14 Q40 4 30 16 Q34 30 16 32 Q2 40 -10 32 Q-28 36 -34 20 Q-42 6 -31 -8 Z" fill="url(#svMeat)" stroke="#2A1204" stroke-width="3" stroke-linejoin="round"/>' +
     '<path d="M-27 27 Q-14 37 1 30 Q18 36 27 24 Q14 22 -2 26 Q-14 24 -27 27 Z" fill="#2A1204" opacity=".55"/>' +
     '<path d="M-16 -18 L-22 6 M6 -22 L0 4 M18 -12 L14 8" stroke="#2A1204" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".45"/>' +
     '<ellipse cx="-10" cy="-18" rx="11" ry="4.5" transform="rotate(-18 -10 -18)" fill="#FFF3DC" opacity=".7"/>' +
