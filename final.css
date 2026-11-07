@@ -38,19 +38,15 @@
   .challenge-card > .btn:last-child{margin-top:0}
 }
 
-/* Round 7: the UP NEXT strip is a fixed 88px module at every width. The streak preview (day row) takes the spare card height, so the CTA stays 8px under the strip and no dead band forms. */
 
-/* Round 9: keep the Daily challenge card inside the 900px fold at 1440x900. Strip 80px (inside the 72-88px module range); preview padding trimmed. */
 @media (min-width:900px){
 }
 
-/* Round 10: the streak preview keeps its natural height (no flex growth), and the feature row sizes to content, so the Daily challenge card ends inside the 900px fold. */
 @media (min-width:900px){
   .feature-row{grid-auto-rows:auto}
   .challenge-card .week-hint{margin-top:8px}
 }
 
-/* Round 13: desktop hero copy tightened to free vertical room; the UP NEXT strip fills the Daily challenge card so the CTA sits on the card's bottom padding with no dead band. */
 @media (min-width:900px){
   .main{padding-top:var(--s2)}
   .hero-copy .display{font-size:3rem;line-height:1.02}
@@ -64,53 +60,37 @@
 /* Item 7: the streak pill value is the one accent in the header. */
 .stats .stat:first-child .stat-val{color:var(--accent)}
 
-/* QA round 2: primary CTA tonal shift and warm shadow (not a flat slab). */
-/* QA round 3: merged into the single .btn.primary base rule at the top of this file. */
-/* QA round 3: hover merged into the single .btn.primary:hover rule at the top. */
 
-/* QA round 2: desktop headline restored to a dominant size; fold fixed through card spacing, not by shrinking it. */
 @media (min-width:900px){.hero-copy .display{font-size:3.5rem;line-height:1.02}}
 
-/* QA round 2: phone hero illustration shortened so the first card sits above the fold at 390x844. */
 @media (max-width:899px){.hero-art{height:150px;max-height:150px}.hero-art .hero-scene{width:100%;height:100%}}
 
-/* QA round 2 (fix): solid background-color kept for state tests; tonal shift layered as background-image. */
-/* QA round 3: duplicate base removed; see the single .btn.primary rule at the top. */
-/* QA round 3: duplicate hover removed; see the single .btn.primary:hover rule at the top. */
 
-/* Round 2: the phone hero illustration is 150px tall; the desktop headline is 3.5rem. */
 
-/* Round 11: UP NEXT strip fills the spare height of the Daily challenge card at desktop, so the CTA sits on the bottom padding with no dead band. */
 @media (min-width:900px){
   .challenge-card > .up-next.next-up{flex:1 0 auto;min-height:72px;justify-content:space-between}
   .challenge-card > .up-next.next-up .up-next-bar{margin-top:auto}
 }
 
-/* Round 13 (phone): the Souvla Test card drops its extra What-you-get block so both stacked cards are close in height; the pills and illustration shrink so the first card starts above the fold at 390x844. */
 @media (max-width:899px){
   .test-card .what-get{display:none}
   .hero-copy .pills{display:none}
   .hero-art{height:130px;max-height:130px}
 }
 
-/* Round 16 (phone): both stacked feature cards share one 560px height; the Souvla Test card's spare space sits above its action button. */
 @media (max-width:899px){
   .feature-row > .card{min-height:560px}
 }
 
-/* Round 17 (desktop): spare height in the Daily card goes to the streak preview, so the UP NEXT strip sits directly above the CTA. */
 @media (min-width:900px){
 }
 
-/* Round 18 (desktop): the streak preview takes the Daily card's spare height so the UP NEXT strip sits directly above the CTA. */
 @media (min-width:900px){
   .challenge-card{height:100%}
 }
 
-/* Round 16: phone chip inset 8px, clear of the skewer headroom. */
 @media (max-width:899px){.hero-art .hero-chip{top:8px;left:8px}}
 
-/* Round 17: phone fold. CTAs sit side by side, illustration is 116px, so the first card and its first question fit at 390x844. */
 @media (max-width:899px){
   .hero-copy .actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
   .hero-copy .actions .btn{flex:1 1 150px;margin:0}
@@ -119,7 +99,6 @@
   .hero-copy .lead{margin-bottom:0}
 }
 
-/* Round 18: phone fold. Tighter topbar, headline and lead so the first question clears 844px at 390x844. */
 @media (max-width:899px){
   .topbar{padding-top:8px;padding-bottom:8px}
   .hero-copy h1,.hero-copy .display{font-size:36px;line-height:1.1;margin:8px 0}
@@ -130,7 +109,6 @@
   .main{padding-top:12px}
 }
 
-/* Round 19: phone fold. CTAs side by side on one row, so the hero is shorter and the Souvla Test first question sits above 844px. */
 @media (max-width:899px){
   .hero-copy .actions{flex-direction:row;flex-wrap:nowrap;gap:8px}
   .hero-copy .actions .btn{flex:1 1 0;min-width:0;width:auto;padding-left:8px;padding-right:8px;font-size:.9375rem}
@@ -160,17 +138,13 @@
 /* UP NEXT: flame icon beside the title and a stronger accent progress fill. */
 .challenge-card > .up-next.next-up .up-next-title{display:inline-flex;align-items:center;gap:8px}
 .up-next-ico{color:var(--accent);flex:none}
-/* QA round 3: the 8px track rule above is the only progress-track rule. */
 .challenge-card > .up-next.next-up .up-next-fill{background:#A0491F}
 
-/* Round 29: on desktop the hero art is centred vertically against the copy block. */
 @media (min-width:900px){.hero{align-items:center}}
 
-/* Item 8: one base rule for the streak preview, with responsive overrides. Values match the Round 30 computed cascade. */
 .streak-preview{padding:16px;gap:0;display:flex;flex-direction:column;justify-content:flex-start;flex:0 0 auto;min-height:0;height:auto}
 @media (min-width:900px){.streak-preview{padding:8px 16px}}
 .challenge-card > .streak-preview{flex:0 0 auto}
-/* Fix round 20 (no): header chips, CTA height, UP NEXT min-height, phone hero spacing, desktop hero fill. */
 
 /* (6) One height for every primary CTA. */
 :root{--cta-h:48px}
@@ -191,7 +165,6 @@
   .hero-art .hero-scene{width:100%;height:auto;max-width:520px}
 }
 
-/* Fix round 22: desktop chip moves to bottom-left so it does not cover the first skewer chunk. */
 @media (min-width:900px){.hero-art .hero-chip{top:auto;bottom:12px;left:12px}}
 
 /* Fix round: header streak chips, equal 3-column grid, 20px icon box, same stroke. */
@@ -211,7 +184,6 @@
 /* Fit the 900px fold: trim desktop top padding by one 8px step. */
 @media (min-width:900px){.main{padding-top:var(--s1)}}
 
-/* job-195 round 16: consolidated header chip, card and hero rules. Replaces the stacked round 4-14 overrides; measured values are unchanged. */
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(100%,400px)}
 .stat{width:100%;min-width:0;padding:0 8px;justify-content:center;gap:6px}
 .stat-ico{width:20px;height:20px;stroke-width:2;flex:none}
@@ -229,27 +201,28 @@
 .hero-art .hero-chip{position:absolute;top:6px;left:12px}
 }
 
-/* Round 18: up-next anchor (icon box + visible lesson meter). */
 .challenge-card > .up-next.next-up .up-next-ico{width:32px;height:32px;padding:7px;box-sizing:border-box;border-radius:10px;background:var(--surface);border:1px solid #E2D6C6}
 .challenge-card > .up-next.next-up .up-next-bar{display:block;margin-top:8px}
 
-/* Round 18b: keep the up-next anchor but fit the card above the 900px fold. */
 .challenge-card > .up-next.next-up .up-next-ico{width:24px;height:24px;padding:4px;border-radius:8px}
 .challenge-card > .up-next.next-up .up-next-bar{margin-top:0}
 
-/* Round 19: hero panel spans the text block height (eyebrow top to CTA bottom) and centres the illustration vertically. Top edge still matches the eyebrow. */
 @media (min-width:900px){
 .hero-art{display:flex;flex-direction:column;justify-content:center;align-self:stretch;padding:0;box-sizing:border-box}
 .hero-art > svg{margin:0 auto}
 }
 
-/* Round 19b: explicit desktop panel height = eyebrow top (121) to hero CTA bottom (394), 273px. */
 @media (min-width:900px){
 .hero-art{min-height:273px;height:273px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-self:start}
 .hero-art > svg{margin:0 auto}
 }
 
-/* Round 20: phone hero. 24px air above the illustration; card sits 16px below the hero. */
 @media (max-width:899px){
 .hero-art{margin-top:8px;margin-bottom:-8px}
+}
+
+/* Desktop hero art fills the panel (overrides the earlier max-width:440px rules). */
+@media (min-width:900px){
+  .hero-art{position:relative;overflow:hidden;padding:0}
+  .hero-art > svg{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;transform:none}
 }
