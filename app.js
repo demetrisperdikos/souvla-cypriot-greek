@@ -113,7 +113,8 @@ function home() {
   var hl = el('h1', 'display');
   hl.appendChild(document.createTextNode('Pull up a chair.'));
   hl.appendChild(document.createElement('br'));
-  hl.appendChild(document.createTextNode('Let\u2019s talk Cypriot.'));
+  hl.appendChild(document.createTextNode('Let\u2019s talk '));
+  hl.appendChild(el('span', 'hl-accent', 'Cypriot.'));
   copy.appendChild(hl);
   copy.appendChild(el('p', 'lead', 'Discover the words, warmth and culture of Cyprus, one conversation at a time. Start with a short, friendly level check.'));
   var acts = el('div', 'actions');

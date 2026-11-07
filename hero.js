@@ -32,7 +32,7 @@ var DEFS = '<defs>' +
 '<filter id="hSoft" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>' +
 '</defs>';
 function svg() {
-var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
+var s = '<svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS + '<rect width="600" height="220" fill="#F5E4D5"/>';
 // contact shadows under the chunks, soft and blurred
 CH.forEach(function (c) {
 s += '<ellipse cx="' + c.cx + '" cy="' + (c.cy + c.ry - 4) + '" rx="' + f(c.rx * 0.95) + '" ry="7" fill="#140703" opacity=".5" filter="url(#hSoft)"/>';
@@ -44,7 +44,8 @@ var x0 = c.cx - c.rx * 0.45, y0 = c.cy - c.ry * 0.55;
 s += '<path d="M' + f(x0) + ' ' + f(y0) + ' Q' + f(x0 + c.rx * 0.3) + ' ' + f(y0 - 7) + ' ' + f(x0 + c.rx * 0.6) + ' ' + f(y0 - 2) + '" stroke="#FFF4E6" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85" vector-effect="non-scaling-stroke"/>';
 });
 // skewer: dark bar, 360 of 600 units (60% of plate width), drawn in front of the chunks so both ends show
-s += '<rect x="197" y="112" width="215" height="10" rx="5" fill="url(#hBar)" stroke="#140703" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+s += '<rect x="120" y="113" width="360" height="6" rx="3" fill="url(#hBar)" stroke="#140703" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+s += '<rect x="124" y="114" width="352" height="1.4" rx="0.7" fill="#F4E3D2" opacity=".55"/>';
 s += '</svg>';
 return s;
 }

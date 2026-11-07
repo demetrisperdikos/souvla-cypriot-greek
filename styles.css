@@ -741,3 +741,23 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 /* QA round 12: 1px divider and 48px bottom padding under the cards, before the footer. */
 .home > .feature-row{border-bottom:1px solid var(--line);padding-bottom:48px;margin-bottom:0}
 @media (min-width:900px){.home > .feature-row{padding-bottom:48px}}
+
+/* QA round 13: hero plate, headline accent, card icons, stats, day tabs. Loads last. */
+.hero-art{background:#F5E4D5;box-shadow:none;border-radius:var(--r-lg);height:260px;padding:0;overflow:hidden}
+.hero-art>svg{width:100%;height:100%}
+.hl-accent{color:var(--accent)}
+.hero-copy .display{font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.card-head .i{width:20px;height:20px;flex:none}
+.stat-val{color:var(--accent);font-weight:800}
+.stat-label{letter-spacing:.01em;line-height:1.2}
+.day.is-selected{box-shadow:0 0 0 3px #F5E4D5,0 0 0 4px var(--accent)}
+.up-next-fill{display:block;height:100%;border-radius:2px;background:var(--accent)}
+@media (max-width:899px){.hero-art{height:auto;aspect-ratio:600/220;margin-top:24px;margin-bottom:24px}.hero-art>svg{height:100%}}
+
+/* QA round 13, phone: chip sits above the art, 24px air before the cards. Loads last. */
+@media (max-width:899px){
+.hero-art{display:flex;flex-direction:column;justify-content:center;align-items:center;height:auto;aspect-ratio:auto;padding:44px 16px 20px;margin:24px 0;box-sizing:border-box}
+.hero-art .hero-chip{position:absolute;top:12px;left:12px}
+.hero-art>svg{position:relative;width:100%;height:auto;inset:auto}
+.home > *:nth-child(2){margin-top:24px}
+}
