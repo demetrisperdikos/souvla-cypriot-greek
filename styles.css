@@ -626,7 +626,7 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .challenge-card > .up-next.next-up .up-next-ico{width:32px;height:32px;padding:7px;box-sizing:border-box;border-radius:10px;background:var(--surface);border:1px solid #E2D6C6}
 .challenge-card > .up-next.next-up .up-next-bar{display:block;margin-top:8px}
 
-.challenge-card > .up-next.next-up .up-next-ico{width:24px;height:24px;padding:4px;border-radius:8px}
+.challenge-card > .up-next.next-up .up-next-ico{width:20px;height:20px;padding:3px;border-radius:8px}
 .challenge-card > .up-next.next-up .up-next-bar{margin-top:0}
 
 @media (min-width:900px){
