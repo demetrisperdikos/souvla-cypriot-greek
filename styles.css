@@ -894,3 +894,23 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 /* Round 34: lower card weight so the headline dominates the first view. */
 .test-card,.challenge-card{box-shadow:none;border-color:var(--line)}
 .test-card .card-title,.challenge-card .card-title,.test-card h2,.challenge-card h2{font-size:1.125rem;font-weight:600}
+/* Round 35: blue numerals as the single stat accent, tighter labels, 8px bullet rhythm, phone card fits above the fold. */
+.meta-num{color:#1F5FA8;font-weight:700;line-height:24px;margin:0}
+.meta-label{margin:0;line-height:16px;font-size:.75rem;color:var(--ink3)}
+.meta-block{gap:8px;margin:8px 0}
+.what-list{gap:8px;margin:8px 0 0;padding:0}
+.what-list li{line-height:24px;margin:0}
+@media (max-width:899px){.hero-art{margin-top:16px;margin-bottom:16px}.hero-art .hero-chip{margin:12px 0 0}.test-card{padding:16px}.test-card .card-head{margin-bottom:8px}.test-card .body{margin:0 0 8px}.test-preview{padding:8px 12px}}
+/* Round 36: stat row rendered as one compact row; phone hero spacing trimmed so the test card starts above the fold. */
+.meta-block{display:flex;gap:8px;margin:8px 0;padding:0}
+.meta-cell{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:flex-start;padding:8px 12px;border-radius:12px;background:#FAFAF8;border:1px solid var(--line)}
+.meta-cell dt,.meta-cell dd{margin:0}
+.meta-num{color:#1F5FA8;font-weight:700;font-size:1rem;line-height:24px}
+.meta-label{font-size:.75rem;line-height:16px;color:var(--ink3)}
+@media (max-width:899px){.hero{padding-top:16px;padding-bottom:16px}.hero-art{margin-top:12px;margin-bottom:0}.home>*+*{margin-top:16px}}
+/* Round 37: phone headline and hero spacing trimmed so the Souvla Test card starts higher. */
+@media (max-width:899px){.hero h1,.hero .display{font-size:2.25rem;line-height:1.1}.hero-art{margin-top:8px}.hero .eyebrow{margin-bottom:8px}}
+/* Round 38: desktop footer above the 900px fold. Remove the trailing gap below the feature row and the footer's own spacing. */
+@media (min-width:900px){.main{padding-bottom:0}.home>.feature-row{padding-bottom:0;border-bottom:0;margin-bottom:0}.foot{margin:0;padding:0;height:16px;line-height:16px;font-size:.75rem}}
+/* Round 39: footer bar 12px so footer.foot bottom sits at or above 900px at 1440x900. */
+@media (min-width:900px){.foot{height:12px;line-height:12px;padding:0;font-size:.75rem}}

@@ -177,6 +177,7 @@ function testCard() {
     c.appendChild(el('dd', 'meta-label', m[1]));
     meta.appendChild(c);
   });
+  card.appendChild(meta);
   var q0 = data.questions && data.questions[0];
   if (q0) {
     var prev = el('div', 'test-preview');
