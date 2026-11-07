@@ -82,7 +82,7 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .what-list li{display:flex;gap:12px;align-items:center;color:var(--ink2);font-size:.9375rem}
 .what-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
 .streak-preview{padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
-.streak-msg{font-size:1rem;font-weight:600;color:var(--ink)}
+.streak-msg{font-size:1rem;font-weight:600;color:var(--ink);margin:0}
 .streak-top{display:flex;align-items:center;gap:6px}
 .week{display:flex;justify-content:space-between;gap:var(--s1)}
 .day,.dot{width:40px;height:40px;border-radius:999px;border:1px solid var(--edge);background:var(--surface);color:var(--ink2);font-weight:600;cursor:pointer;display:grid;place-items:center;padding:0;transition:background .18s,border-color .18s,color .18s}
@@ -207,7 +207,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 /* Streak header: one row with a fixed-size icon. */
 .streak-top{display:flex;align-items:center;gap:var(--s1);height:auto;min-height:0}
 .streak-top svg,.streak-ico{width:20px;height:20px;flex:none}
-.streak-msg{margin:0}
 .challenge-card .streak-top svg,.challenge-card .streak-ico{width:40px;height:40px}
 
 /* Type, cards and buttons */
