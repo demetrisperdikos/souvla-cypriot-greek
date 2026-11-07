@@ -52,3 +52,9 @@ NOT RE-SCORED by a reviewer. No score is claimed. The 8+ bar is not claimed.
 
 ## Not verified
 Real screen readers, physical phones, Safari, Firefox, Chrome Android.
+
+## Brand mark sizes (measured, round 14)
+Rendered #brand svg measured with inline size overrides: 16px -> 16x16, 24px -> 24x24, 48px -> 48x48 (Playwright, 1440x900). The default header size is 48x48.
+Legibility of the silhouette at 16 and 24px is a visual judgement: NOT VERIFIED by a reviewer. Crops saved at /tmp/brand-16.png, /tmp/brand-24.png, /tmp/brand-48.png on the company computer.
+Sad-face mark: owner decision asked (ask_owner). Default in use: skewer silhouette.
+Design score: NOT RE-SCORED; no 8+ claim.
