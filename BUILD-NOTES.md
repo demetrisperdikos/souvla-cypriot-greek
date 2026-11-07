@@ -44,3 +44,9 @@ NOT MEASURED by a reviewer. No 8+ claim is made. Build is NOT DONE.
 - final.css was restored from git (git checkout). check.sh EXIT=0 after the restore, footer baseline 895px on both runs.
 - Live stylesheet is therefore unchanged from the previous commit. final.css (228 lines) and site.css (430 lines) still have overlapping rules. NOT consolidated.
 - Design score: NOT MEASURED. No 8+ claim. Build is NOT DONE.
+
+## Round 24: safe stylesheet cleanup
+- Removed empty @media blocks and dead comment placeholders from final.css (10955 -> 10484 bytes).
+- Pixel check: full-page screenshots at 1440x900 and 390x844 hash-identical before and after (1440 sha256 e26ccb6a..., 390 sha256 dd0a3108...). Footer bottoms 1490.8 and 2824.25 unchanged.
+- check.sh run after the cleanup: see result above.
+- Consolidation of overlapping rules across final.css and site.css is still NOT complete. Design score NOT MEASURED. Build is NOT DONE.

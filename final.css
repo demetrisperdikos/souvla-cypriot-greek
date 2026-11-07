@@ -23,7 +23,6 @@
 .challenge-card > .up-next.next-up .up-next-fill{display:block;height:100%;background:#A9502A;border-radius:2px}
 .challenge-card > .btn:last-child{margin-top:0}
 
-/* Day-chip helper line: its own line, 8px above, smaller and muted. */
 
 /* Hero: one calm backdrop surface with no grain; the chip sits on a clean 16px inset at the top-left, clear of the art. */
 .hero-art{background:#F8EADF;background-image:none}
@@ -39,8 +38,6 @@
 }
 
 
-@media (min-width:900px){
-}
 
 @media (min-width:900px){
   .feature-row{grid-auto-rows:auto}
@@ -82,8 +79,6 @@
   .feature-row > .card{min-height:560px}
 }
 
-@media (min-width:900px){
-}
 
 @media (min-width:900px){
   .challenge-card{height:100%}
@@ -114,14 +109,11 @@
   .hero-copy .actions .btn{flex:1 1 0;min-width:0;width:auto;padding-left:8px;padding-right:8px;font-size:.9375rem}
 }
 
-/* Day hint: sits 8px below the day chips; spare height stays inside the preview, not between chips and hint. */
 
-/* Day hint: exactly 8px below the chips. Chips keep 16px above; no flex gap or bottom margin between chips and hint. */
 
 /* Spare card height goes to the UP NEXT strip, not the streak preview, so the strip sits 8px above the CTA and the CTA 17px above the card edge. */
 .challenge-card > .up-next.next-up{flex:1 1 auto;min-height:72px}
 
-/* Streak preview keeps its content height at every width; the UP NEXT strip takes the spare card height. */
 
 /* UP NEXT strip sits directly under the day hint at every width; no auto top margin pushes it down. */
 .challenge-card > .up-next.next-up{margin-top:0}
