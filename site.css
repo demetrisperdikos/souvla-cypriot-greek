@@ -432,3 +432,13 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 /* Round 4 layout: chip sits bottom-left with 8px inset, clear of the first skewer; UP NEXT strip fills the Daily challenge card on desktop. */
 .hero-art .hero-chip{top:auto;bottom:8px;left:8px}
 @media (min-width:900px){.challenge-card > .up-next.next-up{flex:1 1 auto;height:auto;min-height:0}}
+
+/* Round 4 final: one size for the streak preview icon, no padded tile. */
+.streak-preview .streak-top > svg,.streak-preview .streak-top .streak-ico,.challenge-card .streak-top svg,.challenge-card .streak-top .streak-ico{width:24px;height:24px;padding:0;box-sizing:border-box;background:none;border:0;color:var(--accent);flex:none}
+
+/* Round 4 layout: on desktop the Daily challenge card stacks streak preview (flex grows), UP NEXT strip, then CTA, with one 16px gap and the card padding at the bottom. */
+@media (min-width:900px){
+  .challenge-card .streak-preview{flex:1 1 auto;justify-content:space-between}
+  .challenge-card > .up-next.next-up{flex:0 0 auto;height:auto;min-height:0;margin-top:0}
+  .challenge-card > .btn{margin-top:0}
+}

@@ -49,11 +49,10 @@ function whatYouGet() {
 function chunk(cx) {
   return '<g transform="translate(' + cx + ' 0)">' +
     '<ellipse cx="4" cy="36" rx="36" ry="8" fill="#1A1A1A" opacity=".4" filter="url(#svBlur)"/>' +
-    '<rect x="-34" y="-30" width="68" height="62" rx="24" fill="url(#svMeat)"/>' +
-    '<rect x="-34" y="-30" width="68" height="62" rx="24" fill="none" stroke="#7A4420" stroke-opacity=".45" stroke-width="1.5"/>' +
-    '<path d="M-30 14 Q0 34 30 14 L30 22 Q0 40 -30 22 Z" fill="#4A2410" opacity=".3"/>' +
-    '<ellipse cx="-6" cy="-14" rx="25" ry="11" fill="url(#svHi)"/>' +
-    '<path d="M-14 -22 L-22 16 M4 -22 L-4 16" stroke="#3A1C08" stroke-width="7" stroke-linecap="round" opacity=".9"/>' +
+    '<path d="M-30 -12 Q-36 -32 -12 -31 Q2 -37 16 -29 Q36 -27 33 -4 Q38 12 27 24 Q18 36 1 30 Q-14 37 -27 27 Q-39 14 -30 -12 Z" fill="url(#svMeat)" stroke="#2A1204" stroke-width="3" stroke-linejoin="round"/>' +
+    '<path d="M-27 27 Q-14 37 1 30 Q18 36 27 24 Q14 22 -2 26 Q-14 24 -27 27 Z" fill="#2A1204" opacity=".55"/>' +
+    '<path d="M-16 -18 L-22 6 M6 -22 L0 4 M18 -12 L14 8" stroke="#2A1204" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".45"/>' +
+    '<ellipse cx="-10" cy="-18" rx="11" ry="4.5" transform="rotate(-18 -10 -18)" fill="#FFF3DC" opacity=".7"/>' +
     '</g>';
 }
 

@@ -69,3 +69,16 @@ index.html loads site.css (single stylesheet). Hero art is drawn by hero.js. No 
 - xss-storage: {"storageKey":"souvla.state.v2","dialogs":0,"injectedImg":0,"injectedScript":0,"textHasPayload":true,"pass":true}
 - check.sh exit: 0
 - Live hero file: site.css (styles.css does not exist in this project).
+
+## Round 4 (final pass, measured)
+- Live hero and card file: site.css (styles.css does not exist in this project).
+- Hero skewers: rewritten as irregular charred meat with one highlight each (souvla-art.js); brand chunk reshaped to match (brand.js).
+- Hero chip clearance (corrected): 1440 chip top 297 vs first skewer bottom 285, gap 12px. 390 chip top 710 vs skewer bottom 682, gap 28px. Earlier negative values were a formula error.
+- UP NEXT strip, 1440: 56px tall, sits directly above the CTA. Strip bottom 805, card bottom 878. Strip does NOT fill the card; the CTA takes the bottom space.
+- UP NEXT strip, 390: 60px tall, strip-to-card-bottom 97px. Not fixed.
+- Stat pill numbers: weight 800, 1.0625rem.
+- Streak icon: 24px, unpadded.
+- Bluish tints replaced with warm tints.
+- Duplicate rules still open: .daily-card>.btn, .card>.btn, .btn-primary:hover, .streak-msg, .btn.
+- xss-probe and xss-storage: pass (dialogs 0, no injected nodes).
+- check.sh exit: 0
