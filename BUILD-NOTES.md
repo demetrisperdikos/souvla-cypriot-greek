@@ -23,7 +23,7 @@ PARTLY DONE. Items 1-7 and 9-10 of the brief are done and measured. Item 8 is pa
 - Item 1, hero chunks: redrawn in hero.js with irregular outlines, a darker charred rim (stroke #1E0C03), a single highlight and larger scale. Seen in the 1440 and 390 screenshots.
 - Item 2, desktop hero: skewer and plate enlarged to fill the 578px panel; the plate is centred. Seen in the 1440 screenshot.
 - Item 3, phone hero: illustration is 200px tall, and the gap to the Souvla Test card is 24px.
-- Item 4, header chips at 390px: 3 equal columns with 16px inner padding (measured; fix-r20.css declares 12px but the base .stats .stat rule wins at 390px). Seen in the 390 screenshot.
+- Item 4, header chips at 390px: 3 equal columns with 16px inner padding (measured with Chromium at 390px; the cause of the difference from the 12px in fix-r20.css was NOT investigated). Seen in the 390 screenshot.
 - Item 5, brand mark: outline 2.6px, skewer 3.5px, drawn at 48x48. Not checked at 24px.
 - Item 6, CTA height: one --cta-h rule. Measured CTA gap is 17px at both widths.
 - Item 7, UP NEXT: min-height 72px; strip is 72px at 1440 and 97px at 390.
