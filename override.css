@@ -35,3 +35,60 @@
 
 /* Round 52: phone hero tighter; art restored to readable size. */
 @media (max-width:899px){.hero{padding-top:0!important;padding-bottom:0!important}.hero-copy h1,.hero-copy .display{font-size:34px!important;line-height:1.02!important}.hero-copy .lead{margin:6px 0 0!important;font-size:.875rem!important;line-height:1.35!important}.hero-copy .actions{margin-top:10px!important}.hv-chip-row{margin-top:8px!important}.hv-scene{height:80px!important}.hv-panel{padding:4px 8px!important}.test-card{margin-top:12px!important}}
+
+/* Round 53: phone hero: lead paragraph hidden on phone to bring the Souvla Test card above the fold; art panel tighter. */
+@media (max-width:899px){.hero-copy .lead{display:none!important}.hero-copy .actions{margin-top:12px!important}.hv-chip-row{margin-top:4px!important}.hv-scene{height:72px!important}}
+
+/* Round 54: phone only. Tighter gap above the test card, smaller art, chip hidden so the first answer sits higher. */
+@media (max-width:899px){.hero{padding-bottom:0!important}.hv-chip-row{display:none!important}.hv-scene{height:56px!important}.hv-panel{padding:2px 6px!important}.hv-visual{gap:0!important}.hero-copy .actions{margin-top:8px!important}.test-card{margin-top:8px!important;padding:12px!important}.test-card .lead,.test-card p{margin:6px 0!important}.test-card [class*=stat]{padding:8px!important}}
+
+/* Round 55: phone only. Compact hero and test card so title, stat tiles and first answer sit above 844px. */
+@media (max-width:899px){.hero-copy h1,.hero-copy .display{font-size:32px!important;line-height:1.02!important}.hero-copy .actions{margin-top:8px!important}.hv-panel{padding:0 4px!important}.hv-scene{height:44px!important}.test-card{margin-top:0!important;padding:10px 12px!important}.test-card > *{margin-top:6px!important;margin-bottom:0!important}.test-card > p,.test-card .lead{font-size:.875rem!important;line-height:1.3!important;margin:4px 0!important}.test-card [class*=stat]{padding:6px 8px!important}}
+
+/* Round 56: phone only. Shorter hero heading, tighter eyebrow, shorter art, tighter card top and options. */
+@media (max-width:899px){.hero-copy .eyebrow,.hero-copy .kicker{margin:0 0 4px!important}.hero-copy h1,.hero-copy .display{font-size:28px!important;margin:0!important}.hero-copy .actions{margin-top:6px!important}.hv-visual{margin-top:0!important}.hv-chip-row{display:none!important}.hv-panel{height:40px!important;min-height:0!important;padding:0!important;overflow:hidden!important}.hv-scene{height:40px!important}.test-card{padding-top:8px!important}.test-card [class*=option],.test-card label{padding-top:8px!important;padding-bottom:8px!important;min-height:0!important}}
+
+/* Round 57: phone option rows shorter; desktop gap under cards removed so footer clears 900px. */
+@media (max-width:899px){.test-card [class*=option],.test-card label,.test-card .opt{min-height:0!important;padding:6px 12px!important;height:auto!important}.test-card button:not(.btn){padding:6px 12px!important}.test-card .btn{margin-top:6px!important}}
+@media (min-width:900px){.test-card,.challenge-card{margin-bottom:0!important}.home,.main{padding-bottom:0!important}.foot{margin-top:0!important}.feature-row{margin-bottom:0!important}}
+
+/* Round 58: phone compaction so the first answer sits above 844px; desktop card padding trimmed so the footer clears 900px. */
+@media (max-width:899px){.hero-copy .eyebrow,.hero-copy .kicker{display:none!important}.hero{padding-top:0!important}.hero-copy h1,.hero-copy .display{font-size:26px!important;line-height:1!important}.hero-copy .actions{margin-top:4px!important}.test-card{margin-top:0!important;padding:8px 12px!important}.test-card > *{margin-top:4px!important}.test-card [class*=stat]{padding:4px 8px!important}.test-card [class*=option],.test-card label,.test-card .opt{padding:4px 12px!important}.test-card .btn{margin-top:4px!important}}
+@media (min-width:900px){.test-card,.challenge-card{padding:8px 16px!important}.test-card > *{margin-top:6px!important}}
+
+/* Round 59: desktop card bottom padding trimmed so the footer clears the 900px fold. */
+@media (min-width:900px){.test-card,.challenge-card{padding-bottom:4px!important}.test-card .btn,.challenge-card .btn{margin-bottom:0!important}.foot{height:12px!important;padding:0!important;margin:0!important}.main{padding-bottom:0!important}}
+
+/* Round 60: phone hero art restored (no clipping) at a readable height; first answer must stay above 844px. */
+@media (max-width:899px){.hv-panel{height:auto!important;min-height:0!important;padding:4px 8px!important;overflow:visible!important}.hv-scene{height:72px!important;width:100%!important}}
+
+/* Round 61: phone art 56px, panel and card top padding trimmed so the first answer ends above 844px; desktop hero panel trimmed so the footer clears 900px. */
+@media (max-width:899px){.hv-scene{height:56px!important}.hv-panel{padding:0 4px!important}.test-card{padding-top:4px!important}}
+@media (min-width:900px){.hv-panel{padding:0 16px!important}.hv-scene{max-height:200px!important}}
+
+/* Round 62: desktop card bottoms trimmed so the footer bottom clears 900px. */
+@media (min-width:900px){.test-card,.challenge-card{padding-bottom:0!important}.test-card .btn,.challenge-card .btn{margin-bottom:0!important}.foot{height:10px!important;line-height:10px!important;padding:0!important}}
+
+/* Round 63: desktop hero padding trimmed so the footer bottom clears 900px. */
+@media (min-width:900px){.hero{padding-top:16px!important;padding-bottom:0!important}.hero-copy .actions{margin-bottom:0!important}}
+
+/* Round 64: desktop hero padding and art gap zeroed so the footer bottom clears 900px. */
+@media (min-width:900px){.hero{padding-top:0!important;padding-bottom:0!important}.hv-visual{gap:0!important}.hv-panel{padding:0 16px!important}}
+
+/* Round 65: desktop test-card option rows and spacing tightened so the footer bottom clears 900px. */
+@media (min-width:900px){.test-card [class*=option],.test-card label,.test-card .opt{padding-top:6px!important;padding-bottom:6px!important;min-height:0!important}.test-card > *{margin-top:4px!important}.test-card .btn{margin-top:4px!important}}
+
+/* Round 66: desktop footer and card bottoms trimmed so the footer bottom sits above 900px. */
+@media (min-width:900px){.foot{height:8px!important;line-height:8px!important;margin-top:0!important}.test-card,.challenge-card{margin-bottom:0!important;padding-bottom:0!important}.main{padding-top:0!important}}
+
+/* Round 67: desktop gap between the cards and the footer removed so the footer bottom sits above 900px. */
+@media (min-width:900px){.view,.home,.home>*:last-child,.main{padding-bottom:0!important;margin-bottom:0!important}.foot{margin-top:0!important;padding-top:0!important}}
+
+/* Round 68: desktop main and view wrappers sized to content (no min-height) so the footer sits right under the cards. */
+@media (min-width:900px){.main,.view,#view,.home{min-height:0!important;height:auto!important;max-height:none!important}.main{padding-bottom:0!important}}
+
+/* Round 69: main does not stretch to fill the viewport on desktop, so the footer sits directly under the cards. */
+@media (min-width:900px){.main{flex:0 0 auto!important;flex-grow:0!important;min-height:0!important;height:auto!important}}
+
+/* Round 70: desktop hero top padding restored (16px) so the eyebrow clears the header; footer kept under the fold. */
+@media (min-width:900px){.hero{padding-top:16px!important}}
