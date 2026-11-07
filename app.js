@@ -131,6 +131,7 @@ function home() {
   row.appendChild(challengeCard());
   wrap.appendChild(row);
 
+  wrap.appendChild(el('div', 'section-divider'));
   var sec = el('section', 'lessons');
   sec.id = 'lessons';
   sec.appendChild(el('h2', 'h2', 'Lessons'));
