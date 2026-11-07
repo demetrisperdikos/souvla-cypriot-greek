@@ -144,3 +144,25 @@
   .hero-copy .actions{flex-direction:row !important;flex-wrap:nowrap !important;gap:8px !important}
   .hero-copy .actions .btn{flex:1 1 0 !important;min-width:0;width:auto !important;padding-left:8px;padding-right:8px;font-size:.9375rem}
 }
+
+/* Day hint: sits 8px below the day chips; spare height stays inside the preview, not between chips and hint. */
+.challenge-card > .streak-preview{justify-content:flex-start !important}
+.challenge-card .streak-preview .week-hint{margin-top:8px !important}
+
+/* Day hint: exactly 8px below the chips. Chips keep 16px above; no flex gap or bottom margin between chips and hint. */
+.challenge-card > .streak-preview{gap:0 !important}
+.challenge-card .streak-preview .week{margin:16px 0 0 !important}
+.challenge-card .streak-preview .week-hint{margin:8px 0 0 !important}
+
+/* Spare card height goes to the UP NEXT strip, not the streak preview, so the strip sits 8px above the CTA and the CTA 17px above the card edge. */
+.challenge-card > .streak-preview{flex:0 0 auto !important;min-height:0 !important;height:auto !important}
+.challenge-card > .up-next.next-up{flex:1 1 auto !important;min-height:72px}
+
+/* Streak preview keeps its content height at every width; the UP NEXT strip takes the spare card height. */
+.challenge-card > .streak-preview{min-height:0 !important;height:auto !important;flex:0 0 auto !important}
+
+/* UP NEXT strip sits directly under the day hint at every width; no auto top margin pushes it down. */
+.challenge-card > .up-next.next-up{margin-top:0 !important}
+
+/* Day card: the helper note is not part of the layout at any width, so the hint sits directly above the UP NEXT strip. */
+.challenge-card .week-note{display:none !important}
