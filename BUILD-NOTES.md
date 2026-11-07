@@ -1,6 +1,6 @@
 # Build notes, Cypriot Greek portal (job 195), round 18
 
-Final HEAD: a04d8b3 (confirm with git rev-parse HEAD). Last CSS/JS change: fb11e67.
+Last CSS/JS change: fb11e67. Content HEAD before this notes fix: 4f0eccb. The final HEAD is whatever git rev-parse HEAD returns after this commit.
 
 ## Measured at 1440x900 (fresh server on port 8790, clean run)
 - Headline h1: top 139, bottom 236.9, height 97.9, font 48px.
