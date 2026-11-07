@@ -42,8 +42,8 @@ function check(name, ok, info) {
     }
     return out;
   });
-  check('item 6: stat chip uses flat #F4F8FF fill', style.statBg === 'rgb(244, 248, 255)', 'bg=' + style.statBg);
-  check('item 6: stat chip has 1px #CFE2FA border', style.statBorder === '1px rgb(207, 226, 250)', 'border=' + style.statBorder);
+  check('item 6: stat chip uses flat #FBF7F1 fill', style.statBg === 'rgb(251, 247, 241)', 'bg=' + style.statBg);
+  check('item 6: stat chip has 1px #E3D5C3 border', style.statBorder === '1px rgb(227, 213, 195)', 'border=' + style.statBorder);
   check('item 7: card border is 1px', style.cardBorder === '1px', 'border=' + style.cardBorder);
   check('item 8: seven weekday pills rendered', style.dayCount === 7, 'count=' + style.dayCount);
   check('item 8: weekday pill has round radius', style.dayRadius !== undefined && style.dayRadius !== '0px', 'radius=' + style.dayRadius);

@@ -27,50 +27,50 @@
       },
       {
         "text": "Begin the test",
-        "top": 773,
-        "bottom": 821
+        "top": 829,
+        "bottom": 877
       },
       {
         "text": "Open First Greetings",
-        "top": 773,
-        "bottom": 821
+        "top": 829,
+        "bottom": 877
       }
     ],
     "cards": [
       {
         "title": "The Souvla Test",
         "top": 440,
-        "bottom": 838
+        "bottom": 894
       },
       {
         "title": "Daily challenge",
         "top": 440,
-        "bottom": 838
+        "bottom": 894
       },
       {
         "title": "First Greetings",
-        "top": 1047,
-        "bottom": 1212
+        "top": 1103,
+        "bottom": 1240
       },
       {
         "title": "At the Souvla Shop",
-        "top": 1047,
-        "bottom": 1212
+        "top": 1103,
+        "bottom": 1240
       },
       {
         "title": "Word Match Game",
-        "top": 1047,
-        "bottom": 1212
+        "top": 1103,
+        "bottom": 1240
       },
       {
         "title": "Everyday Cypriot",
-        "top": 1047,
-        "bottom": 1212
+        "top": 1103,
+        "bottom": 1240
       },
       {
         "title": "Street Talk",
-        "top": 1228,
-        "bottom": 1367
+        "top": 1256,
+        "bottom": 1393
       }
     ],
     "horizontalOverflow": 0,
@@ -92,7 +92,7 @@
     },
     "hero": {
       "top": 546,
-      "bottom": 766,
+      "bottom": 746,
       "left": 16,
       "right": 374
     },
@@ -104,50 +104,50 @@
       },
       {
         "text": "Begin the test",
-        "top": 1425,
-        "bottom": 1473
+        "top": 1409,
+        "bottom": 1457
       },
       {
         "text": "Open First Greetings",
-        "top": 1950,
-        "bottom": 1998
+        "top": 1994,
+        "bottom": 2042
       }
     ],
     "cards": [
       {
         "title": "The Souvla Test",
-        "top": 790,
-        "bottom": 1490
+        "top": 770,
+        "bottom": 1474
       },
       {
         "title": "Daily challenge",
-        "top": 1506,
-        "bottom": 2015
+        "top": 1490,
+        "bottom": 2059
       },
       {
         "title": "First Greetings",
-        "top": 2247,
-        "bottom": 2385
+        "top": 2291,
+        "bottom": 2424
       },
       {
         "title": "At the Souvla Shop",
-        "top": 2401,
-        "bottom": 2540
+        "top": 2440,
+        "bottom": 2573
       },
       {
         "title": "Word Match Game",
-        "top": 2556,
-        "bottom": 2695
+        "top": 2589,
+        "bottom": 2722
       },
       {
         "title": "Everyday Cypriot",
-        "top": 2711,
-        "bottom": 2850
+        "top": 2738,
+        "bottom": 2871
       },
       {
         "title": "Street Talk",
-        "top": 2866,
-        "bottom": 3005
+        "top": 2887,
+        "bottom": 3020
       }
     ],
     "horizontalOverflow": 0,

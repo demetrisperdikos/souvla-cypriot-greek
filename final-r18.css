@@ -1,8 +1,0 @@
-/* Round 18: cards hug their content (no stretched empty gap); tighter daily challenge rhythm. */
-.feature-row{align-items:start}
-.feature-row .btn.primary{margin-top:0}
-.test-card,.challenge-card{gap:var(--s2)}
-.test-card .btn.primary,.challenge-card .btn.primary{margin-top:var(--s1)}
-.streak-preview{gap:var(--s1)}
-.day-row,.week{margin:0}
-.up-next{margin-top:0}

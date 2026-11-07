@@ -1,7 +1,7 @@
 /* Souvla: one stylesheet. Tokens, base, layout, components, responsive. NOTE: desktop fold overrides below still use and hide some content; see PROGRESS.md. */
 :root{
   --bg:#F9F9F7;--surface:#FFFFFF;--ink:#1A1A1A;--ink2:#555555;--ink3:#5F5F5A;
-  --accent:#0062CC;--accent-hi:#007AFF;--accent-ink:#0056B3;--accent-tint:#E8F1FD;
+  --accent:#B5532A;--accent-hi:#D0703F;--accent-ink:#8E3A17;--accent-tint:#F8EADF;
   --green:#1E7A3A;--green-tint:#EEF8F1;--red:#B3261E;--red-tint:#FCEFEE;
   --line:#E4E4DF;--edge:#CFCFCA;--shadow:0 2px 8px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.04);
   --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:56px;
@@ -24,8 +24,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 /* Top bar */
 .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--surface);border-bottom:1px solid var(--line);flex-wrap:wrap}
 .brand{display:flex;gap:var(--s2);align-items:center}
-.mark{width:48px;height:48px;border-radius:12px;background:var(--accent);display:grid;place-items:center;flex:none}
-.mark svg{width:32px;height:32px}
 .mark .i{color:#fff}
 .brand-name{font:800 1.5rem Nunito,sans-serif;letter-spacing:-.01em;line-height:1.1}
 .brand-sub{font-size:.875rem;color:var(--ink2)}
@@ -60,7 +58,7 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .test-card,.challenge-card{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s3)}
 .card-head{display:flex;align-items:center;gap:var(--s2)}
 .card-head h2,.card-head h3{font-size:1.25rem}
-.tile{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--accent-tint);color:var(--accent)}
+.tile{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--accent-tint);color:var(--accent);border:1px solid #E3D5C3}
 .tile-blue{background:var(--accent-tint);color:var(--accent)}
 .tile svg{width:20px;height:20px}
 .i,.feat-ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
@@ -69,7 +67,7 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .stat-ico{width:16px;height:16px}
 .tile .feat-ico{width:22px;height:22px}
 .card-head .h3{font-weight:700}
-.tile-blue{box-shadow:inset 0 0 0 1px rgba(0,98,204,.12)}
+.tile-blue{box-shadow:inset 0 0 0 1px rgba(181,83,42,.12)}
 .body{font-size:.9375rem;color:var(--ink2)}
 .section-sub{font-size:.9375rem;color:var(--ink2)}
 .small{font-size:.8125rem;color:var(--ink2)}
@@ -98,18 +96,18 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .up-next-meta{font-size:.875rem;color:var(--ink2)}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:600 1rem/1 Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;transition:background .18s,border-color .18s,color .18s,box-shadow .18s,transform .12s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:600 1rem/1 Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;transition:background .15s ease,border-color .15s ease,color .15s ease,box-shadow .15s ease,transform .15s ease;white-space:nowrap}
 .btn svg{width:18px;height:18px;flex:none}
 .btn:active:not(:disabled){transform:translateY(1px)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.btn.primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(0,98,204,.25)}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(181,83,42,.25)}
 .btn.primary:hover:not(:disabled){background:var(--accent-ink)}
 .btn.secondary{background:var(--surface);color:var(--ink);border-color:var(--edge)}
 .btn.secondary:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
 .btn.ghost{background:transparent;color:var(--accent-ink);border-color:var(--edge)}
 .btn.ghost:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent-tint)}
 .btn.option{width:100%;justify-content:flex-start;min-height:56px;padding:12px 20px;border-radius:var(--r);background:var(--surface);color:var(--ink);border-color:var(--edge);font-weight:500;text-align:left;white-space:normal}
-.btn.option:hover:not(:disabled){border-color:var(--accent);background:#FAFCFF}
+.btn.option:hover:not(:disabled){border-color:var(--accent);background:#FBF7F1}
 .btn.is-correct{background:var(--green-tint);border-color:var(--green);color:var(--green)}
 .btn.is-wrong{background:var(--red-tint);border-color:var(--red);color:var(--red)}
 .btn.is-picked{border-color:var(--accent);color:var(--accent-ink)}
@@ -215,20 +213,14 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 /* Type, cards and buttons */
 .display{line-height:1.1;letter-spacing:-.01em}
 .lead{color:var(--ink3)}
-.card-head h2,.card-head h3{font-weight:800}
-.card-head>:first-child{background:#D6E7FB;color:var(--accent-ink);border:1px solid #9CC4F2}
 .btn.secondary:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
-.btn.secondary:hover:not(:disabled){box-shadow:0 2px 8px rgba(0,98,204,.18)}
+.btn.secondary:hover:not(:disabled){box-shadow:0 2px 8px rgba(181,83,42,.18)}
 /* Final round: one consolidated design block (no). */
-.mark svg{width:34px;height:34px}
-.mark{box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
 .main{padding-top:var(--s3)}
 .hero{padding-top:0}
 .display{font-size:2.5rem;line-height:1.05;letter-spacing:-.02em}
 .lead{font-size:.9375rem;line-height:1.5;color:var(--ink3);max-width:40ch}
 .hero-copy{gap:var(--s2)}
-.card-head h2,.card-head h3{font-weight:800}
-.card-head>:first-child{width:40px;height:40px;background:#D6E7FB;color:var(--accent-ink);border:1px solid #9CC4F2;border-radius:var(--r)}
 .streak-msg{text-transform:none;letter-spacing:0;font-size:.9375rem;font-weight:400;line-height:1.45;color:var(--ink2)}
 .streak-msg strong{font-weight:600;color:var(--ink)}
 .week{display:flex;justify-content:space-between;gap:var(--s1)}
@@ -246,9 +238,7 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 .hero-art .hero-scene{height:calc(100% - 52px)}
 .hero-chip{top:auto;bottom:14px;left:14px}
 .btn.ghost:focus-visible{outline:3px solid var(--accent-hi);outline-offset:2px}
-.btn.ghost:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 2px 8px rgba(0,98,204,.18)}
-.card-head h2,.card-head h3{font-size:1.375rem;font-weight:800;letter-spacing:-.01em}
-.card-head>:first-child{background:#BFDAF8;border:1px solid #5B9BE6;color:#06408A}
+.btn.ghost:hover:not(:disabled){background:var(--accent-tint);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 2px 8px rgba(181,83,42,.18)}
 .streak-msg{font-size:.875rem;line-height:1.5}
 .lessons{margin-top:var(--s6)}
 .lessons h2{margin:0 0 var(--s1);font-size:1.5rem;font-weight:800}
@@ -265,3 +255,180 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 @media (max-width:600px){
   .hero-art{height:220px;min-height:0;max-height:220px}
 }
+/* Round 9: warm hero panel, brand tile polish, lesson row weight. Loaded after site.css. */
+.hero-art{background:linear-gradient(180deg,#F7F1E8 0%,#EFE3D3 100%);border:1px solid #E6D9C7}
+.hero-art .hero-scene{height:calc(100% - 52px);width:100%}
+.hero-chip{box-shadow:0 2px 8px rgba(42,20,4,.12)}
+.lesson-grid > .lesson-card{border-top:0;border-left:4px solid var(--accent);padding:var(--s2)}
+.lesson-card .card-head{align-items:center;gap:var(--s2)}
+.lesson-card .tile{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;background:#F8EADF;border:1px solid #E3D5C3}
+.lesson-card .tile .i{width:22px;height:22px;color:var(--accent-ink)}
+.lesson-card .lesson-titles h3{margin:0 0 2px;font-size:1.0625rem;font-weight:700}
+.lesson-card .lesson-titles .small{margin:0;color:var(--ink2);font-size:.8125rem}
+.lesson-card > .btn{margin-top:auto;justify-content:space-between}
+.lesson-card:hover{box-shadow:0 6px 18px rgba(60,30,10,.10);transition:box-shadow .18s ease}
+
+/* Round 17: stronger card headers, Daily challenge rhythm. Round 18: cleaner hero panel and brand mark. */
+.streak-preview{gap:var(--s2)}
+.streak-top{margin-bottom:0}
+.day-row,.week{margin:var(--s1) 0}
+.up-next{margin-top:var(--s2)}
+.hero-art{background:#F5F3EF;border:1px solid #D9D4CB}
+.feature-row{align-items:stretch}
+.feature-row > .card{display:flex;flex-direction:column;height:100%}
+.feature-row > .card > .btn:last-child{margin-top:auto}
+
+/* Round 19: one hero ruleset. Loaded last. The art fills the panel; the chip sits top-left, clear of the chunks. */
+.hero-art{height:200px;min-height:0;max-height:none;position:relative;overflow:hidden}
+.hero-art .hero-scene{position:absolute;top:0;left:0;width:100%;height:100%;top:0}
+.hero-chip{top:12px;bottom:auto;left:12px}
+@media (min-width:900px){.hero-art{height:200px}}
+
+/* Round 20 (QA round 2 fixes). Loaded last. */
+
+/* Card headers: one size step up, weight 700 */
+
+/* Daily challenge rhythm on an 8px grid: 8px between items, 16px between blocks */
+.day-row{gap:8px;margin:var(--s2) 0}
+.week{margin:var(--s2) 0}
+.up-next{margin-top:var(--s2)}
+
+/* Hero plate: lighter top lip, darker rim, soft shadow beneath */
+.hero-art .hero-scene{filter:drop-shadow(0 10px 8px rgba(42,20,4,.22))}
+
+/* Phone 390px header: three equal stat chips */
+@media (max-width:600px){
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}
+  .stats > *{min-width:0;justify-content:center}
+  .hero-art{height:260px}
+  .hero-art .hero-scene{height:calc(100% - 52px)}
+  .hero-chip{top:12px;bottom:auto;left:12px}
+}
+
+/* Loading state */
+.loading{display:grid;place-items:center;gap:16px;padding:64px 0;text-align:center}
+.spinner{width:40px;height:40px;border-radius:50%;border:4px solid #F8EADF;border-top-color:var(--accent);animation:souvla-spin .9s linear infinite}
+@keyframes souvla-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spinner{animation-duration:3s}}
+
+/* Error state: Nunito heading, inline icon, obvious retry */
+.empty{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:48px 0}
+.empty h1{font-family:Nunito,system-ui,sans-serif;font-weight:800;margin:0}
+.empty .err-ic{width:56px;height:56px;padding:14px;box-sizing:border-box;border-radius:16px;background:#F8EADF;border:1px solid #E3D5C3;color:var(--accent-ink);margin-bottom:8px}
+.empty .btn{margin-top:16px}
+
+/* Round 21 (revised): keep both feature cards the same height so their buttons share one baseline. Loaded before final-r22.css. */
+.feature-row{align-items:stretch}
+.feature-row > .card{display:flex;flex-direction:column}
+.feature-row > .card > .btn:last-child{margin-top:auto}
+
+/* Round 22: phone hero panel fits its art (no empty band). Loaded last. */
+@media (max-width:600px){
+  .hero-art{height:200px;min-height:0;max-height:200px}
+  .hero-art .hero-scene{height:100%;top:0}
+  .hero-chip{top:12px;bottom:auto;left:12px}
+}
+
+/* Round 23: QA round 4 fixes. Loaded last. */
+.challenge-card{display:flex;flex-direction:column}
+.challenge-card .up-next{margin-top:auto}
+
+/* Round 24: balance The Souvla Test card. The preview block takes spare height so the CTA sits on the card's bottom edge, level with the Daily challenge CTA. Loaded last. */
+.test-card{display:flex;flex-direction:column}
+.test-card > .test-preview{flex:1 1 auto}
+.test-card > .btn:last-child{margin-top:var(--s2)}
+
+/* Round 25: test card spare height goes to the answer list, not the question box. Loaded last. */
+.test-card .test-preview{flex:none}
+.test-card .test-opts{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-evenly}
+
+/* Round 26: next-up strip fills the Daily challenge card; desktop CTAs end near y=880. Loaded last. */
+.challenge-card .up-next{flex:1 1 auto;justify-content:center;margin-top:var(--s2)}
+@media (min-width:900px){.feature-row{margin-top:0}}
+/* Round 2 design fixes (consolidated) */
+.card .tile.tile-blue,.lesson-card .tile.tile-blue{background:#F3EEE6;border:1px solid #E2D6C6;color:var(--ink2)}
+.card .tile.tile-blue .i,.lesson-card .tile.tile-blue .i{color:var(--ink2)}
+.streak-top > svg{width:40px;height:40px;padding:9px;box-sizing:border-box;border-radius:12px;background:#F3EEE6;border:1px solid #E2D6C6;color:var(--ink2)}
+.stats{align-items:center}
+.stat{height:36px;box-sizing:border-box;display:inline-flex;align-items:center}
+.btn.option{gap:12px;padding-left:16px}
+.btn.option::before,.test-opt::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid #CFC4B3;background:#fff;flex:none;box-sizing:border-box}
+.btn.option:hover:not(:disabled)::before,.test-opt:hover::before{border-color:var(--accent)}
+.btn.option.is-selected,.btn.option[aria-pressed=true],.btn.option[aria-checked=true],.test-opt.is-selected{border-color:var(--accent);background:#F8EADF;box-shadow:inset 0 0 0 1px var(--accent)}
+.btn.option.is-selected::before,.btn.option[aria-pressed=true]::before,.btn.option[aria-checked=true]::before,.test-opt.is-selected::before{border-color:var(--accent);background:radial-gradient(circle,var(--accent) 0 5px,#fff 6px)}
+.test-opt{display:flex;align-items:center;gap:12px;min-height:52px;padding:12px 16px;border:1px solid var(--edge);border-radius:var(--r);background:var(--surface);color:var(--ink);font-weight:500;transition:border-color .15s,background .15s}
+.test-opt:hover{border-color:var(--accent);background:#FBF7F1}
+
+
+/* QA round 2: warm accent, stat chips on 8px scale, input focus, phone art height */
+.stats .stat{height:40px;padding:0 16px;background:#FBF7F1;border:1px solid #E3D5C3}
+input[type=text],input:not([type]),textarea{font:inherit;color:var(--ink);background:#FFFFFF;border:1px solid var(--edge);border-radius:12px;padding:12px 16px;min-height:48px;box-sizing:border-box;transition:border-color .15s ease,box-shadow .15s ease}
+input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(181,83,42,.25)}
+@media (max-width:600px){.hero-art{height:280px;min-height:0;max-height:none}.hero-art .hero-scene{height:100%;width:100%}}
+
+/* Round 3: phone test card no longer stretches its answers; desktop keeps the stretch so the CTA sits on the card bottom. */
+@media (max-width:899px){.test-card .test-opts{flex:0 0 auto;justify-content:flex-start}.feature-row > .card > .btn:last-child{margin-top:var(--s2)}}
+
+/* Round 3: the Up Next strip grows to fill the Daily challenge card above its CTA. */
+.challenge-card{display:flex;flex-direction:column}
+.challenge-card .up-next{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;min-height:0}
+
+/* QA round 3 fixes */
+@media (max-width:600px){
+  .hero-art{height:200px;min-height:0;max-height:200px}
+  .hero-art .art{height:100%;width:100%}
+}
+@media (max-width:899px){
+  .test-card{display:flex;flex-direction:column}
+  .test-card > .test-preview{flex:none}
+  .test-card .test-opts{flex:none;justify-content:flex-start}
+  .test-card > .what-get{order:3;margin-top:var(--s2)}
+  .test-card > .btn:last-child{order:2;margin-top:var(--s2)}
+}
+@media (min-width:900px){
+  .challenge-card .up-next{min-height:0;padding-top:var(--s1);padding-bottom:var(--s1)}
+  .challenge-card{padding-bottom:var(--s2)}
+}
+@media (min-width:900px){
+  .challenge-card > .up-next{flex:0 0 auto;height:47px;min-height:0;box-sizing:border-box;padding:6px 16px;justify-content:center}
+}
+
+/* Final QA fixes: icon tile border, card header scale, hero plate shadow, chip inset, UP NEXT stretch. */
+
+.lesson-card 
+.hero-art .hero-chip{top:16px;bottom:auto;left:16px}
+.challenge-card > .up-next.next-up{flex:1 1 auto;height:auto;min-height:0;justify-content:center}
+
+
+
+/* Round 3: UP NEXT strip 47px on desktop so Begin the test ends higher. */
+@media (min-width:900px){.challenge-card > .up-next.next-up{flex:0 0 auto;height:47px}}
+
+/* Round 3 phone rhythm: 8px steps; UP NEXT strip takes its content height; card gap 16px. */
+@media (max-width:899px){
+  .challenge-card{gap:var(--s2);padding-bottom:var(--s2)}
+  .challenge-card > .up-next.next-up{flex:0 0 auto;height:auto;min-height:0;padding:var(--s1) var(--s2)}
+  .test-card > .btn:last-child{margin-top:var(--s2)}
+}
+
+/* Consolidated card headers: the effective values of the earlier overrides, one rule each. */
+.card-head h2,.card-head h3{font-weight:800;font-size:1.5rem;letter-spacing:-.015em;line-height:1.2}
+@media (min-width:601px) and (max-width:899px){.card-head h2,.card-head h3{font-size:1.75rem}}
+.card-head>:first-child{box-sizing:border-box;width:48px;height:48px;border-radius:14px;background:#F8EADF;border:1px solid #E3D5C3;color:#8E3A17;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+@media (max-width:600px){.card-head>:first-child{width:44px;height:44px}}
+
+/* Consolidated hero height: one rule, the effective value at every width. */
+.hero-art{height:200px;min-height:0;max-height:200px}
+
+/* Consolidated brand mark: effective values of the earlier overrides, one rule. */
+.mark{position:relative;width:48px;height:48px;border-radius:12px;background:#F6F0E6;border:1px solid #E3D5C3;box-shadow:inset 0 1px 0 #FFFFFF;display:grid;place-items:center;flex:none;padding:0}
+.mark svg{width:48px;height:48px;display:block}
+/* Round 4 fixes */
+.btn:hover:not(:disabled),.btn:focus-visible{box-shadow:0 2px 8px rgba(42,20,4,.12)}
+.stat-val{font-weight:800;font-size:1.0625rem}
+.streak-preview .streak-top .streak-ico{width:24px;height:24px}
+.streak-preview .week-hint{display:block;margin:var(--s1) 0 0}
+
+/* Round 4 layout: chip sits bottom-left with 8px inset, clear of the first skewer; UP NEXT strip fills the Daily challenge card on desktop. */
+.hero-art .hero-chip{top:auto;bottom:8px;left:8px}
+@media (min-width:900px){.challenge-card > .up-next.next-up{flex:1 1 auto;height:auto;min-height:0}}

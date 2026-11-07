@@ -1,38 +1,71 @@
-# Souvla build notes (job-195)
+# Build notes (QA round 3)
 
-Project folder: projects/job-195 (replaces projects/job-157 and the earlier draft link).
-Live build (current): https://sites.willysilly.com/s/lszpu5cvgx646628/
+## What was built
+Cypriot Greek diagnostic and immersion portal. Static site: index.html, site.css, app.js, lessons.js, hero.js, brand.js, souvla-art.js, store.js, ui.js, data.json. Progress is saved in localStorage.
 
-## What it is
-A static Cypriot Greek portal: a 10-question diagnostic that assigns a level, lessons (flashcards, dialogue, Word Match), XP, streak and skewers. Data lives in data.json and localStorage.
+## Live hero file
+index.html loads site.css (single stylesheet). Hero art is drawn by hero.js. No hero-r*.css files exist in the listing.
 
-## Files
-- index.html: page shell, loads styles.css, palette.css, palette-r5.css and the JS modules.
-- app.js, ui.js, store.js, lessons.js, art.js: app logic, components, state, lesson engine, inline SVG art and mascots.
-- data.json: questions, flashcards, dialogues, word pairs.
-- styles.css, palette.css, palette-r5.css: layout, palette (one accent #0062CC) and the round-5 fixes.
-- check.sh: pipeline. Syntax checks, HTTP 200 on index.html and data.json, browser flow tests, state and axe checks, and the per-control click test. Any failing step exits non-zero.
-- qa/: Playwright tests (test.js, states.js, clicktest.js). clicktest.js waits for its own server.
-- clicktest-output.txt: one block per control (both 390px and 1440px) with the BEFORE and AFTER state and whether it changed.
-- .shots/: screenshots.
+## Changes this round
+- site.css: all blue values replaced with terracotta tints or warm neutrals (#F8EADF, #E3D5C3, #8E3A17, rgba(181,83,42,...)). Grep for D6E6FA, B9D3F3, D6E7FB, 9CC4F2, BFDAF8, 5B9BE6, 7FB0E8, 0062CC and rgba(0,98,204) returns nothing.
+- merged-round comment headers removed.
+- Desktop UP NEXT strip is 47px (site.css, Round 3 rule). Its class next-up is set in app.js line 204.
+- Icon tiles have a 1px #E3D5C3 border.
+- Level check chip at 16px top-left inset.
+- Brand mark: 48px, rendered to brand-crop-48px.png (qa folder) for crop review.
+- Hero plate shadow at 390px: a ::after pseudo-element was added. Not yet reviewed visually.
+- check.sh exits 0: browser tests, click test (34 controls, 0 errors), footer baseline.
+
+## Measurements (pos-check.js, final run)
+1440x900 desktop:
+- Begin the test CTA: 832-880 (target about 880: met)
+- Test and challenge cards: 440-897
+- UP NEXT strip: 777-824, 47px high. Gap from strip bottom to card bottom: 73px (target 115px not met)
+- Hero art 137-337, chip 154-186
+- Horizontal overflow: 0
+
+390x844 phone:
+- Test card top: 774 (the old 854 was wrong)
+- Begin the test CTA: 1243-1291 (reported)
+- Challenge card 1548-2171. UP NEXT strip 1998-2074. Gap from strip bottom to card bottom: 97px
+- Hero art 550-750 (200px), chip 567-599
+- Horizontal overflow: 0
+
+## Still open
+1. Phone gap rhythm not re-tightened to an 8px scale (97px strip-to-card gap).
+2. Design not re-scored against the 8+ bar. Last QA score was 7/10.
+3. Duplicate CSS rules in site.css remain (only comment headers removed).
 
 ## How to check
-`bash check.sh` from the project folder. Last run: all steps passed, including clicktest (20 controls, 0 with no visible change, 0 errors).
+- bash check.sh (from projects/job-195)
 
-## Fixes in this round
-- Check pipeline: set -euo pipefail, and every step fails the script. The click test waits for the server and uses 127.0.0.1 (Node 18 resolved localhost to IPv6).
-- Click test: one line per control with name, click or keyboard path, before state, after state and changed yes/no. Covers the Skip link (keyboard focus plus Enter), Start diagnosis, Browse lessons, day markers, every lesson card and back buttons.
-- Accessibility: Skip link has an aria-label. axe WCAG 2 A/AA clean on home and quiz at 390px and 1440px.
-- Design: equal three-column stats grid with 16px gutters on phone; headline capped and balanced; desktop hero columns balanced; logo mark enlarged; lessons section header with 48px rhythm; one accent family (#0062CC) in chrome, art and mascots.
-- Uploaded picture (uploads/H4v7rLO9oqgJ.png, sad face and skewer mark): reviewed and not used. A sad face conflicts with the bright game-feel brief, and the skewer mark is already drawn as the logo.
+## Published (round 3)
+- Draft link for QA: https://sites.willysilly.com/s/lszpu5cvgx646628/
+- check.sh exit 0 on this build (index 200, data 200, browser tests, click test 0 errors, footer baseline).
+- Desktop 1440: Begin the test 832-880 (target about 880 met).
+- Phone 390: Begin the test 1243-1291; phone UP NEXT to card bottom gap 97px (8px rhythm not met).
+- Detached grey shadow bar under the phone hero (.hero-art::after) removed.
+- Still open: phone vertical rhythm, a fresh design score against the 8+ bar, and a visual review of the brand crop at qa/brand-crop-48px.png.
 
-## Design decision: hero artwork
-The desktop hero keeps the beach and skewer scene. Its fruit and sun are toned to the single accent and neutrals (round 5), so it is the accepted artwork.
+## Phone rhythm (round 3, final run)
+- UP NEXT strip now 60px (was 76px), on 8px padding.
+- Phone gap from UP NEXT strip bottom to card bottom: 97px (not 16px; still above the 8px-rhythm goal).
+- Phone Begin the test 1243-1291; challenge card 1548-2155.
+- check.sh exit 0 on this build.
 
-## Live link
-See the publish result in QA-HANDOFF.md (set after publish).
-## Measured (desktop 1440x900)
-- Lessons section starts at y=1148, below the 900px fold; 48px gap above it; subline present (`.section-sub`).
-- Phone headline: two lines, "Pull up a chair. / Let’s talk Cypriot." at 390px.
-- Screenshots of the lesson hub, flashcard, dialogue and Word Match: .shots/final-*.png (desktop and phone).
-- Design score is for QA to assign against the 8/10 bar; this build has not been scored by its builder.
+## Stale CSS (round 3, partial)
+- Card header rules: 16 superseded lines removed; one consolidated block added. Measurements unchanged; check.sh exit 0.
+- Hero height: a single .hero-art height rule added at the end of site.css. Rendered hero height is 200px (art 198px, offset 1px) at 390, 600, 768, 899, 900, 1024 and 1440: identical before and after. check.sh exit 0.
+- Older overlapping .hero-art rules are still in site.css (not yet deleted).
+- Still open: duplicate rules for .mark, .tile, .streak-msg and others; design re-score; brand crop visual review.
+
+## Stale CSS (round 3, brand mark)
+- .mark: superseded rules removed; one consolidated block. Computed style and box position identical before and after at 390 and 1440. check.sh exit 0.
+- Still open: duplicate .tile, .streak-msg and .btn rules; brand crop visual review (qa/brand-crop-48px.png); fresh design score against the 8+ bar.
+
+## Round 4 measured values (this run)
+- Measure JSON: {"390":{"cardBottom":2163,"nextUpBottom":2066,"nextUpHeight":60,"nextUpToCardBottomGap":97,"chipBox":[25,710,166,741],"firstSkewerBox":[37,609,116,682],"chipBottomToSkewerTop":-132,"overflowX":0},"1440":{"cardBottom":894,"nextUpBottom":821,"nextUpHeight":56,"nextUpToCardBottomGap":73,"chipBox":[727,297,868,328],"firstSkewerBox":[772,176,890,285],"chipBottomToSkewerTop":-152,"overflowX":0}}
+- xss-probe: {"dialogs":0,"payloadInDom":false,"onerrorInDom":false,"dialogsAfterStorageReload":0}
+- xss-storage: {"storageKey":"souvla.state.v2","dialogs":0,"injectedImg":0,"injectedScript":0,"textHasPayload":true,"pass":true}
+- check.sh exit: 0
+- Live hero file: site.css (styles.css does not exist in this project).

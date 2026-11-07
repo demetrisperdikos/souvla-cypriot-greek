@@ -4,7 +4,7 @@ var A = window.SouvlaArt = window.SouvlaArt || {};
 var U = window.SouvlaUI;
 
 // Brand mark: one geometry shared with favicon.svg. Skewer runs about 70% of the 48px tile.
-var MARK_INNER = '<rect width="48" height="48" rx="12" fill="#0062CC"/>' +
+var MARK_INNER = '<rect width="48" height="48" rx="12" fill="#B5532A"/>' +
   '<rect x="0.5" y="0.5" width="47" height="47" rx="11.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1"/>' +
   '<line x1="7" y1="26" x2="41" y2="22" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>' +
   '<line x1="9" y1="24.6" x2="39" y2="20.6" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1" stroke-linecap="round"/>' +
@@ -80,7 +80,7 @@ function heroSvg() {
     '<line x1="-188" y1="-2" x2="188" y2="-2" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity=".35"/>' +
     chunks +
     '<circle cx="-190" cy="0" r="6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>' +
-    '<circle cx="190" cy="0" r="6" fill="#0062CC"/>' +
+    '<circle cx="190" cy="0" r="6" fill="#B5532A"/>' +
     '</g>' +
     '</svg>';
 }
@@ -116,7 +116,7 @@ function streakPreview(n) {
   var hint = document.createElement('p');
   hint.className = 'week-hint dot-caption';
   hint.setAttribute('aria-live', 'polite');
-  hint.textContent = 'Tap a day to see its status.';
+  hint.textContent = 'Tap a day to see whether a lesson was done.';
   letters.forEach(function (d, i) {
     var done = i < n;
     var b = document.createElement('button');
@@ -131,7 +131,7 @@ function streakPreview(n) {
       b.setAttribute('aria-pressed', 'true');
       if (done) hint.textContent = names[i] + ': done. Nice work.';
       else if (i === 0) hint.textContent = names[i] + ': today. Finish a lesson to fill it in.';
-      else hint.textContent = names[i] + ': not done yet.';
+      else hint.textContent = names[i] + ': no lesson yet. Finish one today and this day fills in.';
     });
     week.appendChild(b);
   });

@@ -26,7 +26,7 @@ function skewerGlyph() {
     var c = document.createElementNS(NS, 'circle');
     c.setAttribute('cx', String(p[0])); c.setAttribute('cy', String(p[1]));
     c.setAttribute('r', p[2] === 'meat' ? '2.6' : '2.2');
-    c.setAttribute('fill', p[2] === 'meat' ? '#FFFFFF' : '#0062CC');
+    c.setAttribute('fill', p[2] === 'meat' ? '#FFFFFF' : '#B5532A');
     svg.appendChild(c);
   });
   return svg;
@@ -83,14 +83,14 @@ function illustration() {
   var wrap = el('div', 'hero-art');
   wrap.setAttribute('aria-hidden', 'true');
   var s = U.svgNode('svg', { viewBox: '0 0 480 360', 'class': 'art', focusable: 'false' });
-  s.appendChild(U.svgNode('rect', { x: 0, y: 0, width: 480, height: 360, rx: 28, fill: '#E8F1FD' }));
+  s.appendChild(U.svgNode('rect', { x: 0, y: 0, width: 480, height: 360, rx: 28, fill: '#F8EADF' }));
   s.appendChild(U.svgNode('circle', { cx: 360, cy: 96, r: 44, fill: '#FFFFFF' }));
-  s.appendChild(U.svgNode('path', { d: 'M0 220 Q60 196 120 220 T240 220 T360 220 T480 220 V360 H0 Z', fill: '#007AFF' }));
-  s.appendChild(U.svgNode('path', { d: 'M0 262 Q80 240 160 262 T320 262 T480 262 V360 H0 Z', fill: '#0062CC' }));
+  s.appendChild(U.svgNode('path', { d: 'M0 220 Q60 196 120 220 T240 220 T360 220 T480 220 V360 H0 Z', fill: '#D0703F' }));
+  s.appendChild(U.svgNode('path', { d: 'M0 262 Q80 240 160 262 T320 262 T480 262 V360 H0 Z', fill: '#B5532A' }));
   s.appendChild(U.svgNode('path', { d: 'M0 306 Q90 290 180 306 T360 306 T480 306 V360 H0 Z', fill: '#F3EBDD' }));
   s.appendChild(U.svgNode('path', { d: 'M70 150 H410', stroke: '#1A1A1A', 'stroke-width': 6, 'stroke-linecap': 'round' }));
   [120, 182, 244, 306].forEach(function (x) {
-    s.appendChild(U.svgNode('rect', { x: x, y: 122, width: 46, height: 46, rx: 12, fill: '#0062CC', stroke: '#1A1A1A', 'stroke-width': 3 }));
+    s.appendChild(U.svgNode('rect', { x: x, y: 122, width: 46, height: 46, rx: 12, fill: '#B5532A', stroke: '#1A1A1A', 'stroke-width': 3 }));
   });
   wrap.appendChild(s);
   return wrap;
@@ -201,7 +201,7 @@ function challengeCard() {
   var first = data.lessons[0];
   var label = store.isDone(first.id) ? 'Practise again' : 'Open ' + first.title;
   card.appendChild(window.SouvlaArt.streakPreview(n));
-  var next = el('div', 'up-next');
+  var next = el('div', 'up-next next-up');
   next.appendChild(el('p', 'up-next-label', 'Up next'));
   var nrow = el('div', 'up-next-row');
   nrow.appendChild(el('span', 'up-next-title', first.title));
@@ -324,8 +324,23 @@ var ctx = {
   findById: findById, shuffle: shuffle, data: null
 };
 
+function waitFonts() {
+  if (!document.fonts || !document.fonts.load) return Promise.resolve();
+  var faces = ['800 1em Nunito', '700 1em Nunito', '400 1em Inter', '600 1em Inter'];
+  var loads = faces.map(function (f) { return document.fonts.load(f).catch(function () {}); });
+  // Never block longer than 3s: a slow font must not stop the app from starting.
+  return Promise.race([Promise.all(loads), new Promise(function (r) { setTimeout(r, 3000); })]);
+}
+function showLoading() {
+  var s = el('section', 'loading');
+  s.setAttribute('role', 'status');
+  s.appendChild(el('div', 'spinner'));
+  s.appendChild(el('p', 'lead', 'Loading your lessons…'));
+  setView(s);
+}
 function init() {
-  fetch('data.json', { cache: 'no-store' })
+  showLoading();
+  waitFonts().then(function () { return fetch('data.json', { cache: 'no-store' }); })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (j) {
       data = j;
@@ -336,13 +351,15 @@ function init() {
     })
     .catch(function (err) {
       console.error('init failed:', err && err.stack || err);
-      if (!init.retried) { init.retried = true; setTimeout(init, 800); return; }
+      init.attempts = (init.attempts || 0) + 1;
+      if (init.attempts < 4) { setTimeout(init, 700 * init.attempts); return; }
       renderBrand();
       renderStats();
       var e = el('section', 'empty');
+      e.appendChild(window.SouvlaUI.icon('alert', 'err-ic'));
       e.appendChild(el('h1', 'h2', 'We could not load the lessons'));
       e.appendChild(el('p', 'lead', 'Check your connection and try again.'));
-      e.appendChild(btn('Try again', 'primary', init, 'refresh'));
+      e.appendChild(btn('Try again', 'primary', function () { init.attempts = 0; init(); }, 'refresh'));
       setView(e);
     });
 }
