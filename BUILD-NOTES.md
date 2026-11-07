@@ -1,27 +1,21 @@
-# Build notes: Fix round (job-195), Round 70
+# Build notes: job-195, Round 72
 
 ## Status
-Partly done. check.sh passes (exit 0). Not yet republished at the time of this note. features.json passes are unchanged.
+NOT DONE. Design bar not met. features.json passes unchanged (all 12 remain as they were).
 
-## Measured (Playwright probe, qa-measure/pos.js, and check.sh)
-- 1440x900: Souvla Test card 386 to 881px in the latest probe. Footer bottom 864px in check.sh. Footer above the 900px fold: PASS.
-- 390x844: Souvla Test title about 461px. First answer option 787 to 839px. Above the 844px fold: PASS (by 5px).
-- Phone hero: the lead paragraph is hidden on phone only (override.css, Round 53). Owner to confirm this is acceptable.
-- Phone hero art is 56px tall at 390px. The chunks are small. Design bar at phone width: NOT VERIFIED.
+## Measured (qa-measure/pos.js, check.sh)
+- 1440x900: Souvla Test card 402 to 881px. Footer bottom 864px. Footer above the 900px fold: PASS. Title and first answer above the fold: PASS.
+- 390x844: Souvla Test title about 465px. First answer option 791 to 843px. Above the 844px fold: PASS by 1px.
+- check.sh: exit 0 (index 200, data 200, browser tests, clicktest, footer baseline).
 
-## Visual observations (screenshots)
-- Desktop: hero art fills the right panel. Four chunks with irregular outlines, dark lower halves, highlight on upper lobe, thin metal skewer.
-- Brand mark: one skewer through three chunks. 16px and 24px read NOT VERIFIED.
+## Known problems (not fixed)
+- Phone hero art is about 56px tall. The four chunks read small and the panel is mostly empty. The brief's item 1 (chunks readable at phone width) is NOT MET. Making the art bigger pushes the first answer below 844px, so items 1 and 4 conflict at this layout. A real fix needs the hero copy and the art reflowed, not more overrides.
+- Phone lead paragraph is hidden (override.css, Round 53). Owner must confirm, since it removes copy.
+- override.css holds Rounds 51 to 72 stacked on each other. It should be merged into the base styles.
 
-## Not verified
-- Brand mark at 16px and 24px.
+## NOT VERIFIED
+- Brand mark at 16px and 24px (rendered to qa-measure/brand-sizes.png, not inspected).
 - 1024px width.
 - 200% and 400% zoom.
+- Day-tab focus ring in terracotta (CSS added, not seen in a screenshot).
 - Design score 8/10 at either width.
-- Focus ring on day tabs in the terracotta accent (CSS added, not visually confirmed).
-
-## Changes this round
-- Brand mark redrawn (brand.js).
-- Skewer 3px with metal gradient (souvla-hero.js).
-- Stat tiles lightened and icon boxes set to 20px (override.css).
-- Phone and desktop spacing tightened (override.css, Rounds 51 to 70). Several rounds were overrides on top of overrides and should be consolidated later.

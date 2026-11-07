@@ -92,3 +92,9 @@
 
 /* Round 70: desktop hero top padding restored (16px) so the eyebrow clears the header; footer kept under the fold. */
 @media (min-width:900px){.hero{padding-top:16px!important}}
+
+/* Round 71: phone hero art enlarged to 64px; stat tiles and first question padding trimmed to keep the first answer above 844px. */
+@media (max-width:899px){.hv-scene{height:64px!important}.hv-panel{padding:2px 6px!important}.test-card [class*=stat]{padding:4px 6px!important}.test-card [class*=question],.test-card .first-q{padding:6px 8px!important}}
+
+/* Round 72: phone only. Art back to 56px; question block and option rows tightened so the first answer ends above 844px. */
+@media (max-width:899px){.hv-scene{height:56px!important}.test-card [class*=question],.test-card [class*=first]{margin:4px 0!important;padding:4px 8px!important}.test-card [class*=question] *{margin:0!important}.test-card [class*=option],.test-card label,.test-card .opt{padding-top:6px!important;padding-bottom:6px!important;margin-bottom:6px!important}.test-card .btn{margin-top:6px!important}}
