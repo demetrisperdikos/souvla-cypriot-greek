@@ -51,7 +51,7 @@ s += "<path d='M" + f(x0) + ' ' + f(y0) + ' Q' + f(x0 + c.rx * 0.25) + ' ' + f(y
 });
 // skewer drawn last so it passes in front of the chunks: 360 of 600 units (60% of plate width)
 s += "<rect x='120' y='118' width='360' height='8' rx='4' fill='#140703' opacity='.35' filter='url(#hSoft)'/>";
-s += "<rect x='120' y='112' width='360' height='7' rx='3.5' fill='url(#hMetal)' stroke='#5A5A5A' stroke-width='.5'/>";
+s += "<rect x='120' y='110' width='360' height='10' rx='5' fill='url(#hMetal)' stroke='#4A4A4A' stroke-width='.6'/>";
 s += '</svg>';
 return s;
 }
