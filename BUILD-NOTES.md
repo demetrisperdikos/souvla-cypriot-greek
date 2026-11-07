@@ -1,36 +1,47 @@
-# Build notes: Cypriot Greek Diagnostic & Immersion Portal
+# Build notes: Souvla (Cypriot Greek)
 
-## Current HEAD
-The code commit is the one that last changed souvla-art.js, hero.js or final.css. Run `git log --oneline -1 -- final.css` to confirm. This file was written after that commit.
+## HEAD
+Code commit: d1beb2e (hero.js, brand.js). This notes commit sits on top of it.
 
-## Live stylesheet
-Load order in index.html: fonts.css, site.css, final.css. The final.css file overrides site.css.
-
-Selectors that define the look of the changed parts:
-- .hero-art, .hero-art > svg, .hero-art .hero-chip (hero illustration panel and its chip). Set in site.css and overridden in final.css by media queries at 899px and 900px.
-- .stats, .stat, .stat-ico (header streak, XP and skewer chips). Set in site.css and final.css.
-- .challenge-card, .challenge-card > .up-next.next-up, .up-next-bar, .up-next-pct (Daily challenge and Up Next strip).
-- .btn.primary (48px CTAs).
+## Stylesheet and selectors
+Load order in index.html: fonts.css, site.css, final.css (final.css overrides site.css).
+- .hero-art, .hero-art > svg, .hero-art .hero-chip: hero panel (site.css, overridden in final.css media queries at 899px and 900px).
+- .btn.primary, .btn: 48px CTAs (site.css line 98, final.css lines 4-6).
+- .stats, .stat: header chips (site.css, final.css).
+- .challenge-card, .challenge-card > .up-next.next-up, .up-next-bar, .up-next-pct: Daily challenge and Up Next strip (final.css).
 
 ## Was .up-next renamed?
-No. The class is still `up-next next-up`. The track element `.up-next-bar` is hidden with `display:none` in final.css. Measured: the strip is 96px tall at 1440 (y735 to 831). Label shows the text "Not started". Name change: none.
+No. The class is still up-next next-up.
 
-## Overlap of final.css and site.css
-Both files set the same selectors. final.css does not replace site.css. It adds rules after it, so for a repeated property the final.css value wins. The hero rules alone are repeated across about 15 rules in final.css, several of which are overridden again by later rules in the same file. This was not consolidated, so the cascade is harder to read than it should be.
+## Fonts
+Self-hosted (fonts.css loads fonts/*.woff2 from the same origin). No remote font link, so no Subresource Integrity is needed.
+
+## Repo hygiene
+.shots/ and qa/ removed from the working tree. Test suite is tests/ (what check.sh runs). .shots/ stays in .gitignore.
+
+## Safety grep (full output)
+Command: grep -n -e innerHTML -e eval -e new Function -e _blank -e http:// *.js *.html *.css
+```
+app.js:12:  var NS = 'http://www.w3.org/2000/svg';
+app.js:38:  mark.innerHTML = (window.SouvlaArt && window.SouvlaArt.logo) ? window.SouvlaArt.logo() : '';
+app.js:147:  var NS = 'http://www.w3.org/2000/svg';
+app.js:208:  tline.innerHTML = "<svg class='up-next-ico' viewBox='0 0 24 24' width='18' height='18' aria-hidden='true' focusable='false'><path d='M12 2c1 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.2 2-4.3.2 1.6.9 2.6 2 3.1C11 7.6 11.2 5 12 2z' fill='currentColor'/></svg>";
+hero.js:32:    wrap.innerHTML = svg() + '<span class="hero-chip">Level check, 3 min</span>';
+ui.js:3:var SVG_NS = 'http://www.w3.org/2000/svg';
+```
+Review: no eval, no new Function, no target=_blank. http:// hits are SVG namespace strings only (no network requests). innerHTML: app.js:38 (logo, static SVG string), app.js:208 (static SVG string), hero.js (static SVG built in code, no user input). None of these receive user text, so no change was needed.
+
+## Measured (Playwright, this build)
+- Start diagnosis, Begin the test, Open First Greetings: 48px at 1440 and 390.
+- Hero skewer: 419px of 734px plate at 1440 (57%); 202px of 354px at 390 (57%).
+- check.sh exit 0.
 
 ## Items
-1. Repo hygiene: VERIFIED. .shots/ and qa/ are empty. .shots/ is in .gitignore.
-2. Brand mark, 48px tile: VERIFIED in DOM at 40px render (svg width 40). Legibility at 16, 24 and 48px: NOT VERIFIED by eye. No pixel check was run.
-3. Hero chunks, lumpy outline and lower-half char: present in hero.js. Judged from screenshot only. NOT VERIFIED as meeting the design bar. In the 1440 screenshot they still read as soft brown clouds.
-4. Skewer: 18px bar with metal gradient (hSkew) and a white highlight. Visual judgement only, NOT VERIFIED against the 'about 60% of plate width' brief. The skewer runs the full panel width. This is an owner decision.
-5. Phone hero: illustration spans full panel width with 24px of air above (padding-top 24px in final.css). VERIFIED by screenshot. Measured panel width matches the card width.
-6. Phone chip: moved to bottom-left of the panel, so it does not cover the chunks. VERIFIED by screenshot.
-7. Souvla Test card gap: 16px between panel bottom and card top at 390. Round 20 measurement. Not re-measured this round.
-8. Up Next: track removed, label 'Not started'. VERIFIED by screenshot.
-9. Gap between streak row, Up Next box and CTA: 16px above and below, measured round 22. Not re-measured this round.
-10. Header chip icon boxes and Souvla Test icon box equal size and stroke: NOT VERIFIED.
-11. Desktop hero: art fills the panel and is centred against the text block (panel top 121 equals eyebrow top 121 at 1440). VERIFIED by measurement. Empty space below the CTAs: NOT VERIFIED as balanced.
-12. Design score: NOT RE-MEASURED. The bar is 8 or higher. Current status is below the bar by QA judgement, not yet re-scored.
+1. Brand mark: one bold bar (6px) with three chunks, no thin lines. Legibility at 16, 24, 48px: NOT VERIFIED (no pixel check run).
+2. Hero chunks: lumpy outline, varied lobes, charred lower half (#140703 rim, 1.5px non-scaling stroke), one crisp highlight each. Design judgement against 8/10: NOT VERIFIED.
+3. Phone hero: art full width, 24px air above. Up Next: class kept, progress bar hidden; label text only.
+4. Screen reader pass: NOT VERIFIED. No real screen reader was run.
+5. Desktop hero vertical centring: not changed in this round. NOT VERIFIED against the brief.
 
-## Tests
-`bash check.sh` runs syntax checks, serves the folder, runs the flow, state, reload, click and footer tests, and expects HTTP 200 for index.html and data.json. Last run this round: exit 0.
+## Republish
+Same link via publish_website after this commit.
