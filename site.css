@@ -324,7 +324,6 @@ h1:focus:not(:focus-visible),[tabindex="-1"]:focus:not(:focus-visible){outline:n
 }
 
 /* Round 23: QA round 4 fixes. Loaded last. */
-.challenge-card{display:flex;flex-direction:column}
 .challenge-card .up-next{margin-top:auto}
 
 /* Round 24: balance The Souvla Test card. The preview block takes spare height so the CTA sits on the card's bottom edge, level with the Daily challenge CTA. Loaded last. */
@@ -364,7 +363,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 @media (max-width:899px){.test-card .test-opts{flex:0 0 auto;justify-content:flex-start}.feature-row > .card > .btn:last-child{margin-top:var(--s2)}}
 
 /* Round 3: the Up Next strip grows to fill the Daily challenge card above its CTA. */
-.challenge-card{display:flex;flex-direction:column}
 .challenge-card .up-next{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;min-height:0}
 
 /* QA round 3 fixes */
