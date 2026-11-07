@@ -26,3 +26,20 @@
 ## Known gaps
 - The phone 'every right answer' stat wraps to two lines.
 - Phone first-answer option is at the fold edge, not fully above it.
+
+## Round 80 (QA round 2 fixes)
+- Hero gap: desktop cards now sit 24px below the hero band (fix-r78.css). Phone cards unchanged.
+- Phone fold: first answer option 'Yassou mas' ends at 829px, above the 844px fold (measured by tests/fold-r78.js).
+- Stat label: 'every right answer' changed to 'per right answer'; all three phone stat labels are one line.
+- Desktop fold: both primary buttons and the footer sit above 900px (footer at 895px).
+- Hero art: chunks redrawn with irregular outlines, varied sizes, darker lower half, one highlight per upper lobe. Phone art about 160px wide.
+- Brand mark redrawn: three chunks with a light skewer line through them.
+- Repo cleanup: .shots/ deleted again after the final capture. Notes corrected.
+- features.json: feature 10 (responsive) set to passes=false until a person confirms the hero art and the 1024px width.
+- check.sh: EXIT=0 on this round (OK index=200 data=200 browser-tests=passed clicktest=passed).
+
+## NOT VERIFIED / OPEN
+- Design bar 8/10: not confirmed. The chunks still read as dark rounded blobs more than grilled meat; the charred rim is subtle. QA to judge.
+- Brand mark legibility at 16px: not confirmed by a person.
+- 1024px width, 200% and 400% zoom, screen reader order, touch target sizes.
+- Owner's uploaded sad-face image (uploads/H4v7rLO9oqgJ.png) is not used anywhere in the build.

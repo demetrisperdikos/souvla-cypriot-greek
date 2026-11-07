@@ -1,0 +1,24 @@
+/* Round 78: one neutral surface, 32px hero-to-card gap, phone fold, art scale, stat hierarchy. */
+body{background:#F7F7F5!important}
+.hero{background:transparent!important;padding-bottom:32px!important}
+.hv-panel{background:#F7F7F5!important;border-color:#E6E6E0!important}
+.hv-visual.hero-art,.hero-art{background:none!important;border:0!important}
+.hero-art svg.hero-svg{display:block;width:100%;height:auto;overflow:visible}
+.test-card .meta-cell > :first-child,.challenge-card .meta-cell > :first-child{font-size:24px!important;font-weight:800!important;line-height:1.1!important}
+.test-card .meta-cell > :last-child{font-size:12px!important;line-height:1.3!important}
+@media (max-width:899px){
+  .hero{padding-bottom:0!important}
+  .hero-art svg.hero-svg{width:180px;max-width:100%;margin:8px auto 0}
+  .test-card{padding:12px 14px!important}
+  .test-card > * + *{margin-top:12px!important}
+  .test-card .meta-cell{padding:6px 10px!important}
+}
+
+/* Round 78: desktop gap between hero and cards, 32px total. Phone unchanged so the first option stays above 844px. */
+@media (min-width:900px){.test-card,.challenge-card{margin-top:16px!important}}
+
+/* Round 79: desktop only. Keeps a 32px visible gap under the hero and brings both card buttons above the 900px fold. */
+@media (min-width:900px){.hero{padding-top:0!important;padding-bottom:16px!important}.test-card,.challenge-card{padding-top:12px!important;padding-bottom:12px!important}}
+
+/* Round 80: desktop. 24px visible gap under the hero; footer back above the 900px fold. */
+@media (min-width:900px){.hero{padding-bottom:0!important}.test-card,.challenge-card{margin-top:24px!important}}

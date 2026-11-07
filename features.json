@@ -57,7 +57,7 @@
     "id": 10,
     "feature": "UI is responsive at 390px and 1440px",
     "verify": "screenshots at 1440px and 390px; Souvla Test title and first question above 844px at 390px; desktop cards above 900px at 1440px. 1024px NOT VERIFIED",
-    "passes": true
+    "passes": false
   },
   {
     "id": 11,

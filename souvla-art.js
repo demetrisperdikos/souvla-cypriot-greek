@@ -30,7 +30,7 @@ function whatYouGet() {
   box.appendChild(h);
   var ul = document.createElement('ul');
   ul.className = 'what-list';
-  ['Ten short questions, no wrong turns', 'XP for every right answer', 'Lessons matched to where you start'].forEach(function (t) {
+  ['Ten short questions, no wrong turns', 'XP for per right answer', 'Lessons matched to where you start'].forEach(function (t) {
     var li = document.createElement('li');
     li.textContent = t;
     ul.appendChild(li);

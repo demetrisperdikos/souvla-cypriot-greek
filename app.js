@@ -171,7 +171,7 @@ function testCard() {
   card.appendChild(head);
   card.appendChild(el('p', 'body', 'Ten questions to find your starting point. No pressure, no wrong turns.'));
   var meta = el('dl', 'meta-block');
-  [['10', 'questions'], ['~3', 'minutes'], ['+XP', 'every right answer']].forEach(function (m) {
+  [['10', 'questions'], ['~3', 'minutes'], ['+XP', 'per right answer']].forEach(function (m) {
     var c = el('div', 'meta-cell');
     c.appendChild(el('dt', 'meta-num', m[0]));
     c.appendChild(el('dd', 'meta-label', m[1]));
