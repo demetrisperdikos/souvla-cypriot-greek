@@ -51,3 +51,9 @@ NOT PRODUCED by the build team. QA judges the live link.
 - Measured 1440px: art centre y=266, copy centre y=266 (matched). Skewer rect centre y=250 inside the 170px SVG.
 - Card heights unchanged after the change: phone 502.1px, desktop 429.4px.
 - Item 8 still NOT DONE: the consolidation attempts moved the card heights and were reverted.
+
+## Round 30: item 8 cascade values (computed, Chromium)
+- Winning computed style for .streak-preview at 390px: padding 16px all sides, gap 0px, justify-content flex-start, flex 0 0 auto, height 202.56px.
+- At 1440px: padding 8px top and bottom, 16px left, gap 0px, justify-content flex-start, flex 0 0 auto, height 150.375px.
+- These values are the target for one base rule plus responsive overrides. No rule has been deleted in this round.
+- Item 8 is still NOT DONE. The three earlier deletion attempts moved the Daily card height and were reverted.
