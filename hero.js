@@ -44,7 +44,7 @@ CH.forEach(function (c) {
 s += "<ellipse cx='" + c.cx + "' cy='" + (c.cy + c.ry - 2) + "' rx='" + f(c.rx * 0.9) + "' ry='6' fill='#140703' opacity='.45' filter='url(#hSoft)'/>";
 });
 CH.forEach(function (c) {
-s += "<path d='" + blob(c) + "' fill='url(#hMeat)' stroke='#140703' stroke-width='1.5' stroke-linejoin='round' vector-effect='non-scaling-stroke'/>";
+s += "<path d='" + blob(c) + "' fill='url(#hMeat)' stroke='#000000' stroke-width='2' stroke-linejoin='round' vector-effect='non-scaling-stroke'/>";
 // crisp narrow highlight on the upper lobe
 var x0 = c.cx - c.rx * 0.5, y0 = c.cy - c.ry * 0.5;
 s += "<path d='M" + f(x0) + ' ' + f(y0) + ' Q' + f(x0 + c.rx * 0.25) + ' ' + f(y0 - 6) + ' ' + f(x0 + c.rx * 0.5) + ' ' + f(y0 - 2) + "' stroke='#FFF4E6' stroke-width='1.6' stroke-linecap='round' fill='none' opacity='.9' vector-effect='non-scaling-stroke'/>";
