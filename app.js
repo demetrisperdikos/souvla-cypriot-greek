@@ -229,7 +229,6 @@ function challengeCard() {
   var unit = first.steps ? 'steps' : 'cards';
   var statusText = store.isDone(first.id) ? 'Completed, ' + totalSteps + ' of ' + totalSteps + ' ' + unit : (store.progressOf(first.id) > 0 ? 'In progress, ' + Math.min(store.progressOf(first.id), totalSteps) + ' of ' + totalSteps + ' ' + unit : 'Not started, 0 of ' + totalSteps + ' ' + unit);
   next.appendChild(el('span', 'up-next-pct', statusText));
-  card.appendChild(next);
   card.appendChild(btn(label, 'primary', function () { openLesson(first); }, 'right'));
   return card;
 }
