@@ -35,7 +35,7 @@ function svg() {
     '<defs>' +
     '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1">' +
     '<stop offset="0" stop-color="#E39A5C"/><stop offset=".35" stop-color="#A9522A"/>' +
-    '<stop offset=".6" stop-color="#5A2611"/><stop offset=".8" stop-color="#2A1005"/>' +
+    '<stop offset=".45" stop-color="#5A2611"/><stop offset=".65" stop-color="#2A1005"/><stop offset=".85" stop-color="#1A0903"/>' +
     '<stop offset="1" stop-color="#140703"/></linearGradient>' +
     '<linearGradient id="hSkew" x1="0" y1="0" x2="0" y2="1">' +
     '<stop offset="0" stop-color="#F4F4F4"/><stop offset=".45" stop-color="#9C9C9C"/>' +
@@ -51,7 +51,7 @@ function svg() {
     s += '<ellipse cx="' + c.cx + '" cy="' + (c.cy + c.ry * 0.9) + '" rx="' + (c.rx * 0.95) + '" ry="' + (c.ry * 0.22) + '" fill="#1A1A1A" opacity=".3"/>';
     s += '<path d="' + blobPath(c.cx, c.cy, c.rx, c.ry, c.seed) + '" fill="url(#hMeat)" stroke="#140703" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>';
     s += '<path d="M' + (c.cx - c.rx * 0.5) + ' ' + (c.cy + c.ry * 0.35) + ' q' + (c.rx * 0.5) + ' ' + (c.ry * 0.3) + ' ' + (c.rx) + ' ' + (-c.ry * 0.05) + '" stroke="#140703" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".45"/>';
-    s += '<ellipse cx="' + (c.cx + c.hx) + '" cy="' + (c.cy + c.hy) + '" rx="11" ry="3.5" transform="rotate(' + c.hr + ' ' + (c.cx + c.hx) + ' ' + (c.cy + c.hy) + ')" fill="#FFF6EC" opacity=".92"/>';
+    s += '<ellipse cx="' + (c.cx + c.hx) + '" cy="' + (c.cy + c.hy) + '" rx="9" ry="2.4" transform="rotate(' + c.hr + ' ' + (c.cx + c.hx) + ' ' + (c.cy + c.hy) + ')" fill="#FFF6EC" opacity=".92"/>';
   });
   // skewer drawn last so it passes in front of the chunks; about 63% of the plate width
   s += '<rect x="110" y="112" width="380" height="10" rx="5" fill="url(#hSkew)" stroke="#1A1A1A" stroke-width="1" vector-effect="non-scaling-stroke"/>' +
