@@ -772,3 +772,8 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .hero{margin-top:0}
 .hero .actions{margin-top:0}
 }
+
+/* QA round 13, desktop: band stops 8px inside the hero, so band-to-cards is 8px + 24px row gap = 32px. Footer unchanged. Loads last. */
+@media (min-width:900px){
+.hero::before{bottom:8px}
+}
