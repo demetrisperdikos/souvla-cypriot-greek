@@ -737,3 +737,7 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .home > .hero-art, .hero-art{margin-bottom:24px}
 .home > *:nth-child(2){margin-top:0}
 }
+
+/* QA round 12: 1px divider and 48px bottom padding under the cards, before the footer. */
+.home > .cards-row, .home > .cards{border-bottom:1px solid var(--line);padding-bottom:48px;margin-bottom:0}
+@media (min-width:900px){.home > .cards-row, .home > .cards{padding-bottom:48px}}
