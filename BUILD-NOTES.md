@@ -1,45 +1,38 @@
 # Build notes: Souvla (job-195)
 
-Commit: 6a33e3d3942137577f3c6c09f9d4071179e277ea (pushed to main, github.com/demetrisperdikos/souvla-cypriot-greek)
+Commit: see git log -1 (pushed to main, github.com/demetrisperdikos/souvla-cypriot-greek).
 
 ## Files
-- index.html, styles.css, app.js, ui.js, store.js, lessons.js, hero.js (hero art), brand.js (brand mark), souvla-art.js, data.json
-- check.sh: syntax, server, HTTP 200, browser flows, state, reload, click and footer tests. Last run: OK.
-- renders/: brand mark at 16, 24, 48px (mark-*.png), render-mark.js, desk-after.png, phone-after.png, up-next-partial-1of2.png
+- index.html, styles.css (final layer loads last), app.js, ui.js, store.js, lessons.js, hero.js (hero art), brand.js (brand mark), souvla-art.js, data.json, check.sh.
+- renders/: brand mark 16/24/48px (mark-*.png), render-mark.js, desk-after.png, phone-after.png, up-next-partial-1of2.png, phone-order.png, phone-cta-under-chips.png, phone-plate.png, desk-plate.png, hero-compare/ (compare-1x.png: QA round 1 art on the left, current art on the right).
 
-## Measured (fresh, this commit)
-- Desktop 1440: CTA row 350 to 398 (48px). Hero band ends 422. Band clears the buttons by 24px.
-- Desktop buttons: Start diagnosis 192x48, Browse lessons 198x48.
-- Phone 390: Start diagnosis 175x48, Browse lessons 175x48.
-- Header chips: 128px each at 1440, 114px each at 390.
-- Phone chips bottom y104 to Start diagnosis top y167: gap 63px (was 268px before). Start diagnosis now sits directly under the header chips via CSS order; DOM order unchanged. Screenshot: renders/phone-order.png.
-- Phone art panel 185px tall (y460 to 645). Desktop art panel 260px (y129 to 389).
-- Footer: 898px on both breakpoints, above the 900px fold.
+## Check
+- ./check.sh: syntax, server, HTTP 200, flow, state, reload, click and footer tests. Last run: OK index=200 data=200 browser-tests=passed clicktest=passed.
+- Safety grep: grep -rn -E 'TODO|FIXME|eval\(|document.write' --include=*.js --include=*.html *.js index.html gave no matches.
+
+## Measured (390 and 1440, from the current build)
+- Phone header chips bottom y104. Start diagnosis top y125, bottom y173. Gap 21px (was 268px before the CSS order change, then 63px, now 21px).
+- Phone CTA buttons 48px tall.
+- Desktop 1440: Start diagnosis 192x48, Browse lessons 198x48, both at y350 to 398. Peach band ends y422, so the buttons clear the band bottom by 24px.
+- Header chips: 128px wide each at 1440, 114px each at 390.
+- Phone art panel and plate: panel height matches the SVG within 1px (plate top and bottom gaps 1px each), so no grey or beige band below the plate. Desktop panel 260px, SVG 258px, 1px gaps.
+- Footer at 898px on both breakpoints, above the 900px fold.
 
 ## Up Next
-- Progress is driven by flashcard progress (store.setProgress). Fill is 50% after 1 of 2 cards, 100% after 2 of 2, and shows 'In progress, N of 2 cards'.
-- Screenshot: renders/up-next-partial-1of2.png (fill 50%, text 'In progress, 1 of 2 cards'). Verified.
-- Deviation: data.json unchanged. Progress is kept in the store, not the lesson data.
+- Progress comes from flashcard progress in store.js (setProgress / progressOf). Lesson data.json is unchanged, which is a deviation documented here.
+- After 1 of 2 cards: fill 50%, text 'In progress, 1 of 2 cards'. Screenshot: renders/up-next-partial-1of2.png. Verified.
+- After 2 of 2: fill 100%.
 
 ## Brand mark
-- One dark skewer bar with three chunks (brand.js). Renders at 16, 24, 48px are in renders/. Legibility at 16px: NOT VERIFIED by visual review in this pass.
+- One dark skewer bar with three larger chunks (brand.js). Renders at 16, 24, 48px in renders/. Legibility at 16px: NOT VERIFIED by a visual review in this pass.
 
 ## Hero art
-- Skewer 4px thick, spans 360 of 600 units (60% of plate width).
-- Lower half of chunks darkened toward #140703.
-- 1.5px charred rim and before/after 1x renders: NOT VERIFIED. Rim not confirmed in this pass.
-- Plate edge-to-edge and grey band check: NOT VERIFIED.
+- Skewer 4px thick, spans 360 of 600 units (60% of plate width), with a highlight line.
+- Lower half of each chunk darkened toward #140703.
+- The chunks have a 1.5px #140703 non-scaling stroke in code. Whether it reads at 1x: NOT VERIFIED by a visual review in this pass. Before/after 1x comparison is in renders/hero-compare/compare-1x.png.
+- Contact shadows are present under the chunks.
 
-## Design score
-- 1440 and 390 scored: NOT SUBMITTED. The phone order and hero art rim are not yet to spec, so the 8/10 bar is not claimed.
-
-## Typography
-- Headline weight 800, letter-spacing -0.03em. Accent on one keyword (Cypriot.). Stat label spacing: NOT VERIFIED.
-
-## Safety grep
-- Run check.sh (includes click, state and footer tests). Output: OK index=200 data=200 browser-tests=passed clicktest=passed.
-
-## Open
-- Phone hero order (CTA above headline) is an owner decision, raised with Jimmy.
-- Hero art rim and plate check.
-- Design score.
+## Not done
+- Design score at 1440 and 390: NOT SUBMITTED. Not scored against the 8/10 bar.
+- Typography: headline weight 800, letter-spacing -0.03em, accent on one keyword (Cypriot.). Souvla Test stat label spacing: NOT VERIFIED.
+- Correction: earlier notes claimed the phone gap was not met and the Up Next and rim were verified; the phone gap is now 21px and the Up Next partial is verified, but the rim and brand legibility are not.

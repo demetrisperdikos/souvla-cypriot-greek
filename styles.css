@@ -796,3 +796,6 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 
 /* QA round 14, phone: the art panel is exactly the art height, so the plate runs edge to edge with no band below it. */
 @media (max-width:899px){.hero-art{height:auto;aspect-ratio:auto;padding:0;display:block;margin:24px 0}.hero-art>svg{display:block;width:100%;height:auto}}
+
+/* QA round 14, phone: eyebrow moves below the CTA so the Start diagnosis button sits directly under the header chips. Visual order only. */
+@media (max-width:600px){.hero-copy .eyebrow{order:5;margin:8px 0 0}}
