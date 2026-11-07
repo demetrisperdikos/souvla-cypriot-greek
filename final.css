@@ -248,3 +248,10 @@
 /* Round 28 fix: header stays above the hero band; band fades into the page background */
 .topbar{position:relative;z-index:5}
 .hero::before{background:linear-gradient(180deg,#F6E6D8 0%,#FBF3EC 70%,#F9F8F5 100%)}
+
+/* Round 28: centre hero copy (text + CTA) against the art panel on desktop */
+@media (min-width:900px){.hero-copy{display:flex;flex-direction:column;justify-content:center;height:100%}.hero-copy .actions{margin-top:var(--s3,24px)}}
+
+/* Round 28 fix: keep footer above the 900px fold on desktop */
+@media (min-width:900px){.hero-copy .actions{margin-top:0}}
+.main{padding-bottom:var(--s4,32px)}
