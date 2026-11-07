@@ -289,3 +289,6 @@
 
 /* job-195 round 10: desktop art panel aligns to the top of the copy column (align-self:start), so its top equals the eyebrow top. */
 @media (min-width:900px){.hero-art{align-self:start !important}}
+
+/* job-195 round 11: desktop art has 15px more top padding, so the skewer centre sits on the copy centre (measured offset was -15px). */
+@media (min-width:900px){.hero-art{padding-top:59px !important}}
