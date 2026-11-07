@@ -63,3 +63,8 @@ NOT PRODUCED by the build team. QA judges the live link.
 - Child rules remain split: .streak-preview .week-hint, .streak-top and .streak-ico still sit in site.css and final.css. Not consolidated.
 - Card heights held at every step: phone 502.1px, desktop 429.4px. check.sh exits 0 on each commit (last: 8c6b7a0).
 - Item 8 is PARTLY DONE. Do not treat it as complete.
+
+## Round 36: brand mark (item 5), partial
+- brand.js: chunks scaled 1.2x and skewer stroke raised 3.5 to 4.5. check.sh exits 0 (commit 9f941bc, pushed).
+- Measured again: logo box 48x48 at 390px and 1440px. The probe does not measure the 24px rendering, so the 24px look is NOT VERIFIED.
+- Owner prototype (sad-face circle, three-blob mark) is not reconciled with the skewer mark. Owner image is unused; reason above.
