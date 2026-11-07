@@ -1,7 +1,7 @@
 # Build notes: Souvla (job-195)
 
-Stylesheets (in load order): fonts.css, site.css, final.css, hero-fix.css.
-Hero art: hero.js (svg(): blob() outlines, CH chunk list, hMeat gradient, hGround fade, skewer rect x=120 width=360, drawn after the chunks). Hero layout: hero-fix.css (.hero-art, .hero-art>svg, .hero-art .hero-chip, .hero::before band, .section-divider, .card).
+Stylesheets (in load order): fonts.css, then styles.css. styles.css is the old site.css, final.css and hero-fix.css concatenated in that order, so later rules still win and the cascade is unchanged. Consolidation DONE; check.sh passes after it.
+Hero art: hero.js (svg(): blob() outlines, CH chunk list, hMeat gradient, hGround fade, skewer rect x=120 width=360, drawn after the chunks). Hero layout: styles.css (.hero-art, .hero-art>svg, .hero-art .hero-chip, .hero::before band, .section-divider, .card).
 Brand mark: brand.js (three circles with one bar on top).
 
 ## Checks run on this build
