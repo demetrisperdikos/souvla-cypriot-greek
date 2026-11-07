@@ -1,57 +1,57 @@
 (function () {
 'use strict';
 var A = window.SouvlaArt = window.SouvlaArt || {};
-function f(n) { return Math.round(n * 10) / 10; }
-function mid(p, q) { return [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; }
-function rng(seed) { var s = seed; return function () { s = (s * 9301 + 49297) % 233280; return s / 233280; }; }
-// Irregular lobed outline: each lobe gets its own radius, so the meat is not a uniform blob.
-function blob(c) {
-  var r = rng(c.seed), n = c.n, pts = [], i;
+
+var MARK = "<svg class='souvla-mark-svg' width='40' height='40' viewBox='0 0 48 48' aria-hidden='true' focusable='false'><defs><linearGradient id='mkMeat' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#C86F36'/><stop offset='.5' stop-color='#8C4520'/><stop offset='1' stop-color='#2A1204'/></linearGradient></defs><rect width='48' height='48' rx='12' fill='#FBF6EF'/><circle cx='12' cy='24' r='9' fill='url(#mkMeat)' stroke='#140703' stroke-width='1.5'/><circle cx='24' cy='24' r='10.5' fill='url(#mkMeat)' stroke='#140703' stroke-width='1.5'/><circle cx='36' cy='24' r='9' fill='url(#mkMeat)' stroke='#140703' stroke-width='1.5'/><rect x='0' y='21' width='48' height='6' rx='3' fill='#2E2E2E'/><rect x='2' y='21.5' width='44' height='1.2' rx='0.6' fill='#C4C4C4' opacity='.8'/></svg>";
+
+function blob(cx, cy, rx, ry, m) {
+  var n = m.length, p = [], i;
   for (i = 0; i < n; i++) {
-    var a = i * 2 * Math.PI / n + (r() - 0.5) * 0.45, k = 0.6 + 0.6 * r();
-    pts.push([c.cx + Math.cos(a) * c.rx * k, c.cy + Math.sin(a) * c.ry * k]);
+    var a = 2 * Math.PI * i / n - Math.PI / 2;
+    p.push([cx + rx * m[i] * Math.cos(a), cy + ry * m[i] * Math.sin(a)]);
   }
-  var m = mid(pts[n - 1], pts[0]), d = 'M' + f(m[0]) + ' ' + f(m[1]);
+  function mid(a, b) { return [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]; }
+  var s0 = mid(p[n - 1], p[0]);
+  var d = 'M' + s0[0].toFixed(1) + ' ' + s0[1].toFixed(1);
   for (i = 0; i < n; i++) {
-    var p = pts[i], q = mid(p, pts[(i + 1) % n]);
-    d += ' Q' + f(p[0]) + ' ' + f(p[1]) + ' ' + f(q[0]) + ' ' + f(q[1]);
+    var q = p[i], e = mid(p[i], p[(i + 1) % n]);
+    d += ' Q' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + ' ' + e[0].toFixed(1) + ' ' + e[1].toFixed(1);
   }
   return d + ' Z';
 }
-var CH = [
-  { cx: 120, cy: 112, rx: 58, ry: 42, seed: 3, n: 9 },
-  { cx: 250, cy: 104, rx: 76, ry: 56, seed: 7, n: 11 },
-  { cx: 384, cy: 114, rx: 60, ry: 40, seed: 11, n: 9 },
-  { cx: 486, cy: 122, rx: 38, ry: 28, seed: 17, n: 7 }
-];
-var SKEWER_Y = 111;
-var DEFS = '<defs>' +
-  '<linearGradient id="hMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C97235"/><stop offset=".3" stop-color="#8E4119"/><stop offset=".55" stop-color="#4A200C"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
-  '<linearGradient id="hBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCCFC2"/><stop offset=".5" stop-color="#7A6A60"/><stop offset="1" stop-color="#2A201B"/></linearGradient>' +
-  '<filter id="hSoft" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>' +
-  '</defs>';
-function svg() {
-  var s = '<svg viewBox="40 36 520 130" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' + DEFS;
-  // Thin metal skewer, 3px, with its own top highlight from the gradient.
-  s += '<rect x="40" y="' + SKEWER_Y + '" width="520" height="3" rx="1.5" fill="url(#hBar)"/>';
-  // Soft contact shadow under each chunk (blurred, sits on the skewer, no ground bar).
-  CH.forEach(function (c) {
-    s += '<ellipse cx="' + c.cx + '" cy="' + f(c.cy + c.ry - 4) + '" rx="' + f(c.rx * 0.8) + '" ry="4" fill="#140703" opacity=".5" filter="url(#hSoft)"/>';
-  });
-  CH.forEach(function (c) {
-    // Charred rim 1.5px, meat gradient darkens toward #140703 in the lower half.
-    s += '<path d="' + blob(c) + '" fill="url(#hMeat)" stroke="#0E0401" stroke-width="1.5" stroke-linejoin="round"/>';
-    // Crisp 1.5px highlight on the upper lobe.
-    s += '<ellipse cx="' + f(c.cx - c.rx * 0.25) + '" cy="' + f(c.cy - c.ry * 0.55) + '" rx="' + f(c.rx * 0.3) + '" ry="1.5" fill="#FBE7D2" opacity=".8"/>';
-  });
-  return s + '</svg>';
+
+function chunk(cx, cy, rx, ry, m) {
+  var s = '<ellipse cx="' + (cx + 4) + '" cy="' + (cy + ry * 0.95).toFixed(1) + '" rx="' + (rx * 0.9).toFixed(1) + '" ry="' + (ry * 0.22).toFixed(1) + '" fill="#140703" opacity=".38" filter="url(#hvBlur)"/>';
+  s += '<path d="' + blob(cx, cy, rx, ry, m) + '" fill="url(#hvMeat)" stroke="#140703" stroke-width="1.5" stroke-linejoin="round"/>';
+  s += '<path d="M' + (cx - rx * 0.55).toFixed(1) + ' ' + (cy - ry * 0.45).toFixed(1) + ' Q' + (cx - rx * 0.1).toFixed(1) + ' ' + (cy - ry * 0.72).toFixed(1) + ' ' + (cx + rx * 0.35).toFixed(1) + ' ' + (cy - ry * 0.5).toFixed(1) + '" fill="none" stroke="#FFF3DC" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>';
+  s += '<path d="M' + (cx - rx * 0.4).toFixed(1) + ' ' + (cy + ry * 0.35).toFixed(1) + ' l' + (rx * 0.3).toFixed(1) + ' ' + (-ry * 0.2).toFixed(1) + ' M' + (cx + rx * 0.05).toFixed(1) + ' ' + (cy + ry * 0.45).toFixed(1) + ' l' + (rx * 0.35).toFixed(1) + ' ' + (-ry * 0.25).toFixed(1) + '" stroke="#140703" stroke-width="2" stroke-linecap="round" opacity=".4"/>';
+  return s;
 }
+
+var SVG = '<svg class="hero-svg" viewBox="0 0 440 140" width="100%" role="img" aria-label="Grilled souvla chunks on a skewer">' +
+  '<defs><linearGradient id="hvMeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C86F36"/><stop offset=".45" stop-color="#8C4520"/><stop offset=".8" stop-color="#4A200B"/><stop offset="1" stop-color="#140703"/></linearGradient>' +
+  '<filter id="hvBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>' +
+  '<rect x="14" y="65" width="412" height="3" rx="1.5" fill="#3C3C3C"/>' +
+  '<rect x="14" y="65" width="412" height="1" rx="0.5" fill="#BDBDBD" opacity=".7"/>' +
+  chunk(92, 66, 44, 32, [1, 0.84, 1.06, 0.92, 1.1, 0.86, 1.02, 0.9]) +
+  chunk(196, 64, 54, 40, [1, 1.08, 0.9, 1.12, 0.86, 1.04, 0.94, 1.1]) +
+  chunk(300, 68, 48, 34, [1.05, 0.88, 1, 1.12, 0.9, 0.98, 0.84, 1.06]) +
+  chunk(384, 66, 30, 24, [1, 0.9, 1.1, 0.86, 1.04, 0.95, 1, 0.88]) +
+  '</svg>';
+
+function logo() { return MARK; }
+
 function hero() {
   var wrap = document.createElement('div');
   wrap.className = 'hero-art';
-  wrap.setAttribute('aria-hidden', 'true');
-  wrap.innerHTML = "<span class='hero-chip'>Level check, 3 min</span>" + svg();
+  var chip = document.createElement('span');
+  chip.className = 'hero-chip';
+  chip.textContent = 'Level check, 3 min';
+  wrap.appendChild(chip);
+  wrap.insertAdjacentHTML('beforeend', SVG);
   return wrap;
 }
+
+A.logo = logo;
 A.hero = hero;
 })();

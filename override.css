@@ -1,0 +1,17 @@
+.hero-art{display:flex;flex-direction:column;align-items:stretch;gap:24px;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;padding:12px!important;margin:16px 0 0!important;overflow:visible}
+.hero-art .hero-chip{position:static!important;top:auto!important;left:auto!important;bottom:auto!important;align-self:flex-start;display:inline-block;margin:0}
+.hero-art > svg{position:static!important;display:block;width:100%!important;height:auto!important;max-height:none!important;margin:0!important;transform:none!important}
+@media (min-width:900px){.hero-art{padding:32px!important;justify-content:center;align-self:stretch!important}}
+.week > :focus-visible,.week button:focus-visible{outline:2px solid #1E5FA8!important;outline-offset:3px!important}
+.streak-ico{width:20px!important;height:20px!important}
+.foot{margin-top:32px!important}
+.streak-top{display:flex!important;align-items:center;gap:8px;position:relative}
+.streak-top .streak-ico{position:static!important;flex:0 0 20px;width:20px;height:20px}
+@media (max-width:899px){.hero{padding-top:16px!important;padding-bottom:0!important;gap:12px!important}.hero-art{margin-top:8px!important;padding:8px!important}.hero-art > svg{height:auto}}
+.streak-top > .streak-ico, .streak-top svg.streak-ico{position:static!important;left:auto!important;top:auto!important;transform:none!important;flex:0 0 20px;width:20px;height:20px;margin:0}
+@media (max-width:899px){.hero{padding-top:12px!important;padding-bottom:0!important}.hero-copy .lead{margin:8px 0 8px!important}.hero-copy .actions{margin-top:8px!important}.hero-art{margin-top:12px!important;padding:4px 8px!important;gap:8px!important}.hero-art .hero-chip{margin:4px 0 0!important}.hero-art > svg{height:96px!important;width:100%!important;max-height:96px!important}}
+.streak-top{position:relative!important;display:flex!important;align-items:center!important;gap:8px!important;min-height:20px}
+.streak-top > svg, .streak-top svg.streak-ico{position:static!important;top:auto!important;left:auto!important;transform:none!important;width:20px!important;height:20px!important;min-width:20px;padding:0!important;margin:0!important;background:none!important;border:0!important;border-radius:0!important;flex:0 0 20px!important}
+@media (max-width:899px){.hero-copy .eyebrow,.hero-copy .kicker{margin-top:0!important}.hero-copy h1,.hero-copy .display{font-size:32px!important;line-height:1.1!important}.hero-copy .lead{font-size:.875rem!important;line-height:1.4!important;margin:6px 0!important}.hero-copy .actions{margin-top:8px!important}.hero-copy .actions .btn{min-height:44px}.hero-art{margin-top:8px!important;padding:4px 8px!important}.hero-art .hero-chip{margin:0 0 2px!important}.hero-art > svg{height:76px!important;max-height:76px!important}}
+.week>*:focus-visible,.week>.day:focus-visible{outline:none!important;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)!important}
+.foot{margin-top:24px}
