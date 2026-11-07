@@ -1,43 +1,60 @@
-# BUILD NOTES: Souvla, Cypriot Greek portal (QA round 3)
+# BUILD NOTES: Souvla, Cypriot Greek portal (QA round 4)
 
-Every item is VERIFIED with a measured value or NOT VERIFIED with a reason.
+Code commit: 567acb9. This notes commit is the new HEAD and only changes BUILD-NOTES.md.
+Every item is VERIFIED with a measured value (Playwright, 1440x900 and 390x844) or marked NOT VERIFIED or FAIL with a reason.
 
-## Item 1: Hero rim contrast
-VERIFIED. Chunk halo #FBEBD8 vs darkest meat stop #8E4A22: 5.70:1. Halo vs skewer #1A1A1A: 14.90:1. Chunk outline #140703 vs halo: 16.94:1. Meat gradient was lightened (#F0B27A, #C9783E, #8E4A22) so the body is a warm mid-tone.
+## Stylesheets and selectors
+Loaded by index.html in this order: fonts.css, site.css, final.css. There is no styles.css.
+Header chips: .stats, .stat, .stat-ico, .stat-label (final.css round 4 block).
+Hero: .hero, .hero-copy, .hero-art, .hero-art svg, .hero-chip (final.css round 4 blocks; later blocks override earlier ones).
+Daily card: .challenge-card, .up-next.next-up (class kept, not renamed), .up-next-bar (display:none, label kept).
+Duplicate .hero-art height rules were overridden in final.css, not merged into site.css. This is a known cascade, not a clean consolidation.
 
-## Item 5: 24px brand mark
-VERIFIED. Brand SVG renders at 48px (measured with getBoundingClientRect at 390px and 1440px). A 24px crop was captured at /tmp/qa-shots/brand-24px.png and the header crop at /tmp/qa-shots/brand-phone-header.png. Shapes were made bolder (chunks scale 1.75, skewer 5.5 stroke) for legibility at small sizes.
-Direction: the sad-face prototype is DROPPED explicitly. The mark is the skewer-and-chunks mark. Owner decision needed if the sad face is wanted.
+## Header chips (VERIFIED, measured)
+1440: three chips 128px, 128px, 128px. Labels streak, XP, skewers. No ellipsis, no clipped label (scrollWidth check).
+390: three chips 114px, 114px, 114px. Same labels.
+Icon box 20px, stroke 2.
 
-## Item 8: streak-preview CSS consolidation
-PARTLY VERIFIED. The QA-listed child rules were removed: site.css lines 197, 418, 419, 426 and final.css lines 141, 144, 145, plus the duplicate .week-hint rule. The base .streak-preview rule now lives in final.css with a desktop override (min-width 900px). NOT VERIFIED: .streak-top and .streak-ico general rules still exist in site.css (lines 85, 204-206, 265, 341). They are not inside the streak-preview block but were not merged into one rule.
+## Primary CTA height (VERIFIED, measured in rendered page)
+390: Start diagnosis 48px, Begin the test 48px, Open First Greetings 48px.
+1440: Start diagnosis 48px, Begin the test 48px, Open First Greetings 48px.
 
-## Item 9: Stylesheet and repo cleanup
-VERIFIED. fix-r20.css merged into final.css and removed; index.html loads fonts.css, site.css, final.css only. card-variety.css removed. PROGRESS.md untracked (kept on disk, in .gitignore). qa/baseline-r26.json removed. node_modules trees untracked: git ls-files now lists 35 files, 0 under node_modules. .shots/ emptied (0 files) and in .gitignore.
+## Daily challenge card (VERIFIED, measured)
+Progress track removed. Label kept: 0% of this lesson.
+Gaps at 1440 and 390: streak row to Up Next box 16px; Up Next box to CTA 16px; CTA bottom to card bottom 17px.
+Up Next box height 84px at 1440, 108px at 390. Minimum is 72px.
 
-## Item 10: This file
-VERIFIED. Open items: items 8 (partly) and design re-score below.
+## Hero chip vs art (VERIFIED, measured)
+The Level check chip sits in a strip above the art. chipOverlapsSvg is false at 1440 and 390.
+The art sits inside its panel at both widths (svgInsidePanel true).
 
-## Chips at 390px
-VERIFIED. Three header chips 114px, 114px, 114px (equal width grid).
+## Top alignment (FAIL, measured)
+Eyebrow top 121px at 1440. Hero panel top 125px at 1440, so the panel is 4px below the eyebrow. The gap is not closed.
+At 390 the eyebrow is at 141px and the hero panel is at 475px. The panel sits after the buttons by design, so it is not aligned to the eyebrow at this width.
 
-## Primary CTA height
-VERIFIED. All primary buttons measured at 48px at 390px and 1440px (3 each).
+## Hero art centring (NOT VERIFIED)
+The vertical centre of the art against the copy column was measured as 16px off in an earlier round. It was not re-measured after the final layout change, so it is not claimed as centred.
 
-## Daily challenge card
-VERIFIED. UP NEXT strip min-height 72px at 1440px (measured 72px) and 97px at 390px. CTA bottom sits 17px above card bottom at both widths (1440: card bottom 864, CTA bottom 847; 390: card 1267, CTA 1250).
+## Hero art, chunk rim, highlight, brand mark silhouette (NOT VERIFIED, reviewer-judged)
+The lumpy outline, #140703 rim and highlight are visual judgments and are not claimed as passed.
 
-## Desktop hero and phone hero
-VISUALLY CHECKED via screenshots (desktop-1440.png, phone-390.png in /tmp/qa-shots). Skewer and plate enlarged. Phone hero art 200px tall in its panel. Not pixel-measured against the 900px fold beyond the footer check, which passes.
+## Brand mark sizes (NOT VERIFIED)
+Only the 48px brand box was measured (48x48 at 390 and 1440). The 16px and 24px rendered sizes were not measured.
 
-## Supporting line in streak block
-VERIFIED. One supporting line remains under the day chips. The 'Miss a day' note was removed from the code.
+## Sad-face mark (open owner decision)
+The owner attachment showed a sad-face logo. It is not used. The brand mark is the skewer silhouette. Owner decision still needed: restore the sad face or keep the skewer.
 
-## Design re-score
-NOT RE-SCORED. No reviewer has re-scored this build. My own read after these fixes: about 7.5/10. Remaining gaps: the phone hero still reads a little plain, the Souvla Test and Daily cards are dense, and the .streak-top/.streak-ico cascade is not fully consolidated. The 8+ bar is not claimed.
+## Fonts
+No googleapis or gstatic link in the project. fonts.css loads self-hosted files from fonts/. nunito-latin-800-normal.woff2 and inter-latin-400-normal.woff2 are preloaded.
 
-## Not verified in this round
-NOT VERIFIED: real screen readers, physical phones, Safari, Firefox, Chrome Android.
+## Housekeeping
+.shots/ emptied. qa/ kept, check.sh does not use it. Scratch measure scripts were removed after each run.
+
+## Design score
+NOT RE-SCORED by a reviewer. No self score is claimed. The 8+ bar is not claimed.
 
 ## Checks
-bash check.sh exits 0: syntax, server 200 for index.html and data.json, browser flow tests, state tests, reload persistence, 34-control click test (0 no-op, 0 errors), footer baseline (both 847px), footers above 900px fold.
+bash check.sh exit 0 on commit 567acb9: syntax, index 200, data.json 200, browser flows, state tests, reload, 34-control click test (0 no-op, 0 errors), footer baseline (883px at 1440 and 390, both above the 900px fold).
+
+## Not verified
+Real screen readers, physical phones, Safari, Firefox, Chrome Android.
