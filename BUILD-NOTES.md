@@ -1,6 +1,6 @@
 # Build notes, Cypriot Greek portal (job 195), round 18
 
-Last CSS/JS change: fb11e67. Content HEAD before this notes fix: 4f0eccb. Content HEAD before this line: ab31f14. Latest HEAD: run git rev-parse HEAD.
+Last CSS/JS change: fb11e67. Content HEAD before the notes fixes: ab31f14. The exact final HEAD is the output of git rev-parse HEAD at the time of the closing message.
 
 ## Measured at 1440x900 (fresh server on port 8790, clean run)
 - Headline h1: top 139, bottom 236.9, height 97.9, font 48px.
