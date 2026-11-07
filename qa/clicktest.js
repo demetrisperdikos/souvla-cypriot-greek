@@ -1,6 +1,6 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
-const BASE = process.env.BASE;
+const BASE = process.env.BASE || 'http://127.0.0.1:8000/index.html';
 const CHROME = process.env.CHROME || undefined;
 const SEL = 'button, a[href], [role="tab"], [role="button"]';
 const out = '../.shots/clicks';

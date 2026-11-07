@@ -16,3 +16,14 @@
 ## Not verified
 - Design score against the 8/10 bar: judge from the live link.
 - Screen reader and real-device touch behaviour.
+
+## Round 6 (QA round 3 fixes)
+- Fold: desktop feature row margin tightened (final-r18.css). Both card CTAs end at 897px at 1440x900.
+- Brand mark: 70% skewer on the accent tile, 1px inner highlight (brand-r7.js).
+- Hero: plate gradient, lifted pieces, tonal chunk fill, grill marks (hero-r9.js).
+- What you get: 8px accent dots, 12px rows, 16px semibold heading (final-r15.css).
+- Daily empty state: Nunito 700 title, accent Next step (art.js, final-r15.css).
+- Removed qa/measure.js and fix-r*.css archives; stray server on 8765 stopped.
+
+## Not verified
+- Design score 8/10: needs the QA designer to judge the live link.

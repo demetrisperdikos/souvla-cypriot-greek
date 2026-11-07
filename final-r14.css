@@ -1,3 +1,0 @@
-/* Round 14: last few pixels so both top-card CTAs end above 900px at 1440x900. */
-.test-card .body { margin-bottom: 12px; }
-.test-card .what-get { margin: 8px 0 0; padding: 12px 16px; }

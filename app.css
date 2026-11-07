@@ -244,17 +244,7 @@ h1,h2,h3{font-family:Nunito,system-ui,sans-serif;line-height:1.2}
   .main{padding-top:24px}
 }
 
-/* Round 4 fix: desktop cards fully above the fold at 1440x900 */
-@media (min-width:900px){
-  .hero-art{max-width:400px;justify-self:end}
-  .hero-art svg{height:300px;width:auto;max-width:none}
-}
-
-/* Round 4 fix: hero art fills its box on desktop (no empty strip) */
-@media (min-width:900px){
-  .hero-art{background:transparent;max-width:400px;width:100%;justify-self:end}
-  .hero-art svg{height:auto;width:100%;max-height:none}
-}
+/* Round 4 desktop hero overrides removed: the scene sizes itself (see souvla-art.js). */
 
 /* Round 4 fix: logo has more presence */
 .mark{width:52px;height:52px;border-radius:14px;background-size:34px 34px}

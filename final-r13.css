@@ -1,4 +1,0 @@
-/* Round 13: trim vertical gaps so both top-card CTAs end above 900px at 1440x900. */
-.hero + * { margin-top: 16px; }
-.test-card .test-preview { margin: 12px 0; }
-.test-card .what-get { margin: 12px 0 0; }
