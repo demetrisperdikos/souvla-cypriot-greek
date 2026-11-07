@@ -441,7 +441,7 @@ input[type=text]:focus,input:not([type]):focus,textarea:focus{outline:none;borde
 .challenge-card > .btn{margin-top:0}
 
 /* Phone and desktop: the CTA follows the strip with the card's single 8px gap, no extra margin. */
-.challenge-card > .up-next.next-up + .btn{margin-top:0 !important}
+.challenge-card > .up-next.next-up + .btn{margin-top:0}
 
 /* Warm textured backdrop behind the hero art: soft tonal grain, one accent tint. */
 .hero-art{background-color:var(--accent-tint);background-image:radial-gradient(circle at 20% 15%,rgba(255,255,255,.55),transparent 45%),radial-gradient(circle at 80% 90%,rgba(142,58,23,.08),transparent 50%),repeating-linear-gradient(35deg,rgba(142,58,23,.025) 0 2px,transparent 2px 6px)}

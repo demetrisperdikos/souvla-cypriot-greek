@@ -8,7 +8,7 @@
 /* Equal card heights in every width: rows size to the tallest card, CTAs sit on a shared bottom edge. */
 .feature-row{display:grid;grid-auto-rows:1fr;align-items:stretch}
 .feature-row > .card{display:flex;flex-direction:column;height:auto}
-.feature-row > .card > .btn:last-child{margin-top:auto !important}
+.feature-row > .card > .btn:last-child{margin-top:auto}
 
 /* Souvla Test keeps its accent rule. */
 .test-card{border-left:3px solid #A9502A}
@@ -113,7 +113,7 @@
 /* Round 18 (desktop): the streak preview takes the Daily card's spare height so the UP NEXT strip sits directly above the CTA. */
 @media (min-width:900px){
   .challenge-card{height:100%}
-  .challenge-card > .streak-preview{flex:1 1 auto !important;height:auto !important;min-height:172px}
+  .challenge-card > .streak-preview{flex:1 1 auto;height:auto;min-height:172px}
 }
 
 /* Round 16: phone chip inset 8px, clear of the skewer headroom. */
@@ -141,36 +141,36 @@
 
 /* Round 19: phone fold. CTAs side by side on one row, so the hero is shorter and the Souvla Test first question sits above 844px. */
 @media (max-width:899px){
-  .hero-copy .actions{flex-direction:row !important;flex-wrap:nowrap !important;gap:8px !important}
-  .hero-copy .actions .btn{flex:1 1 0 !important;min-width:0;width:auto !important;padding-left:8px;padding-right:8px;font-size:.9375rem}
+  .hero-copy .actions{flex-direction:row;flex-wrap:nowrap;gap:8px}
+  .hero-copy .actions .btn{flex:1 1 0;min-width:0;width:auto;padding-left:8px;padding-right:8px;font-size:.9375rem}
 }
 
 /* Day hint: sits 8px below the day chips; spare height stays inside the preview, not between chips and hint. */
-.challenge-card > .streak-preview{justify-content:flex-start !important}
-.challenge-card .streak-preview .week-hint{margin-top:8px !important}
+.challenge-card > .streak-preview{justify-content:flex-start}
+.challenge-card .streak-preview .week-hint{margin-top:8px}
 
 /* Day hint: exactly 8px below the chips. Chips keep 16px above; no flex gap or bottom margin between chips and hint. */
-.challenge-card > .streak-preview{gap:0 !important}
-.challenge-card .streak-preview .week{margin:16px 0 0 !important}
-.challenge-card .streak-preview .week-hint{margin:8px 0 0 !important}
+.challenge-card > .streak-preview{gap:0}
+.challenge-card .streak-preview .week{margin:16px 0 0}
+.challenge-card .streak-preview .week-hint{margin:8px 0 0}
 
 /* Spare card height goes to the UP NEXT strip, not the streak preview, so the strip sits 8px above the CTA and the CTA 17px above the card edge. */
-.challenge-card > .streak-preview{flex:0 0 auto !important;min-height:0 !important;height:auto !important}
-.challenge-card > .up-next.next-up{flex:1 1 auto !important;min-height:72px}
+.challenge-card > .streak-preview{flex:0 0 auto;min-height:0;height:auto}
+.challenge-card > .up-next.next-up{flex:1 1 auto;min-height:72px}
 
 /* Streak preview keeps its content height at every width; the UP NEXT strip takes the spare card height. */
-.challenge-card > .streak-preview{min-height:0 !important;height:auto !important;flex:0 0 auto !important}
+.challenge-card > .streak-preview{min-height:0;height:auto;flex:0 0 auto}
 
 /* UP NEXT strip sits directly under the day hint at every width; no auto top margin pushes it down. */
-.challenge-card > .up-next.next-up{margin-top:0 !important}
+.challenge-card > .up-next.next-up{margin-top:0}
 
 /* Day card: the helper note is not part of the layout at any width, so the hint sits directly above the UP NEXT strip. */
 .challenge-card .week-note{display:block;margin:8px 0 0;font-size:.8125rem;line-height:1.4;color:var(--ink3)}
 
 /* Phone: the Daily card sizes to its content, so the UP NEXT strip is its natural height and no empty band sits under it. The Souvla Test card keeps its own height. */
 @media (max-width:899px){
-  .feature-row > .challenge-card{min-height:0 !important;height:auto !important}
-  .challenge-card > .up-next.next-up{flex:0 0 auto !important}
+  .feature-row > .challenge-card{min-height:0;height:auto}
+  .challenge-card > .up-next.next-up{flex:0 0 auto}
 }
 
 /* UP NEXT: flame icon beside the title and a stronger accent progress fill. */

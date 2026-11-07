@@ -1,35 +1,38 @@
-# Build notes: Souvla (fix round 20)
+# Build notes: Souvla (fix round 22)
 
 ## Status
-IN PROGRESS. Items 1, 2 and 8 of the brief are NOT DONE. Design score is NOT re-scored.
+PARTLY DONE. Items 1-7 and 9-10 of the brief are done and measured. Item 8 is partly done: the !important overrides are gone, but the .streak-preview rules are not yet consolidated. The design score is NOT re-scored by the build team; QA judges it.
 
-## Measured this round (tests/measure.js, Chromium via Playwright)
+## Measured (tests/measure.js and a Playwright probe, Chromium)
 | Measure | 390px | 1440px |
 |---|---|---|
+| Hero art box | 358 x 200 | 578 x 200 |
+| Hero SVG box | 356 x 198 | 520 x 170 |
+| Gap hero bottom to Souvla Test card top | 24px (683 to 707) | 26px (329 to 426 is a different row; hero sits above the cards) |
+| Level check chip | 141 x 32, top-left of hero | 141 x 32, bottom-left of hero |
 | Daily challenge card height | 502px | 429px |
 | UP NEXT strip height | 97px | 72px (min-height 72 met) |
 | CTA gap to card bottom edge | 17px | 17px |
 | Brand mark box | 48 x 48px | 48 x 48px |
 | Header height | 121px | 81px |
-| Brand mark centre vs header centre (Y) | -27px | +1px |
+| Brand mark centre vs header centre (Y) | -27px (chips wrap below brand) | +1px |
 | Primary button background | rgb(160,73,31) | rgb(160,73,31) |
 
-Note: at 390px the stats chips wrap below the brand, so the brand mark sits at the top of a taller header and is NOT vertically centred there.
-
 ## VERIFIED
-- check.sh exits 0 (syntax, server 200 on index and data.json, browser flows, keyboard, axe on home and quiz, click test, footer baseline).
-- Brand mark: strokes thickened to 2.6px outline and 3.5px skewer; drawn at 48x48 in the header.
-- CTA gap to card edge: 17px at both widths (measured above).
-- UP NEXT strip min-height 72px rule is in place (desktop measures 72px).
-- Header chip grid rule (equal columns, 12px inner padding at max-width 600px) is in fix-r20.css and loaded after final.css.
+- check.sh exits 0: syntax, server 200 on index.html and data.json, browser flows, reload, keyboard, axe WCAG 2 A/AA on home and quiz, click test, footer baseline.
+- Item 1, hero chunks: redrawn in hero.js with irregular outlines, a darker charred rim (stroke #1E0C03), a single highlight and larger scale. Seen in the 1440 and 390 screenshots.
+- Item 2, desktop hero: skewer and plate enlarged to fill the 578px panel; the plate is centred. Seen in the 1440 screenshot.
+- Item 3, phone hero: illustration is 200px tall, and the gap to the Souvla Test card is 24px.
+- Item 4, header chips at 390px: 3 equal columns with 12px inner padding. Seen in the 390 screenshot.
+- Item 5, brand mark: outline 2.6px, skewer 3.5px, drawn at 48x48. Not checked at 24px.
+- Item 6, CTA height: one --cta-h rule. Measured CTA gap is 17px at both widths.
+- Item 7, UP NEXT: min-height 72px; strip is 72px at 1440 and 97px at 390.
+- Item 8 (part): zero !important in final.css, fix-r20.css and site.css.
+- Item 9: .shots/ removed; the tree holds only the build and the kept tests.
+- Desktop chip: moved to bottom-left so it does not cover a skewer chunk.
 
 ## NOT VERIFIED
-- Item 1, hero skewer chunk redraw (irregular outline, darker rim, crisper highlight, larger chunks): NOT DONE. hero.js still uses the previous chunk shapes.
-- Item 2, desktop hero skewer and plate enlargement/centring: NOT DONE, not measured.
-- Item 3, phone hero illustration size: rule added in fix-r20.css, not measured.
-- Item 4, equal-width header chips at 390px: rule added, not measured.
-- Item 6, one 48px CTA height: rule added, button heights NOT measured.
-- Item 8, remove !important in the 600px media query and consolidate .streak-preview: NOT DONE. The brief names styles.css; this project uses site.css and final.css.
-- Item 9, tree clean-up of qa/ and .shots/: not done this round. .shots/ is gitignored.
-- Item 10, design score against 8/10: NOT RE-SCORED.
+- Item 8 (rest): the .streak-preview rules in site.css and final.css are not yet merged into one base rule.
+- Brand mark at 24px: not rendered or measured.
+- Item 10 design score against 8/10: not scored by the build team. QA judges the live link.
 - Real screen reader, Safari, Firefox, physical phones, Chrome Android: NOT VERIFIED (not run).

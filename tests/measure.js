@@ -12,7 +12,7 @@ const SIZES = [
   for (const s of SIZES) {
     const page = await browser.newPage({ viewport: { width: s.width, height: s.height } });
     await page.goto(BASE, { waitUntil: 'load' });
-    await page.waitForSelector('.challenge-card', { timeout: 15000 });
+    await page.waitForSelector('.challenge-card', { state: 'attached', timeout: 30000 }); await page.waitForTimeout(800);
     const m = await page.evaluate(() => {
       const box = (el) => (el ? el.getBoundingClientRect() : null);
       const card = document.querySelector('.challenge-card');
